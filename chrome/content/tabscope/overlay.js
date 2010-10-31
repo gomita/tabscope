@@ -8,6 +8,9 @@ var TabScope = {
 	// nsITimer instance to refresh thumbnail preview
 	_refreshTimer: null,
 
+	// flag indicates to require refreshing thumbnail preview
+	_shouldRefreshPreview: false,
+
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
 		this.popup.addEventListener("transitionend", this, false);
@@ -47,7 +50,10 @@ var TabScope = {
 				// adjust popup position when moving from one tab to another
 				if (event.target != this._tab) {
 					this.log("*** move popup");
+					this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 					this._tab = event.target;
+					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
+					this._shouldRefreshPreview = false;
 					this.popup.style.MozTransitionDuration = "0.5s";
 					this._adjustPopupPosition();
 					this._refreshPreview();
@@ -66,12 +72,15 @@ var TabScope = {
 				break;
 			case "popupshowing": 
 				this.log("*** open popup");
+				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
+				this._shouldRefreshPreview = false;
 				this._refreshTimer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
 				this._refreshTimer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
 				this._refreshPreview();
 				break;
 			case "popuphiding": 
 				this.log("*** close popup");
+				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 				this._refreshTimer.cancel();
 				this._refreshTimer = null;
 				this._clearPreview();
@@ -81,6 +90,9 @@ var TabScope = {
 			case "transitionend": 
 				// XXX fix popup flicker problem when transition starting just after transtionend
 				this.popup.style.MozTransitionDuration = "0s";
+				break;
+			case "MozAfterPaint": 
+				this._shouldRefreshPreview = true;
 				break;
 		}
 	},
@@ -124,7 +136,10 @@ var TabScope = {
 	},
 
 	notify: function(aTimer) {
-		this._refreshPreview();
+		if (this._shouldRefreshPreview) {
+			this._shouldRefreshPreview = false;
+			this._refreshPreview();
+		}
 	},
 
 	log: function(aMsg) {
