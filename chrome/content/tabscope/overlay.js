@@ -110,7 +110,8 @@ var TabScope = {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		ctx.save();
 		ctx.scale(scale, scale);
-		ctx.drawWindow(win, win.scrollX, win.scrollY, width, height, "rgb(255,255,255)");
+		var flags = Ci.nsIDOMCanvasRenderingContext2D.DRAWWINDOW_DRAW_VIEW;
+		ctx.drawWindow(win, 0, 0, width, height, "rgb(255,255,255)", flags);
 		ctx.restore();
 	},
 
