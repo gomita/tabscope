@@ -118,6 +118,8 @@ var TabScope = {
 		var canvas = document.getElementById("tabscope-canvas");
 		var ctx = canvas.getContext("2d");
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		canvas.width = 0;
+		canvas.height = 0;
 	},
 
 	notify: function(aTimer) {
