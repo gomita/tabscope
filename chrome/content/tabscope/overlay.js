@@ -33,7 +33,6 @@ var TabScope = {
 					return;
 				// popup is currently closed, so open it now
 				if (!this._tab) {
-					this.log("*** open popup");
 					this._tab = event.target;
 					this._adjustPopupPosition();
 					// [Mac][Linux] don't eat click event when the popup is open
@@ -47,6 +46,7 @@ var TabScope = {
 					this._tab = event.target;
 					this.popup.style.MozTransitionDuration = "0.5s";
 					this._adjustPopupPosition();
+					this._refreshPreview();
 					return;
 				}
 				// do nothing when moving inside a tab
@@ -60,8 +60,13 @@ var TabScope = {
 				    event.screenY <= box.screenY || box.screenY + box.height <= event.screenY)
 					this.popup.hidePopup();
 				break;
+			case "popupshowing": 
+				this.log("*** open popup");
+				this._refreshPreview();
+				break;
 			case "popuphiding": 
 				this.log("*** close popup");
+				this._clearPreview();
 				this.popup.removeAttribute("style");
 				this._tab = null;
 				break;
@@ -81,7 +86,29 @@ var TabScope = {
 			y--;
 		this.popup.style.marginLeft = Math.max(x, 0) + "px";
 		this.popup.style.marginTop  = Math.max(y, 0) + "px";
-		this.log(this.popup.style.marginLeft + ", " + this.popup.style.marginTop);
+		this.log("[" + this._tab._tPos + "] " + this.popup.style.marginLeft + ", " + this.popup.style.marginTop);
+	},
+
+	_refreshPreview: function() {
+		var canvas = document.getElementById("tabscope-canvas");
+		canvas.width = 240;
+		canvas.height = 180;
+		var win = this._tab.linkedBrowser.contentWindow;
+		var width = win.innerWidth;
+		var scale = canvas.width / width;
+		var height = canvas.height / scale;
+		var ctx = canvas.getContext("2d");
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.save();
+		ctx.scale(scale, scale);
+		ctx.drawWindow(win, win.scrollX, win.scrollY, width, height, "rgb(255,255,255)");
+		ctx.restore();
+	},
+
+	_clearPreview: function() {
+		var canvas = document.getElementById("tabscope-canvas");
+		var ctx = canvas.getContext("2d");
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
 	},
 
 	log: function(aMsg) {

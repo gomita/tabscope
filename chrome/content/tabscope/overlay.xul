@@ -3,13 +3,17 @@
 <?xml-stylesheet href="chrome://tabscope/skin/overlay.css" type="text/css"?>
 
 <overlay id="tabscopeOverlay"
-         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+         xmlns:html="http://www.w3.org/1999/xhtml">
 
 	<script type="application/x-javascript" src="chrome://tabscope/content/overlay.js" />
 
 	<popupset id="mainPopupSet">
 		<panel id="tabscope-popup" noautofocus="true"
-		       onpopuphiding="TabScope.handleEvent(event);" />
+		       onpopupshowing="TabScope.handleEvent(event);"
+		       onpopuphiding="TabScope.handleEvent(event);">
+			<html:canvas id="tabscope-canvas" />
+		</panel>
 	</popupset>
 
 </overlay>
