@@ -1,0 +1,8 @@
+/* ::::: Popup ::::: */
+
+#tabscope-popup {
+	/* debug */	width: 250px; height: 200px;
+	-moz-transition-property: margin;
+	-moz-transition-timing-function: ease-in-out;
+}
+

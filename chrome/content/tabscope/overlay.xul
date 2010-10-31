@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://tabscope/skin/overlay.css" type="text/css"?>
+
+<overlay id="tabscopeOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="chrome://tabscope/content/overlay.js" />
+
+	<popupset id="mainPopupSet">
+		<panel id="tabscope-popup" noautofocus="true"
+		       onpopuphiding="TabScope.handleEvent(event);" />
+	</popupset>
+
+</overlay>

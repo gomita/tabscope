@@ -1,0 +1,4 @@
+overlay	chrome://browser/content/browser.xul	chrome://tabscope/content/overlay.xul
+
+content	tabscope	chrome/content/tabscope/
+skin	tabscope	classic/1.0	chrome/skin/classic/tabscope/
