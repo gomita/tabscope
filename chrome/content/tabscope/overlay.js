@@ -2,13 +2,13 @@ var TabScope = {
 
 	popup: null,
 
-	// the tab which the mouse cursor currently points to
+	// tab which mouse pointer currently points to
 	_tab: null,
 
-	// nsITimer instance to refresh thumbnail preview
-	_refreshTimer: null,
+	// nsITimer instance to update preview and popup position
+	_timer: null,
 
-	// flag indicates to require updating thumbnail preview
+	// flag indicates to require updating preview
 	_shouldUpdatePreview: false,
 
 	init: function() {
@@ -21,7 +21,7 @@ var TabScope = {
 	},
 
 	uninit: function() {
-		NS_ASSERT(this._refreshTimer === null, "timer is not cancelled.");
+		NS_ASSERT(this._timer === null, "timer is not cancelled.");
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
 		this.popup.removeEventListener("transitionend", this, false);
@@ -34,22 +34,24 @@ var TabScope = {
 //		this.log([event.type, event.target.localName, rel].join("\t"));
 		switch (event.type) {
 			case "mouseover": 
-				// do nothing when hovering on tab strip except tabs
-				// i.e. corner edge of a tab, new tab button, scroller
-				if (event.target.localName != "tab")
+				// when mouse pointer moves inside a tab...
+				// when hovering on tab strip...
+				// (includes outside corner edge of a tab, new tab button and tab scroller)
+				if (event.target == this._tab || event.target.localName != "tab")
+					// do nothing, keep popup open if it is opened
 					return;
-				// popup is currently closed, so open it now
 				if (!this._tab) {
+					// when hovering on a tab...
+					// popup is currently closed, so open it now
 					this._tab = event.target;
 					this._adjustPopupPosition();
-					// [Mac][Linux] don't eat click event when the popup is open
+					// [Mac][Linux] don't eat clicks while popup is open
 					this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
 					this.popup.openPopupAtScreen(0, 0, false);
-					return;
 				}
-				// adjust popup position when moving from one tab to another
-				if (event.target != this._tab) {
-					this.log("*** move popup");
+				else {
+					// when mouse pointer moves from one tab to another...
+					// popup is already opened, so move it now
 					this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 					this._tab = event.target;
 					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
@@ -57,9 +59,7 @@ var TabScope = {
 					this.popup.style.MozTransitionDuration = "0.5s";
 					this._adjustPopupPosition();
 					this._updatePreview();
-					return;
 				}
-				// do nothing when moving inside a tab
 				break;
 			case "mouseout": 
 //				if (event.relatedTarget == this.popup)
@@ -71,18 +71,18 @@ var TabScope = {
 					this.popup.hidePopup();
 				break;
 			case "popupshowing": 
-				this.log("*** open popup");
+				this.log("open popup");
 				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 				this._shouldUpdatePreview = false;
-				this._refreshTimer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
-				this._refreshTimer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
+				this._timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
+				this._timer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
 				this._updatePreview();
 				break;
 			case "popuphiding": 
-				this.log("*** close popup");
+				this.log("close popup");
 				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
-				this._refreshTimer.cancel();
-				this._refreshTimer = null;
+				this._timer.cancel();
+				this._timer = null;
 				this._resetPreview();
 				this.popup.removeAttribute("style");
 				this._tab = null;
@@ -112,11 +112,11 @@ var TabScope = {
 			return;
 		this.popup.style.marginLeft = x.toString() + "px";
 		this.popup.style.marginTop  = y.toString() + "px";
-		this.log("[" + this._tab._tPos + "] " + this.popup.style.marginLeft + ", " + this.popup.style.marginTop);
+		this.log("move popup (" + x + ", " + y + ")");
 	},
 
 	_updatePreview: function() {
-		this.log("*** update preview");
+		this.log("update preview");
 		var canvas = document.getElementById("tabscope-canvas");
 		canvas.width = 240;
 		canvas.height = 180;
@@ -149,8 +149,8 @@ var TabScope = {
 		this._adjustPopupPosition();
 	},
 
-	log: function(aMsg) {
-		dump("tabscope> " + aMsg + "\n");
+	log: function(aText) {
+		dump("tabscope@" + new Date().toLocaleTimeString() + "> " + aText + "\n");
 	},
 
 };
