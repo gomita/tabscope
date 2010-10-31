@@ -7,6 +7,7 @@ var TabScope = {
 
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
+		this.popup.addEventListener("transitionend", this, false);
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseover", this, false);
@@ -16,6 +17,7 @@ var TabScope = {
 	uninit: function() {
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
+		this.popup.removeEventListener("transitionend", this, false);
 		this.popup = null;
 		this._tab = null;
 	},
@@ -62,6 +64,10 @@ var TabScope = {
 				this.log("*** close popup");
 				this.popup.removeAttribute("style");
 				this._tab = null;
+				break;
+			case "transitionend": 
+				// XXX fix popup flicker problem when transition starting just after transtionend
+				this.popup.style.MozTransitionDuration = "0s";
 				break;
 		}
 	},
