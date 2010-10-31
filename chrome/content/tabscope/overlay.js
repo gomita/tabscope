@@ -5,6 +5,9 @@ var TabScope = {
 	// tab which mouse pointer currently points to
 	_tab: null,
 
+	// timer id to open popup with delay
+	_timerId: null,
+
 	// nsITimer instance to update preview and popup position
 	_timer: null,
 
@@ -21,6 +24,11 @@ var TabScope = {
 	},
 
 	uninit: function() {
+		if (this._timerId) {
+			this.log("--- cancel timer (" + this._timerId + ") @unload");
+			window.clearTimeout(this._timerId);
+			this._timerId = null;
+		}
 		NS_ASSERT(this._timer === null, "timer is not cancelled.");
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
@@ -40,14 +48,27 @@ var TabScope = {
 				if (event.target == this._tab || event.target.localName != "tab")
 					// do nothing, keep popup open if it is opened
 					return;
+				// when mouse pointer moves from one tab to another before popup will open...
+				if (this._timerId) {
+					// restart timer in the following process
+					this.log("--- cancel timer (" + this._timerId + ") @mouseover");
+					window.clearTimeout(this._timerId);
+					this._timerId = null;
+					this._tab = null;
+				}
 				if (!this._tab) {
 					// when hovering on a tab...
-					// popup is currently closed, so open it now
+					// popup is currently closed, so open it with delay
 					this._tab = event.target;
-					this._adjustPopupPosition();
-					// [Mac][Linux] don't eat clicks while popup is open
-					this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
-					this.popup.openPopupAtScreen(0, 0, false);
+					var callback = function(self) {
+						self._timerId = null;
+						self._adjustPopupPosition();
+						// [Mac][Linux] don't eat clicks while popup is open
+						self.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
+						self.popup.openPopupAtScreen(0, 0, false);
+					};
+					this._timerId = window.setTimeout(callback, 500, this);
+					this.log("--- start timer (" + this._timerId + ")");
 				}
 				else {
 					// when mouse pointer moves from one tab to another...
@@ -64,11 +85,20 @@ var TabScope = {
 			case "mouseout": 
 //				if (event.relatedTarget == this.popup)
 //					return;
-				// close popup when moving outside tab strip
+				// when moving outside tab strip...
 				var box = gBrowser.mTabContainer.mTabstrip.boxObject;
 				if (event.screenX <= box.screenX || box.screenX + box.width  <= event.screenX || 
-				    event.screenY <= box.screenY || box.screenY + box.height <= event.screenY)
+				    event.screenY <= box.screenY || box.screenY + box.height <= event.screenY) {
+					// cancel opening popup with delay
+					if (this._timerId) {
+						this.log("--- cancel timer (" + this._timerId + ") @mouseout");
+						window.clearTimeout(this._timerId);
+						this._timerId = null;
+						this._tab = null;
+					}
+					// close popup if it is opened
 					this.popup.hidePopup();
+				}
 				break;
 			case "popupshowing": 
 				this.log("open popup");
