@@ -5,6 +5,9 @@ var TabScope = {
 	// the tab which the mouse cursor currently points to
 	_tab: null,
 
+	// nsITimer instance to refresh thumbnail preview
+	_refreshTimer: null,
+
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
 		this.popup.addEventListener("transitionend", this, false);
@@ -15,6 +18,7 @@ var TabScope = {
 	},
 
 	uninit: function() {
+		NS_ASSERT(this._refreshTimer === null, "timer is not cancelled.");
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
 		this.popup.removeEventListener("transitionend", this, false);
@@ -62,10 +66,14 @@ var TabScope = {
 				break;
 			case "popupshowing": 
 				this.log("*** open popup");
+				this._refreshTimer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
+				this._refreshTimer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
 				this._refreshPreview();
 				break;
 			case "popuphiding": 
 				this.log("*** close popup");
+				this._refreshTimer.cancel();
+				this._refreshTimer = null;
 				this._clearPreview();
 				this.popup.removeAttribute("style");
 				this._tab = null;
@@ -90,6 +98,7 @@ var TabScope = {
 	},
 
 	_refreshPreview: function() {
+		this.log("*** refresh preview");
 		var canvas = document.getElementById("tabscope-canvas");
 		canvas.width = 240;
 		canvas.height = 180;
@@ -109,6 +118,10 @@ var TabScope = {
 		var canvas = document.getElementById("tabscope-canvas");
 		var ctx = canvas.getContext("2d");
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
+	},
+
+	notify: function(aTimer) {
+		this._refreshPreview();
 	},
 
 	log: function(aMsg) {
