@@ -8,8 +8,8 @@ var TabScope = {
 	// nsITimer instance to refresh thumbnail preview
 	_refreshTimer: null,
 
-	// flag indicates to require refreshing thumbnail preview
-	_shouldRefreshPreview: false,
+	// flag indicates to require updating thumbnail preview
+	_shouldUpdatePreview: false,
 
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
@@ -53,10 +53,10 @@ var TabScope = {
 					this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 					this._tab = event.target;
 					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
-					this._shouldRefreshPreview = false;
+					this._shouldUpdatePreview = false;
 					this.popup.style.MozTransitionDuration = "0.5s";
 					this._adjustPopupPosition();
-					this._refreshPreview();
+					this._updatePreview();
 					return;
 				}
 				// do nothing when moving inside a tab
@@ -73,17 +73,17 @@ var TabScope = {
 			case "popupshowing": 
 				this.log("*** open popup");
 				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
-				this._shouldRefreshPreview = false;
+				this._shouldUpdatePreview = false;
 				this._refreshTimer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
 				this._refreshTimer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
-				this._refreshPreview();
+				this._updatePreview();
 				break;
 			case "popuphiding": 
 				this.log("*** close popup");
 				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 				this._refreshTimer.cancel();
 				this._refreshTimer = null;
-				this._clearPreview();
+				this._resetPreview();
 				this.popup.removeAttribute("style");
 				this._tab = null;
 				break;
@@ -92,7 +92,7 @@ var TabScope = {
 				this.popup.style.MozTransitionDuration = "0s";
 				break;
 			case "MozAfterPaint": 
-				this._shouldRefreshPreview = true;
+				this._shouldUpdatePreview = true;
 				break;
 		}
 	},
@@ -109,25 +109,25 @@ var TabScope = {
 		this.log("[" + this._tab._tPos + "] " + this.popup.style.marginLeft + ", " + this.popup.style.marginTop);
 	},
 
-	_refreshPreview: function() {
-		this.log("*** refresh preview");
+	_updatePreview: function() {
+		this.log("*** update preview");
 		var canvas = document.getElementById("tabscope-canvas");
 		canvas.width = 240;
 		canvas.height = 180;
 		var win = this._tab.linkedBrowser.contentWindow;
-		var width = win.innerWidth;
-		var scale = canvas.width / width;
-		var height = canvas.height / scale;
+		var w = win.innerWidth;
+		var scale = canvas.width / w;
+		var h = canvas.height / scale;
 		var ctx = canvas.getContext("2d");
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		ctx.save();
 		ctx.scale(scale, scale);
 		var flags = Ci.nsIDOMCanvasRenderingContext2D.DRAWWINDOW_DRAW_VIEW;
-		ctx.drawWindow(win, 0, 0, width, height, "rgb(255,255,255)", flags);
+		ctx.drawWindow(win, 0, 0, w, h, "rgb(255,255,255)", flags);
 		ctx.restore();
 	},
 
-	_clearPreview: function() {
+	_resetPreview: function() {
 		var canvas = document.getElementById("tabscope-canvas");
 		var ctx = canvas.getContext("2d");
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -136,9 +136,9 @@ var TabScope = {
 	},
 
 	notify: function(aTimer) {
-		if (this._shouldRefreshPreview) {
-			this._shouldRefreshPreview = false;
-			this._refreshPreview();
+		if (this._shouldUpdatePreview) {
+			this._shouldUpdatePreview = false;
+			this._updatePreview();
 		}
 	},
 
