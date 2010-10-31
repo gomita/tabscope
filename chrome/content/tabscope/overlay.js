@@ -104,8 +104,14 @@ var TabScope = {
 		// [Windows] XXX fix 1px height glitch of selected tab compared to others
 		if (navigator.platform == "Win32" && this._tab.selected)
 			y--;
-		this.popup.style.marginLeft = Math.max(x, 0) + "px";
-		this.popup.style.marginTop  = Math.max(y, 0) + "px";
+		x = Math.max(x, 0);
+		y = Math.max(y, 0);
+		if (x == parseInt(this.popup.style.marginLeft) && 
+		    y == parseInt(this.popup.style,marginTop))
+			// no need to change popup position
+			return;
+		this.popup.style.marginLeft = x.toString() + "px";
+		this.popup.style.marginTop  = y.toString() + "px";
 		this.log("[" + this._tab._tPos + "] " + this.popup.style.marginLeft + ", " + this.popup.style.marginTop);
 	},
 
@@ -140,6 +146,7 @@ var TabScope = {
 			this._shouldUpdatePreview = false;
 			this._updatePreview();
 		}
+		this._adjustPopupPosition();
 	},
 
 	log: function(aMsg) {
