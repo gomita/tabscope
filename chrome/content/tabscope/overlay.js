@@ -126,8 +126,9 @@ var TabScope = {
 		var box = this._tab.boxObject;
 		var x = box.screenX;
 		var y = box.screenY + box.height;
-		// [Windows] XXX fix 1px height glitch of selected tab compared to others
-		if (navigator.platform == "Win32" && this._tab.selected)
+		// [Windows7] XXX fix 1px height glitch of selected tab compared to others
+		if (this._tab.selected && 
+		    gBrowser.mTabContainer.mTabstrip.boxObject.height == box.height - 1)
 			y--;
 		x = Math.max(x, 0);
 		y = Math.max(y, 0);
