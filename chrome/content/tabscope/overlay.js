@@ -17,7 +17,6 @@ var TabScope = {
 
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
-		this.popup.addEventListener("transitionend", this, false);
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseover", this, false);
@@ -29,7 +28,6 @@ var TabScope = {
 		NS_ASSERT(this._timer === null, "timer is not cancelled.");
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
-		this.popup.removeEventListener("transitionend", this, false);
 		this.popup = null;
 		this._tab = null;
 	},
@@ -54,7 +52,7 @@ var TabScope = {
 					this._tab = event.target;
 					var callback = function(self) {
 						self._timerId = null;
-						self._adjustPopupPosition();
+						self._adjustPopupPosition(false);
 						// [Mac][Linux] don't eat clicks while popup is open
 						self.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
 						self.popup.openPopupAtScreen(0, 0, false);
@@ -69,8 +67,7 @@ var TabScope = {
 					this._tab = event.target;
 					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 					this._shouldUpdatePreview = false;
-					this.popup.style.MozTransitionDuration = "0.5s";
-					this._adjustPopupPosition();
+					this._adjustPopupPosition(true);
 					this._updatePreview();
 				}
 				break;
@@ -104,10 +101,6 @@ var TabScope = {
 				this.popup.removeAttribute("style");
 				this._tab = null;
 				break;
-			case "transitionend": 
-				// XXX fix popup flicker problem when transition starting just after transtionend
-				this.popup.style.MozTransitionDuration = "0s";
-				break;
 			case "MozAfterPaint": 
 				this._shouldUpdatePreview = true;
 				break;
@@ -123,7 +116,7 @@ var TabScope = {
 		this._tab = null;
 	},
 
-	_adjustPopupPosition: function() {
+	_adjustPopupPosition: function(aAnimate) {
 		var box = this._tab.boxObject;
 		var x = box.screenX;
 		var y = box.screenY + box.height;
@@ -139,9 +132,15 @@ var TabScope = {
 		if (x == lastX && y == lastY)
 			// no need to change popup position
 			return;
+		// XXX to fix popup flicker problem when transition starts just after transtion ends...
+		// 1) add extremely small randomness to duration value
+		// 2) calculate duration value with getComputedStyle
+		var duration = aAnimate ? 0.5 + Math.random() * 0.001 : 0;
+		this.popup.style.MozTransitionDuration = duration.toString() + "s";
+		window.getComputedStyle(this.popup, null).MozTransitionDuration;
 		this.popup.style.marginLeft = x.toString() + "px";
 		this.popup.style.marginTop  = y.toString() + "px";
-		this.log("move popup (" + lastX + ", " + lastY + ") => (" + x + ", " + y + ")");
+		this.log("move popup (" + lastX + ", " + lastY + ") => (" + x + ", " + y + ") / " + duration);
 	},
 
 	_updatePreview: function() {
@@ -174,7 +173,7 @@ var TabScope = {
 			this._shouldUpdatePreview = false;
 			this._updatePreview();
 		}
-		this._adjustPopupPosition();
+		this._adjustPopupPosition(true);
 	},
 
 	log: function(aText) {
