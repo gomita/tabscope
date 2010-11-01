@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://tabscope/locale/prefs.dtd">
+
+<prefwindow id="tabscopePrefWindow"
+            xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+            title="Tab Scope - &tabscope.options;">
+
+	<prefpane id="generalPane" flex="1">
+		<preferences>
+			<preference id="popup_alignment" name="extensions.tabscope.popup_alignment" type="int" />
+			<preference id="popup_delay" name="extensions.tabscope.popup_delay" type="int" />
+			<preference id="animate" name="extensions.tabscope.animate" type="int" />
+		</preferences>
+		<hbox align="center">
+			<label value="&tabscope.popup_alignment;:" />
+			<menulist preference="popup_alignment">
+				<menupopup>
+					<menuitem label="&tabscope.popup_alignment.top;" value="1" disabled="true" />
+					<menuitem label="&tabscope.popup_alignment.bottom;" value="2" />
+					<menuitem label="&tabscope.popup_alignment.left;" value="3" disabled="true" />
+					<menuitem label="&tabscope.popup_alignment.right;" value="4" />
+				</menupopup>
+			</menulist>
+		</hbox>
+		<hbox align="center">
+			<label value="&tabscope.popup_delay.1;:" />
+			<textbox preference="popup_delay" type="number" increment="50" max="5000" size="4" />
+			<label value="&tabscope.popup_delay.2;" />
+		</hbox>
+		<hbox align="center">
+			<label value="&tabscope.animate;:" />
+			<radiogroup preference="animate" orient="horizontal">
+				<radio label="&tabscope.animate.none;"   value="0" />
+				<radio label="&tabscope.animate.fast;"   value="1" />
+				<radio label="&tabscope.animate.normal;" value="2" />
+				<radio label="&tabscope.animate.slow;"   value="3" />
+			</radiogroup>
+		</hbox>
+	</prefpane>
+
+</prefwindow>

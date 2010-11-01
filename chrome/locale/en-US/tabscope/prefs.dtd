@@ -1,0 +1,13 @@
+<!ENTITY tabscope.options "Options">
+<!ENTITY tabscope.popup_alignment "Alignment of popup">
+<!ENTITY tabscope.popup_alignment.top "on top of a tab">
+<!ENTITY tabscope.popup_alignment.bottom "beneath a tab">
+<!ENTITY tabscope.popup_alignment.left "on the left side of a tab">
+<!ENTITY tabscope.popup_alignment.right "on the right side of a tab">
+<!ENTITY tabscope.popup_delay.1 "Wait time to show popup">
+<!ENTITY tabscope.popup_delay.2 "milliseconds">
+<!ENTITY tabscope.animate "Animation">
+<!ENTITY tabscope.animate.none "None">
+<!ENTITY tabscope.animate.fast "Fast">
+<!ENTITY tabscope.animate.normal "Normal">
+<!ENTITY tabscope.animate.slow "Slow">

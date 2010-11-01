@@ -1,0 +1,13 @@
+<!ENTITY tabscope.options "設定">
+<!ENTITY tabscope.popup_alignment "ポップアップの表示位置">
+<!ENTITY tabscope.popup_alignment.top "タブの上側">
+<!ENTITY tabscope.popup_alignment.bottom "タブの下側">
+<!ENTITY tabscope.popup_alignment.left "タブの左側">
+<!ENTITY tabscope.popup_alignment.right "タブの右側">
+<!ENTITY tabscope.popup_delay.1 "ポップアップを表示するまでの待ち時間">
+<!ENTITY tabscope.popup_delay.2 "ミリ秒">
+<!ENTITY tabscope.animate "アニメーション">
+<!ENTITY tabscope.animate.none "なし">
+<!ENTITY tabscope.animate.fast "速い">
+<!ENTITY tabscope.animate.normal "普通">
+<!ENTITY tabscope.animate.slow "遅い">
