@@ -130,15 +130,17 @@ var TabScope = {
 		if (this._tab.selected && 
 		    gBrowser.mTabContainer.mTabstrip.boxObject.height == box.height - 1)
 			y--;
+		// correct position to avoid popup auto-position
 		x = Math.max(x, 0);
 		y = Math.max(y, 0);
-		if (x == parseInt(this.popup.style.marginLeft) && 
-		    y == parseInt(this.popup.style,marginTop))
+		var lastX = parseInt(this.popup.style.marginLeft || 0);
+		var lastY = parseInt(this.popup.style.marginTop  || 0);
+		if (x == lastX && y == lastY)
 			// no need to change popup position
 			return;
 		this.popup.style.marginLeft = x.toString() + "px";
 		this.popup.style.marginTop  = y.toString() + "px";
-		this.log("move popup (" + x + ", " + y + ")");
+		this.log("move popup (" + lastX + ", " + lastY + ") => (" + x + ", " + y + ")");
 	},
 
 	_updatePreview: function() {
