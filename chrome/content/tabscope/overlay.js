@@ -1,8 +1,9 @@
 var TabScope = {
 
+	// xul:panel element
 	popup: null,
 
-	// tab which mouse pointer currently points to
+	// xul:tab element which mouse pointer currently points to
 	_tab: null,
 
 	// timer id to open popup with delay
@@ -24,11 +25,7 @@ var TabScope = {
 	},
 
 	uninit: function() {
-		if (this._timerId) {
-			this.log("--- cancel timer (" + this._timerId + ") @unload");
-			window.clearTimeout(this._timerId);
-			this._timerId = null;
-		}
+		this._cancelDelayedOpen();
 		NS_ASSERT(this._timer === null, "timer is not cancelled.");
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
@@ -49,13 +46,8 @@ var TabScope = {
 					// do nothing, keep popup open if it is opened
 					return;
 				// when mouse pointer moves from one tab to another before popup will open...
-				if (this._timerId) {
-					// restart timer in the following process
-					this.log("--- cancel timer (" + this._timerId + ") @mouseover");
-					window.clearTimeout(this._timerId);
-					this._timerId = null;
-					this._tab = null;
-				}
+				// cancel opening popup and restart timer in the following process
+				this._cancelDelayedOpen();
 				if (!this._tab) {
 					// when hovering on a tab...
 					// popup is currently closed, so open it with delay
@@ -89,13 +81,7 @@ var TabScope = {
 				var box = gBrowser.mTabContainer.mTabstrip.boxObject;
 				if (event.screenX <= box.screenX || box.screenX + box.width  <= event.screenX || 
 				    event.screenY <= box.screenY || box.screenY + box.height <= event.screenY) {
-					// cancel opening popup with delay
-					if (this._timerId) {
-						this.log("--- cancel timer (" + this._timerId + ") @mouseout");
-						window.clearTimeout(this._timerId);
-						this._timerId = null;
-						this._tab = null;
-					}
+					this._cancelDelayedOpen();
 					// close popup if it is opened
 					this.popup.hidePopup();
 				}
@@ -125,6 +111,15 @@ var TabScope = {
 				this._shouldUpdatePreview = true;
 				break;
 		}
+	},
+
+	_cancelDelayedOpen: function() {
+		if (!this._timerId)
+			return;
+		this.log("--- cancel timer (" + this._timerId + ")");
+		window.clearTimeout(this._timerId);
+		this._timerId = null;
+		this._tab = null;
 	},
 
 	_adjustPopupPosition: function() {
@@ -180,7 +175,7 @@ var TabScope = {
 	},
 
 	log: function(aText) {
-		dump("tabscope@" + new Date().toLocaleTimeString() + "> " + aText + "\n");
+		dump("tabscope> " + aText + "\n");
 	},
 
 };
