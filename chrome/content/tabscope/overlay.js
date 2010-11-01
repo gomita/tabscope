@@ -135,7 +135,13 @@ var TabScope = {
 		// XXX to fix popup flicker problem when transition starts just after transtion ends...
 		// 1) add extremely small randomness to duration value
 		// 2) calculate duration value with getComputedStyle
-		var duration = aAnimate ? 0.5 + Math.random() * 0.001 : 0;
+		var duration = 0;
+		if (aAnimate) {
+			var delta = Math.max(Math.abs(x - lastX), Math.abs(y - lastY));
+			duration = delta * 2 / 1000;
+			if (duration > 0)
+				duration = Math.max(0.2, duration) + Math.random() * 0.001;
+		}
 		this.popup.style.MozTransitionDuration = duration.toString() + "s";
 		window.getComputedStyle(this.popup, null).MozTransitionDuration;
 		this.popup.style.marginLeft = x.toString() + "px";
