@@ -77,8 +77,9 @@ var TabScope = {
 			case "mouseout": 
 //				if (event.relatedTarget == this.popup)
 //					return;
-				// when moving outside tab strip...
-				var box = gBrowser.mTabContainer.mTabstrip.boxObject;
+				// when moving outside tab bar...
+				// do not refer tab strip since pinned tabs are placed outside tab strip
+				var box = document.getElementById("TabsToolbar").boxObject;
 				if (event.screenX <= box.screenX || box.screenX + box.width  <= event.screenX || 
 				    event.screenY <= box.screenY || box.screenY + box.height <= event.screenY) {
 					this._cancelDelayedOpen();
