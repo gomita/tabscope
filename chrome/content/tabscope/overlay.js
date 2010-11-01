@@ -15,8 +15,12 @@ var TabScope = {
 	// flag indicates to require updating preview
 	_shouldUpdatePreview: false,
 
+	// nsIPrefBranch
+	_branch: null,
+
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
+		this._branch = Services.prefs.getBranch("extensions.tabscope.");
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseover", this, false);
@@ -28,6 +32,7 @@ var TabScope = {
 		NS_ASSERT(this._timer === null, "timer is not cancelled.");
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
+		this._branch = null;
 		this.popup = null;
 		this._tab = null;
 	},
@@ -57,7 +62,8 @@ var TabScope = {
 						self.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
 						self.popup.openPopupAtScreen(0, 0, false);
 					};
-					this._timerId = window.setTimeout(callback, 500, this);
+					var delay = this._branch.getIntPref("popup_delay");
+					this._timerId = window.setTimeout(callback, delay, this);
 					this.log("--- start timer (" + this._timerId + ")");
 				}
 				else {
@@ -118,8 +124,11 @@ var TabScope = {
 
 	_adjustPopupPosition: function(aAnimate) {
 		var box = this._tab.boxObject;
-		var x = box.screenX;
-		var y = box.screenY + box.height;
+		var x, y;
+		switch (this._branch.getIntPref("popup_alignment")) {
+			case 2: x = box.screenX; y = box.screenY + box.height; break;
+			case 4: y = box.screenY; x = box.screenX + box.width;  break;
+		}
 		// [Windows7] XXX fix 1px height glitch of selected tab compared to others
 		if (this._tab.selected && 
 		    gBrowser.mTabContainer.mTabstrip.boxObject.height == box.height - 1)
@@ -138,7 +147,7 @@ var TabScope = {
 		var duration = 0;
 		if (aAnimate) {
 			var delta = Math.max(Math.abs(x - lastX), Math.abs(y - lastY));
-			duration = delta * 2 / 1000;
+			duration = delta * this._branch.getIntPref("animate") / 1000;
 			if (duration > 0)
 				duration = Math.max(0.2, duration) + Math.random() * 0.001;
 		}
