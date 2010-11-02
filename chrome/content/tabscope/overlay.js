@@ -184,6 +184,12 @@ var TabScope = {
 	},
 
 	notify: function(aTimer) {
+		// check mouse pointer is hovering over tab, otherwise close popup
+		if (document.querySelector("tab:hover") != this._tab) {
+			this.log("*** close popup with delay");
+			this.popup.hidePopup();
+			return;
+		}
 		if (this._shouldUpdatePreview) {
 			this._shouldUpdatePreview = false;
 			this._updatePreview();
