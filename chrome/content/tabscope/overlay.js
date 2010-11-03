@@ -24,6 +24,7 @@ var TabScope = {
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseover", this, false);
+		gBrowser.mTabContainer.mTabstrip.addEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseout", this, false);
 	},
 
@@ -31,6 +32,7 @@ var TabScope = {
 		this._cancelDelayedOpen();
 		NS_ASSERT(this._timer === null, "timer is not cancelled.");
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
+		gBrowser.mTabContainer.mTabstrip.removeEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
 		this._branch = null;
 		this.popup = null;
@@ -55,20 +57,7 @@ var TabScope = {
 					// when hovering on a tab...
 					// popup is currently closed, so open it with delay
 					this._tab = event.target;
-					var callback = function(self) {
-						// if mouse pointer moves outside tab before callback...
-						// if any other popup e.g. tab context menu is opened...
-						if (document.querySelector("tab:hover") != self._tab || document.popupNode) {
-							// don't open popup
-							self._cancelDelayedOpen();
-							return;
-						}
-						self._timerId = null;
-						self._adjustPopupPosition(false);
-						// [Mac][Linux] don't eat clicks while popup is open
-						self.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
-						self.popup.openPopupAtScreen(0, 0, false);
-					};
+					var callback = function(self) { self._delayedOpenPopup(); };
 					var delay = this._branch.getIntPref("popup_delay");
 					this._timerId = window.setTimeout(callback, delay, this);
 					this.log("--- start timer (" + this._timerId + ")");
@@ -83,6 +72,17 @@ var TabScope = {
 					this._adjustPopupPosition(true);
 					this._updatePreview();
 				}
+				break;
+			case "mousemove": 
+				if (!this._timerId)
+					return;
+				// if before timer callback, cancel and start it again
+				this._cancelDelayedOpen();
+				this._tab = event.target;
+				var callback = function(self) { self._delayedOpenPopup(); };
+				var delay = this._branch.getIntPref("popup_delay");
+				this._timerId = window.setTimeout(callback, delay, this);
+				this.log("--- start timer again (" + this._timerId + ")");
 				break;
 			case "mouseout": 
 				var box = this._tab.boxObject;
@@ -136,6 +136,21 @@ var TabScope = {
 				this._shouldUpdatePreview = true;
 				break;
 		}
+	},
+
+	_delayedOpenPopup: function() {
+		// if mouse pointer moves outside tab before callback...
+		// if any other popup e.g. tab context menu is opened...
+		if (document.querySelector("tab:hover") != this._tab || document.popupNode) {
+			// don't open popup
+			this._cancelDelayedOpen();
+			return;
+		}
+		this._timerId = null;
+		this._adjustPopupPosition(false);
+		// [Mac][Linux] don't eat clicks while popup is open
+		this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
+		this.popup.openPopupAtScreen(0, 0, false);
 	},
 
 	_cancelDelayedOpen: function() {
