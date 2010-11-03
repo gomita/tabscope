@@ -102,17 +102,18 @@ var TabScope = {
 				if (!this._tab)
 					return;
 				var box = this._tab.boxObject;
+				var x = event.screenX, y = event.screenY;
 				// if tabs are arranged vertically...
 				if (gBrowser.mTabContainer.orient == "vertical") {
 					// when mouse pointer moves inside vertical band-like area containing tabs...
-					if (box.screenX <= event.screenX && event.screenX < box.screenX + box.width)
+					if (box.screenX <= x && x < box.screenX + box.width)
 						// do nothing, keep popup open
 						return;
 				}
 				// if tabs are arranged horizontally...
 				else {
 					// when mouse pointer moves inside horizontal band-like area containing tabs...
-					if (box.screenY <= event.screenY && event.screenY < box.screenY + box.height)
+					if (box.screenY <= y && y < box.screenY + box.height)
 						// do nothing, keep popup open
 						return;
 				}
@@ -121,8 +122,8 @@ var TabScope = {
 				if (this._branch.getBoolPref("hovering") && this.popup.state == "open") {
 					// when mouse pointer is hovering over popup...
 					box = this.popup.boxObject;
-					if (box.screenX <= event.screenX && event.screenX < box.screenX + box.width && 
-					    box.screenY <= event.screenY && event.screenY < box.screenY + box.height)
+					if (box.screenX <= x && x < box.screenX + box.width && 
+					    box.screenY <= y && y < box.screenY + box.height)
 						// do nothing, keep popup open
 						return;
 				}
