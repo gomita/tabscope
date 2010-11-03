@@ -215,8 +215,8 @@ var TabScope = {
 	_updatePreview: function() {
 		this.log("update preview");
 		var canvas = document.getElementById("tabscope-canvas");
-		canvas.width = 240;
-		canvas.height = 180;
+		canvas.width = this._branch.getIntPref("preview_width");
+		canvas.height = Math.floor(canvas.width / 4 * 3);
 		var win = this._tab.linkedBrowser.contentWindow;
 		var w = win.innerWidth;
 		var scale = canvas.width / w;
