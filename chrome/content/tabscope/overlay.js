@@ -56,6 +56,11 @@ var TabScope = {
 					// popup is currently closed, so open it with delay
 					this._tab = event.target;
 					var callback = function(self) {
+						// if mouse pointer moves outside tab before callback...
+						if (document.querySelector("tab:hover") != self._tab) {
+							self._cancelDelayedOpen();
+							return;
+						}
 						self._timerId = null;
 						self._adjustPopupPosition(false);
 						// [Mac][Linux] don't eat clicks while popup is open
