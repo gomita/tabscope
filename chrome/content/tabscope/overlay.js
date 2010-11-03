@@ -28,6 +28,7 @@ var TabScope = {
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseout", this, false);
 		gBrowser.mTabContainer.addEventListener("TabSelect", this, false);
 		gBrowser.mTabContainer.addEventListener("TabClose", this, false);
+		gBrowser.mTabContainer.addEventListener("draggesture", this, false);
 	},
 
 	uninit: function() {
@@ -35,6 +36,7 @@ var TabScope = {
 		NS_ASSERT(this._timer === null, "timer is not cancelled.");
 		gBrowser.mTabContainer.removeEventListener("TabSelect", this, false);
 		gBrowser.mTabContainer.removeEventListener("TabClose", this, false);
+		gBrowser.mTabContainer.removeEventListener("draggesture", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
@@ -141,9 +143,10 @@ var TabScope = {
 				break;
 			case "TabSelect": 
 			case "TabClose": 
+			case "draggesture": 
 				if (event.target != this._tab)
 					return;
-				// when selecting or closing the current pointed tab...
+				// when selecting / closing / dragging the current pointed tab...
 				this._cancelDelayedOpen();
 				this.popup.hidePopup();
 				break;
