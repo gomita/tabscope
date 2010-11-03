@@ -12,4 +12,6 @@
 <!ENTITY tabscope.animate.normal "普通">
 <!ENTITY tabscope.animate.slow "遅い">
 <!ENTITY tabscope.hovering "ポップアップ上へのマウスオーバーを可能にする">
-<!ENTITY tabscope.preview_width "プレビューの幅">
+<!ENTITY tabscope.preview_size "プレビューサイズ">
+<!ENTITY tabscope.preview_width "幅">
+<!ENTITY tabscope.preview_height "高さ">
