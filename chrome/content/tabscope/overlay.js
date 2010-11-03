@@ -78,17 +78,25 @@ var TabScope = {
 				}
 				break;
 			case "mouseout": 
-//				if (event.relatedTarget == this.popup)
-//					return;
-				// when moving outside tab bar...
-				// do not refer tab strip since pinned tabs are placed outside tab strip
-				var box = document.getElementById("TabsToolbar").boxObject;
-				if (event.screenX <= box.screenX || box.screenX + box.width  <= event.screenX || 
-				    event.screenY <= box.screenY || box.screenY + box.height <= event.screenY) {
-					this._cancelDelayedOpen();
-					// close popup if it is opened
-					this.popup.hidePopup();
+				var box = this._tab.boxObject;
+				// if tabs are arranged vertically...
+				if (gBrowser.mTabContainer.orient == "vertical") {
+					// when mouse pointer moves inside vertical band-like area containing tabs...
+					if (box.screenX <= event.screenX && event.screenX < box.screenX + box.width)
+						// do nothing, keep popup open
+						return;
 				}
+				// if tabs are arranged horizontally...
+				else {
+					// when mouse pointer moves inside horizontal band-like area containing tabs...
+					if (box.screenY <= event.screenY && event.screenY < box.screenY + box.height)
+						// do nothing, keep popup open
+						return;
+				}
+				// otherwise...
+				this._cancelDelayedOpen();
+				// close popup if it is opened
+				this.popup.hidePopup();
 				break;
 			case "popupshowing": 
 				this.log("open popup");
@@ -129,10 +137,6 @@ var TabScope = {
 			case 2: x = box.screenX; y = box.screenY + box.height; break;
 			case 4: y = box.screenY; x = box.screenX + box.width;  break;
 		}
-		// [Windows7] XXX fix 1px height glitch of selected tab compared to others
-		if (this._tab.selected && 
-		    gBrowser.mTabContainer.mTabstrip.boxObject.height == box.height - 1)
-			y--;
 		// correct position to avoid popup auto-position
 		x = Math.max(x, 0);
 		y = Math.max(y, 0);
