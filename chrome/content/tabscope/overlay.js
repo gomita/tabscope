@@ -26,11 +26,13 @@ var TabScope = {
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseout", this, false);
+		gBrowser.mTabContainer.addEventListener("TabSelect", this, false);
 	},
 
 	uninit: function() {
 		this._cancelDelayedOpen();
 		NS_ASSERT(this._timer === null, "timer is not cancelled.");
+		gBrowser.mTabContainer.removeEventListener("TabSelect", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
@@ -134,6 +136,12 @@ var TabScope = {
 				break;
 			case "MozAfterPaint": 
 				this._shouldUpdatePreview = true;
+				break;
+			case "TabSelect": 
+				if (event.target != this._tab)
+					return;
+				this._cancelDelayedOpen();
+				this.popup.hidePopup();
 				break;
 		}
 	},
