@@ -10,7 +10,8 @@
 
 	<popupset id="mainPopupSet">
 		<panel id="tabscope-popup" noautofocus="true"
-		       onpopupshowing="TabScope.handleEvent(event);"
+		       onpopupshowing="this.collapsed = true; TabScope.handleEvent(event);"
+		       onpopupshown="this.collapsed = false;"
 		       onpopuphiding="TabScope.handleEvent(event);"
 		       onmouseout="TabScope.handleEvent(event);">
 			<html:canvas id="tabscope-canvas" />
