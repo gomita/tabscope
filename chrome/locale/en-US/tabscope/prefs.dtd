@@ -11,3 +11,4 @@
 <!ENTITY tabscope.animate.fast "Fast">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Slow">
+<!ENTITY tabscope.hovering "Enable the mouse pointer hovering over the popup">

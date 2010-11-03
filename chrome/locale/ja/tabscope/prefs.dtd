@@ -11,3 +11,4 @@
 <!ENTITY tabscope.animate.fast "速い">
 <!ENTITY tabscope.animate.normal "普通">
 <!ENTITY tabscope.animate.slow "遅い">
+<!ENTITY tabscope.hovering "ポップアップ上へのマウスオーバーを可能にする">

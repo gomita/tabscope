@@ -13,6 +13,7 @@
 			<preference id="popup_alignment" name="extensions.tabscope.popup_alignment" type="int" />
 			<preference id="popup_delay" name="extensions.tabscope.popup_delay" type="int" />
 			<preference id="animate" name="extensions.tabscope.animate" type="int" />
+			<preference id="hovering" name="extensions.tabscope.hovering" type="bool" />
 		</preferences>
 		<hbox align="center">
 			<label value="&tabscope.popup_alignment;:" />
@@ -39,6 +40,7 @@
 				<radio label="&tabscope.animate.slow;"   value="3" />
 			</radiogroup>
 		</hbox>
+		<checkbox preference="hovering" label="&tabscope.hovering;" />
 	</prefpane>
 
 </prefwindow>

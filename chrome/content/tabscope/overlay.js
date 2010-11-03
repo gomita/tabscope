@@ -100,6 +100,14 @@ var TabScope = {
 						// do nothing, keep popup open
 						return;
 				}
+				if (this._branch.getBoolPref("hovering")) {
+					// when mouse pointer is hovering over popup...
+					box = this.popup.boxObject;
+					if (box.screenX <= event.screenX && event.screenX < box.screenX + box.width && 
+					    box.screenY <= event.screenY && event.screenY < box.screenY + box.height)
+						// do nothing, keep popup open
+						return;
+				}
 				// otherwise...
 				this._cancelDelayedOpen();
 				// close popup if it is opened
@@ -196,7 +204,8 @@ var TabScope = {
 
 	notify: function(aTimer) {
 		// check mouse pointer is hovering over tab, otherwise close popup
-		if (document.querySelector("tab:hover") != this._tab) {
+		if (document.querySelector("tab:hover") != this._tab && 
+		    document.querySelector("panel:hover") != this.popup) {
 			this.log("*** close popup with delay");
 			this.popup.hidePopup();
 			return;
