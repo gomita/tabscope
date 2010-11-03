@@ -1,7 +1,14 @@
 /* ::::: Popup ::::: */
 
 #tabscope-popup {
+	padding: 5px;
 	-moz-transition-property: margin;
 	-moz-transition-timing-function: ease-in-out;
+}
+
+#tabscope-label {
+	/* left and right margin must be 0 */
+	margin: 5px 0 0 0 !important;
+	text-align: center;
 }
 

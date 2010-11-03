@@ -15,6 +15,9 @@ var TabScope = {
 	// flag indicates to require updating preview
 	_shouldUpdatePreview: false,
 
+	// flag indicates to require updating title
+	_shouldUpdateTitle: false,
+
 	// nsIPrefBranch
 	_branch: null,
 
@@ -72,11 +75,15 @@ var TabScope = {
 					// when mouse pointer moves from one tab to another...
 					// popup is already opened, so move it now
 					this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
+					this._tab.removeEventListener("TabAttrModified", this, false);
 					this._tab = event.target;
 					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
+					this._tab.addEventListener("TabAttrModified", this, false);
 					this._shouldUpdatePreview = false;
+					this._shouldUpdateTitle = false;
 					this._adjustPopupPosition(true);
 					this._updatePreview();
+					this._updateTitle();
 				}
 				break;
 			case "mousemove": 
@@ -127,22 +134,30 @@ var TabScope = {
 			case "popupshowing": 
 				this.log("open popup");
 				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
+				this._tab.addEventListener("TabAttrModified", this, false);
 				this._shouldUpdatePreview = false;
+				this._shouldUpdateTitle = false;
 				this._timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
 				this._timer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
 				this._updatePreview();
+				this._updateTitle();
 				break;
 			case "popuphiding": 
 				this.log("close popup");
 				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
+				this._tab.removeEventListener("TabAttrModified", this, false);
 				this._timer.cancel();
 				this._timer = null;
 				this._resetPreview();
+				this._resetTitle();
 				this.popup.removeAttribute("style");
 				this._tab = null;
 				break;
 			case "MozAfterPaint": 
 				this._shouldUpdatePreview = true;
+				break;
+			case "TabAttrModified": 
+				this._shouldUpdateTitle = true;
 				break;
 			case "TabSelect": 
 			case "TabClose": 
@@ -237,6 +252,21 @@ var TabScope = {
 		canvas.height = 0;
 	},
 
+	_updateTitle: function() {
+		this.log("update title");
+		var label = document.getElementById("tabscope-label");
+		label.value = this._tab.label;
+		label.setAttribute("tooltiptext", label.value);
+		label.style.width = this._branch.getIntPref("preview_width").toString() + "px";
+	},
+
+	_resetTitle: function() {
+		var label = document.getElementById("tabscope-label");
+		label.value = "";
+		label.removeAttribute("tooltiptext");
+		label.style.width = "0px";
+	},
+
 	notify: function(aTimer) {
 		// check mouse pointer is hovering over tab, otherwise close popup
 		if (document.querySelector("tab:hover") != this._tab && 
@@ -248,6 +278,10 @@ var TabScope = {
 		if (this._shouldUpdatePreview) {
 			this._shouldUpdatePreview = false;
 			this._updatePreview();
+		}
+		if (this._shouldUpdateTitle) {
+			this._shouldUpdateTitle = false;
+			this._updateTitle();
 		}
 		this._adjustPopupPosition(true);
 	},
