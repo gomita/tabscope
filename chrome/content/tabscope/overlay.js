@@ -100,7 +100,9 @@ var TabScope = {
 						// do nothing, keep popup open
 						return;
 				}
-				if (this._branch.getBoolPref("hovering")) {
+				// since popup boxObject holds its size and position even if it is closed,
+				// should test with popup boxObject only if popup is open
+				if (this._branch.getBoolPref("hovering") && this.popup.state == "open") {
 					// when mouse pointer is hovering over popup...
 					box = this.popup.boxObject;
 					if (box.screenX <= event.screenX && event.screenX < box.screenX + box.width && 
