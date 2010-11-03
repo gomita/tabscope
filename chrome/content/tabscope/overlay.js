@@ -91,6 +91,9 @@ var TabScope = {
 				this.log("--- start timer again (" + this._timerId + ")");
 				break;
 			case "mouseout": 
+				// don't handle events on non-tab elements e.g. arrowscrollbox
+				if (!this._tab)
+					return;
 				var box = this._tab.boxObject;
 				// if tabs are arranged vertically...
 				if (gBrowser.mTabContainer.orient == "vertical") {
