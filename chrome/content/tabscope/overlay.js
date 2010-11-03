@@ -57,7 +57,9 @@ var TabScope = {
 					this._tab = event.target;
 					var callback = function(self) {
 						// if mouse pointer moves outside tab before callback...
-						if (document.querySelector("tab:hover") != self._tab) {
+						// if any other popup e.g. tab context menu is opened...
+						if (document.querySelector("tab:hover") != self._tab || document.popupNode) {
+							// don't open popup
 							self._cancelDelayedOpen();
 							return;
 						}
