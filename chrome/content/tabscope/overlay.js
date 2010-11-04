@@ -185,7 +185,7 @@ var TabScope = {
 	_delayedOpenPopup: function() {
 		// if mouse pointer moves outside tab before callback...
 		// if any other popup e.g. tab context menu is opened...
-		if (document.querySelector("tab:hover") != this._tab || document.popupNode) {
+		if (this._tab.parentNode.querySelector(":hover") != this._tab || document.popupNode) {
 			// don't open popup
 			this._cancelDelayedOpen();
 			return;
@@ -280,8 +280,8 @@ var TabScope = {
 
 	notify: function(aTimer) {
 		// check mouse pointer is hovering over tab, otherwise close popup
-		if (document.querySelector("tab:hover") != this._tab && 
-		    document.querySelector("panel:hover") != this.popup) {
+		if (this._tab.parentNode.querySelector(":hover") != this._tab && 
+		    this.popup.parentNode.querySelector(":hover") != this.popup) {
 			this.log("*** close popup with delay");
 			this.popup.hidePopup();
 			return;
