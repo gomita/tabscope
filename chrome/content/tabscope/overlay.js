@@ -240,7 +240,7 @@ var TabScope = {
 
 	_updatePreview: function() {
 		this.log("update preview");
-		var canvas = document.getElementById("tabscope-canvas");
+		var canvas = document.getElementById("tabscope-preview");
 		canvas.width  = this._branch.getIntPref("preview_width");
 		canvas.height = this._branch.getIntPref("preview_height");
 		var win = this._tab.linkedBrowser.contentWindow;
@@ -256,7 +256,7 @@ var TabScope = {
 	},
 
 	_resetPreview: function() {
-		var canvas = document.getElementById("tabscope-canvas");
+		var canvas = document.getElementById("tabscope-preview");
 		var ctx = canvas.getContext("2d");
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		canvas.width = 0;
@@ -265,14 +265,14 @@ var TabScope = {
 
 	_updateTitle: function() {
 		this.log("update title");
-		var label = document.getElementById("tabscope-label");
+		var label = document.getElementById("tabscope-title");
 		label.value = this._tab.label;
 		label.setAttribute("tooltiptext", label.value);
 		label.style.width = this._branch.getIntPref("preview_width").toString() + "px";
 	},
 
 	_resetTitle: function() {
-		var label = document.getElementById("tabscope-label");
+		var label = document.getElementById("tabscope-title");
 		label.value = "";
 		label.removeAttribute("tooltiptext");
 		label.style.width = "0px";

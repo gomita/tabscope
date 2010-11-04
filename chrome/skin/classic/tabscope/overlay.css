@@ -6,7 +6,7 @@
 	-moz-transition-timing-function: ease-in-out;
 }
 
-#tabscope-label {
+#tabscope-title {
 	/* left and right margin must be 0 */
 	margin: 5px 0 0 0 !important;
 	text-align: center;

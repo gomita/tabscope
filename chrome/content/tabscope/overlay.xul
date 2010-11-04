@@ -14,8 +14,8 @@
 		       onpopupshown="TabScope.handleEvent(event);"
 		       onpopuphiding="TabScope.handleEvent(event);"
 		       onmouseout="TabScope.handleEvent(event);">
-			<html:canvas id="tabscope-canvas" />
-			<label id="tabscope-label" crop="end" />
+			<html:canvas id="tabscope-preview" />
+			<label id="tabscope-title" crop="end" />
 		</panel>
 	</popupset>
 
