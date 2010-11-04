@@ -253,6 +253,8 @@ var TabScope = {
 		ctx.scale(scale, scale);
 		ctx.drawWindow(win, win.scrollX, win.scrollY, w, h, "rgb(255,255,255)");
 		ctx.restore();
+		var mask = document.getElementById("tabscope-mask");
+		mask.style.height = (canvas.height / 2).toString() + "px";
 	},
 
 	_resetPreview: function() {
@@ -261,6 +263,8 @@ var TabScope = {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		canvas.width = 0;
 		canvas.height = 0;
+		var mask = document.getElementById("tabscope-mask");
+		mask.style.height = "0px";
 	},
 
 	_updateTitle: function() {
