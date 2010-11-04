@@ -142,6 +142,16 @@ var TabScope = {
 				this._timer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
 				this._updatePreview();
 				this._updateTitle();
+				// XXX to fix wrong border on bottom-right corner if Windows Aero is enabled...
+				// 1) set collapsed to true before opening popup
+				// 2) set collapsed to false just after popup is shown
+				var selector = "#tabscope-popup:-moz-system-metric(windows-compositor)";
+				if (this.popup.parentNode.querySelector(selector))
+					this.popup.collapsed = true;
+				break;
+			case "popupshown": 
+				if (this.popup.collapsed)
+					this.popup.collapsed = false;
 				break;
 			case "popuphiding": 
 				this.log("close popup");
