@@ -16,6 +16,12 @@
 	text-align: center;
 }
 
+/* ::::: Windows (except Classic and third-party themes) ::::: */
+
+#tabscope-popup:-moz-system-metric(windows-default-theme) {
+	border: 1px solid ThreeDShadow;
+}
+
 /* ::::: Windows Aero ::::: */
 
 /* derived from chrome://browser/skin/browser.css */
