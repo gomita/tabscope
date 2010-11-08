@@ -179,6 +179,13 @@ var TabScope = {
 				this._cancelDelayedOpen();
 				this.popup.hidePopup();
 				break;
+			case "click": 
+				switch (event.button) {
+					case 0: gBrowser.selectedTab = this._tab; break;
+					case 1: this.popup.hidePopup(); break;
+					case 2: break;
+				}
+				break;
 		}
 	},
 

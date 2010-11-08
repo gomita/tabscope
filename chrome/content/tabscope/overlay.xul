@@ -13,7 +13,8 @@
 		       onpopupshowing="TabScope.handleEvent(event);"
 		       onpopupshown="TabScope.handleEvent(event);"
 		       onpopuphiding="TabScope.handleEvent(event);"
-		       onmouseout="TabScope.handleEvent(event);">
+		       onmouseout="TabScope.handleEvent(event);"
+		       onclick="TabScope.handleEvent(event);">
 			<stack>
 				<html:canvas id="tabscope-preview" top="0" left="0" />
 				<box id="tabscope-mask" bottom="0" />
