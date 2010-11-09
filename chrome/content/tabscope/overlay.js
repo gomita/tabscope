@@ -186,6 +186,16 @@ var TabScope = {
 					case 2: break;
 				}
 				break;
+			case "command": 
+				switch (event.target.id.replace(/^tabscope-|-button$/g, "")) {
+					case "back"   : this._tab.linkedBrowser.goBack(); break;
+					case "forward": this._tab.linkedBrowser.goForward(); break;
+					case "reload" : this._tab.linkedBrowser.reload(); break;
+					case "stop"   : this._tab.linkedBrowser.stop(); break;
+					case "close"  : gBrowser.removeTab(this._tab); break;
+					default: NS_ASSERT(false, "unknown command: " + event.target.id);
+				}
+				break;
 		}
 	},
 

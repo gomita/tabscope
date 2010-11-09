@@ -10,6 +10,64 @@
 	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #FFF);
 }
 
+#tabscope-toolbar {
+	-moz-appearance: none;
+	border: none;
+	border-bottom: 1px solid rgb(211, 211, 211);
+	background: -moz-linear-gradient(rgba(211, 211, 211, 1), rgba(211, 211, 211, 0.6));
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	-moz-transition-property: opacity;
+	-moz-transition-duration: 0.3s;
+	-moz-transition-delay: 0.1s;
+	-moz-transition-timing-function: ease-out;
+}
+
+#tabscope-toolbar:hover {
+	opacity: 1;
+}
+
+#tabscope-toolbar > toolbarbutton {
+	-moz-appearance: none;
+	border: none;
+	margin: 0;
+	padding: 2px;
+	width: 20px;
+	height: 20px;
+	background: none;
+	list-style-image: url("chrome://tabscope/skin/icons.png");
+}
+
+#tabscope-toolbar > toolbarbutton .toolbarbutton-icon {
+	margin: 0;
+	padding: 0;
+}
+
+#tabscope-toolbar > toolbarbutton .toolbarbutton-text {
+	display: none;
+}
+
+#tabscope-back-button {
+	-moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+
+#tabscope-forward-button {
+	-moz-image-region: rect(0px, 32px, 16px, 16px);
+}
+
+#tabscope-reload-button {
+	-moz-image-region: rect(0px, 48px, 16px, 32px);
+}
+
+#tabscope-stop-button {
+	-moz-image-region: rect(0px, 64px, 16px, 48px);
+}
+
+#tabscope-close-button {
+	-moz-image-region: rect(0px, 80px, 16px, 64px);
+}
+
 #tabscope-title {
 	/* left and right margin must be 0 */
 	margin: 5px 0 0 0 !important;
