@@ -87,9 +87,13 @@ var TabScope = {
 				}
 				break;
 			case "mousemove": 
+				// don't handle events while popup is open, but before popup is open
 				if (!this._timerId)
 					return;
-				// if before timer callback, cancel and start it again
+				// when mouse pointer moves from a tab to non-tab elements (e.g. new tab button)...
+				if (event.target.localName != "tab")
+					return;
+				// when mouse pointer moves from one tab to another, restart timer to open popup
 				this._cancelDelayedOpen();
 				this._tab = event.target;
 				var callback = function(self) { self._delayedOpenPopup(); };
