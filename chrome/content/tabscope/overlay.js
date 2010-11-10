@@ -84,6 +84,7 @@ var TabScope = {
 					this._adjustPopupPosition(true);
 					this._updatePreview();
 					this._updateTitle();
+					this._updateToolbar();
 				}
 				break;
 			case "mousemove": 
@@ -146,6 +147,7 @@ var TabScope = {
 				this._timer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
 				this._updatePreview();
 				this._updateTitle();
+				this._updateToolbar();
 				// XXX to fix wrong border on bottom-right corner if Windows Aero is enabled...
 				// 1) set collapsed to true before opening popup
 				// 2) set collapsed to false just after popup is shown
@@ -199,8 +201,9 @@ var TabScope = {
 					case "close"  : gBrowser.removeTab(this._tab); return;
 					default: NS_ASSERT(false, "unknown command: " + event.target.id); return;
 				}
-				// update buttons immediately after back/forward/reload/stop
-				this._updateButtons();
+				// update title and toolbar immediately after back/forward/reload/stop
+				this._updateTitle();
+				this._updateToolbar();
 				break;
 		}
 	},
@@ -305,7 +308,8 @@ var TabScope = {
 		label.style.width = "0px";
 	},
 
-	_updateButtons: function() {
+	_updateToolbar: function() {
+		this.log("update toolbar");
 		var browser = this._tab.linkedBrowser;
 		document.getElementById("tabscope-back-button").disabled = !browser.canGoBack;
 		document.getElementById("tabscope-forward-button").disabled = !browser.canGoForward;
@@ -330,7 +334,10 @@ var TabScope = {
 			this._shouldUpdateTitle = false;
 			this._updateTitle();
 		}
-		this._updateButtons();
+		var toolbar = document.getElementById("tabscope-toolbar");
+		if (toolbar.parentNode.querySelector(":hover") == toolbar)
+			// update toolbar only when hovering over it
+			this._updateToolbar();
 		this._adjustPopupPosition(true);
 	},
 
