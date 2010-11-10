@@ -68,6 +68,10 @@
 	-moz-image-region: rect(0px, 80px, 16px, 64px);
 }
 
+#tabscope-toolbar > toolbarbutton[disabled="true"] {
+	opacity: 0.4;
+}
+
 #tabscope-title {
 	/* left and right margin must be 0 */
 	margin: 5px 0 0 0 !important;
