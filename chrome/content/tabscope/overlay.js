@@ -192,9 +192,11 @@ var TabScope = {
 					case "forward": this._tab.linkedBrowser.goForward(); break;
 					case "reload" : this._tab.linkedBrowser.reload(); break;
 					case "stop"   : this._tab.linkedBrowser.stop(); break;
-					case "close"  : gBrowser.removeTab(this._tab); break;
-					default: NS_ASSERT(false, "unknown command: " + event.target.id);
+					case "close"  : gBrowser.removeTab(this._tab); return;
+					default: NS_ASSERT(false, "unknown command: " + event.target.id); return;
 				}
+				// update buttons immediately after back/forward/reload/stop
+				this._updateButtons();
 				break;
 		}
 	},
@@ -299,6 +301,15 @@ var TabScope = {
 		label.style.width = "0px";
 	},
 
+	_updateButtons: function() {
+		var browser = this._tab.linkedBrowser;
+		document.getElementById("tabscope-back-button").disabled = !browser.canGoBack;
+		document.getElementById("tabscope-forward-button").disabled = !browser.canGoForward;
+		var loading = browser.webProgress.isLoadingDocument;
+		document.getElementById("tabscope-reload-button").hidden = loading;
+		document.getElementById("tabscope-stop-button").hidden = !loading;
+	},
+
 	notify: function(aTimer) {
 		// check mouse pointer is hovering over tab, otherwise close popup
 		if (this._tab.parentNode.querySelector(":hover") != this._tab && 
@@ -315,6 +326,7 @@ var TabScope = {
 			this._shouldUpdateTitle = false;
 			this._updateTitle();
 		}
+		this._updateButtons();
 		this._adjustPopupPosition(true);
 	},
 
