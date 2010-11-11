@@ -309,6 +309,8 @@ var TabScope = {
 	},
 
 	_updateToolbar: function() {
+		if (!this._branch.getBoolPref("hovering"))
+			return;
 		this.log("update toolbar");
 		var browser = this._tab.linkedBrowser;
 		document.getElementById("tabscope-back-button").disabled = !browser.canGoBack;
