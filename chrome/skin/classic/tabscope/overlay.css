@@ -76,6 +76,10 @@
 	-moz-image-region: rect(0px, 112px, 16px, 96px);
 }
 
+#tabscope-groups-button {
+	-moz-image-region: rect(0px, 128px, 16px, 112px);
+}
+
 #tabscope-toolbar > toolbarbutton[disabled="true"] {
 	opacity: 0.4;
 }
