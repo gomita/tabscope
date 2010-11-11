@@ -203,6 +203,7 @@ var TabScope = {
 						                 : gBrowser.pinTab(this._tab);
 						this.popup.hidePopup();
 						return;
+					case "alltabs": allTabs.open(); this.popup.hidePopup(); return;
 					case "close"  : gBrowser.removeTab(this._tab); return;
 					default: NS_ASSERT(false, "unknown command: " + event.target.id); return;
 				}

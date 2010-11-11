@@ -26,6 +26,7 @@
 					<toolbarbutton id="tabscope-reload-button" />
 					<toolbarbutton id="tabscope-stop-button" />
 					<toolbarbutton id="tabscope-pin-button" />
+					<toolbarbutton id="tabscope-alltabs-button" />
 					<spacer flex="1" />
 					<toolbarbutton id="tabscope-close-button" />
 				</toolbar>
