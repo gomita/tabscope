@@ -68,6 +68,10 @@
 	-moz-image-region: rect(0px, 80px, 16px, 64px);
 }
 
+#tabscope-pin-button {
+	-moz-image-region: rect(0px, 96px, 16px, 80px);
+}
+
 #tabscope-toolbar > toolbarbutton[disabled="true"] {
 	opacity: 0.4;
 }

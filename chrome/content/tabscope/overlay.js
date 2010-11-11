@@ -198,6 +198,11 @@ var TabScope = {
 					case "forward": this._tab.linkedBrowser.goForward(); break;
 					case "reload" : this._tab.linkedBrowser.reload(); break;
 					case "stop"   : this._tab.linkedBrowser.stop(); break;
+					case "pin"    : 
+						this._tab.pinned ? gBrowser.unpinTab(this._tab)
+						                 : gBrowser.pinTab(this._tab);
+						this.popup.hidePopup();
+						return;
 					case "close"  : gBrowser.removeTab(this._tab); return;
 					default: NS_ASSERT(false, "unknown command: " + event.target.id); return;
 				}
