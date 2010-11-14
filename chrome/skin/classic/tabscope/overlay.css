@@ -1,4 +1,4 @@
-/* ::::: Popup ::::: */
+/* ::::: popup ::::: */
 
 #tabscope-popup {
 	padding: 5px;
@@ -9,6 +9,23 @@
 #tabscope-mask {
 	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #FFF);
 }
+
+#tabscope-title {
+	margin: 5px 0 0 0 !important;
+	text-align: center;
+}
+
+/* ::::: popup_alignment ::::: */
+
+#tabscope-popup[popup_alignment="1"] {
+	-moz-box-direction: reverse;
+}
+
+#tabscope-popup[popup_alignment="1"] #tabscope-title {
+	margin: 0 0 5px 0 !important;
+}
+
+/* ::::: toolbar ::::: */
 
 #tabscope-toolbar {
 	-moz-appearance: none;
@@ -82,12 +99,6 @@
 
 #tabscope-toolbar > toolbarbutton[disabled="true"] {
 	opacity: 0.4;
-}
-
-#tabscope-title {
-	/* left and right margin must be 0 */
-	margin: 5px 0 0 0 !important;
-	text-align: center;
 }
 
 /* ::::: Windows (except Classic and third-party themes) ::::: */

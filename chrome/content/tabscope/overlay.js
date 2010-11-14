@@ -158,6 +158,10 @@ var TabScope = {
 			case "popupshown": 
 				if (this.popup.collapsed)
 					this.popup.collapsed = false;
+				// @see comment in _adjustPopupPosition
+				var alignment = parseInt(this.popup.getAttribute("popup_alignment"));
+				if (alignment == 1 || alignment == 3)
+					this._adjustPopupPosition(false);
 				break;
 			case "popuphiding": 
 				this.log("close popup");
@@ -224,6 +228,13 @@ var TabScope = {
 			return;
 		}
 		this._timerId = null;
+		// if popup_alignment is top, place toolbar at the bottom of popup
+		var alignment = this._branch.getIntPref("popup_alignment");
+		this.popup.setAttribute("popup_alignment", alignment.toString());
+		var toolbar = document.getElementById("tabscope-toolbar");
+		toolbar.setAttribute(alignment == 1 ? "bottom" : "top", "0");
+		toolbar.removeAttribute(alignment == 1 ? "top" : "bottom");
+		// adjust popup position before opening popup
 		this._adjustPopupPosition(false);
 		// [Mac][Linux] don't eat clicks while popup is open
 		this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
@@ -240,10 +251,14 @@ var TabScope = {
 	},
 
 	_adjustPopupPosition: function(aAnimate) {
+		// note that popup.boxObject.width and .height are 0px if popup has never been opened
+		// to fix wrong positioning, call _adjustPopupPosition in popupshown event handler
 		var box = this._tab.boxObject;
 		var x, y;
-		switch (this._branch.getIntPref("popup_alignment")) {
+		switch (parseInt(this.popup.getAttribute("popup_alignment"))) {
+			case 1: x = box.screenX; y = box.screenY - this.popup.boxObject.height; break;
 			case 2: x = box.screenX; y = box.screenY + box.height; break;
+			case 3: y = box.screenY; x = box.screenX - this.popup.boxObject.width; break;
 			case 4: y = box.screenY; x = box.screenX + box.width;  break;
 		}
 		// correct position to avoid popup auto-position
