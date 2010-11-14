@@ -18,7 +18,6 @@
 		       oncommand="TabScope.handleEvent(event);">
 			<stack>
 				<html:canvas id="tabscope-preview" top="0" left="0" />
-				<box id="tabscope-mask" bottom="0" />
 				<toolbar id="tabscope-toolbar" top="0"
 				         onclick="event.stopPropagation();">
 					<toolbarbutton id="tabscope-back-button" />

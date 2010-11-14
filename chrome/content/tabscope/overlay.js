@@ -301,8 +301,12 @@ var TabScope = {
 		ctx.scale(scale, scale);
 		ctx.drawWindow(win, win.scrollX, win.scrollY, w, h, "rgb(255,255,255)");
 		ctx.restore();
-		var mask = document.getElementById("tabscope-mask");
-		mask.style.height = (canvas.height / 2).toString() + "px";
+		// fade-to-white effect
+		var grad = ctx.createLinearGradient(0, canvas.height / 2, 0, canvas.height);
+		grad.addColorStop(0, "rgba(255,255,255,0)");
+		grad.addColorStop(1, "rgb(255,255,255)");
+		ctx.fillStyle = grad;
+		ctx.fillRect(0, canvas.height / 2, canvas.width, canvas.height / 2);
 	},
 
 	_resetPreview: function() {
@@ -311,8 +315,6 @@ var TabScope = {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		canvas.width = 0;
 		canvas.height = 0;
-		var mask = document.getElementById("tabscope-mask");
-		mask.style.height = "0px";
 	},
 
 	_updateTitle: function() {

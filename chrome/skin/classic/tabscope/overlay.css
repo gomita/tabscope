@@ -6,10 +6,6 @@
 	-moz-transition-timing-function: ease-in-out;
 }
 
-#tabscope-mask {
-	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #FFF);
-}
-
 #tabscope-title {
 	margin: 5px 0 0 0 !important;
 	text-align: center;
