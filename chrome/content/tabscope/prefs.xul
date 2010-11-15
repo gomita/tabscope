@@ -21,6 +21,7 @@
 			<label value="&tabscope.popup_alignment;:" />
 			<menulist preference="popup_alignment">
 				<menupopup>
+					<menuitem label="&tabscope.popup_alignment.auto;"   value="0" />
 					<menuitem label="&tabscope.popup_alignment.top;"    value="1" />
 					<menuitem label="&tabscope.popup_alignment.bottom;" value="2" />
 					<menuitem label="&tabscope.popup_alignment.left;"   value="3" />

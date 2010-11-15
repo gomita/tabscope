@@ -230,6 +230,12 @@ var TabScope = {
 		this._timerId = null;
 		// if popup_alignment is top, place toolbar at the bottom of popup
 		var alignment = this._branch.getIntPref("popup_alignment");
+		if (alignment == 0) {
+			var box = gBrowser.mTabContainer.boxObject;
+			alignment = (box.width > box.height)
+			          ? (box.screenY > window.screen.availHeight / 2 ? 1 : 2)
+			          : (box.screenX > window.screen.availWidth / 2 ? 3 : 4);
+		}
 		this.popup.setAttribute("popup_alignment", alignment.toString());
 		var toolbar = document.getElementById("tabscope-toolbar");
 		toolbar.setAttribute(alignment == 1 ? "bottom" : "top", "0");

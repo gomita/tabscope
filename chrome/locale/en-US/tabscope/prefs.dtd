@@ -1,5 +1,6 @@
 <!ENTITY tabscope.options "Options">
 <!ENTITY tabscope.popup_alignment "Alignment of popup">
+<!ENTITY tabscope.popup_alignment.auto "auto-detect">
 <!ENTITY tabscope.popup_alignment.top "on top of a tab">
 <!ENTITY tabscope.popup_alignment.bottom "beneath a tab">
 <!ENTITY tabscope.popup_alignment.left "on the left side of a tab">

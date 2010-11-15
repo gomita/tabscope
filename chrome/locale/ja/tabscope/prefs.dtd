@@ -1,5 +1,6 @@
 <!ENTITY tabscope.options "設定">
 <!ENTITY tabscope.popup_alignment "ポップアップの表示位置">
+<!ENTITY tabscope.popup_alignment.auto "自動で判別">
 <!ENTITY tabscope.popup_alignment.top "タブの上側">
 <!ENTITY tabscope.popup_alignment.bottom "タブの下側">
 <!ENTITY tabscope.popup_alignment.left "タブの左側">
