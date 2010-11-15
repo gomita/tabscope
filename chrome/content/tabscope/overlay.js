@@ -264,6 +264,8 @@ var TabScope = {
 		// correct position to avoid popup auto-position
 		x = Math.max(x, 0);
 		y = Math.max(y, 0);
+		x = Math.min(x, window.screen.availWidth  - this.popup.boxObject.width);
+		y = Math.min(y, window.screen.availHeight - this.popup.boxObject.height);
 		var lastX = parseInt(this.popup.style.marginLeft || 0);
 		var lastY = parseInt(this.popup.style.marginTop  || 0);
 		if (x == lastX && y == lastY)
