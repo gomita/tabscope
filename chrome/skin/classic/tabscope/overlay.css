@@ -33,7 +33,6 @@
 	opacity: 0;
 	-moz-transition-property: opacity;
 	-moz-transition-duration: 0.3s;
-	-moz-transition-delay: 0.1s;
 	-moz-transition-timing-function: ease-out;
 }
 
