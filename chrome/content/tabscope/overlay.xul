@@ -19,7 +19,7 @@
 			<stack>
 				<html:canvas id="tabscope-preview" top="0" left="0" />
 				<toolbar id="tabscope-toolbar" top="0"
-				         onclick="event.stopPropagation();">
+				         onclick="if (event.button == 0) event.stopPropagation();">
 					<toolbarbutton id="tabscope-back-button" />
 					<toolbarbutton id="tabscope-forward-button" />
 					<toolbarbutton id="tabscope-reload-button" />

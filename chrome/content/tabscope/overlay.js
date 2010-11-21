@@ -24,8 +24,13 @@ var TabScope = {
 	// avail rectangle in screen
 	_availRect: null,
 
+	// zoom state of preview
+	_zoomState: false,
+
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
+		var canvas = document.getElementById("tabscope-preview");
+		canvas.addEventListener("transitionend", this, false);
 		this._branch = Services.prefs.getBranch("extensions.tabscope.");
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
@@ -54,6 +59,8 @@ var TabScope = {
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
+		var canvas = document.getElementById("tabscope-preview");
+		canvas.removeEventListener("transitionend", this, false);
 		this._availRect = null;
 		this._branch = null;
 		this.popup = null;
@@ -157,6 +164,7 @@ var TabScope = {
 				this._shouldUpdateTitle = false;
 				this._timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
 				this._timer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
+				this._adjustPreviewSize(false);
 				this._updatePreview();
 				this._updateTitle();
 				this._updateToolbar();
@@ -201,7 +209,7 @@ var TabScope = {
 				switch (event.button) {
 					case 0: gBrowser.selectedTab = this._tab; break;
 					case 1: this.popup.hidePopup(); break;
-					case 2: break;
+					case 2: this._togglePreviewSize(); break;
 				}
 				break;
 			case "command": 
@@ -223,6 +231,16 @@ var TabScope = {
 				// update title and toolbar immediately after back/forward/reload/stop
 				this._updateTitle();
 				this._updateToolbar();
+				break;
+			case "transitionend": 
+				this.log(event.type + " " + event.target.localName + " " + event.propertyName);
+				// [Mac] XXX update preview before adjusting size, 
+				// otherwise preview becomes blank for a quick moment
+				this._updatePreview();
+				var canvas = document.getElementById("tabscope-preview");
+				canvas.width  = parseInt(canvas.style.width);
+				canvas.height = parseInt(canvas.style.height);
+				this._updatePreview();
 				break;
 		}
 	},
@@ -337,11 +355,36 @@ var TabScope = {
 		this.log("move popup (" + lastX + ", " + lastY + ") => (" + x + ", " + y + ") / " + duration);
 	},
 
+	_adjustPreviewSize: function(aAnimate) {
+		this.log("adjust preview size (" + aAnimate + ")");
+		var canvas = document.getElementById("tabscope-preview");
+		var width  = this._branch.getIntPref("preview_width");
+		var height = this._branch.getIntPref("preview_height");
+		if (this._zoomState) {
+			width  *= 2;
+			height *= 2;
+		}
+		if (!aAnimate || !this._zoomState) {
+			// when opening popup, update canvas size immediately
+			// when starting zoom-in, update canvas size on transitionend event
+			// when starting zoom-out, update canvas size immediately
+			canvas.width = width;
+			canvas.height = height;
+		}
+		canvas.style.MozTransitionDuration = aAnimate ? "0.3s" : "0s";
+		canvas.style.width  = width.toString() + "px";
+		canvas.style.height = height.toString() + "px";
+	},
+
+	_togglePreviewSize: function() {
+		this._zoomState = !this._zoomState;
+		this._adjustPreviewSize(true);
+		this._updatePreview();
+	},
+
 	_updatePreview: function() {
 		this.log("update preview");
 		var canvas = document.getElementById("tabscope-preview");
-		canvas.width  = this._branch.getIntPref("preview_width");
-		canvas.height = this._branch.getIntPref("preview_height");
 		var win = this._tab.linkedBrowser.contentWindow;
 		var w = win.innerWidth;
 		var scale = canvas.width / w;
@@ -366,6 +409,7 @@ var TabScope = {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		canvas.width = 0;
 		canvas.height = 0;
+		this._zoomState = false;
 	},
 
 	_updateTitle: function() {

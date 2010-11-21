@@ -11,6 +11,10 @@
 	text-align: center;
 }
 
+#tabscope-preview {
+	-moz-transition-property: width, height;
+}
+
 /* ::::: popup_alignment ::::: */
 
 #tabscope-popup[popup_alignment="1"] {
