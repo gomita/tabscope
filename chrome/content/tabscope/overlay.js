@@ -289,6 +289,7 @@ var TabScope = {
 	},
 
 	_adjustPopupPosition: function(aAnimate) {
+		var alignment = parseInt(this.popup.getAttribute("popup_alignment"));
 		// XXX if popup has never been opened, popup.boxObject.width and height are both 0
 		// in that case, estimate popup size based on preview size
 		var popup = this.popup.boxObject;
@@ -297,7 +298,7 @@ var TabScope = {
 		var tab = this._tab.boxObject;
 		// determine screen coordinate whereto open popup
 		var x, y;
-		switch (parseInt(this.popup.getAttribute("popup_alignment"))) {
+		switch (alignment) {
 			case 1: x = tab.screenX; y = tab.screenY - popupHeight; break;
 			case 2: x = tab.screenX; y = tab.screenY + tab.height; break;
 			case 3: y = tab.screenY; x = tab.screenX - popupWidth; break;
@@ -310,6 +311,12 @@ var TabScope = {
 		y = Math.min(y, this._availRect.bottom - popupHeight);
 		var lastX = parseInt(this.popup.style.marginLeft || 0);
 		var lastY = parseInt(this.popup.style.marginTop  || 0);
+		// correct 1px glitch of current tab
+		if (alignment == 2 && this._tab == gBrowser.selectedTab) {
+			var margin = parseInt(window.getComputedStyle(this._tab, null).marginBottom);
+			if (margin < 0)
+				y += margin;
+		}
 		// if position will be same as current, no need to move popup
 		if (x == lastX && y == lastY)
 			return;
