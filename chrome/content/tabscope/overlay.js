@@ -21,6 +21,9 @@ var TabScope = {
 	// nsIPrefBranch
 	_branch: null,
 
+	// avail rectangle in screen
+	_availRect: null,
+
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
 		this._branch = Services.prefs.getBranch("extensions.tabscope.");
@@ -32,6 +35,14 @@ var TabScope = {
 		gBrowser.mTabContainer.addEventListener("TabSelect", this, false);
 		gBrowser.mTabContainer.addEventListener("TabClose", this, false);
 		gBrowser.mTabContainer.addEventListener("draggesture", this, false);
+		// cache avail rect
+		var svc = Cc["@mozilla.org/gfx/screenmanager;1"].getService(Ci.nsIScreenManager);
+		var left = {}, top = {}, width = {}, height = {};
+		svc.primaryScreen.GetAvailRect(left, top, width, height);
+		this._availRect = {
+			left: left.value, right: left.value + width.value,
+			top: top.value, bottom: top.value + height.value
+		};
 	},
 
 	uninit: function() {
@@ -43,6 +54,7 @@ var TabScope = {
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
+		this._availRect = null;
 		this._branch = null;
 		this.popup = null;
 		this._tab = null;
@@ -158,10 +170,6 @@ var TabScope = {
 			case "popupshown": 
 				if (this.popup.collapsed)
 					this.popup.collapsed = false;
-				// @see comment in _adjustPopupPosition
-				var alignment = parseInt(this.popup.getAttribute("popup_alignment"));
-				if (alignment == 1 || alignment == 3)
-					this._adjustPopupPosition(false);
 				break;
 			case "popuphiding": 
 				this.log("close popup");
@@ -228,14 +236,39 @@ var TabScope = {
 			return;
 		}
 		this._timerId = null;
-		// if popup_alignment is top, place toolbar at the bottom of popup
 		var alignment = this._branch.getIntPref("popup_alignment");
 		if (alignment == 0) {
 			alignment = (gBrowser.mTabContainer.orient == "horizontal")
 			          ? (gBrowser.boxObject.y < gBrowser.mTabContainer.boxObject.y ? 1 : 2)
 			          : (gBrowser.boxObject.x < gBrowser.mTabContainer.boxObject.x ? 3 : 4);
 		}
+		// correct popup alignment
+		// XXX if popup has never been opened, popup.boxObject.width and height are both 0
+		// in that case, estimate popup size based on preview size
+		var popup = this.popup.boxObject;
+		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + 10;
+		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + 40;
+		var tab = this._tab.boxObject;
+		switch (alignment) {
+			case 1: 
+				if (this._availRect.top > tab.screenY - popupHeight)
+					alignment = 2;
+				break;
+			case 2: 
+				if (this._availRect.bottom < tab.screenY + tab.height + popupHeight)
+					alignment = 1;
+				break;
+			case 3: 
+				if (this._availRect.left > tab.screenX - popupWidth)
+					alignment = 4;
+				break;
+			case 4: 
+				if (this._availRect.right < tab.screenX + tab.width + popupWidth)
+					alignment = 3;
+				break;
+		}
 		this.popup.setAttribute("popup_alignment", alignment.toString());
+		// if popup alignment is top, place toolbar at the bottom of popup
 		var toolbar = document.getElementById("tabscope-toolbar");
 		toolbar.setAttribute(alignment == 1 ? "bottom" : "top", "0");
 		toolbar.removeAttribute(alignment == 1 ? "top" : "bottom");
@@ -256,25 +289,29 @@ var TabScope = {
 	},
 
 	_adjustPopupPosition: function(aAnimate) {
-		// note that popup.boxObject.width and .height are 0px if popup has never been opened
-		// to fix wrong positioning, call _adjustPopupPosition in popupshown event handler
-		var box = this._tab.boxObject;
+		// XXX if popup has never been opened, popup.boxObject.width and height are both 0
+		// in that case, estimate popup size based on preview size
+		var popup = this.popup.boxObject;
+		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + 10;
+		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + 40;
+		var tab = this._tab.boxObject;
+		// determine screen coordinate whereto open popup
 		var x, y;
 		switch (parseInt(this.popup.getAttribute("popup_alignment"))) {
-			case 1: x = box.screenX; y = box.screenY - this.popup.boxObject.height; break;
-			case 2: x = box.screenX; y = box.screenY + box.height; break;
-			case 3: y = box.screenY; x = box.screenX - this.popup.boxObject.width; break;
-			case 4: y = box.screenY; x = box.screenX + box.width;  break;
+			case 1: x = tab.screenX; y = tab.screenY - popupHeight; break;
+			case 2: x = tab.screenX; y = tab.screenY + tab.height; break;
+			case 3: y = tab.screenY; x = tab.screenX - popupWidth; break;
+			case 4: y = tab.screenY; x = tab.screenX + tab.width; break;
 		}
 		// correct position to avoid popup auto-position
-		x = Math.max(x, 0);
-		y = Math.max(y, 0);
-		x = Math.min(x, window.screen.availWidth  - this.popup.boxObject.width);
-		y = Math.min(y, window.screen.availHeight - this.popup.boxObject.height);
+		x = Math.max(x, this._availRect.left);
+		y = Math.max(y, this._availRect.top);
+		x = Math.min(x, this._availRect.right  - popupWidth);
+		y = Math.min(y, this._availRect.bottom - popupHeight);
 		var lastX = parseInt(this.popup.style.marginLeft || 0);
 		var lastY = parseInt(this.popup.style.marginTop  || 0);
+		// if position will be same as current, no need to move popup
 		if (x == lastX && y == lastY)
-			// no need to change popup position
 			return;
 		// XXX to fix popup flicker problem when transition starts just after transtion ends...
 		// 1) add extremely small randomness to duration value
