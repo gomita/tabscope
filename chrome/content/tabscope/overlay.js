@@ -223,6 +223,7 @@ var TabScope = {
 						                 : gBrowser.pinTab(this._tab);
 						this.popup.hidePopup();
 						return;
+					case "zoom"   : this._togglePreviewSize(); break;
 					case "alltabs": allTabs.open(); this.popup.hidePopup(); return;
 					case "groups" : TabView.toggle(); this.popup.hidePopup(); return;
 					case "close"  : gBrowser.removeTab(this._tab); return;

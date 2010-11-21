@@ -88,12 +88,16 @@
 	-moz-image-region: rect(0px, 96px, 16px, 80px);
 }
 
-#tabscope-alltabs-button {
+#tabscope-zoom-button {
 	-moz-image-region: rect(0px, 112px, 16px, 96px);
 }
 
-#tabscope-groups-button {
+#tabscope-alltabs-button {
 	-moz-image-region: rect(0px, 128px, 16px, 112px);
+}
+
+#tabscope-groups-button {
+	-moz-image-region: rect(0px, 144px, 16px, 128px);
 }
 
 #tabscope-toolbar > toolbarbutton[disabled="true"] {
