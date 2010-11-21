@@ -3,6 +3,9 @@ var TabScope = {
 	// xul:panel element
 	popup: null,
 
+	// html:canvas element
+	canvas: null,
+
 	// xul:tab element which mouse pointer currently points to
 	_tab: null,
 
@@ -29,8 +32,8 @@ var TabScope = {
 
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
-		var canvas = document.getElementById("tabscope-preview");
-		canvas.addEventListener("transitionend", this, false);
+		this.canvas = document.getElementById("tabscope-preview");
+		this.canvas.addEventListener("transitionend", this, false);
 		this._branch = Services.prefs.getBranch("extensions.tabscope.");
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
@@ -59,12 +62,12 @@ var TabScope = {
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
-		var canvas = document.getElementById("tabscope-preview");
-		canvas.removeEventListener("transitionend", this, false);
-		this._availRect = null;
-		this._branch = null;
+		this.canvas.removeEventListener("transitionend", this, false);
+		this.canvas = null;
 		this.popup = null;
 		this._tab = null;
+		this._availRect = null;
+		this._branch = null;
 	},
 
 	handleEvent: function(event) {
@@ -238,7 +241,7 @@ var TabScope = {
 				// [Mac] XXX update preview before adjusting size, 
 				// otherwise preview becomes blank for a quick moment
 				this._updatePreview();
-				var canvas = document.getElementById("tabscope-preview");
+				var canvas = this.canvas;
 				canvas.width  = parseInt(canvas.style.width);
 				canvas.height = parseInt(canvas.style.height);
 				this._updatePreview();
@@ -358,7 +361,7 @@ var TabScope = {
 
 	_adjustPreviewSize: function(aAnimate) {
 		this.log("adjust preview size (" + aAnimate + ")");
-		var canvas = document.getElementById("tabscope-preview");
+		var canvas = this.canvas;
 		var width  = this._branch.getIntPref("preview_width");
 		var height = this._branch.getIntPref("preview_height");
 		if (this._zoomState) {
@@ -385,7 +388,7 @@ var TabScope = {
 
 	_updatePreview: function() {
 		this.log("update preview");
-		var canvas = document.getElementById("tabscope-preview");
+		var canvas = this.canvas;
 		var win = this._tab.linkedBrowser.contentWindow;
 		var w = win.innerWidth;
 		var scale = canvas.width / w;
@@ -405,7 +408,7 @@ var TabScope = {
 	},
 
 	_resetPreview: function() {
-		var canvas = document.getElementById("tabscope-preview");
+		var canvas = this.canvas;
 		var ctx = canvas.getContext("2d");
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		canvas.width = 0;
