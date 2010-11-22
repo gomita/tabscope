@@ -224,7 +224,7 @@ var TabScope = {
 					case "pin"    : 
 						this._tab.pinned ? gBrowser.unpinTab(this._tab)
 						                 : gBrowser.pinTab(this._tab);
-						this.popup.hidePopup();
+						this._adjustPopupPosition(true);
 						return;
 					case "zoom"   : this._togglePreviewSize(); break;
 					case "alltabs": allTabs.open(); this.popup.hidePopup(); return;
