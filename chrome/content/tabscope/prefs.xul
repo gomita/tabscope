@@ -12,7 +12,7 @@
 		<preferences>
 			<preference id="popup_alignment" name="extensions.tabscope.popup_alignment" type="int" />
 			<preference id="popup_delay" name="extensions.tabscope.popup_delay" type="int" />
-			<preference id="animate" name="extensions.tabscope.animate" type="int" />
+			<preference id="animate_move" name="extensions.tabscope.animate_move" type="int" />
 			<preference id="hovering" name="extensions.tabscope.hovering" type="bool" />
 			<preference id="preview_width" name="extensions.tabscope.preview_width" type="int" />
 			<preference id="preview_height" name="extensions.tabscope.preview_height" type="int" />
@@ -34,16 +34,6 @@
 			<textbox preference="popup_delay" type="number" increment="50" max="5000" size="4" />
 			<label value="&tabscope.popup_delay.2;" />
 		</hbox>
-		<hbox align="center">
-			<label value="&tabscope.animate;:" />
-			<radiogroup preference="animate" orient="horizontal">
-				<radio label="&tabscope.animate.none;"   value="0" />
-				<radio label="&tabscope.animate.fast;"   value="1" />
-				<radio label="&tabscope.animate.normal;" value="2" />
-				<radio label="&tabscope.animate.slow;"   value="3" />
-			</radiogroup>
-		</hbox>
-		<checkbox preference="hovering" label="&tabscope.hovering;" />
 		<groupbox>
 			<caption label="&tabscope.preview_size;" />
 			<hbox align="center">
@@ -54,6 +44,21 @@
 				<textbox preference="preview_height" type="number" increment="10" min="0" max="1000" size="4" />
 			</hbox>
 		</groupbox>
+		<groupbox>
+			<caption label="&tabscope.animate;" />
+			<radiogroup preference="animate_move" orient="horizontal"
+			            onsyncfrompreference="PrefsUI.readAnimatePref(this);"
+			            onsynctopreference="return PrefsUI.writeAnimatePref(this);">
+				<checkbox label="&tabscope.animate_move;" />
+				<spacer flex="1" />
+				<radio label="&tabscope.animate.slow;"   value="3" />
+				<radio label="&tabscope.animate.normal;" value="2" selected="true" />
+				<radio label="&tabscope.animate.fast;"   value="1" />
+			</radiogroup>
+		</groupbox>
+		<checkbox preference="hovering" label="&tabscope.hovering;" />
 	</prefpane>
+
+	<script type="application/x-javascript" src="chrome://tabscope/content/prefs.js" />
 
 </prefwindow>
