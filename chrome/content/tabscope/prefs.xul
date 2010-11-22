@@ -13,6 +13,7 @@
 			<preference id="popup_alignment" name="extensions.tabscope.popup_alignment" type="int" />
 			<preference id="popup_delay" name="extensions.tabscope.popup_delay" type="int" />
 			<preference id="animate_move" name="extensions.tabscope.animate_move" type="int" />
+			<preference id="animate_zoom" name="extensions.tabscope.animate_zoom" type="int" />
 			<preference id="hovering" name="extensions.tabscope.hovering" type="bool" />
 			<preference id="preview_width" name="extensions.tabscope.preview_width" type="int" />
 			<preference id="preview_height" name="extensions.tabscope.preview_height" type="int" />
@@ -50,6 +51,15 @@
 			            onsyncfrompreference="PrefsUI.readAnimatePref(this);"
 			            onsynctopreference="return PrefsUI.writeAnimatePref(this);">
 				<checkbox label="&tabscope.animate_move;" />
+				<spacer flex="1" />
+				<radio label="&tabscope.animate.slow;"   value="3" />
+				<radio label="&tabscope.animate.normal;" value="2" selected="true" />
+				<radio label="&tabscope.animate.fast;"   value="1" />
+			</radiogroup>
+			<radiogroup preference="animate_zoom" orient="horizontal"
+			            onsyncfrompreference="PrefsUI.readAnimatePref(this);"
+			            onsynctopreference="return PrefsUI.writeAnimatePref(this);">
+				<checkbox label="&tabscope.animate_zoom;" />
 				<spacer flex="1" />
 				<radio label="&tabscope.animate.slow;"   value="3" />
 				<radio label="&tabscope.animate.normal;" value="2" selected="true" />

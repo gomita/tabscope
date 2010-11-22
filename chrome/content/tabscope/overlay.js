@@ -368,14 +368,15 @@ var TabScope = {
 			width  *= 2;
 			height *= 2;
 		}
-		if (!aAnimate || !this._zoomState) {
+		var duration = aAnimate ? this._branch.getIntPref("animate_zoom") * 0.15 : 0;
+		if (duration == 0 || !this._zoomState) {
 			// when opening popup, update canvas size immediately
 			// when starting zoom-in, update canvas size on transitionend event
 			// when starting zoom-out, update canvas size immediately
 			canvas.width = width;
 			canvas.height = height;
 		}
-		canvas.style.MozTransitionDuration = aAnimate ? "0.3s" : "0s";
+		canvas.style.MozTransitionDuration = duration.toString() + "s";
 		canvas.style.width  = width.toString() + "px";
 		canvas.style.height = height.toString() + "px";
 	},

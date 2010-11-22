@@ -9,6 +9,7 @@
 <!ENTITY tabscope.popup_delay.2 "milliseconds">
 <!ENTITY tabscope.animate "Animations">
 <!ENTITY tabscope.animate_move "Popup move">
+<!ENTITY tabscope.animate_zoom "Preview zooming">
 <!ENTITY tabscope.animate.fast "Fast">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Slow">

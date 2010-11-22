@@ -9,6 +9,7 @@
 <!ENTITY tabscope.popup_delay.2 "ミリ秒">
 <!ENTITY tabscope.animate "アニメーション">
 <!ENTITY tabscope.animate_move "ポップアップの移動">
+<!ENTITY tabscope.animate_zoom "プレビューの拡大・縮小">
 <!ENTITY tabscope.animate.fast "速い">
 <!ENTITY tabscope.animate.normal "普通">
 <!ENTITY tabscope.animate.slow "遅い">
