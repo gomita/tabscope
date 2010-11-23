@@ -33,6 +33,7 @@ var TabScope = {
 	init: function() {
 		this.popup = document.getElementById("tabscope-popup");
 		this.canvas = document.getElementById("tabscope-preview");
+		this.popup.addEventListener("DOMMouseScroll", this, false);
 		this.canvas.addEventListener("transitionend", this, false);
 		this._branch = Services.prefs.getBranch("extensions.tabscope.");
 		// disable default tooltip of tabs
@@ -63,6 +64,7 @@ var TabScope = {
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
 		this.canvas.removeEventListener("transitionend", this, false);
+		this.popup.removeEventListener("DOMMouseScroll", this, false);
 		this.canvas = null;
 		this.popup = null;
 		this._tab = null;
@@ -214,6 +216,26 @@ var TabScope = {
 					case 1: this.popup.hidePopup(); break;
 					case 2: this._togglePreviewSize(); break;
 				}
+				break;
+			case "DOMMouseScroll": 
+				event.preventDefault();
+				event.stopPropagation();
+				// get real position
+				var rect = this.canvas.getBoundingClientRect();
+				var x = Math.round((event.clientX - rect.left) / this.canvas._scale);
+				var y = Math.round((event.clientY - rect.top)  / this.canvas._scale);
+				// get real element
+				var win = this._tab.linkedBrowser.contentWindow;
+				var elt = win.document.elementFromPoint(x, y);
+				if (!elt)
+					elt = win.document.body || win.document.documentElement;
+				while (/^i?frame$/.test(elt.localName.toLowerCase())) {
+					x -= elt.getBoundingClientRect().left;
+					y -= elt.getBoundingClientRect().top;
+					elt = elt.contentDocument.elementFromPoint(x, y);
+				}
+				elt.ownerDocument.defaultView.scrollByLines(event.detail);
+				this._updatePreview();
 				break;
 			case "command": 
 				switch (event.target.id.replace(/^tabscope-|-button$/g, "")) {
@@ -393,6 +415,7 @@ var TabScope = {
 		var win = this._tab.linkedBrowser.contentWindow;
 		var w = win.innerWidth;
 		var scale = canvas.width / w;
+		canvas._scale = scale;	// for later use
 		var h = canvas.height / scale;
 		var ctx = canvas.getContext("2d");
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
