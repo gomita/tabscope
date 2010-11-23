@@ -228,8 +228,8 @@ var TabScope = {
 				event.stopPropagation();
 				// get real position
 				var rect = this.canvas.getBoundingClientRect();
-				var x = Math.round((event.clientX - rect.left) / this.canvas._scale);
-				var y = Math.round((event.clientY - rect.top)  / this.canvas._scale);
+				var x = (event.clientX - rect.left) / this.canvas._scale;
+				var y = (event.clientY - rect.top)  / this.canvas._scale;
 				// get real element
 				var win = this._tab.linkedBrowser.contentWindow;
 				var elt = win.document.elementFromPoint(x, y);
@@ -317,7 +317,7 @@ var TabScope = {
 					alignment = 3;
 				break;
 		}
-		this.popup.setAttribute("popup_alignment", alignment.toString());
+		this.popup.setAttribute("_alignment", alignment.toString());
 		// if popup alignment is top, place toolbar at the bottom of popup
 		var toolbar = document.getElementById("tabscope-toolbar");
 		toolbar.setAttribute(alignment == 1 ? "bottom" : "top", "0");
@@ -339,7 +339,7 @@ var TabScope = {
 	},
 
 	_adjustPopupPosition: function(aAnimate) {
-		var alignment = parseInt(this.popup.getAttribute("popup_alignment"));
+		var alignment = parseInt(this.popup.getAttribute("_alignment"));
 		// XXX if popup has never been opened, popup.boxObject.width and height are both 0
 		// in that case, estimate popup size based on preview size
 		var popup = this.popup.boxObject;

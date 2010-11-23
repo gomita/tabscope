@@ -15,13 +15,13 @@
 	-moz-transition-property: width, height;
 }
 
-/* ::::: popup_alignment ::::: */
+/* ::::: alignment ::::: */
 
-#tabscope-popup[popup_alignment="1"] {
+#tabscope-popup[_alignment="1"] {
 	-moz-box-direction: reverse;
 }
 
-#tabscope-popup[popup_alignment="1"] #tabscope-title {
+#tabscope-popup[_alignment="1"] #tabscope-title {
 	margin: 0 0 5px 0 !important;
 }
 
