@@ -83,6 +83,9 @@ var TabScope = {
 				if (event.target == this._tab || event.target.localName != "tab")
 					// do nothing, keep popup open if it is opened
 					return;
+				// don't open popup for tab which is about to close
+				if (gBrowser._removingTabs.indexOf(event.target) > -1)
+					return;
 				// when mouse pointer moves from one tab to another before popup will open...
 				// cancel opening popup and restart timer in the following process
 				this._cancelDelayedOpen();
@@ -117,6 +120,9 @@ var TabScope = {
 					return;
 				// when mouse pointer moves from a tab to non-tab elements (e.g. new tab button)...
 				if (event.target.localName != "tab")
+					return;
+				// don't open popup for tab which is about to close
+				if (gBrowser._removingTabs.indexOf(event.target) > -1)
 					return;
 				// when mouse pointer moves from one tab to another, restart timer to open popup
 				this._cancelDelayedOpen();
