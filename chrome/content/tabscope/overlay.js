@@ -251,7 +251,7 @@ var TabScope = {
 					case "zoom"   : this._togglePreviewSize(); break;
 					case "alltabs": allTabs.open(); this.popup.hidePopup(); return;
 					case "groups" : TabView.toggle(); this.popup.hidePopup(); return;
-					case "close"  : gBrowser.removeTab(this._tab); return;
+					case "close"  : gBrowser.removeTab(this._tab, { animate: true }); return;
 					default: NS_ASSERT(false, "unknown command: " + event.target.id); return;
 				}
 				// update title and toolbar immediately after back/forward/reload/stop
