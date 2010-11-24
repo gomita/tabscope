@@ -17,3 +17,12 @@
 <!ENTITY tabscope.preview_size "Preview Size">
 <!ENTITY tabscope.preview_width "Width">
 <!ENTITY tabscope.preview_height "Height">
+<!ENTITY tabscope.clicks "Clicks on Popup">
+<!ENTITY tabscope.click.left "Left-click">
+<!ENTITY tabscope.click.middle "Middle-click">
+<!ENTITY tabscope.click.right "Right-click">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Select Tab">
+<!ENTITY tabscope.command.close "Close Tab">
+<!ENTITY tabscope.command.hide "Close Popup">
+<!ENTITY tabscope.command.zoom "Zoom Preview">

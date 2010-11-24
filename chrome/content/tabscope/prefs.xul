@@ -4,9 +4,10 @@
 
 <!DOCTYPE prefwindow SYSTEM "chrome://tabscope/locale/prefs.dtd">
 
-<prefwindow id="tabscopePrefWindow"
+<prefwindow id="tabscopePrefs"
             xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-            title="Tab Scope - &tabscope.options;">
+            title="Tab Scope - &tabscope.options;"
+            onload="PrefsUI.init();">
 
 	<prefpane id="generalPane" flex="1">
 		<preferences>
@@ -17,6 +18,9 @@
 			<preference id="hovering" name="extensions.tabscope.hovering" type="bool" />
 			<preference id="preview_width" name="extensions.tabscope.preview_width" type="int" />
 			<preference id="preview_height" name="extensions.tabscope.preview_height" type="int" />
+			<preference id="click.0" name="extensions.tabscope.click.0" type="string" />
+			<preference id="click.1" name="extensions.tabscope.click.1" type="string" />
+			<preference id="click.2" name="extensions.tabscope.click.2" type="string" />
 		</preferences>
 		<hbox align="center">
 			<label value="&tabscope.popup_alignment;:" />
@@ -66,7 +70,40 @@
 				<radio label="&tabscope.animate.fast;"   value="1" />
 			</radiogroup>
 		</groupbox>
-		<checkbox preference="hovering" label="&tabscope.hovering;" />
+		<checkbox preference="hovering" label="&tabscope.hovering;"
+		          onsyncfrompreference="PrefsUI.readHoveringPref();" />
+		<groupbox _uigroup="hovering">
+			<caption label="&tabscope.clicks;" />
+			<grid>
+				<columns>
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row align="center">
+						<label value="&tabscope.click.left;:" style="text-align: end;" />
+						<menulist preference="click.0" />
+					</row>
+					<row align="center">
+						<label value="&tabscope.click.middle;:" style="text-align: end;" />
+						<menulist preference="click.1" />
+					</row>
+					<row align="center">
+						<label value="&tabscope.click.right;:" style="text-align: end;" />
+						<menulist preference="click.2" />
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+		<box hidden="true">
+			<menupopup id="commands-popup">
+				<menuitem label="&tabscope.command.none;" value="" />
+				<menuitem label="&tabscope.command.select;" value="select" />
+				<menuitem label="&tabscope.command.close;" value="close" />
+				<menuitem label="&tabscope.command.hide;" value="hide" />
+				<menuitem label="&tabscope.command.zoom;" value="zoom" />
+			</menupopup>
+		</box>
 	</prefpane>
 
 	<script type="application/x-javascript" src="chrome://tabscope/content/prefs.js" />

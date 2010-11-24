@@ -17,3 +17,12 @@
 <!ENTITY tabscope.preview_size "プレビューサイズ">
 <!ENTITY tabscope.preview_width "幅">
 <!ENTITY tabscope.preview_height "高さ">
+<!ENTITY tabscope.clicks "ポップアップ上でのクリック">
+<!ENTITY tabscope.click.left "左クリック">
+<!ENTITY tabscope.click.middle "中クリック">
+<!ENTITY tabscope.click.right "右クリック">
+<!ENTITY tabscope.command.none "...">
+<!ENTITY tabscope.command.select "タブを選択">
+<!ENTITY tabscope.command.close "タブを閉じる">
+<!ENTITY tabscope.command.hide "ポップアップを閉じる">
+<!ENTITY tabscope.command.zoom "プレビューを拡大・縮小">

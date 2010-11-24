@@ -217,11 +217,7 @@ var TabScope = {
 				this.popup.hidePopup();
 				break;
 			case "click": 
-				switch (event.button) {
-					case 0: gBrowser.selectedTab = this._tab; break;
-					case 1: this.popup.hidePopup(); break;
-					case 2: this._togglePreviewSize(); break;
-				}
+				this._performAction(this._branch.getCharPref("click." + event.button));
 				break;
 			case "DOMMouseScroll": 
 				event.preventDefault();
@@ -244,25 +240,7 @@ var TabScope = {
 				this._updatePreview();
 				break;
 			case "command": 
-				switch (event.target.id.replace(/^tabscope-|-button$/g, "")) {
-					case "back"   : this._tab.linkedBrowser.goBack(); break;
-					case "forward": this._tab.linkedBrowser.goForward(); break;
-					case "reload" : this._tab.linkedBrowser.reload(); break;
-					case "stop"   : this._tab.linkedBrowser.stop(); break;
-					case "pin"    : 
-						this._tab.pinned ? gBrowser.unpinTab(this._tab)
-						                 : gBrowser.pinTab(this._tab);
-						this._adjustPopupPosition(true);
-						return;
-					case "zoom"   : this._togglePreviewSize(); break;
-					case "alltabs": allTabs.open(); this.popup.hidePopup(); return;
-					case "groups" : TabView.toggle(); this.popup.hidePopup(); return;
-					case "close"  : gBrowser.removeTab(this._tab, { animate: true }); return;
-					default: NS_ASSERT(false, "unknown command: " + event.target.id); return;
-				}
-				// update title and toolbar immediately after back/forward/reload/stop
-				this._updateTitle();
-				this._updateToolbar();
+				this._performAction(event.target.id.replace(/^tabscope-|-button$/g, ""));
 				break;
 			case "transitionend": 
 				this.log(event.type + " " + event.target.localName + " " + event.propertyName);
@@ -471,6 +449,29 @@ var TabScope = {
 		var loading = browser.webProgress.isLoadingDocument;
 		document.getElementById("tabscope-reload-button").hidden = loading;
 		document.getElementById("tabscope-stop-button").hidden = !loading;
+	},
+
+	_performAction: function(aCommand) {
+		switch (aCommand) {
+			case "select" : gBrowser.selectedTab = this._tab; return;
+			case "hide"   : this.popup.hidePopup(); return;
+			case "back"   : this._tab.linkedBrowser.goBack(); break;
+			case "forward": this._tab.linkedBrowser.goForward(); break;
+			case "reload" : this._tab.linkedBrowser.reload(); break;
+			case "stop"   : this._tab.linkedBrowser.stop(); break;
+			case "pin"    : 
+				gBrowser[this._tab.pinned ? "unpinTab" : "pinTab"](this._tab);
+				this._adjustPopupPosition(true);
+				return;
+			case "zoom"   : this._togglePreviewSize(); return;
+			case "alltabs": allTabs.open(); this.popup.hidePopup(); return;
+			case "groups" : TabView.toggle(); this.popup.hidePopup(); return;
+			case "close"  : gBrowser.removeTab(this._tab, { animate: true }); return;
+			default: return;
+		}
+		// update title and toolbar immediately after back/forward/reload/stop
+		this._updateTitle();
+		this._updateToolbar();
 	},
 
 	notify: function(aTimer) {
