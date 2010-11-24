@@ -26,3 +26,4 @@
 <!ENTITY tabscope.command.close "Close Tab">
 <!ENTITY tabscope.command.hide "Close Popup">
 <!ENTITY tabscope.command.zoom "Zoom Preview">
+<!ENTITY tabscope.command.emulate "Send Click Event">

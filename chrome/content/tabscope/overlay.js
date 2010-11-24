@@ -217,30 +217,17 @@ var TabScope = {
 				this.popup.hidePopup();
 				break;
 			case "click": 
-				this._performAction(this._branch.getCharPref("click." + event.button));
+				this._performAction(this._branch.getCharPref("click." + event.button), event);
 				break;
 			case "DOMMouseScroll": 
 				event.preventDefault();
 				event.stopPropagation();
-				// get real position
-				var rect = this.canvas.getBoundingClientRect();
-				var x = (event.clientX - rect.left) / this.canvas._scale;
-				var y = (event.clientY - rect.top)  / this.canvas._scale;
-				// get real element
-				var win = this._tab.linkedBrowser.contentWindow;
-				var elt = win.document.elementFromPoint(x, y);
-				if (!elt)
-					elt = win.document.body || win.document.documentElement;
-				while (/^i?frame$/.test(elt.localName.toLowerCase())) {
-					x -= elt.getBoundingClientRect().left;
-					y -= elt.getBoundingClientRect().top;
-					elt = elt.contentDocument.elementFromPoint(x, y);
-				}
+				var elt = this._elementFromPointOnPreview(event);
 				elt.ownerDocument.defaultView.scrollByLines(event.detail);
 				this._updatePreview();
 				break;
 			case "command": 
-				this._performAction(event.target.id.replace(/^tabscope-|-button$/g, ""));
+				this._performAction(event.target.id.replace(/^tabscope-|-button$/g, ""), event);
 				break;
 			case "transitionend": 
 				this.log(event.type + " " + event.target.localName + " " + event.propertyName);
@@ -451,7 +438,7 @@ var TabScope = {
 		document.getElementById("tabscope-stop-button").hidden = !loading;
 	},
 
-	_performAction: function(aCommand) {
+	_performAction: function(aCommand, event) {
 		switch (aCommand) {
 			case "select" : gBrowser.selectedTab = this._tab; return;
 			case "hide"   : this.popup.hidePopup(); return;
@@ -467,11 +454,40 @@ var TabScope = {
 			case "alltabs": allTabs.open(); this.popup.hidePopup(); return;
 			case "groups" : TabView.toggle(); this.popup.hidePopup(); return;
 			case "close"  : gBrowser.removeTab(this._tab, { animate: true }); return;
+			case "emulate": 
+				var elt = this._elementFromPointOnPreview(event);
+				var evt = elt.ownerDocument.createEvent("MouseEvents");
+				evt.initMouseEvent(
+					event.type, true, true, elt.ownerDocument.defaultView, event.detail,
+					0, 0, 0, 0,
+					event.ctrlKey, event.altKey, event.shiftKey, event.metaKey,
+					0, null
+				);
+				elt.dispatchEvent(evt);
+				break;
 			default: return;
 		}
 		// update title and toolbar immediately after back/forward/reload/stop
 		this._updateTitle();
 		this._updateToolbar();
+	},
+
+	_elementFromPointOnPreview: function(event) {
+		// get real position
+		var rect = this.canvas.getBoundingClientRect();
+		var x = (event.clientX - rect.left) / this.canvas._scale;
+		var y = (event.clientY - rect.top)  / this.canvas._scale;
+		// get real element
+		var win = this._tab.linkedBrowser.contentWindow;
+		var elt = win.document.elementFromPoint(x, y);
+		if (!elt)
+			elt = win.document.body || win.document.documentElement;
+		while (/^i?frame$/.test(elt.localName.toLowerCase())) {
+			x -= elt.getBoundingClientRect().left;
+			y -= elt.getBoundingClientRect().top;
+			elt = elt.contentDocument.elementFromPoint(x, y);
+		}
+		return elt;
 	},
 
 	notify: function(aTimer) {

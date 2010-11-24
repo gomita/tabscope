@@ -102,6 +102,7 @@
 				<menuitem label="&tabscope.command.close;" value="close" />
 				<menuitem label="&tabscope.command.hide;" value="hide" />
 				<menuitem label="&tabscope.command.zoom;" value="zoom" />
+				<menuitem label="&tabscope.command.emulate;" value="emulate" />
 			</menupopup>
 		</box>
 	</prefpane>
