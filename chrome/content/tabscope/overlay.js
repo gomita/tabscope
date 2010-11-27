@@ -106,6 +106,7 @@ var TabScope = {
 					this._tab = event.target;
 					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 					this._tab.addEventListener("TabAttrModified", this, false);
+					this._ensureTabIsRestored();
 					this._shouldUpdatePreview = false;
 					this._shouldUpdateTitle = false;
 					this._adjustPopupPosition(true);
@@ -171,6 +172,7 @@ var TabScope = {
 				this.log("open popup");
 				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 				this._tab.addEventListener("TabAttrModified", this, false);
+				this._ensureTabIsRestored();
 				this._shouldUpdatePreview = false;
 				this._shouldUpdateTitle = false;
 				this._timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
@@ -470,6 +472,11 @@ var TabScope = {
 		// update title and toolbar immediately after back/forward/reload/stop
 		this._updateTitle();
 		this._updateToolbar();
+	},
+
+	_ensureTabIsRestored: function() {
+		if (this._tab.linkedBrowser.__SS_restoreState == 1)
+			this._tab.linkedBrowser.reload();
 	},
 
 	_elementFromPointOnPreview: function(event) {
