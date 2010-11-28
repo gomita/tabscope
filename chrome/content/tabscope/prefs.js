@@ -1,6 +1,9 @@
 var PrefsUI = {
 
+	_beforeInit: true,
+
 	init: function() {
+		this._beforeInit = false;
 		// populate Left/Middle/Right-click menus
 		var popup = document.getElementById("commands-popup");
 		for (var i = 0; i < 3; i++) {
@@ -8,27 +11,28 @@ var PrefsUI = {
 			list.appendChild(popup.cloneNode(true));
 			list.value = list.value;
 		}
+		this.readAnimatePref("animate_move");
+		this.readAnimatePref("animate_zoom");
 	},
 
-	readAnimatePref: function(aRadioGroup) {
-		var val = document.getElementById(aRadioGroup.getAttribute("preference")).value;
-		// update checkbox
-		var checkbox = aRadioGroup.getElementsByTagName("checkbox")[0];
-		checkbox.checked = val > 0;
-		// update radio buttons
-		Array.forEach(aRadioGroup.getElementsByTagName("radio"), function(radio) {
-			if (val > 0)
-				radio.removeAttribute("disabled");
-			else
-				radio.setAttribute("disabled", "true");
-			if (radio.value == val)
-				aRadioGroup.selectedItem = radio;
-		});
+	readAnimatePref: function(aPrefName) {
+		var pref  = document.getElementById(aPrefName);
+		var check = document.querySelector("[_uigroup='" + aPrefName + "'] > checkbox");
+		var scale = document.querySelector("[_uigroup='" + aPrefName + "'] > scale");
+		check.checked = pref.value > 0;
+		scale.value = pref.value > 0 ? pref.value : pref.defaultValue;
+		scale.disabled = pref.value == 0;
 	},
 
-	writeAnimatePref: function(aRadioGroup) {
-		var checkbox = aRadioGroup.getElementsByTagName("checkbox")[0];
-		return checkbox.checked ? aRadioGroup.selectedItem.value : 0;
+	writeAnimatePref: function(aPrefName) {
+		// ignore scale's change event before onload
+		if (this._beforeInit)
+			return;
+		var pref  = document.getElementById(aPrefName);
+		var check = document.querySelector("[_uigroup='" + aPrefName + "'] > checkbox");
+		var scale = document.querySelector("[_uigroup='" + aPrefName + "'] > scale");
+		pref.value = check.checked ? scale.value : 0;
+		this.readAnimatePref(aPrefName);
 	},
 
 	readHoveringPref: function() {

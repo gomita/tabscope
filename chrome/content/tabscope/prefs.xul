@@ -51,24 +51,24 @@
 		</groupbox>
 		<groupbox>
 			<caption label="&tabscope.animate;" />
-			<radiogroup preference="animate_move" orient="horizontal"
-			            onsyncfrompreference="PrefsUI.readAnimatePref(this);"
-			            onsynctopreference="return PrefsUI.writeAnimatePref(this);">
-				<checkbox label="&tabscope.animate_move;" />
-				<spacer flex="1" />
-				<radio label="&tabscope.animate.slow;"   value="3" />
-				<radio label="&tabscope.animate.normal;" value="2" selected="true" />
-				<radio label="&tabscope.animate.fast;"   value="1" />
-			</radiogroup>
-			<radiogroup preference="animate_zoom" orient="horizontal"
-			            onsyncfrompreference="PrefsUI.readAnimatePref(this);"
-			            onsynctopreference="return PrefsUI.writeAnimatePref(this);">
-				<checkbox label="&tabscope.animate_zoom;" />
-				<spacer flex="1" />
-				<radio label="&tabscope.animate.slow;"   value="3" />
-				<radio label="&tabscope.animate.normal;" value="2" selected="true" />
-				<radio label="&tabscope.animate.fast;"   value="1" />
-			</radiogroup>
+			<hbox align="center" _uigroup="animate_move">
+				<checkbox label="&tabscope.animate_move;"
+				          oncommand="PrefsUI.writeAnimatePref('animate_move');" />
+				<spacer minwidth="10" flex="1" />
+				<label value="&tabscope.animate.slow;" />
+				<scale min="1" max="3" increment="1" movetoclick="true" dir="reverse"
+				       onchange="PrefsUI.writeAnimatePref('animate_move');" />
+				<label value="&tabscope.animate.fast;" />
+			</hbox>
+			<hbox align="center" _uigroup="animate_zoom">
+				<checkbox label="&tabscope.animate_zoom;"
+				          oncommand="PrefsUI.writeAnimatePref('animate_zoom');" />
+				<spacer minwidth="10" flex="1" />
+				<label value="&tabscope.animate.slow;" />
+				<scale min="1" max="3" increment="1" movetoclick="true" dir="reverse"
+				       onchange="PrefsUI.writeAnimatePref('animate_zoom');" />
+				<label value="&tabscope.animate.fast;" />
+			</hbox>
 		</groupbox>
 		<checkbox preference="hovering" label="&tabscope.hovering;"
 		          onsyncfrompreference="PrefsUI.readHoveringPref();" />
