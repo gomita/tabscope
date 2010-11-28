@@ -343,7 +343,7 @@ var TabScope = {
 		var duration = 0;
 		if (aAnimate) {
 			var delta = Math.max(Math.abs(x - lastX), Math.abs(y - lastY));
-			duration = delta * this._branch.getIntPref("animate_move") / 1000;
+			duration = delta / 250 * this._branch.getIntPref("animate_move") / 1000;
 			if (duration > 0)
 				duration = Math.max(0.2, duration) + Math.random() * 0.001;
 		}
@@ -363,7 +363,7 @@ var TabScope = {
 			width  *= 2;
 			height *= 2;
 		}
-		var duration = aAnimate ? this._branch.getIntPref("animate_zoom") * 0.15 : 0;
+		var duration = aAnimate ? this._branch.getIntPref("animate_zoom") / 1000 : 0;
 		if (duration == 0 || !this._zoomState) {
 			// when opening popup, update canvas size immediately
 			// when starting zoom-in, update canvas size on transitionend event

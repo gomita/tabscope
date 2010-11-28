@@ -20,7 +20,7 @@ var PrefsUI = {
 		var check = document.querySelector("[_uigroup='" + aPrefName + "'] > checkbox");
 		var scale = document.querySelector("[_uigroup='" + aPrefName + "'] > scale");
 		check.checked = pref.value > 0;
-		scale.value = pref.value > 0 ? pref.value : pref.defaultValue;
+		scale.value = (pref.value > 0 ? pref.value : pref.defaultValue) / 100;
 		scale.disabled = pref.value == 0;
 	},
 
@@ -31,7 +31,7 @@ var PrefsUI = {
 		var pref  = document.getElementById(aPrefName);
 		var check = document.querySelector("[_uigroup='" + aPrefName + "'] > checkbox");
 		var scale = document.querySelector("[_uigroup='" + aPrefName + "'] > scale");
-		pref.value = check.checked ? scale.value : 0;
+		pref.value = check.checked ? scale.value * 100 : 0;
 		this.readAnimatePref(aPrefName);
 	},
 
