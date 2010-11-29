@@ -23,7 +23,6 @@
 					<toolbarbutton id="tabscope-back-button" />
 					<toolbarbutton id="tabscope-forward-button" />
 					<toolbarbutton id="tabscope-reload-button" />
-					<toolbarbutton id="tabscope-stop-button" />
 					<toolbarbutton id="tabscope-pin-button" />
 					<toolbarbutton id="tabscope-zoom-button" />
 					<toolbarbutton id="tabscope-alltabs-button" />

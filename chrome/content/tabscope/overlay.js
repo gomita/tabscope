@@ -435,9 +435,11 @@ var TabScope = {
 		var browser = this._tab.linkedBrowser;
 		document.getElementById("tabscope-back-button").disabled = !browser.canGoBack;
 		document.getElementById("tabscope-forward-button").disabled = !browser.canGoForward;
-		var loading = browser.webProgress.isLoadingDocument;
-		document.getElementById("tabscope-reload-button").hidden = loading;
-		document.getElementById("tabscope-stop-button").hidden = !loading;
+		var reloadButton = document.getElementById("tabscope-reload-button");
+		if (browser.webProgress.isLoadingDocument)
+			reloadButton.setAttribute("_loading", "true");
+		else
+			reloadButton.removeAttribute("_loading");
 	},
 
 	_performAction: function(aCommand, event) {
@@ -446,8 +448,10 @@ var TabScope = {
 			case "hide"   : this.popup.hidePopup(); return;
 			case "back"   : this._tab.linkedBrowser.goBack(); break;
 			case "forward": this._tab.linkedBrowser.goForward(); break;
-			case "reload" : this._tab.linkedBrowser.reload(); break;
-			case "stop"   : this._tab.linkedBrowser.stop(); break;
+			case "reload" : 
+				event.target.hasAttribute("_loading") ? 
+				this._tab.linkedBrowser.stop() : this._tab.linkedBrowser.reload();
+				break;
 			case "pin"    : 
 				gBrowser[this._tab.pinned ? "unpinTab" : "pinTab"](this._tab);
 				this._adjustPopupPosition(true);

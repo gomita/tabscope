@@ -76,7 +76,7 @@
 	-moz-image-region: rect(0px, 48px, 16px, 32px);
 }
 
-#tabscope-stop-button {
+#tabscope-reload-button[_loading] {
 	-moz-image-region: rect(0px, 64px, 16px, 48px);
 }
 
