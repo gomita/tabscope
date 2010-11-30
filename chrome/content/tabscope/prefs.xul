@@ -25,6 +25,7 @@
 			<preference id="click.1" name="extensions.tabscope.click.1" type="string" />
 			<preference id="click.2" name="extensions.tabscope.click.2" type="string" />
 			<preference id="buttons" name="extensions.tabscope.buttons" type="string" />
+			<preference id="tab_exceptions" name="extensions.tabscope.tab_exceptions" type="int" />
 		</preferences>
 		<hbox align="center">
 			<label value="&tabscope.popup_alignment;:" />
@@ -43,6 +44,9 @@
 			<textbox preference="popup_delay" type="number" increment="50" max="5000" size="4" />
 			<label value="&tabscope.popup_delay.2;" />
 		</hbox>
+		<checkbox label="&tabscope.current_tab;" preference="tab_exceptions"
+		          onsyncfrompreference="return document.getElementById('tab_exceptions').value &amp; 1;"
+		          onsynctopreference="return this.checked ? 1 : 0;" />
 		<groupbox>
 			<caption label="&tabscope.preview_size;" />
 			<hbox align="center">

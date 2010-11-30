@@ -99,6 +99,12 @@ var TabScope = {
 				// don't open popup for tab which is about to close
 				if (gBrowser._removingTabs.indexOf(event.target) > -1)
 					return;
+				// don't open popup for an exceptional tab
+				if (this._branch.getIntPref("tab_exceptions") & 1 && 
+				    event.target == gBrowser.mCurrentTab) {
+					this._cancelDelayedOpen();
+					return;
+				}
 				// when mouse pointer moves from one tab to another before popup will open...
 				// cancel opening popup and restart timer in the following process
 				this._cancelDelayedOpen();

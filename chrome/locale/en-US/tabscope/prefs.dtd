@@ -7,6 +7,7 @@
 <!ENTITY tabscope.popup_alignment.right "on the right side of a tab">
 <!ENTITY tabscope.popup_delay.1 "Wait time to show popup">
 <!ENTITY tabscope.popup_delay.2 "milliseconds">
+<!ENTITY tabscope.current_tab "Don't show popup for the current tab">
 <!ENTITY tabscope.animate "Animations">
 <!ENTITY tabscope.animate_move "Popup move">
 <!ENTITY tabscope.animate_zoom "Preview zooming">
