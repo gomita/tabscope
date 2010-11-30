@@ -106,6 +106,12 @@
 	opacity: 0.35;
 }
 
+/* ::::: options ::::: */
+
+groupbox[_uigroup] > caption[disabled="true"] .caption-text {
+	color: GrayText;
+}
+
 /* ::::: Windows (except Classic and third-party themes) ::::: */
 
 #tabscope-popup:-moz-system-metric(windows-default-theme) {
