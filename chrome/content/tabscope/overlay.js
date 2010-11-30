@@ -252,9 +252,13 @@ var TabScope = {
 				break;
 			case "transitionend": 
 				this.log(event.type + " " + event.target.localName + " " + event.propertyName);
+				// ignore first width change, only handle second height change
+				if (event.propertyName != "height")
+					return;
 				// [Mac] XXX update preview before adjusting size, 
 				// otherwise preview becomes blank for a quick moment
-				this._updatePreview();
+				if (navigator.platform.indexOf("Mac") >= 0)
+					this._updatePreview();
 				var canvas = this.canvas;
 				canvas.width  = parseInt(canvas.style.width);
 				canvas.height = parseInt(canvas.style.height);
@@ -398,7 +402,9 @@ var TabScope = {
 	_togglePreviewSize: function() {
 		this._zoomState = !this._zoomState;
 		this._adjustPreviewSize(true);
-		this._updatePreview();
+		// update preview immediately only if starting zoom-in
+		if (!this._zoomState)
+			this._updatePreview();
 	},
 
 	_updatePreview: function() {
