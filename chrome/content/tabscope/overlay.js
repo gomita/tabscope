@@ -52,6 +52,7 @@ var TabScope = {
 			left: left.value, right: left.value + width.value,
 			top: top.value, bottom: top.value + height.value
 		};
+		this.loadPrefs();
 	},
 
 	uninit: function() {
@@ -70,6 +71,18 @@ var TabScope = {
 		this._tab = null;
 		this._availRect = null;
 		this._branch = null;
+	},
+
+	loadPrefs: function() {
+		var toolbar = document.getElementById("tabscope-toolbar");
+		var buttons = this._branch.getCharPref("buttons");
+		toolbar.hidden = !buttons;
+		if (toolbar.hidden)
+			return;
+		buttons = buttons.split(",");
+		Array.forEach(toolbar.getElementsByTagName("toolbarbutton"), function(elt) {
+			elt.hidden = buttons.indexOf(elt.id.replace(/^tabscope-|-button$/g, "")) < 0;
+		});
 	},
 
 	handleEvent: function(event) {

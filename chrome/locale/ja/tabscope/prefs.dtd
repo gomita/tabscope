@@ -27,3 +27,4 @@
 <!ENTITY tabscope.command.hide "ポップアップを閉じる">
 <!ENTITY tabscope.command.zoom "プレビューを拡大・縮小">
 <!ENTITY tabscope.command.emulate "クリックイベントを送信">
+<!ENTITY tabscope.buttons "ツールバーボタン">

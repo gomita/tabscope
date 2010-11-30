@@ -40,7 +40,8 @@
 	-moz-transition-timing-function: ease-out;
 }
 
-#tabscope-toolbar:hover {
+#tabscope-toolbar:hover,
+#tabscope-toolbar[_customizing] {
 	opacity: 1;
 }
 
@@ -100,8 +101,9 @@
 	-moz-image-region: rect(0px, 144px, 16px, 128px);
 }
 
-#tabscope-toolbar > toolbarbutton[disabled="true"] {
-	opacity: 0.4;
+#tabscope-toolbar > toolbarbutton[disabled="true"],
+#tabscope-toolbar[_customizing] > toolbarbutton:not([checked="true"]) {
+	opacity: 0.35;
 }
 
 /* ::::: Windows (except Classic and third-party themes) ::::: */

@@ -2,12 +2,15 @@
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 
+<?xml-stylesheet href="chrome://tabscope/skin/overlay.css" type="text/css"?>
+
 <!DOCTYPE prefwindow SYSTEM "chrome://tabscope/locale/prefs.dtd">
 
 <prefwindow id="tabscopePrefs"
             xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
             title="Tab Scope - &tabscope.options;"
-            onload="PrefsUI.init();">
+            onload="PrefsUI.init();"
+            ondialogaccept="PrefsUI.applyPrefsChange();">
 
 	<prefpane id="generalPane" flex="1">
 		<preferences>
@@ -21,6 +24,7 @@
 			<preference id="click.0" name="extensions.tabscope.click.0" type="string" />
 			<preference id="click.1" name="extensions.tabscope.click.1" type="string" />
 			<preference id="click.2" name="extensions.tabscope.click.2" type="string" />
+			<preference id="buttons" name="extensions.tabscope.buttons" type="string" />
 		</preferences>
 		<hbox align="center">
 			<label value="&tabscope.popup_alignment;:" />
@@ -95,6 +99,20 @@
 				</rows>
 			</grid>
 		</groupbox>
+		<hbox align="center" _uigroup="buttons">
+			<label value="&tabscope.buttons;:" />
+			<toolbar id="tabscope-toolbar" _customizing="true" style="margin: 2px;"
+			         oncommand="PrefsUI.writeButtonsPref();">
+				<toolbarbutton id="tabscope-back-button" type="checkbox" />
+				<toolbarbutton id="tabscope-forward-button" type="checkbox" />
+				<toolbarbutton id="tabscope-reload-button" type="checkbox" />
+				<toolbarbutton id="tabscope-pin-button" type="checkbox" />
+				<toolbarbutton id="tabscope-zoom-button" type="checkbox" />
+				<toolbarbutton id="tabscope-alltabs-button" type="checkbox" />
+				<toolbarbutton id="tabscope-groups-button" type="checkbox" />
+				<toolbarbutton id="tabscope-close-button" type="checkbox" />
+			</toolbar>
+		</hbox>
 		<box hidden="true">
 			<menupopup id="commands-popup">
 				<menuitem label="&tabscope.command.none;" value="" />

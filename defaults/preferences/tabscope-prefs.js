@@ -8,3 +8,4 @@ pref("extensions.tabscope.hovering", true);
 pref("extensions.tabscope.click.0", "emulate");
 pref("extensions.tabscope.click.1", "hide");
 pref("extensions.tabscope.click.2", "zoom");
+pref("extensions.tabscope.buttons", "back,forward,reload,pin,zoom,groups,close");
