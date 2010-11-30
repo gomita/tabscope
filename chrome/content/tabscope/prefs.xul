@@ -15,12 +15,12 @@
 	<prefpane id="generalPane" flex="1">
 		<preferences>
 			<preference id="popup_alignment" name="extensions.tabscope.popup_alignment" type="int" />
-			<preference id="popup_delay" name="extensions.tabscope.popup_delay" type="int" />
+			<preference id="popup_delay"     name="extensions.tabscope.popup_delay"     type="int" />
+			<preference id="popup_hovering"  name="extensions.tabscope.popup_hovering"  type="bool" />
+			<preference id="preview_width"  name="extensions.tabscope.preview_width"  type="int" />
+			<preference id="preview_height" name="extensions.tabscope.preview_height" type="int" />
 			<preference id="animate_move" name="extensions.tabscope.animate_move" type="int" />
 			<preference id="animate_zoom" name="extensions.tabscope.animate_zoom" type="int" />
-			<preference id="hovering" name="extensions.tabscope.hovering" type="bool" />
-			<preference id="preview_width" name="extensions.tabscope.preview_width" type="int" />
-			<preference id="preview_height" name="extensions.tabscope.preview_height" type="int" />
 			<preference id="click.0" name="extensions.tabscope.click.0" type="string" />
 			<preference id="click.1" name="extensions.tabscope.click.1" type="string" />
 			<preference id="click.2" name="extensions.tabscope.click.2" type="string" />
@@ -74,9 +74,9 @@
 				<label value="&tabscope.animate.fast;" />
 			</hbox>
 		</groupbox>
-		<checkbox preference="hovering" label="&tabscope.hovering;"
+		<checkbox preference="popup_hovering" label="&tabscope.hovering;"
 		          onsyncfrompreference="PrefsUI.readHoveringPref();" />
-		<groupbox _uigroup="hovering">
+		<groupbox _uigroup="clicks">
 			<caption label="&tabscope.clicks;" />
 			<grid>
 				<columns>

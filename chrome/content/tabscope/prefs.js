@@ -39,8 +39,8 @@ var PrefsUI = {
 	},
 
 	readHoveringPref: function() {
-		var enabled = document.getElementById("hovering").value;
-		var selector = ":-moz-any([_uigroup='hovering'], [_uigroup='buttons']) " + 
+		var enabled = document.getElementById("popup_hovering").value;
+		var selector = ":-moz-any([_uigroup='clicks'], [_uigroup='buttons']) " + 
 		               ":-moz-any(label, menulist, toolbarbutton)";
 		Array.forEach(document.querySelectorAll(selector), function(elt) {
 			if (enabled)

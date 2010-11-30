@@ -168,7 +168,7 @@ var TabScope = {
 				}
 				// since popup boxObject holds its size and position even if it is closed,
 				// should test with popup boxObject only if popup is open
-				if (this._branch.getBoolPref("hovering") && this.popup.state == "open") {
+				if (this._branch.getBoolPref("popup_hovering") && this.popup.state == "open") {
 					// when mouse pointer is hovering over popup...
 					box = this.popup.boxObject;
 					if (box.screenX <= x && x < box.screenX + box.width && 
@@ -442,7 +442,7 @@ var TabScope = {
 	},
 
 	_updateToolbar: function() {
-		if (!this._branch.getBoolPref("hovering"))
+		if (!this._branch.getBoolPref("popup_hovering"))
 			return;
 		this.log("update toolbar");
 		var browser = this._tab.linkedBrowser;
@@ -483,7 +483,7 @@ var TabScope = {
 					0, null
 				);
 				elt.dispatchEvent(evt);
-				break;
+				return;
 			default: return;
 		}
 		// update title and toolbar immediately after back/forward/reload/stop
