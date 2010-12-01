@@ -402,9 +402,10 @@ var TabScope = {
 	_togglePreviewSize: function() {
 		this._zoomState = !this._zoomState;
 		this._adjustPreviewSize(true);
-		// update preview immediately only if starting zoom-in
-		if (!this._zoomState)
-			this._updatePreview();
+		// no need to update preview immediately when starting to zoom-in with animation
+		if (this._zoomState && this._branch.getIntPref("animate_zoom") > 0)
+			return;
+		this._updatePreview();
 	},
 
 	_updatePreview: function() {
