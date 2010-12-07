@@ -394,7 +394,10 @@ var TabScope = {
 			canvas.width = width;
 			canvas.height = height;
 		}
+		// XXX hack to fix popup flicker problem @see _adjustPopupPosition
+		duration += Math.random() * 0.001;
 		canvas.style.MozTransitionDuration = duration.toString() + "s";
+		window.getComputedStyle(canvas, null).MozTransitionDuration;
 		canvas.style.width  = width.toString() + "px";
 		canvas.style.height = height.toString() + "px";
 	},
