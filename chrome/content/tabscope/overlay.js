@@ -380,7 +380,7 @@ var TabScope = {
 		var duration = 0;
 		if (aAnimate) {
 			var delta = Math.max(Math.abs(x - lastX), Math.abs(y - lastY));
-			duration = delta / 250 * this._branch.getIntPref("animate_move") / 1000;
+			duration = Math.min(1, delta / 250) * this._branch.getIntPref("animate_move") / 1000;
 			if (duration > 0)
 				duration = Math.max(0.2, duration) + Math.random() * 0.001;
 		}
