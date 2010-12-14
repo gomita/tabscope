@@ -10,3 +10,4 @@ pref("extensions.tabscope.click.1", "hide");
 pref("extensions.tabscope.click.2", "zoom");
 pref("extensions.tabscope.buttons", "back,forward,reload,pin,zoom,groups,close");
 pref("extensions.tabscope.tab_exceptions", 0);
+pref("extensions.tabscope.backmonitor", false);

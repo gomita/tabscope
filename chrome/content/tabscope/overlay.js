@@ -41,8 +41,9 @@ var TabScope = {
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseout", this, false);
-		gBrowser.mTabContainer.addEventListener("TabSelect", this, false);
+		gBrowser.mTabContainer.addEventListener("TabOpen", this, false);
 		gBrowser.mTabContainer.addEventListener("TabClose", this, false);
+		gBrowser.mTabContainer.addEventListener("TabSelect", this, false);
 		gBrowser.mTabContainer.addEventListener("draggesture", this, false);
 		// cache avail rect
 		var svc = Cc["@mozilla.org/gfx/screenmanager;1"].getService(Ci.nsIScreenManager);
@@ -57,9 +58,12 @@ var TabScope = {
 
 	uninit: function() {
 		this._cancelDelayedOpen();
+		// [backmonitor] should close popup explicitly
+		this.popup.hidePopup();
 		NS_ASSERT(this._timer === null, "timer is not cancelled.");
-		gBrowser.mTabContainer.removeEventListener("TabSelect", this, false);
+		gBrowser.mTabContainer.removeEventListener("TabOpen", this, false);
 		gBrowser.mTabContainer.removeEventListener("TabClose", this, false);
+		gBrowser.mTabContainer.removeEventListener("TabSelect", this, false);
 		gBrowser.mTabContainer.removeEventListener("draggesture", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mousemove", this, false);
@@ -89,6 +93,12 @@ var TabScope = {
 //		var rel = event.relatedTarget ? event.relatedTarget.localName : "null";
 //		this.log([event.type, event.target.localName, rel].join("\t"));
 		switch (event.type) {
+			case "TabOpen": 
+				if (!this._branch.getBoolPref("backmonitor"))
+					return;
+				if (document.querySelector("#main-window:-moz-window-inactive"))
+					// [backmonitor] disable if window is not active
+					return;
 			case "mouseover": 
 				// when mouse pointer moves inside a tab...
 				// when hovering on tab strip...
@@ -112,8 +122,9 @@ var TabScope = {
 					// when hovering on a tab...
 					// popup is currently closed, so open it with delay
 					this._tab = event.target;
-					var callback = function(self) { self._delayedOpenPopup(); };
-					var delay = this._branch.getIntPref("popup_delay");
+					var noAutoHide = event.type == "TabOpen";
+					var callback = function(self) { self._delayedOpenPopup(noAutoHide); };
+					var delay = noAutoHide ? 100 : this._branch.getIntPref("popup_delay");
 					this._timerId = window.setTimeout(callback, delay, this);
 					this.log("--- start timer (" + this._timerId + ")");
 				}
@@ -147,7 +158,7 @@ var TabScope = {
 				// when mouse pointer moves from one tab to another, restart timer to open popup
 				this._cancelDelayedOpen();
 				this._tab = event.target;
-				var callback = function(self) { self._delayedOpenPopup(); };
+				var callback = function(self) { self._delayedOpenPopup(false); };
 				var delay = this._branch.getIntPref("popup_delay");
 				this._timerId = window.setTimeout(callback, delay, this);
 				this.log("--- start timer again (" + this._timerId + ")");
@@ -267,14 +278,17 @@ var TabScope = {
 		}
 	},
 
-	_delayedOpenPopup: function() {
-		// if mouse pointer moves outside tab before callback...
-		// if any other popup e.g. tab context menu is opened...
-		if (this._tab.parentNode.querySelector(":hover") != this._tab || document.popupNode) {
-			// don't open popup
-			this._cancelDelayedOpen();
-			return;
+	_delayedOpenPopup: function(aNoAutoHide) {
+		if (!aNoAutoHide) {
+			// if mouse pointer moves outside tab before callback...
+			// if any other popup e.g. tab context menu is opened...
+			if (this._tab.parentNode.querySelector(":hover") != this._tab || document.popupNode) {
+				// don't open popup
+				this._cancelDelayedOpen();
+				return;
+			}
 		}
+		this.popup.setAttribute("noautohide", aNoAutoHide.toString());
 		this._timerId = null;
 		var alignment = this._branch.getIntPref("popup_alignment");
 		if (alignment == 0) {
@@ -531,12 +545,23 @@ var TabScope = {
 	},
 
 	notify: function(aTimer) {
-		// check mouse pointer is hovering over tab, otherwise close popup
-		if (this._tab.parentNode.querySelector(":hover") != this._tab && 
-		    this.popup.parentNode.querySelector(":hover") != this.popup) {
-			this.log("*** close popup with delay");
-			this.popup.hidePopup();
-			return;
+		if (this.popup.getAttribute("noautohide") == "true") {
+			// [backmonitor] don't allow to hover over popup if hovering is disabled
+			if (!this._branch.getBoolPref("popup_hovering") && 
+			    this.popup.parentNode.querySelector(":hover") == this.popup) {
+				this.log("*** close popup with delay");
+				this.popup.hidePopup();
+				return;
+			}
+		}
+		else {
+			// check mouse pointer is hovering over tab, otherwise close popup
+			if (this._tab.parentNode.querySelector(":hover") != this._tab && 
+			    this.popup.parentNode.querySelector(":hover") != this.popup) {
+				this.log("*** close popup with delay");
+				this.popup.hidePopup();
+				return;
+			}
 		}
 		if (this._shouldUpdatePreview) {
 			this._shouldUpdatePreview = false;

@@ -14,6 +14,8 @@
 <!ENTITY tabscope.animate.fast "Fast">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Slow">
+<!ENTITY tabscope.backmonitor "Enable background monitoring (experimental)">
+<!ENTITY tabscope.backmonitor.tooltiptext "When I open a new tab in background, automatically show popup for it.">
 <!ENTITY tabscope.hovering "Enable the mouse pointer hovering over the popup">
 <!ENTITY tabscope.preview_size "Preview Size">
 <!ENTITY tabscope.preview_width "Width">
