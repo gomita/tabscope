@@ -90,8 +90,8 @@ var TabScope = {
 	},
 
 	handleEvent: function(event) {
-//		var rel = event.relatedTarget ? event.relatedTarget.localName : "null";
-//		this.log([event.type, event.target.localName, rel].join("\t"));
+//		var rel = event.relatedTarget ? event.relatedTarget.localName : "null";	// #debug
+//		this.log([event.type, event.target.localName, rel].join("\t"));	// #debug
 		switch (event.type) {
 			case "TabOpen": 
 				if (!this._branch.getBoolPref("backmonitor"))
@@ -126,7 +126,7 @@ var TabScope = {
 					var callback = function(self) { self._delayedOpenPopup(noAutoHide); };
 					var delay = noAutoHide ? 100 : this._branch.getIntPref("popup_delay");
 					this._timerId = window.setTimeout(callback, delay, this);
-					this.log("--- start timer (" + this._timerId + ")");
+					this.log("--- start timer (" + this._timerId + ")");	// #debug
 				}
 				else {
 					// when mouse pointer moves from one tab to another...
@@ -161,7 +161,7 @@ var TabScope = {
 				var callback = function(self) { self._delayedOpenPopup(false); };
 				var delay = this._branch.getIntPref("popup_delay");
 				this._timerId = window.setTimeout(callback, delay, this);
-				this.log("--- start timer again (" + this._timerId + ")");
+				this.log("--- start timer again (" + this._timerId + ")");	// #debug
 				break;
 			case "mouseout": 
 				// don't handle events on non-tab elements e.g. arrowscrollbox
@@ -199,7 +199,7 @@ var TabScope = {
 				this.popup.hidePopup();
 				break;
 			case "popupshowing": 
-				this.log("open popup");
+				this.log("open popup");	// #debug
 				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 				this._tab.addEventListener("TabAttrModified", this, false);
 				this._ensureTabIsRestored();
@@ -223,7 +223,7 @@ var TabScope = {
 					this.popup.collapsed = false;
 				break;
 			case "popuphiding": 
-				this.log("close popup");
+				this.log("close popup");	// #debug
 				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 				this._tab.removeEventListener("TabAttrModified", this, false);
 				this._timer.cancel();
@@ -262,7 +262,7 @@ var TabScope = {
 				this._performAction(event.target.id.replace(/^tabscope-|-button$/g, ""), event);
 				break;
 			case "transitionend": 
-				this.log(event.type + " " + event.target.localName + " " + event.propertyName);
+				this.log(event.type + " " + event.target.localName + " " + event.propertyName);	// #debug
 				// ignore first width change, only handle second height change
 				if (event.propertyName != "height")
 					return;
@@ -336,7 +336,7 @@ var TabScope = {
 	_cancelDelayedOpen: function() {
 		if (!this._timerId)
 			return;
-		this.log("--- cancel timer (" + this._timerId + ")");
+		this.log("--- cancel timer (" + this._timerId + ")");	// #debug
 		window.clearTimeout(this._timerId);
 		this._timerId = null;
 		this._tab = null;
@@ -388,11 +388,11 @@ var TabScope = {
 		window.getComputedStyle(this.popup, null).MozTransitionDuration;
 		this.popup.style.marginLeft = x.toString() + "px";
 		this.popup.style.marginTop  = y.toString() + "px";
-		this.log("move popup (" + lastX + ", " + lastY + ") => (" + x + ", " + y + ") / " + duration);
+		this.log("move popup (" + lastX + ", " + lastY + ") => (" + x + ", " + y + ") / " + duration);	// #debug
 	},
 
 	_adjustPreviewSize: function(aAnimate) {
-		this.log("adjust preview size (" + aAnimate + ")");
+		this.log("adjust preview size (" + aAnimate + ")");	// #debug
 		var canvas = this.canvas;
 		var width  = this._branch.getIntPref("preview_width");
 		var height = this._branch.getIntPref("preview_height");
@@ -426,7 +426,7 @@ var TabScope = {
 	},
 
 	_updatePreview: function() {
-		this.log("update preview");
+		this.log("update preview");	// #debug
 		var canvas = this.canvas;
 		var win = this._tab.linkedBrowser.contentWindow;
 		var w = win.innerWidth;
@@ -457,7 +457,7 @@ var TabScope = {
 	},
 
 	_updateTitle: function() {
-		this.log("update title");
+		this.log("update title");	// #debug
 		var label = document.getElementById("tabscope-title");
 		label.value = this._tab.label;
 		label.setAttribute("tooltiptext", label.value);
@@ -474,7 +474,7 @@ var TabScope = {
 	_updateToolbar: function() {
 		if (!this._branch.getBoolPref("popup_hovering"))
 			return;
-		this.log("update toolbar");
+		this.log("update toolbar");	// #debug
 		var browser = this._tab.linkedBrowser;
 		document.getElementById("tabscope-back-button").disabled = !browser.canGoBack;
 		document.getElementById("tabscope-forward-button").disabled = !browser.canGoForward;
@@ -549,7 +549,7 @@ var TabScope = {
 			// [backmonitor] don't allow to hover over popup if hovering is disabled
 			if (!this._branch.getBoolPref("popup_hovering") && 
 			    this.popup.parentNode.querySelector(":hover") == this.popup) {
-				this.log("*** close popup with delay");
+				this.log("*** close popup with delay");	// #debug
 				this.popup.hidePopup();
 				return;
 			}
@@ -558,7 +558,7 @@ var TabScope = {
 			// check mouse pointer is hovering over tab, otherwise close popup
 			if (this._tab.parentNode.querySelector(":hover") != this._tab && 
 			    this.popup.parentNode.querySelector(":hover") != this.popup) {
-				this.log("*** close popup with delay");
+				this.log("*** close popup with delay");	// #debug
 				this.popup.hidePopup();
 				return;
 			}
