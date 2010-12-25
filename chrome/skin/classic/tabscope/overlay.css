@@ -108,8 +108,16 @@
 
 /* ::::: options ::::: */
 
-groupbox[_uigroup] > caption[disabled="true"] .caption-text {
-	color: GrayText;
+@-moz-document url("chrome://tabscope/content/prefs.xul") {
+
+	groupbox[_uigroup] > caption[disabled="true"] .caption-text {
+		color: GrayText;
+	}
+
+	toolbarbutton[type="checkbox"][checked="true"] {
+		padding: 2px !important;
+	}
+
 }
 
 /* ::::: Windows (except Classic and third-party themes) ::::: */
