@@ -545,23 +545,26 @@ var TabScope = {
 	},
 
 	notify: function(aTimer) {
+		var shouldClosePopup = false;
 		if (this.popup.getAttribute("noautohide") == "true") {
-			// [backmonitor] don't allow to hover over popup if hovering is disabled
+			// [backmonitor] close popup if on popup despite hovering is disabled
 			if (!this._branch.getBoolPref("popup_hovering") && 
-			    this.popup.parentNode.querySelector(":hover") == this.popup) {
-				this.log("*** close popup with delay");	// #debug
-				this.popup.hidePopup();
-				return;
-			}
+			    this.popup.parentNode.querySelector(":hover") == this.popup)
+				shouldClosePopup = true;
+			// [backmonitor] close popup if window is minimized
+			if (window.windowState == 2)
+				shouldClosePopup = true;
 		}
 		else {
-			// check mouse pointer is hovering over tab, otherwise close popup
+			// check mouse pointer is hovering over tab or popup, otherwise close popup
 			if (this._tab.parentNode.querySelector(":hover") != this._tab && 
-			    this.popup.parentNode.querySelector(":hover") != this.popup) {
-				this.log("*** close popup with delay");	// #debug
-				this.popup.hidePopup();
-				return;
-			}
+			    this.popup.parentNode.querySelector(":hover") != this.popup)
+				shouldClosePopup = true;
+		}
+		if (shouldClosePopup) {
+			this.log("*** close popup with delay");	// #debug
+			this.popup.hidePopup();
+			return;
 		}
 		if (this._shouldUpdatePreview) {
 			this._shouldUpdatePreview = false;
