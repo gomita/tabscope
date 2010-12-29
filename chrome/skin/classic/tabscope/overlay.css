@@ -53,7 +53,7 @@
 	width: 20px;
 	height: 20px;
 	background: none;
-	list-style-image: url("chrome://tabscope/skin/icons.png");
+	list-style-image: url("chrome://tabscope/skin/toolbar.png");
 }
 
 #tabscope-toolbar > toolbarbutton .toolbarbutton-icon {
