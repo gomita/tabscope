@@ -10,7 +10,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="48"
+   width="96"
    height="48"
    id="svg3129"
    version="1.1"
@@ -114,8 +114,9 @@
        inkscape:label="Drop shadow"
        width="1.5"
        height="1.5"
-       x="-.25"
-       y="-.25">
+       x="-0.25"
+       y="-0.25"
+       color-interpolation-filters="sRGB">
       <feGaussianBlur
          id="feGaussianBlur3164"
          in="SourceAlpha"
@@ -169,9 +170,9 @@
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(0.53125,0,0,0.53125,50.75,-494.81739)"
        x1="8"
-       y1="1012.3622"
+       y1="1010.4798"
        x2="8"
-       y2="1044.3622" />
+       y2="1048.1268" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3944"
@@ -182,6 +183,26 @@
        y1="22"
        x2="25"
        y2="31" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3761-8-0-4"
+       id="linearGradient3073"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.375,0,0,0.375,79,-329.63576)"
+       x1="16"
+       y1="1009.6954"
+       x2="16"
+       y2="1047.0287" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3845"
+       id="linearGradient3075"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.53846147,0,0,0.53846151,79.384615,-502.04115)"
+       x1="3"
+       y1="1023.3622"
+       x2="29"
+       y2="1049.3622" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -190,11 +211,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.6695505"
-     inkscape:cx="68.375221"
-     inkscape:cy="34.428016"
+     inkscape:zoom="6.5"
+     inkscape:cx="56.38182"
+     inkscape:cy="14.002485"
      inkscape:document-units="px"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="layer3"
      showgrid="true"
      inkscape:snap-grids="true"
      inkscape:window-width="1280"
@@ -218,7 +239,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -281,6 +302,22 @@
        width="17"
        id="rect3031"
        style="fill:url(#linearGradient3045);fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline" />
+    <rect
+       ry="2.0000174"
+       y="49"
+       x="81"
+       height="14"
+       width="14"
+       id="rect3046"
+       style="fill:url(#linearGradient3075);fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline" />
+    <rect
+       ry="1.5"
+       y="50"
+       x="82"
+       height="12"
+       width="12"
+       id="rect3030"
+       style="fill:url(#linearGradient3073);fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -382,6 +419,18 @@
        d="m 63,31 0,5 -5,0 0,1 5,0 0,5 1,0 0,-5 5,0 0,-1 -5,0 0,-5 -1,0 z"
        id="rect3077"
        inkscape:connector-curvature="0" />
+    <path
+       transform="translate(0,-16)"
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="m 88,51.000015 c -2.761424,0 -5,2.2386 -5,5 0,2.7614 2.238576,5 5,5 2.761424,0 5,-2.2386 5,-5 0,-2.7614 -2.238576,-5 -5,-5 z m 0,1 c 2.209139,0 4,1.7909 4,4 0,2.2091 -1.790861,4 -4,4 -2.209139,0 -4,-1.7909 -4,-4 0,-2.2091 1.790861,-4 4,-4 z"
+       id="path3842"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       d="m 87.5,35.5 0,4 -4,0 0,1 4,0 0,4 1,0 0,-4 4,0 0,-1 -4,0 0,-4 z"
+       id="rect3849"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccc" />
   </g>
   <g
      inkscape:label="tab"
@@ -419,7 +468,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="export"
-     style="opacity:0">
+     style="opacity:0;display:inline">
     <rect
        style="fill:#ffccff;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="icon48"
@@ -445,6 +494,19 @@
        inkscape:export-ydpi="90">
       <title
          id="title3851">icon32</title>
+    </rect>
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       style="fill:#ccf4cc;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       id="favicon"
+       width="16"
+       height="16"
+       x="80"
+       y="32"
+       ry="0">
+      <title
+         id="title3081">favicon</title>
     </rect>
   </g>
 </svg>
