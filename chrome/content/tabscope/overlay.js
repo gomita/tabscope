@@ -96,6 +96,11 @@ var TabScope = {
 			case "TabOpen": 
 				if (!this._branch.getBoolPref("backmonitor"))
 					return;
+				// [backmonitor] temporarily disable if mouse pointer is currently on tab or popup
+				if (this._tab && 
+				    (this._tab.parentNode.querySelector(":hover") == this._tab || 
+				     this.popup.parentNode.querySelector(":hover") == this.popup))
+					return;
 				if (document.querySelector("#main-window:-moz-window-inactive"))
 					// [backmonitor] disable if window is not active
 					return;
