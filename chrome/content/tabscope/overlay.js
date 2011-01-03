@@ -254,7 +254,7 @@ var TabScope = {
 			case "dblclick": 
 				// hide toolbar when double-clicking on spacer
 				if (event.button == 0 && event.target.localName == "spacer")
-					document.getElementById("tabscope-toolbar").hidden = true;
+					document.getElementById("tabscope-toolbar").collapsed = true;
 				break;
 			case "DOMMouseScroll": 
 				event.preventDefault();
@@ -480,7 +480,7 @@ var TabScope = {
 		if (!this._branch.getBoolPref("popup_hovering"))
 			return;
 		this.log("update toolbar");	// #debug
-		document.getElementById("tabscope-toolbar").hidden = false;
+		document.getElementById("tabscope-toolbar").collapsed = false;
 		var browser = this._tab.linkedBrowser;
 		document.getElementById("tabscope-back-button").disabled = !browser.canGoBack;
 		document.getElementById("tabscope-forward-button").disabled = !browser.canGoForward;
