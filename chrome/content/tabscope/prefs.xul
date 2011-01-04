@@ -59,7 +59,7 @@
 				<textbox preference="preview_height" type="number" increment="10" min="0" max="1000" size="4" />
 			</hbox>
 		</groupbox>
-		<groupbox>
+		<groupbox _uigroup="animate">
 			<caption label="&tabscope.animate;" />
 			<hbox align="center" _uigroup="animate_move">
 				<checkbox label="&tabscope.animate_move;"
@@ -79,6 +79,7 @@
 				       onchange="PrefsUI.writeAnimatePref('animate_zoom');" />
 				<label value="&tabscope.animate.fast;" />
 			</hbox>
+			<label id="animate_note" value="&tabscope.animate.note;" hidden="true" />
 		</groupbox>
 		<checkbox preference="backmonitor" label="&tabscope.backmonitor;"
 		          tooltiptext="&tabscope.backmonitor.tooltiptext;" />

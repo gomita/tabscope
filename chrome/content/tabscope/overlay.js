@@ -1,5 +1,11 @@
 var TabScope = {
 
+	// Firefox 3.6
+	_fx36: false,
+
+	// Mac OS X
+	_mac: false,
+
 	// xul:panel element
 	popup: null,
 
@@ -30,12 +36,20 @@ var TabScope = {
 	// zoom state of preview
 	_zoomState: false,
 
+	// [Firefox3.6] last time to hide popup
+	_lastHidingTime: null,
+
 	init: function() {
+		var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
+		this._fx36 = parseFloat(appInfo.version) < 4.0;
+		this._mac  = navigator.platform.indexOf("Mac") >= 0;
 		this.popup = document.getElementById("tabscope-popup");
 		this.canvas = document.getElementById("tabscope-preview");
 		this.popup.addEventListener("DOMMouseScroll", this, false);
 		this.canvas.addEventListener("transitionend", this, false);
-		this._branch = Services.prefs.getBranch("extensions.tabscope.");
+		// [Firefox3.6] use gPrefService instead of Services.prefs
+		this._branch = (this._fx36 ? gPrefService : Services.prefs).
+		               getBranch("extensions.tabscope.");
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseover", this, false);
@@ -80,6 +94,10 @@ var TabScope = {
 	loadPrefs: function() {
 		var toolbar = document.getElementById("tabscope-toolbar");
 		var buttons = this._branch.getCharPref("buttons");
+		// [Firefox3.6] exclude unsupported buttons
+		if (this._fx36)
+			buttons = buttons.split(",").
+			          filter(function(id) id != "pin" && id != "groups").join(",");
 		toolbar.hidden = !buttons || !this._branch.getBoolPref("popup_hovering");
 		if (toolbar.hidden)
 			return;
@@ -101,7 +119,8 @@ var TabScope = {
 				    (this._tab.parentNode.querySelector(":hover") == this._tab || 
 				     this.popup.parentNode.querySelector(":hover") == this.popup))
 					return;
-				if (document.querySelector("#main-window:-moz-window-inactive"))
+				// [Firefox3.6] :-moz-window-inactive pseudo class is unsupported
+				if (!this._fx36 && document.querySelector("#main-window:-moz-window-inactive"))
 					// [backmonitor] disable if window is not active
 					return;
 			case "mouseover": 
@@ -134,6 +153,14 @@ var TabScope = {
 					this.log("--- start timer (" + this._timerId + ")");	// #debug
 				}
 				else {
+					// [Firefox3.6] don't move popup, just close it and start dummy timer
+					if (this._fx36 && event.type == "mouseover") {
+						this.popup.hidePopup();
+						this._tab = event.target;
+						this._timerId = window.setTimeout(function() {}, 0);	// dummy
+						this.log("--- start dummy timer (" + this._timerId + ")");	// #debug
+						return;
+					}
 					// when mouse pointer moves from one tab to another...
 					// popup is already opened, so move it now
 					this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
@@ -164,7 +191,12 @@ var TabScope = {
 				this._cancelDelayedOpen();
 				this._tab = event.target;
 				var callback = function(self) { self._delayedOpenPopup(false); };
-				var delay = this._branch.getIntPref("popup_delay");
+				var delay;
+				// [Firefox3.6] if mouse pointer moves quickly, open popup with minimal delay
+				if (this._fx36 && Date.now() - this._lastHidingTime < 200)
+					delay = 10;
+				else
+					delay = this._branch.getIntPref("popup_delay");
 				this._timerId = window.setTimeout(callback, delay, this);
 				this.log("--- start timer again (" + this._timerId + ")");	// #debug
 				break;
@@ -188,9 +220,21 @@ var TabScope = {
 						// do nothing, keep popup open
 						return;
 				}
+				// [Firefox3.6][Mac] close popup when hovering over it if backmonitor is enabled
+				if (this._fx36 && this._mac)
+					this.popup.removeAttribute("noautohide");
 				// since popup boxObject holds its size and position even if it is closed,
 				// should test with popup boxObject only if popup is open
 				if (this._branch.getBoolPref("popup_hovering") && this.popup.state == "open") {
+					if (this._fx36 && this._mac) {
+						// [Firefox3.6][Mac] event.screenX and event.screenY have bogus values
+						// so, close popup *only* when mouse pointer moves from popup to browser
+						if (event.target == this.popup && 
+						    event.relatedTarget && event.relatedTarget.localName == "browser") {
+							this.popup.hidePopup();
+						}
+						return;
+					}
 					// when mouse pointer is hovering over popup...
 					box = this.popup.boxObject;
 					if (box.screenX <= x && x < box.screenX + box.width && 
@@ -237,6 +281,9 @@ var TabScope = {
 				this._resetTitle();
 				this.popup.removeAttribute("style");
 				this._tab = null;
+				// [Firefox3.6] remember the last time when popup hid
+				if (this._fx36)
+					this._lastHidingTime = Date.now();
 				break;
 			case "MozAfterPaint": 
 				this._shouldUpdatePreview = true;
@@ -278,7 +325,7 @@ var TabScope = {
 					return;
 				// [Mac] XXX update preview before adjusting size, 
 				// otherwise preview becomes blank for a quick moment
-				if (navigator.platform.indexOf("Mac") >= 0)
+				if (this._mac)
 					this._updatePreview();
 				var canvas = this.canvas;
 				canvas.width  = parseInt(canvas.style.width);
@@ -292,7 +339,19 @@ var TabScope = {
 		if (!aNoAutoHide) {
 			// if mouse pointer moves outside tab before callback...
 			// if any other popup e.g. tab context menu is opened...
-			if (this._tab.parentNode.querySelector(":hover") != this._tab || document.popupNode) {
+			var anotherPopupOpen;
+			if (this._fx36)
+				// [Firefox3.6] need to check each possible popup is open
+				anotherPopupOpen = (
+					document.getElementById("contentAreaContextMenu").state == "open" || 
+					document.getElementById("toolbar-context-menu").state == "open" || 
+					document.getElementById("allTabs-panel").state == "open" || 
+					document.getAnonymousElementByAttribute(
+						gBrowser, "anonid", "tabContextMenu").state == "open"
+				);
+			else
+				anotherPopupOpen = !!document.popupNode;
+			if (this._tab.parentNode.querySelector(":hover") != this._tab || anotherPopupOpen) {
 				// don't open popup
 				this._cancelDelayedOpen();
 				return;
@@ -336,6 +395,9 @@ var TabScope = {
 		var toolbar = document.getElementById("tabscope-toolbar");
 		toolbar.setAttribute(alignment == 1 ? "bottom" : "top", "0");
 		toolbar.removeAttribute(alignment == 1 ? "top" : "bottom");
+		// [Firefox3.6] bottom attribute has no effect, so adjust toolbar position later
+		if (this._fx36)
+			toolbar.setAttribute("top", "0");
 		// adjust popup position before opening popup
 		this._adjustPopupPosition(false);
 		// [Mac][Linux] don't eat clicks while popup is open
@@ -411,7 +473,8 @@ var TabScope = {
 			height *= 2;
 		}
 		var duration = aAnimate ? this._branch.getIntPref("animate_zoom") / 1000 : 0;
-		if (duration == 0 || !this._zoomState) {
+		if (this._fx36 || duration == 0 || !this._zoomState) {
+			// [Firefox3.6] update canvas size immediately without animation
 			// when opening popup, update canvas size immediately
 			// when starting zoom-in, update canvas size on transitionend event
 			// when starting zoom-out, update canvas size immediately
@@ -424,13 +487,21 @@ var TabScope = {
 		window.getComputedStyle(canvas, null).MozTransitionDuration;
 		canvas.style.width  = width.toString() + "px";
 		canvas.style.height = height.toString() + "px";
+		if (this._fx36) {
+			// [Firefox3.6] emulate xul:stack child's bottom attribute
+			var toolbar = document.getElementById("tabscope-toolbar");
+			toolbar.width = width;
+			var val = toolbar.getAttribute("bottom") ? height - 21 : 0;
+			toolbar.style.marginTop = val.toString() + "px";
+		}
 	},
 
 	_togglePreviewSize: function() {
 		this._zoomState = !this._zoomState;
 		this._adjustPreviewSize(true);
 		// no need to update preview immediately when starting to zoom-in with animation
-		if (this._zoomState && this._branch.getIntPref("animate_zoom") > 0)
+		// [Firefox3.6] update immeidately without animation
+		if (!this._fx36 && this._zoomState && this._branch.getIntPref("animate_zoom") > 0)
 			return;
 		this._updatePreview();
 	},
@@ -533,6 +604,9 @@ var TabScope = {
 	},
 
 	_ensureTabIsRestored: function() {
+		// [Firefox3.6] TAB_STATE_NEEDS_RESTORE is unsupported
+		if (this._fx36)
+			return;
 		if (this._tab.linkedBrowser.__SS_restoreState == 1)
 			this._tab.linkedBrowser.reload();
 	},
@@ -577,7 +651,8 @@ var TabScope = {
 			this._shouldUpdatePreview = false;
 			this._updatePreview();
 		}
-		if (this._shouldUpdateTitle) {
+		// [Firefox3.6] always update title since TabAttrModified event is unsupported
+		if (this._fx36 || this._shouldUpdateTitle) {
 			this._shouldUpdateTitle = false;
 			this._updateTitle();
 		}

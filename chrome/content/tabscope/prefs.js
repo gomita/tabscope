@@ -1,4 +1,5 @@
-Components.utils.import("resource://gre/modules/Services.jsm");
+const Cc = Components.classes;
+const Ci = Components.interfaces;
 
 var PrefsUI = {
 
@@ -16,6 +17,18 @@ var PrefsUI = {
 		this.readAnimatePref("animate_move");
 		this.readAnimatePref("animate_zoom");
 		this.readButtonsPref();
+		// [Firefox3.6] disable animate UI group and hide pin and groups button
+		var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
+		if (parseFloat(appInfo.version) < 4.0) {
+			var selector = "[_uigroup='animate'] *";
+			Array.forEach(document.querySelectorAll(selector), function(elt) {
+				elt.setAttribute("disabled", "true");
+			});
+			document.getElementById("tabscope-pin-button").hidden = true;
+			document.getElementById("tabscope-groups-button").hidden = true;
+			document.getElementById("animate_note").hidden = false;
+			document.getElementById("animate_note").disabled = false;
+		}
 	},
 
 	readAnimatePref: function(aPrefName) {
@@ -40,8 +53,7 @@ var PrefsUI = {
 
 	readHoveringPref: function() {
 		var enabled = document.getElementById("popup_hovering").value;
-		var selector = ":-moz-any([_uigroup='clicks'], [_uigroup='buttons']) " + 
-		               ":-moz-any(caption, label, menulist, toolbarbutton)";
+		var selector = "[_uigroup='clicks'] *, [_uigroup='buttons'] *";
 		Array.forEach(document.querySelectorAll(selector), function(elt) {
 			if (enabled)
 				elt.removeAttribute("disabled");
@@ -73,7 +85,9 @@ var PrefsUI = {
 	},
 
 	applyPrefsChange: function() {
-		var winEnum = Services.wm.getEnumerator("navigator:browser");
+		var winEnum = Cc["@mozilla.org/appshell/window-mediator;1"].
+		              getService(Ci.nsIWindowMediator).
+		              getEnumerator("navigator:browser");
 		while (winEnum.hasMoreElements()) {
 			winEnum.getNext().TabScope.loadPrefs();
 		}
