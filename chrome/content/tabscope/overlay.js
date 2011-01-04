@@ -120,8 +120,8 @@ var TabScope = {
 				     this.popup.parentNode.querySelector(":hover") == this.popup))
 					return;
 				// [Firefox3.6] :-moz-window-inactive pseudo class is unsupported
+				// [backmonitor] temporarily disable if window is inactive
 				if (!this._fx36 && document.querySelector("#main-window:-moz-window-inactive"))
-					// [backmonitor] disable if window is not active
 					return;
 			case "mouseover": 
 				// when mouse pointer moves inside a tab...
