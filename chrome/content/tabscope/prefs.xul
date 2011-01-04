@@ -16,7 +16,8 @@
 		<preferences>
 			<preference id="popup_alignment" name="extensions.tabscope.popup_alignment" type="int" />
 			<preference id="popup_delay"     name="extensions.tabscope.popup_delay"     type="int" />
-			<preference id="popup_hovering"  name="extensions.tabscope.popup_hovering"  type="bool" />
+			<preference id="popup_hovering"  name="extensions.tabscope.popup_hovering"  type="bool"
+			            onchange="PrefsUI.applyPrefsChange();" />
 			<preference id="preview_width"  name="extensions.tabscope.preview_width"  type="int" />
 			<preference id="preview_height" name="extensions.tabscope.preview_height" type="int" />
 			<preference id="animate_move" name="extensions.tabscope.animate_move" type="int" />

@@ -80,7 +80,7 @@ var TabScope = {
 	loadPrefs: function() {
 		var toolbar = document.getElementById("tabscope-toolbar");
 		var buttons = this._branch.getCharPref("buttons");
-		toolbar.hidden = !buttons;
+		toolbar.hidden = !buttons || !this._branch.getBoolPref("popup_hovering");
 		if (toolbar.hidden)
 			return;
 		buttons = buttons.split(",");
@@ -556,22 +556,18 @@ var TabScope = {
 	},
 
 	notify: function(aTimer) {
-		var shouldClosePopup = false;
-		if (this.popup.getAttribute("noautohide") == "true") {
-			// [backmonitor] close popup if on popup despite hovering is disabled
-			if (!this._branch.getBoolPref("popup_hovering") && 
-			    this.popup.parentNode.querySelector(":hover") == this.popup)
-				shouldClosePopup = true;
+		var shouldClosePopup;
+		var hovering = this._branch.getBoolPref("popup_hovering");
+		var onPopup = this.popup.parentNode.querySelector(":hover") == this.popup;
+		var onTab = this._tab.parentNode.querySelector(":hover") == this._tab;
+		if (this.popup.getAttribute("noautohide") == "true")
+			// [backmonitor] close popup if hovering over popup despite hovering is disabled
 			// [backmonitor] close popup if window is minimized
-			if (window.windowState == 2)
-				shouldClosePopup = true;
-		}
-		else {
-			// check mouse pointer is hovering over tab or popup, otherwise close popup
-			if (this._tab.parentNode.querySelector(":hover") != this._tab && 
-			    this.popup.parentNode.querySelector(":hover") != this.popup)
-				shouldClosePopup = true;
-		}
+			shouldClosePopup = !hovering && onPopup || window.windowState == 2;
+		else
+			// if hovering is enabled, close popup if not hovering over tab and popup
+			// if hovering is disabled, close popup if not hovering over tab
+			shouldClosePopup = hovering ? !onTab && !onPopup : !onTab;
 		if (shouldClosePopup) {
 			this.log("*** close popup with delay");	// #debug
 			this.popup.hidePopup();
