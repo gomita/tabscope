@@ -8,3 +8,18 @@ toolbarbutton[type="checkbox"][checked="true"] {
 	padding: 2px !important;
 }
 
+#zoom-button-normal, #zoom-button-active {
+	list-style-image: url("chrome://tabscope/skin/toolbar.png");
+	width: 16px;
+	height: 16px;
+	-moz-margin-start: 4px;
+}
+
+#zoom-button-normal {
+	-moz-image-region: rect(0px, 112px, 16px, 96px);
+}
+
+#zoom-button-active {
+	-moz-image-region: rect(16px, 112px, 32px, 96px);
+}
+

@@ -20,6 +20,7 @@
 			            onchange="PrefsUI.applyPrefsChange();" />
 			<preference id="preview_width"  name="extensions.tabscope.preview_width"  type="int" />
 			<preference id="preview_height" name="extensions.tabscope.preview_height" type="int" />
+			<preference id="zoom_ratio" name="extensions.tabscope.zoom_ratio" type="string" />
 			<preference id="animate_move" name="extensions.tabscope.animate_move" type="int" />
 			<preference id="animate_zoom" name="extensions.tabscope.animate_zoom" type="int" />
 			<preference id="click.0" name="extensions.tabscope.click.0" type="string" />
@@ -52,11 +53,18 @@
 		<groupbox>
 			<caption label="&tabscope.preview_size;" />
 			<hbox align="center">
+				<image id="zoom-button-normal" />
 				<label value="&tabscope.preview_width;:" />
 				<textbox preference="preview_width" type="number" increment="10" min="0" max="1000" size="4" />
 				<spacer width="10" />
 				<label value="&tabscope.preview_height;:" />
 				<textbox preference="preview_height" type="number" increment="10" min="0" max="1000" size="4" />
+			</hbox>
+			<hbox align="center">
+				<image id="zoom-button-active" />
+				<label value="&tabscope.zoom_ratio;:" />
+				<textbox preference="zoom_ratio" type="number"
+				         increment="0.1" decimalplaces="1" min="1.1" max="9.9" size="3" />
 			</hbox>
 		</groupbox>
 		<groupbox _uigroup="animate">

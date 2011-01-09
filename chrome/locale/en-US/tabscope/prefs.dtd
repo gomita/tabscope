@@ -21,6 +21,7 @@
 <!ENTITY tabscope.preview_size "Preview Size">
 <!ENTITY tabscope.preview_width "Width">
 <!ENTITY tabscope.preview_height "Height">
+<!ENTITY tabscope.zoom_ratio "Zoom ratio">
 <!ENTITY tabscope.clicks "Clicks on Popup">
 <!ENTITY tabscope.click.left "Left-click">
 <!ENTITY tabscope.click.middle "Middle-click">

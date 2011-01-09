@@ -21,6 +21,7 @@
 <!ENTITY tabscope.preview_size "プレビューサイズ">
 <!ENTITY tabscope.preview_width "幅">
 <!ENTITY tabscope.preview_height "高さ">
+<!ENTITY tabscope.zoom_ratio "拡大の倍率">
 <!ENTITY tabscope.clicks "ポップアップ上でのクリック">
 <!ENTITY tabscope.click.left "左クリック">
 <!ENTITY tabscope.click.middle "中クリック">

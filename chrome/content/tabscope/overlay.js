@@ -472,8 +472,9 @@ var TabScope = {
 		var width  = this._branch.getIntPref("preview_width");
 		var height = this._branch.getIntPref("preview_height");
 		if (this._zoomState) {
-			width  *= 2;
-			height *= 2;
+			var ratio = parseFloat(this._branch.getCharPref("zoom_ratio")) || 1.1;
+			width  *= ratio;
+			height *= ratio;
 		}
 		var duration = aAnimate ? this._branch.getIntPref("animate_zoom") / 1000 : 0;
 		if (this._fx36 || duration == 0 || !this._zoomState) {
