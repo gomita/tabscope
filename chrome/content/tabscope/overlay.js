@@ -560,11 +560,15 @@ var TabScope = {
 		var browser = this._tab.linkedBrowser;
 		document.getElementById("tabscope-back-button").disabled = !browser.canGoBack;
 		document.getElementById("tabscope-forward-button").disabled = !browser.canGoForward;
-		var reloadButton = document.getElementById("tabscope-reload-button");
-		if (browser.webProgress.isLoadingDocument)
-			reloadButton.setAttribute("_loading", "true");
-		else
-			reloadButton.removeAttribute("_loading");
+		var button = document.getElementById("tabscope-reload-button");
+		if (!button.hidden)
+			button.setAttribute("_loading", browser.webProgress.isLoadingDocument);
+		button = document.getElementById("tabscope-pin-button");
+		if (!button.hidden)
+			button.setAttribute("_active", this._tab.pinned);
+		button = document.getElementById("tabscope-zoom-button");
+		if (!button.hidden)
+			button.setAttribute("_active", this._zoomState);
 	},
 
 	_performAction: function(aCommand, event) {
@@ -574,14 +578,14 @@ var TabScope = {
 			case "back"   : this._tab.linkedBrowser.goBack(); break;
 			case "forward": this._tab.linkedBrowser.goForward(); break;
 			case "reload" : 
-				event.target.hasAttribute("_loading") ? 
+				event.target.getAttribute("_loading") == "true" ? 
 				this._tab.linkedBrowser.stop() : this._tab.linkedBrowser.reload();
 				break;
 			case "pin"    : 
 				gBrowser[this._tab.pinned ? "unpinTab" : "pinTab"](this._tab);
 				this._adjustPopupPosition(true);
-				return;
-			case "zoom"   : this._togglePreviewSize(); return;
+				break;
+			case "zoom"   : this._togglePreviewSize(); break;
 			case "alltabs": allTabs.open(); this.popup.hidePopup(); return;
 			case "groups" : TabView.toggle(); this.popup.hidePopup(); return;
 			case "close"  : gBrowser.removeTab(this._tab, { animate: true }); return;
@@ -598,7 +602,7 @@ var TabScope = {
 				return;
 			default: return;
 		}
-		// update title and toolbar immediately after back/forward/reload/stop
+		// update title and toolbar immediately after back/forward/reload/stop/pin/zoom
 		this._updateTitle();
 		this._updateToolbar();
 	},

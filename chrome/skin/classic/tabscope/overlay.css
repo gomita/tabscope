@@ -77,7 +77,7 @@
 	-moz-image-region: rect(0px, 48px, 16px, 32px);
 }
 
-#tabscope-reload-button[_loading] {
+#tabscope-reload-button[_loading="true"] {
 	-moz-image-region: rect(0px, 64px, 16px, 48px);
 }
 
@@ -89,8 +89,16 @@
 	-moz-image-region: rect(0px, 96px, 16px, 80px);
 }
 
+#tabscope-pin-button[_active="true"] {
+	-moz-image-region: rect(16px, 96px, 32px, 80px);
+}
+
 #tabscope-zoom-button {
 	-moz-image-region: rect(0px, 112px, 16px, 96px);
+}
+
+#tabscope-zoom-button[_active="true"] {
+	-moz-image-region: rect(16px, 112px, 32px, 96px);
 }
 
 #tabscope-alltabs-button {
