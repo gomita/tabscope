@@ -1,0 +1,10 @@
+/* ::::: options ::::: */
+
+groupbox[_uigroup] > caption[disabled="true"] .caption-text {
+	color: GrayText;
+}
+
+toolbarbutton[type="checkbox"][checked="true"] {
+	padding: 2px !important;
+}
+
