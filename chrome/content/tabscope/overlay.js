@@ -630,6 +630,11 @@ var TabScope = {
 		// get real element
 		var win = this._tab.linkedBrowser.contentWindow;
 		var elt = win.document.elementFromPoint(x, y);
+		// fix issue#6 cannot send click event if target is outside of the viewport
+		if (!elt)
+			elt = win.QueryInterface(Ci.nsIInterfaceRequestor).
+			      getInterface(Ci.nsIDOMWindowUtils).
+			      elementFromPoint(x, y, true, false);
 		if (!elt)
 			elt = win.document.body || win.document.documentElement;
 		while (/^i?frame$/.test(elt.localName.toLowerCase())) {
