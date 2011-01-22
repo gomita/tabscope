@@ -39,6 +39,16 @@
 				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
 			</Description>
 		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>pl</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Wyświetla podglądy kart i umożliwia nawigację w nich.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>Leszek(teo)Życzkowski</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
 		<em:optionsURL>chrome://tabscope/content/prefs.xul</em:optionsURL>
 		<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
 		<em:targetApplication>

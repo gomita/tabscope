@@ -5,4 +5,5 @@ locale	tabscope	en-US	chrome/locale/en-US/tabscope/
 locale	tabscope	ja	chrome/locale/ja/tabscope/
 locale	tabscope	sv-SE	chrome/locale/sv-SE/tabscope/
 locale	tabscope	vi	chrome/locale/vi/tabscope/
+locale	tabscope	pl	chrome/locale/pl/tabscope/
 skin	tabscope	classic/1.0	chrome/skin/classic/tabscope/

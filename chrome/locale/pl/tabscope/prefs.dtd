@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "opcje">
+<!ENTITY tabscope.popup_alignment "Miejsce wyświetlania podglądu">
+<!ENTITY tabscope.popup_alignment.auto "wykryj automatycznie">
+<!ENTITY tabscope.popup_alignment.top "na górze etykiety karty">
+<!ENTITY tabscope.popup_alignment.bottom "na dole etykiety karty">
+<!ENTITY tabscope.popup_alignment.left "po lewej stronie etykiety karty">
+<!ENTITY tabscope.popup_alignment.right "po prawej stronie etykiety karty">
+<!ENTITY tabscope.popup_delay.1 "Opóźnienie wyświetlenia podglądu">
+<!ENTITY tabscope.popup_delay.2 "ms">
+<!ENTITY tabscope.current_tab "Nie wyświetlaj podglądu aktywnej karty">
+<!ENTITY tabscope.animate "Animacje">
+<!ENTITY tabscope.animate_move "Przemieszczanie podglądu">
+<!ENTITY tabscope.animate_zoom "Skalowanie podglądu">
+<!ENTITY tabscope.animate.fast "Szybko">
+<!ENTITY tabscope.animate.normal "Normalnie">
+<!ENTITY tabscope.animate.slow "Wolno">
+<!ENTITY tabscope.animate.note "* Animacje są dostępne w Firefoksie 4.">
+<!ENTITY tabscope.backmonitor "Monitoruj karty otwierane w tle">
+<!ENTITY tabscope.backmonitor.tooltiptext "Gdy nowa karta jest otwierana w tle, będzie automatycznie wyświetlany jej podgląd.">
+<!ENTITY tabscope.hovering "Operuj wskaźnikiem myszy w podglądzie">
+<!ENTITY tabscope.preview_size "Wielkość okna podglądu">
+<!ENTITY tabscope.preview_width "Szerokość">
+<!ENTITY tabscope.preview_height "Wysokość">
+<!ENTITY tabscope.zoom_ratio "Współczynnik powiększania">
+<!ENTITY tabscope.clicks "Kliknięcia w podglądzie">
+<!ENTITY tabscope.click.left "Lewy przycisk myszy">
+<!ENTITY tabscope.click.middle "Środkowy przycisk myszy">
+<!ENTITY tabscope.click.right "Prawy przycisk myszy">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "uaktywnia kartę">
+<!ENTITY tabscope.command.close "zamyka kartę">
+<!ENTITY tabscope.command.hide "zamyka podgląd">
+<!ENTITY tabscope.command.zoom "skaluje podgląd">
+<!ENTITY tabscope.command.emulate "wysyła zdarzenie kliknięcia">
+<!ENTITY tabscope.buttons "Wyświetlane przyciski paska narzędzi">
