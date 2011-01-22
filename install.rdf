@@ -19,6 +19,16 @@
 				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
 			</Description>
 		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>sv-SE</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Förhandsgranskning och navigering av flikar m.h.a. popup-rutor.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>Mikael Hiort af Ornäs</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
 		<em:optionsURL>chrome://tabscope/content/prefs.xul</em:optionsURL>
 		<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
 		<em:targetApplication>

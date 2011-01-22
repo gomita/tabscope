@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Inställningar">
+<!ENTITY tabscope.popup_alignment "Placering av popup-ruta">
+<!ENTITY tabscope.popup_alignment.auto "identifiera automatiskt">
+<!ENTITY tabscope.popup_alignment.top "ovanför fliken">
+<!ENTITY tabscope.popup_alignment.bottom "under fliken">
+<!ENTITY tabscope.popup_alignment.left "på vänster sida om fliken">
+<!ENTITY tabscope.popup_alignment.right "på höger sida om fliken">
+<!ENTITY tabscope.popup_delay.1 "Fördröjning innan popup-ruta visas">
+<!ENTITY tabscope.popup_delay.2 "ms">
+<!ENTITY tabscope.current_tab "Visa inte popup-ruta för den aktiva fliken">
+<!ENTITY tabscope.animate "Animeringar">
+<!ENTITY tabscope.animate_move "Popup-rörelse">
+<!ENTITY tabscope.animate_zoom "Zooma förh.gr.">
+<!ENTITY tabscope.animate.fast "Snabb">
+<!ENTITY tabscope.animate.normal "Normal">
+<!ENTITY tabscope.animate.slow "Långsam">
+<!ENTITY tabscope.animate.note "* Animeringar är tillgängliga i Firefox 4.">
+<!ENTITY tabscope.backmonitor "Aktivera bakgrundsövervakning">
+<!ENTITY tabscope.backmonitor.tooltiptext "När jag öppnar en ny flik i bakgrunden, visa automatiskt en popup-ruta för den.">
+<!ENTITY tabscope.hovering "Aktivera muspekarhovring i själva popup-rutan">
+<!ENTITY tabscope.preview_size "Storlek på förhandsgranskning">
+<!ENTITY tabscope.preview_width "Bredd">
+<!ENTITY tabscope.preview_height "Höjd">
+<!ENTITY tabscope.zoom_ratio "Zoomningsförhållande">
+<!ENTITY tabscope.clicks "Klickning i popup-ruta">
+<!ENTITY tabscope.click.left "Vänsterklick">
+<!ENTITY tabscope.click.middle "Mittenklick">
+<!ENTITY tabscope.click.right "Högerklick">
+<!ENTITY tabscope.command.none "(ingen åtgärd)">
+<!ENTITY tabscope.command.select "Fokusera flik">
+<!ENTITY tabscope.command.close "Stäng flik">
+<!ENTITY tabscope.command.hide "Stäng popup-ruta">
+<!ENTITY tabscope.command.zoom "Zooma förhandsgranskning">
+<!ENTITY tabscope.command.emulate "Skicka musklickhändelse">
+<!ENTITY tabscope.buttons "Verktygsfältsknappar">

@@ -3,4 +3,5 @@ overlay	chrome://browser/content/browser.xul	chrome://tabscope/content/overlay.x
 content	tabscope	chrome/content/tabscope/
 locale	tabscope	en-US	chrome/locale/en-US/tabscope/
 locale	tabscope	ja	chrome/locale/ja/tabscope/
+locale	tabscope	sv-SE	chrome/locale/sv-SE/tabscope/
 skin	tabscope	classic/1.0	chrome/skin/classic/tabscope/
