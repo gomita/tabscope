@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Tùy chọn">
+<!ENTITY tabscope.popup_alignment "Căn chỉnh cửa sổ xem trước">
+<!ENTITY tabscope.popup_alignment.auto "tự động nhận diện">
+<!ENTITY tabscope.popup_alignment.top "nằm trên tab">
+<!ENTITY tabscope.popup_alignment.bottom "nằm dưới tab">
+<!ENTITY tabscope.popup_alignment.left "nằm phía bên trái của tab">
+<!ENTITY tabscope.popup_alignment.right "nằm phía bên phải của tab">
+<!ENTITY tabscope.popup_delay.1 "Thời gian đợi trước khi hiển thị cửa sổ xem trước">
+<!ENTITY tabscope.popup_delay.2 "mili-giây">
+<!ENTITY tabscope.current_tab "Không hiển thị cửa sổ xem trước cho tab đang xem">
+<!ENTITY tabscope.animate "Hoạt hình">
+<!ENTITY tabscope.animate_move "Di chuyển cửa sổ tự bung">
+<!ENTITY tabscope.animate_zoom "Phóng xem trước">
+<!ENTITY tabscope.animate.fast "Nhanh">
+<!ENTITY tabscope.animate.normal "Bình thường">
+<!ENTITY tabscope.animate.slow "Chậm">
+<!ENTITY tabscope.animate.note "* Hoạt hình có sẵn trên Firefox 4.">
+<!ENTITY tabscope.backmonitor "Bật chức năng theo dõi ngầm">
+<!ENTITY tabscope.backmonitor.tooltiptext "Khi tôi mở một thẻ mới dưới nền, tự động hiện tự bung cho nó.">
+<!ENTITY tabscope.hovering "Cho phép di chuột lên trên cửa sổ tự bung">
+<!ENTITY tabscope.preview_size "Kích thước xem trước">
+<!ENTITY tabscope.preview_width "Chiều rộng">
+<!ENTITY tabscope.preview_height "Chiều cao">
+<!ENTITY tabscope.zoom_ratio "Tỷ lệ phóng">
+<!ENTITY tabscope.clicks "Bấm vào cửa sổ tự bung">
+<!ENTITY tabscope.click.left "Bấm chuột trái">
+<!ENTITY tabscope.click.middle "Bấm chuột giữa">
+<!ENTITY tabscope.click.right "Bấm chuột phải">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Chọn thẻ">
+<!ENTITY tabscope.command.close "Đóng thẻ">
+<!ENTITY tabscope.command.hide "Đóng cửa sổ tự bung">
+<!ENTITY tabscope.command.zoom "Xem trước phóng to">
+<!ENTITY tabscope.command.emulate "Gửi bấm biến cố">
+<!ENTITY tabscope.buttons "Nút công cụ">

@@ -29,6 +29,16 @@
 				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
 			</Description>
 		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>vi</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>longnh</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
 		<em:optionsURL>chrome://tabscope/content/prefs.xul</em:optionsURL>
 		<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
 		<em:targetApplication>
