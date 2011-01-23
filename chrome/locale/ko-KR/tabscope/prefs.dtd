@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "선택사항">
+<!ENTITY tabscope.popup_alignment "팝업 표시 위치">
+<!ENTITY tabscope.popup_alignment.auto "자동 감지">
+<!ENTITY tabscope.popup_alignment.top "탭 위쪽">
+<!ENTITY tabscope.popup_alignment.bottom "탭 아래쪽">
+<!ENTITY tabscope.popup_alignment.left "탭 왼쪽">
+<!ENTITY tabscope.popup_alignment.right "탭 오른쪽">
+<!ENTITY tabscope.popup_delay.1 "팝업 표시 대기 시간">
+<!ENTITY tabscope.popup_delay.2 "밀리초">
+<!ENTITY tabscope.current_tab "현재 탭에 대해서 팝업 표시 안함">
+<!ENTITY tabscope.animate "애니메이션">
+<!ENTITY tabscope.animate_move "팝업 이동">
+<!ENTITY tabscope.animate_zoom "미리보기 확대">
+<!ENTITY tabscope.animate.fast "빠름">
+<!ENTITY tabscope.animate.normal "보통">
+<!ENTITY tabscope.animate.slow "느림">
+<!ENTITY tabscope.animate.note "* 애니메이션은 Firefox 4에서 사용할 수 있습니다.">
+<!ENTITY tabscope.backmonitor "배경 모니터링 활성화">
+<!ENTITY tabscope.backmonitor.tooltiptext "배경으로 새 탭을 열었을 때, 자동으로 팝업을 표시합니다.">
+<!ENTITY tabscope.hovering "팝업 위로 마우스 포인터 가져가기 허용">
+<!ENTITY tabscope.preview_size "미리보기 크기">
+<!ENTITY tabscope.preview_width "폭">
+<!ENTITY tabscope.preview_height "높이">
+<!ENTITY tabscope.zoom_ratio "배율">
+<!ENTITY tabscope.clicks "팝업 위를 클릭">
+<!ENTITY tabscope.click.left "왼쪽 클릭">
+<!ENTITY tabscope.click.middle "가운데 클릭">
+<!ENTITY tabscope.click.right "오른쪽 클릭">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "탭 선택">
+<!ENTITY tabscope.command.close "탭 닫기">
+<!ENTITY tabscope.command.hide "팝업 닫기">
+<!ENTITY tabscope.command.zoom "미리보기 배율">
+<!ENTITY tabscope.command.emulate "클릭 이벤트 보냄">
+<!ENTITY tabscope.buttons "도구막대 버튼">

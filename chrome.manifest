@@ -8,4 +8,5 @@ locale	tabscope	vi	chrome/locale/vi/tabscope/
 locale	tabscope	pl	chrome/locale/pl/tabscope/
 locale	tabscope	he	chrome/locale/he/tabscope/
 locale	tabscope	zh-CN	chrome/locale/zh-CN/tabscope/
+locale	tabscope	ko-KR	chrome/locale/ko-KR/tabscope/
 skin	tabscope	classic/1.0	chrome/skin/classic/tabscope/
