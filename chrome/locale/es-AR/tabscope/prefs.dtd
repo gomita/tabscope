@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Opciones">
+<!ENTITY tabscope.popup_alignment "Alineación del mensaje emergente">
+<!ENTITY tabscope.popup_alignment.auto "detectar automáticamente">
+<!ENTITY tabscope.popup_alignment.top "sobre la pestaña">
+<!ENTITY tabscope.popup_alignment.bottom "bajo la pestaña">
+<!ENTITY tabscope.popup_alignment.left "sobre la izquierda de la pestaña">
+<!ENTITY tabscope.popup_alignment.right "sobre la derecha de la pestaña">
+<!ENTITY tabscope.popup_delay.1 "Tiempo de espera para mostrar cuadro emergente">
+<!ENTITY tabscope.popup_delay.2 "milisegundos">
+<!ENTITY tabscope.current_tab "No mostrar avisos emergentes para la pestaña actual">
+<!ENTITY tabscope.animate "Animaciones">
+<!ENTITY tabscope.animate_move "Mover Aviso Emergente">
+<!ENTITY tabscope.animate_zoom "Vista previa apliada">
+<!ENTITY tabscope.animate.fast "Rápido">
+<!ENTITY tabscope.animate.normal "Normal">
+<!ENTITY tabscope.animate.slow "Lento">
+<!ENTITY tabscope.animate.note "Las Animaciones están disponibles para Firefox 4.">
+<!ENTITY tabscope.backmonitor "Habilitar monitoreo en segundo plano">
+<!ENTITY tabscope.backmonitor.tooltiptext "Al abrir una pestaña en segundo plano, mostrar un mensaje emergente en forma automática.">
+<!ENTITY tabscope.hovering "Habilitar el paso del mouse sobre el mensaje emergente">
+<!ENTITY tabscope.preview_size "Tamaño de la Vista Previa">
+<!ENTITY tabscope.preview_width "Ancho">
+<!ENTITY tabscope.preview_height "Alto">
+<!ENTITY tabscope.zoom_ratio "Proporción de ampliación">
+<!ENTITY tabscope.clicks "Clicks sobre Mensaje Emergente">
+<!ENTITY tabscope.click.left "Click Izquierdo">
+<!ENTITY tabscope.click.middle "Click Medio">
+<!ENTITY tabscope.click.right "Click Derecho">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Elegir Pestaña">
+<!ENTITY tabscope.command.close "Cerrar Pestaña">
+<!ENTITY tabscope.command.hide "Cerrar Aviso Emergente">
+<!ENTITY tabscope.command.zoom "Vista Previa Ampliada">
+<!ENTITY tabscope.command.emulate "Enviar Evento Click">
+<!ENTITY tabscope.buttons "Botones de la Barra de Herramientas">
