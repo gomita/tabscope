@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Opciones">
+<!ENTITY tabscope.popup_alignment "Alineación de la ventana emergente">
+<!ENTITY tabscope.popup_alignment.auto "detectar automáticamente">
+<!ENTITY tabscope.popup_alignment.top "en la parte superior de la pestaña">
+<!ENTITY tabscope.popup_alignment.bottom "en la parte inferior de la pestaña">
+<!ENTITY tabscope.popup_alignment.left "en la parte izquierda de la pestaña">
+<!ENTITY tabscope.popup_alignment.right "en la parte derecha de la pestaña">
+<!ENTITY tabscope.popup_delay.1 "Tiempo de espera para mostrar la ventana emergente">
+<!ENTITY tabscope.popup_delay.2 "milisegundos">
+<!ENTITY tabscope.current_tab "No mostrar la ventana emergente para la pestaña actual">
+<!ENTITY tabscope.animate "Animaciones">
+<!ENTITY tabscope.animate_move "Movimiento emergente">
+<!ENTITY tabscope.animate_zoom "Zoom de la vista previa">
+<!ENTITY tabscope.animate.fast "Rápido">
+<!ENTITY tabscope.animate.normal "Normal">
+<!ENTITY tabscope.animate.slow "Lento">
+<!ENTITY tabscope.animate.note "* Las animaciones están disponibles en Firefox 4.">
+<!ENTITY tabscope.backmonitor "Habilitar la monitorización en segundo plano.">
+<!ENTITY tabscope.backmonitor.tooltiptext "Cuando se abra una nueva pestaña en segundo plano, abrir la ventana automáticamente.">
+<!ENTITY tabscope.hovering "Habilitar el puntero del ratón sobre la ventana emergente">
+<!ENTITY tabscope.preview_size "Tamaño de vista previa">
+<!ENTITY tabscope.preview_width "Ancho">
+<!ENTITY tabscope.preview_height "Alto">
+<!ENTITY tabscope.zoom_ratio "Relación de zoom">
+<!ENTITY tabscope.clicks "Clicks en ventanas emergentes">
+<!ENTITY tabscope.click.left "Click Izquierdo">
+<!ENTITY tabscope.click.middle "Click central">
+<!ENTITY tabscope.click.right "Click derecho">
+<!ENTITY tabscope.command.none "...">
+<!ENTITY tabscope.command.select "Seleccionar pestaña">
+<!ENTITY tabscope.command.close "Cerrar pestaña">
+<!ENTITY tabscope.command.hide "Cerrar ventana emergente">
+<!ENTITY tabscope.command.zoom "Zoom de la vista previa">
+<!ENTITY tabscope.command.emulate "Enviar evento de click">
+<!ENTITY tabscope.buttons "Botones de la barra de herramientas">
