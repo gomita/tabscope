@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Opções">
+<!ENTITY tabscope.popup_alignment "Alinhamento do popup">
+<!ENTITY tabscope.popup_alignment.auto "auto-detecção">
+<!ENTITY tabscope.popup_alignment.top "no topo da aba">
+<!ENTITY tabscope.popup_alignment.bottom "abaixo da aba">
+<!ENTITY tabscope.popup_alignment.left "do lado esquerdo da aba">
+<!ENTITY tabscope.popup_alignment.right "do lado direito da aba">
+<!ENTITY tabscope.popup_delay.1 "Tempo de espera para mostrar popup">
+<!ENTITY tabscope.popup_delay.2 "milissegundos">
+<!ENTITY tabscope.current_tab "Não mostrar popup para aba corrente">
+<!ENTITY tabscope.animate "Animações">
+<!ENTITY tabscope.animate_move "Mover Popup">
+<!ENTITY tabscope.animate_zoom "Zoom da pré-visualização">
+<!ENTITY tabscope.animate.fast "Rápido">
+<!ENTITY tabscope.animate.normal "Normal">
+<!ENTITY tabscope.animate.slow "Devagar">
+<!ENTITY tabscope.animate.note "* Animações estão disponíveis no Firefox 4.">
+<!ENTITY tabscope.backmonitor "Habilitar monitoramento de segundo plano">
+<!ENTITY tabscope.backmonitor.tooltiptext "Quando eu abrir uma nova aba em segundo plano, automaticamente mostrar um popup para isso.">
+<!ENTITY tabscope.hovering "Ativar o ponteiro do mouse pairar sobre o pop-up">
+<!ENTITY tabscope.preview_size "Pré visualização do site">
+<!ENTITY tabscope.preview_width "Largura">
+<!ENTITY tabscope.preview_height "Altura">
+<!ENTITY tabscope.zoom_ratio "Taxa de Zoom">
+<!ENTITY tabscope.clicks "Cliques em Popup">
+<!ENTITY tabscope.click.left "Clique com botão esquerdo">
+<!ENTITY tabscope.click.middle "Clique com botão do meio">
+<!ENTITY tabscope.click.right "Clique com botão direito">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Selecionar aba">
+<!ENTITY tabscope.command.close "Fecha aba">
+<!ENTITY tabscope.command.hide "Fechar Popup">
+<!ENTITY tabscope.command.zoom "Pre-visualização com Zoom">
+<!ENTITY tabscope.command.emulate "Enviar evento do clique">
+<!ENTITY tabscope.buttons "Botão da barra de ferramentas">
