@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Опције">
+<!ENTITY tabscope.popup_alignment "Поравнање искачућег прозора">
+<!ENTITY tabscope.popup_alignment.auto "аутоматско препознавање">
+<!ENTITY tabscope.popup_alignment.top "изнад језичка">
+<!ENTITY tabscope.popup_alignment.bottom "испод језичка">
+<!ENTITY tabscope.popup_alignment.left "лево од језичка">
+<!ENTITY tabscope.popup_alignment.right "десно од језичка">
+<!ENTITY tabscope.popup_delay.1 "Време док се не појави искачући прозор">
+<!ENTITY tabscope.popup_delay.2 "милисекунди">
+<!ENTITY tabscope.current_tab "Не приказуј искачући прозор за тренутни језичак">
+<!ENTITY tabscope.animate "Анимације">
+<!ENTITY tabscope.animate_move "Премештање искачућег прозора">
+<!ENTITY tabscope.animate_zoom "Преглед зумирања">
+<!ENTITY tabscope.animate.fast "брзо">
+<!ENTITY tabscope.animate.normal "нормално">
+<!ENTITY tabscope.animate.slow "споро">
+<!ENTITY tabscope.animate.note "* анимације су доступне у Фајерфоксу 4">
+<!ENTITY tabscope.backmonitor "Омогући надгледање позадине">
+<!ENTITY tabscope.backmonitor.tooltiptext "Када отворим нови језичак у позадини, аутоматски прикажи искачући прозор за њега.">
+<!ENTITY tabscope.hovering "Омогући показивач миша на искачућем прозору">
+<!ENTITY tabscope.preview_size "Величина прегледа">
+<!ENTITY tabscope.preview_width "Ширина">
+<!ENTITY tabscope.preview_height "Висина">
+<!ENTITY tabscope.zoom_ratio "Размера зума">
+<!ENTITY tabscope.clicks "Кликови на искачућем прозору">
+<!ENTITY tabscope.click.left "леви клик">
+<!ENTITY tabscope.click.middle "средњи клик">
+<!ENTITY tabscope.click.right "десни клик">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Изабери језичак">
+<!ENTITY tabscope.command.close "Затвори језичак">
+<!ENTITY tabscope.command.hide "Затвори искачући језичак">
+<!ENTITY tabscope.command.zoom "Зумирај преглед">
+<!ENTITY tabscope.command.emulate "Пошаљи догађај на клик">
+<!ENTITY tabscope.buttons "Дугмад траке са алаткама">
