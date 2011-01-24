@@ -11,4 +11,5 @@ locale	tabscope	zh-CN	chrome/locale/zh-CN/tabscope/
 locale	tabscope	ko-KR	chrome/locale/ko-KR/tabscope/
 locale	tabscope	pt-BR	chrome/locale/pt-BR/tabscope/
 locale	tabscope	sr	chrome/locale/sr/tabscope/
+locale	tabscope	hu-HU	chrome/locale/hu-HU/tabscope/
 skin	tabscope	classic/1.0	chrome/skin/classic/tabscope/

@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Beállítások">
+<!ENTITY tabscope.popup_alignment "Ablak megjelenítése">
+<!ENTITY tabscope.popup_alignment.auto "auto-felismerés">
+<!ENTITY tabscope.popup_alignment.top "Fül felett">
+<!ENTITY tabscope.popup_alignment.bottom "Fül alatt">
+<!ENTITY tabscope.popup_alignment.left "Fültől balra">
+<!ENTITY tabscope.popup_alignment.right "Fültől jobbra">
+<!ENTITY tabscope.popup_delay.1 "Megjelenítés késleltetése">
+<!ENTITY tabscope.popup_delay.2 "ezredmásodperc">
+<!ENTITY tabscope.current_tab "Ne jelenjen meg az aktuális lapnál">
+<!ENTITY tabscope.animate "Animációk">
+<!ENTITY tabscope.animate_move "Felugró ablak mozgatás">
+<!ENTITY tabscope.animate_zoom "Nagyítás előnézete">
+<!ENTITY tabscope.animate.fast "Gyors">
+<!ENTITY tabscope.animate.normal "Normál">
+<!ENTITY tabscope.animate.slow "Lassú">
+<!ENTITY tabscope.animate.note "* Animációk csak Firefox 4-ben.">
+<!ENTITY tabscope.backmonitor "A háttérben történő folyamatos vizsgálat engedélyezése">
+<!ENTITY tabscope.backmonitor.tooltiptext "Mikor egy új lapot nyit meg a háttérben, automatikusan megjelenik a hozzá tartozó felugró ablak.">
+<!ENTITY tabscope.hovering "Egérmutató lebegésének engedélyezése a felugró ablaknál">
+<!ENTITY tabscope.preview_size "Előnézet ablak">
+<!ENTITY tabscope.preview_width "Szélesség">
+<!ENTITY tabscope.preview_height "Magasság">
+<!ENTITY tabscope.zoom_ratio "Nagyítás aránya">
+<!ENTITY tabscope.clicks "Kattintások a felugró ablakban">
+<!ENTITY tabscope.click.left "Bal kattintás">
+<!ENTITY tabscope.click.middle "Középső kattintás">
+<!ENTITY tabscope.click.right "Jobb kattintás">
+<!ENTITY tabscope.command.none "...">
+<!ENTITY tabscope.command.select "Lap kiválasztása">
+<!ENTITY tabscope.command.close "Lap bezárása">
+<!ENTITY tabscope.command.hide "Felugró ablak bezárása">
+<!ENTITY tabscope.command.zoom "Nagyítás előnézete">
+<!ENTITY tabscope.command.emulate "Kattintás események küldése">
+<!ENTITY tabscope.buttons "Eszköztár gombok">
