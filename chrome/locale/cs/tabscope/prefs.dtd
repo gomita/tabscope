@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Možnosti">
+<!ENTITY tabscope.popup_alignment "Zarovnání náhledových oken">
+<!ENTITY tabscope.popup_alignment.auto "automatická detekce">
+<!ENTITY tabscope.popup_alignment.top "nad panelem">
+<!ENTITY tabscope.popup_alignment.bottom "pod panelem">
+<!ENTITY tabscope.popup_alignment.left "na levé straně panelu">
+<!ENTITY tabscope.popup_alignment.right "na pravé straně panelu">
+<!ENTITY tabscope.popup_delay.1 "Čekací čas pro zobrazení náhledového okna">
+<!ENTITY tabscope.popup_delay.2 "milisekund">
+<!ENTITY tabscope.current_tab "Nezobrazovat náhledové okno u aktuálního panelu">
+<!ENTITY tabscope.animate "Animace">
+<!ENTITY tabscope.animate_move "Pohyb náhledu">
+<!ENTITY tabscope.animate_zoom "Přiblížení">
+<!ENTITY tabscope.animate.fast "Rychle">
+<!ENTITY tabscope.animate.normal "Běžně">
+<!ENTITY tabscope.animate.slow "Pomalu">
+<!ENTITY tabscope.animate.note "* Animace jsou dostupné v aplikaci Firefox 4.">
+<!ENTITY tabscope.backmonitor "Zapnout monitorování na pozadí">
+<!ENTITY tabscope.backmonitor.tooltiptext "Automaticky zobrazí náhledové okno pro panely otevřené na pozadí.">
+<!ENTITY tabscope.hovering "Zapnout pokročilé funkce náhledového okna">
+<!ENTITY tabscope.preview_size "Velikost náhledu">
+<!ENTITY tabscope.preview_width "Šířka">
+<!ENTITY tabscope.preview_height "Výška">
+<!ENTITY tabscope.zoom_ratio "Poměr přiblížení">
+<!ENTITY tabscope.clicks "Klepnutí na náhledové okno">
+<!ENTITY tabscope.click.left "Levé tlačítko">
+<!ENTITY tabscope.click.middle "Prostřední tlačítko">
+<!ENTITY tabscope.click.right "Pravé tlačítko">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Vybrat panel">
+<!ENTITY tabscope.command.close "Zavřít panel">
+<!ENTITY tabscope.command.hide "Zavřít náhledové okno">
+<!ENTITY tabscope.command.zoom "Přiblížení náhledu">
+<!ENTITY tabscope.command.emulate "Klepnutí v náhledu se přenese na stránku">
+<!ENTITY tabscope.buttons "Tlačítka na nástrojové liště">
