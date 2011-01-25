@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Einstellungen">
+<!ENTITY tabscope.popup_alignment "Vorschauposition">
+<!ENTITY tabscope.popup_alignment.auto "automatisch erkennen">
+<!ENTITY tabscope.popup_alignment.top "über dem Tab">
+<!ENTITY tabscope.popup_alignment.bottom "unter dem Tab">
+<!ENTITY tabscope.popup_alignment.left "links neben dem Tab">
+<!ENTITY tabscope.popup_alignment.right "rechts neben dem Tab">
+<!ENTITY tabscope.popup_delay.1 "Anzeigeverzögerung">
+<!ENTITY tabscope.popup_delay.2 "Millisekunden">
+<!ENTITY tabscope.current_tab "Keine Vorschau für den aktiven Tab anzeigen">
+<!ENTITY tabscope.animate "Animationen">
+<!ENTITY tabscope.animate_move "Für Vorschaubewegung">
+<!ENTITY tabscope.animate_zoom "Für Vorschau-Zoom">
+<!ENTITY tabscope.animate.fast "Schnell">
+<!ENTITY tabscope.animate.normal "Normal">
+<!ENTITY tabscope.animate.slow "Langsam">
+<!ENTITY tabscope.animate.note "* Animationen sind nur in Firefox 4 verfügbar.">
+<!ENTITY tabscope.backmonitor "Automatische Vorschau für im Hintergrund öffnende Tabs aktivieren">
+<!ENTITY tabscope.backmonitor.tooltiptext "Beim Öffnen eines neuen Hintergrund-Tabs wird automatisch die Vorschau angezeigt.">
+<!ENTITY tabscope.hovering "Bewegen des Mauszeigers über die Vorschau ermöglichen">
+<!ENTITY tabscope.preview_size "Vorschaugröße">
+<!ENTITY tabscope.preview_width "Breite">
+<!ENTITY tabscope.preview_height "Höhe">
+<!ENTITY tabscope.zoom_ratio "Zoom-Verhältnis">
+<!ENTITY tabscope.clicks "Mausklicks auf die Vorschau">
+<!ENTITY tabscope.click.left "Linksklick">
+<!ENTITY tabscope.click.middle "Mittelklick">
+<!ENTITY tabscope.click.right "Rechtsklick">
+<!ENTITY tabscope.command.none "keine Aktion">
+<!ENTITY tabscope.command.select "zum Tab wechseln">
+<!ENTITY tabscope.command.close "Tab schließen">
+<!ENTITY tabscope.command.hide "Vorschau schließen">
+<!ENTITY tabscope.command.zoom "Vorschau zoomen">
+<!ENTITY tabscope.command.emulate "Mausklick senden">
+<!ENTITY tabscope.buttons "Folgende Schaltflächen anzeigen">
