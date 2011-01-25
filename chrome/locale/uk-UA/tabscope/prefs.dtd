@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Налаштування">
+<!ENTITY tabscope.popup_alignment "Розташування нарисів">
+<!ENTITY tabscope.popup_alignment.auto "автоматичне визначення">
+<!ENTITY tabscope.popup_alignment.top "над вкладкою">
+<!ENTITY tabscope.popup_alignment.bottom "під вкладкою">
+<!ENTITY tabscope.popup_alignment.left "ліворуч від вкладки">
+<!ENTITY tabscope.popup_alignment.right "праворуч від вкладки">
+<!ENTITY tabscope.popup_delay.1 "Затримка перед показом нарису">
+<!ENTITY tabscope.popup_delay.2 "мс">
+<!ENTITY tabscope.current_tab "Не показувати нарис для поточної вкладки">
+<!ENTITY tabscope.animate "Анімація">
+<!ENTITY tabscope.animate_move "Переміщення">
+<!ENTITY tabscope.animate_zoom "Збільшення">
+<!ENTITY tabscope.animate.fast "Швидко">
+<!ENTITY tabscope.animate.normal "Нормально">
+<!ENTITY tabscope.animate.slow "Повільно">
+<!ENTITY tabscope.animate.note "* Анімація можлива лише у Firefox 4.">
+<!ENTITY tabscope.backmonitor "Фоновий перегляд">
+<!ENTITY tabscope.backmonitor.tooltiptext "Показувати нарис автоматично під час відкривання нової вкладки у фоні.">
+<!ENTITY tabscope.hovering "Дозволити роботу вказівника миші з нарисом">
+<!ENTITY tabscope.preview_size "Розмір нарису">
+<!ENTITY tabscope.preview_width "Ширина">
+<!ENTITY tabscope.preview_height "Висота">
+<!ENTITY tabscope.zoom_ratio "Коефіцієнт збільшення">
+<!ENTITY tabscope.clicks "Клацання на нарисі">
+<!ENTITY tabscope.click.left "Клацання лівою кнопкою">
+<!ENTITY tabscope.click.middle "Клацання середньою кнопкою">
+<!ENTITY tabscope.click.right "Клацання правою кнопкою">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Вибрати вкладку">
+<!ENTITY tabscope.command.close "Закрити вкладку">
+<!ENTITY tabscope.command.hide "Закрити нарис">
+<!ENTITY tabscope.command.zoom "Збільшення">
+<!ENTITY tabscope.command.emulate "Обробляти подію клацання">
+<!ENTITY tabscope.buttons "Кнопки панелі інструментів">
