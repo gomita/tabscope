@@ -33,6 +33,9 @@ var TabScope = {
 	// avail rectangle in screen
 	_availRect: null,
 
+	// flag indicates using multiple displays
+	_multiScreens: false,
+
 	// zoom state of preview
 	_zoomState: false,
 
@@ -67,6 +70,7 @@ var TabScope = {
 			left: left.value, right: left.value + width.value,
 			top: top.value, bottom: top.value + height.value
 		};
+		this._multiScreens = svc.numberOfScreens > 1;
 		this.loadPrefs();
 	},
 
@@ -375,6 +379,17 @@ var TabScope = {
 		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + 10;
 		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + 40;
 		var tab = this._tab.boxObject;
+		if (this._multiScreens) {
+			// recalculate _availRect based on the current screen
+			var svc = Cc["@mozilla.org/gfx/screenmanager;1"].getService(Ci.nsIScreenManager);
+			var scr = svc.screenForRect(tab.screenX, tab.screenY, tab.width, tab.height);
+			var left = {}, top = {}, width = {}, height = {};
+			scr.GetAvailRect(left, top, width, height);
+			this._availRect = {
+				left: left.value, right: left.value + width.value,
+				top: top.value, bottom: top.value + height.value
+			};
+		}
 		switch (alignment) {
 			case 1: 
 				if (this._availRect.top > tab.screenY - popupHeight)
@@ -405,7 +420,11 @@ var TabScope = {
 		this._adjustPopupPosition(false);
 		// [Mac][Linux] don't eat clicks while popup is open
 		this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
-		this.popup.openPopupAtScreen(0, 0, false);
+		if (this._multiScreens)
+			// open popup at the corner of the current screen
+			this.popup.openPopupAtScreen(this._availRect.left, this._availRect.top, false);
+		else
+			this.popup.openPopupAtScreen(0, 0, false);
 	},
 
 	_cancelDelayedOpen: function() {
@@ -438,15 +457,20 @@ var TabScope = {
 		y = Math.max(y, this._availRect.top);
 		x = Math.min(x, this._availRect.right  - popupWidth);
 		y = Math.min(y, this._availRect.bottom - popupHeight);
-		var lastX = parseInt(this.popup.style.marginLeft || 0);
-		var lastY = parseInt(this.popup.style.marginTop  || 0);
 		// correct 1px glitch of current tab
 		if (alignment == 2 && this._tab == gBrowser.selectedTab) {
 			var margin = parseInt(window.getComputedStyle(this._tab, null).marginBottom);
 			if (margin < 0)
 				y += margin;
 		}
+		if (this._multiScreens) {
+			// correct position based on the current screen
+			x -= this._availRect.left;
+			y -= this._availRect.top;
+		}
 		// if position will be same as current, no need to move popup
+		var lastX = parseInt(this.popup.style.marginLeft || 0);
+		var lastY = parseInt(this.popup.style.marginTop  || 0);
 		if (x == lastX && y == lastY)
 			return;
 		// XXX to fix popup flicker problem when transition starts just after transtion ends...
