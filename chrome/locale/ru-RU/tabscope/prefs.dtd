@@ -1,0 +1,35 @@
+<!ENTITY tabscope.options "Настройки">
+<!ENTITY tabscope.popup_alignment "Расположение всплывающего окна">
+<!ENTITY tabscope.popup_alignment.auto "автоопределение">
+<!ENTITY tabscope.popup_alignment.top "над вкладкой">
+<!ENTITY tabscope.popup_alignment.bottom "под вкладкой">
+<!ENTITY tabscope.popup_alignment.left "с левой стороны вкладки">
+<!ENTITY tabscope.popup_alignment.right "с правой стороны вкладки">
+<!ENTITY tabscope.popup_delay.1 "Время появления всплывающего окна">
+<!ENTITY tabscope.popup_delay.2 "миллисекунд">
+<!ENTITY tabscope.current_tab "Не показывать всплывающее окно для активной вкладки">
+<!ENTITY tabscope.animate "Анимация">
+<!ENTITY tabscope.animate_move "Перемещение всплывающего окна">
+<!ENTITY tabscope.animate_zoom "Масштабирование всплывающего окна">
+<!ENTITY tabscope.animate.fast "Быстро">
+<!ENTITY tabscope.animate.normal "Средне">
+<!ENTITY tabscope.animate.slow "Медленно">
+<!ENTITY tabscope.animate.note "* Анимация доступна в Firefox 4.">
+<!ENTITY tabscope.backmonitor "Использовать контроль фона">
+<!ENTITY tabscope.backmonitor.tooltiptext "Когда новая вкладка открывается в фоне, автоматически показывать всплывающее окно для неё.">
+<!ENTITY tabscope.hovering "Не закрывать всплывающее окно, когда над ним находится курсор мыши">
+<!ENTITY tabscope.preview_size "Размер всплывающего окна">
+<!ENTITY tabscope.preview_width "Ширина">
+<!ENTITY tabscope.preview_height "Высота">
+<!ENTITY tabscope.zoom_ratio "Коэффициент масштаба">
+<!ENTITY tabscope.clicks "Действие при нажатии на всплывающее окно">
+<!ENTITY tabscope.click.left "ЛКМ">
+<!ENTITY tabscope.click.middle "СКМ">
+<!ENTITY tabscope.click.right "ПКМ">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Выбрать вкладку">
+<!ENTITY tabscope.command.close "Закрыть вкладку">
+<!ENTITY tabscope.command.hide "Закрыть всплывающее окно">
+<!ENTITY tabscope.command.zoom "Приблизить">
+<!ENTITY tabscope.command.emulate "Произвести действие на веб-странице">
+<!ENTITY tabscope.buttons "Кнопки на панели инструментов">
