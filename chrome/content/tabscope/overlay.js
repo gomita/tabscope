@@ -185,9 +185,6 @@ var TabScope = {
 					var delay = noAutoHide ? 100 : this._branch.getIntPref("popup_delay");
 					this._timerId = window.setTimeout(callback, delay, this);
 					this.log("--- start timer (" + this._timerId + ")");	// #debug
-					// [Firefox3.6] fix issue#4 (part1) - reset zoom state here
-					if (this._fx36)
-						this._zoomState = false;
 				}
 				else {
 					// [Firefox3.6] don't move popup, just close it and start dummy timer
@@ -595,10 +592,6 @@ var TabScope = {
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		canvas.width = 0;
 		canvas.height = 0;
-		// [Firefox3.6] fix issue#4 (part2) - don't reset zoom state here
-		if (this._fx36)
-			return;
-		this._zoomState = false;
 	},
 
 	_updateTitle: function() {
