@@ -32,4 +32,3 @@
 <!ENTITY tabscope.command.hide "关闭预览图">
 <!ENTITY tabscope.command.zoom "缩放预览图">
 <!ENTITY tabscope.command.emulate "发送点击事件">
-<!ENTITY tabscope.buttons "工具栏按钮">

@@ -113,7 +113,9 @@ var TabScope = {
 		if (this._fx36)
 			buttons = buttons.split(",").
 			          filter(function(id) id != "pin" && id != "groups").join(",");
-		toolbar.hidden = !buttons || !this._branch.getBoolPref("popup_hovering");
+		var display = this._branch.getIntPref("toolbar_display");
+		this.popup.setAttribute("_toolbardisplay", display);
+		toolbar.hidden = display == 0 || !buttons || !this._branch.getBoolPref("popup_hovering");
 		if (toolbar.hidden)
 			return;
 		buttons = buttons.split(",");
@@ -340,7 +342,8 @@ var TabScope = {
 				break;
 			case "dblclick": 
 				// hide toolbar when double-clicking on spacer
-				if (event.button == 0 && event.target.localName == "spacer")
+				if (this.popup.getAttribute("_toolbardisplay") == "2" && 
+				    event.button == 0 && event.target.localName == "spacer")
 					document.getElementById("tabscope-toolbar").collapsed = true;
 				break;
 			case "DOMMouseScroll": 
@@ -614,7 +617,7 @@ var TabScope = {
 	},
 
 	_updateToolbar: function() {
-		if (!this._branch.getBoolPref("popup_hovering"))
+		if (document.getElementById("tabscope-toolbar").hidden)
 			return;
 		this.log("update toolbar");	// #debug
 		document.getElementById("tabscope-toolbar").collapsed = false;
@@ -730,8 +733,9 @@ var TabScope = {
 			this._updateTitle();
 		}
 		var toolbar = document.getElementById("tabscope-toolbar");
-		if (toolbar.parentNode.querySelector(":hover") == toolbar)
-			// update toolbar only when hovering over it
+		if (this.popup.getAttribute("_toolbardisplay") == "1" || 
+		    toolbar.parentNode.querySelector(":hover") == toolbar)
+			// if toolbar display is autohide, update toolbar only when hovering over it
 			this._updateToolbar();
 		this._adjustPopupPosition(true);
 	},

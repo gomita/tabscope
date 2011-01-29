@@ -17,6 +17,7 @@ var PrefsUI = {
 		this.readAnimatePref("animate_move");
 		this.readAnimatePref("animate_zoom");
 		this.readButtonsPref();
+		this.updateToolbarUI();
 		// [Firefox3.6] disable animate UI group and hide pin and groups button
 		var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
 		if (parseFloat(appInfo.version) < 4.0) {
@@ -53,7 +54,7 @@ var PrefsUI = {
 
 	readHoveringPref: function() {
 		var enabled = document.getElementById("popup_hovering").value;
-		var selector = "[_uigroup='clicks'] *, [_uigroup='buttons'] *";
+		var selector = "[_uigroup='clicks'] *, [_uigroup='toolbar'] *";
 		Array.forEach(document.querySelectorAll(selector), function(elt) {
 			if (enabled)
 				elt.removeAttribute("disabled");
@@ -82,6 +83,16 @@ var PrefsUI = {
 		pref.value = buttons.join(",");
 		if (pref.instantApply)
 			this.applyPrefsChange();
+	},
+
+	updateToolbarUI: function() {
+		var display = document.getElementById("toolbar_display").value;
+		var toolbar = document.getElementById("tabscope-toolbar");
+		toolbar.setAttribute("_display", display.toString());
+		var selector = "[_uigroup='buttons'] *";
+		Array.forEach(document.querySelectorAll(selector), function(elt) {
+			elt.setAttribute("disabled", display == 0);
+		});
 	},
 
 	applyPrefsChange: function() {

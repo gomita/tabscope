@@ -32,4 +32,8 @@
 <!ENTITY tabscope.command.hide "Close Popup">
 <!ENTITY tabscope.command.zoom "Zoom Preview">
 <!ENTITY tabscope.command.emulate "Send Click Event">
-<!ENTITY tabscope.buttons "Toolbar Buttons">
+<!ENTITY tabscope.toolbar "Toolbar">
+<!ENTITY tabscope.toolbar.display.0 "Don't show">
+<!ENTITY tabscope.toolbar.display.1 "Always show">
+<!ENTITY tabscope.toolbar.display.2 "Automatically hide">
+<!ENTITY tabscope.toolbar.buttons "Buttons">

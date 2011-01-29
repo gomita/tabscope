@@ -4,6 +4,11 @@ groupbox[_uigroup] > caption[disabled="true"] .caption-text {
 	color: GrayText;
 }
 
+#tabscope-toolbar:not([_display="2"]) {
+	background: none;
+	border-color: transparent;
+}
+
 toolbarbutton[type="checkbox"][checked="true"] {
 	padding: 2px !important;
 }

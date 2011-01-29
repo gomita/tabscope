@@ -114,6 +114,18 @@
 	opacity: 0.35;
 }
 
+/* ::::: toolbar display ::::: */
+
+#tabscope-popup[_toolbardisplay="1"] #tabscope-toolbar {
+	opacity: 1;
+	background: none;
+	border: none;
+}
+
+#tabscope-popup[_toolbardisplay="1"] #tabscope-preview {
+	margin-top: 22px;
+}
+
 /* ::::: Windows (except Classic and third-party themes) ::::: */
 
 #tabscope-popup:-moz-system-metric(windows-default-theme) {

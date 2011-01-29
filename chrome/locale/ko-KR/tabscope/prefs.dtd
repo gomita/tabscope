@@ -32,4 +32,3 @@
 <!ENTITY tabscope.command.hide "팝업 닫기">
 <!ENTITY tabscope.command.zoom "미리보기 배율">
 <!ENTITY tabscope.command.emulate "클릭 이벤트 보냄">
-<!ENTITY tabscope.buttons "도구막대 버튼">

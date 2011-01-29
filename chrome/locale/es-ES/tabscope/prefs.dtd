@@ -32,4 +32,3 @@
 <!ENTITY tabscope.command.hide "Cerrar ventana emergente">
 <!ENTITY tabscope.command.zoom "Zoom de la vista previa">
 <!ENTITY tabscope.command.emulate "Enviar evento de click">
-<!ENTITY tabscope.buttons "Botones de la barra de herramientas">

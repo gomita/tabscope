@@ -26,6 +26,8 @@
 			<preference id="click.0" name="extensions.tabscope.click.0" type="string" />
 			<preference id="click.1" name="extensions.tabscope.click.1" type="string" />
 			<preference id="click.2" name="extensions.tabscope.click.2" type="string" />
+			<preference id="toolbar_display" name="extensions.tabscope.toolbar_display" type="int"
+			            onchange="PrefsUI.updateToolbarUI(); PrefsUI.applyPrefsChange();" />
 			<preference id="buttons" name="extensions.tabscope.buttons" type="string" />
 			<preference id="tab_exceptions" name="extensions.tabscope.tab_exceptions" type="int" />
 			<preference id="backmonitor" name="extensions.tabscope.backmonitor" type="bool" />
@@ -116,20 +118,28 @@
 				</rows>
 			</grid>
 		</groupbox>
-		<hbox align="center" _uigroup="buttons">
-			<label value="&tabscope.buttons;:" />
-			<toolbar id="tabscope-toolbar" _customizing="true" style="margin: 2px;"
-			         oncommand="PrefsUI.writeButtonsPref();">
-				<toolbarbutton id="tabscope-back-button" type="checkbox" />
-				<toolbarbutton id="tabscope-forward-button" type="checkbox" />
-				<toolbarbutton id="tabscope-reload-button" type="checkbox" />
-				<toolbarbutton id="tabscope-pin-button" type="checkbox" />
-				<toolbarbutton id="tabscope-zoom-button" type="checkbox" />
-				<toolbarbutton id="tabscope-alltabs-button" type="checkbox" />
-				<toolbarbutton id="tabscope-groups-button" type="checkbox" />
-				<toolbarbutton id="tabscope-close-button" type="checkbox" />
-			</toolbar>
-		</hbox>
+		<groupbox _uigroup="toolbar">
+			<caption label="&tabscope.toolbar;" />
+			<radiogroup preference="toolbar_display" orient="horizontal">
+				<radio label="&tabscope.toolbar.display.1;" value="1" />
+				<radio label="&tabscope.toolbar.display.2;" value="2" />
+				<radio label="&tabscope.toolbar.display.0;" value="0" />
+			</radiogroup>
+			<hbox align="center" _uigroup="buttons">
+				<label value="&tabscope.toolbar.buttons;:" />
+				<toolbar id="tabscope-toolbar" _customizing="true" style="margin: 2px;"
+				         oncommand="PrefsUI.writeButtonsPref();">
+					<toolbarbutton id="tabscope-back-button" type="checkbox" />
+					<toolbarbutton id="tabscope-forward-button" type="checkbox" />
+					<toolbarbutton id="tabscope-reload-button" type="checkbox" />
+					<toolbarbutton id="tabscope-pin-button" type="checkbox" />
+					<toolbarbutton id="tabscope-zoom-button" type="checkbox" />
+					<toolbarbutton id="tabscope-alltabs-button" type="checkbox" />
+					<toolbarbutton id="tabscope-groups-button" type="checkbox" />
+					<toolbarbutton id="tabscope-close-button" type="checkbox" />
+				</toolbar>
+			</hbox>
+		</groupbox>
 		<box hidden="true">
 			<menupopup id="commands-popup">
 				<menuitem label="&tabscope.command.none;" value="" />

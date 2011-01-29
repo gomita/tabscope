@@ -32,4 +32,3 @@
 <!ENTITY tabscope.command.hide "zamyka podgląd">
 <!ENTITY tabscope.command.zoom "skaluje podgląd">
 <!ENTITY tabscope.command.emulate "wysyła zdarzenie kliknięcia">
-<!ENTITY tabscope.buttons "Wyświetlane przyciski paska narzędzi">
