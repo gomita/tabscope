@@ -45,6 +45,13 @@ var TabScope = {
 	// [Firefox3.6] last time to hide popup
 	_lastHidingTime: null,
 
+	// [Firefox3.6] nsIWindowMediator
+	get wm() {
+		delete this.wm;
+		return this.wm = Cc["@mozilla.org/appshell/window-mediator;1"].
+		                 getService(Ci.nsIWindowMediator);
+	},
+
 	init: function() {
 		var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
 		this._fx36 = parseFloat(appInfo.version) < 4.0;
@@ -134,11 +141,18 @@ var TabScope = {
 				    (this._tab.parentNode.querySelector(":hover") == this._tab || 
 				     this.popup.parentNode.querySelector(":hover") == this.popup))
 					return;
-				// [Firefox3.6] :-moz-window-inactive pseudo class is unsupported
-				// [backmonitor] temporarily disable if window is inactive
-				if (!this._fx36 && document.querySelector("#main-window:-moz-window-inactive"))
-					return;
 			case "mouseover": 
+				// [backmonitor] temporarily disable if window is inactive
+				// don't open popup for tab in background window
+				// [Firefox3.6] :-moz-window-inactive pseudo class is unsupported
+				if (this._fx36) {
+					if (this.wm.getMostRecentWindow("navigator:browser") != window)
+						return;
+				}
+				else {
+					if (document.querySelector("#main-window:-moz-window-inactive"))
+						return;
+				}
 				// when mouse pointer moves inside a tab...
 				// when hovering on tab strip...
 				// (includes outside corner edge of a tab, new tab button and tab scroller)
