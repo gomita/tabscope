@@ -39,6 +39,9 @@ var TabScope = {
 	// zoom state of preview
 	_zoomState: false,
 
+	// time when window is opened
+	_initTime: null,
+
 	// [Firefox3.6] last time to hide popup
 	_lastHidingTime: null,
 
@@ -46,6 +49,7 @@ var TabScope = {
 		var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
 		this._fx36 = parseFloat(appInfo.version) < 4.0;
 		this._mac  = navigator.platform.indexOf("Mac") >= 0;
+		this._initTime = Date.now();
 		this.popup = document.getElementById("tabscope-popup");
 		this.canvas = document.getElementById("tabscope-preview");
 		this.popup.addEventListener("DOMMouseScroll", this, false);
@@ -118,6 +122,13 @@ var TabScope = {
 			case "TabOpen": 
 				if (!this._branch.getBoolPref("backmonitor"))
 					return;
+				// [backmonitor] to fix issue#12 halfway, disable in a few seconds after window is opened
+				if (this._initTime && Date.now() - this._initTime < 2000) {
+					this.log("*** disable backmonitor " + (Date.now() - this._initTime))	// #debug
+					return;
+				}
+				// [backmonitor] when once we pass the check above, we no more need to do it
+				this._initTime = null;
 				// [backmonitor] temporarily disable if mouse pointer is currently on tab or popup
 				if (this._tab && 
 				    (this._tab.parentNode.querySelector(":hover") == this._tab || 
