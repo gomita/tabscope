@@ -560,6 +560,8 @@ var TabScope = {
 		ctx.drawWindow(win, win.scrollX, win.scrollY, w, h, "rgb(255,255,255)");
 		ctx.restore();
 		// fade-to-white effect
+		if (!this._branch.getBoolPref("fade_to_white"))
+			return;
 		var grad = ctx.createLinearGradient(0, canvas.height / 2, 0, canvas.height);
 		grad.addColorStop(0, "rgba(255,255,255,0)");
 		grad.addColorStop(1, "rgb(255,255,255)");
