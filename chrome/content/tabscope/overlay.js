@@ -141,6 +141,9 @@ var TabScope = {
 				    (this._tab.parentNode.querySelector(":hover") == this._tab || 
 				     this.popup.parentNode.querySelector(":hover") == this.popup))
 					return;
+				// [backmonitor][BarTab] to fix issue#18, disable backmonitor for unloaded tabs
+				if ("BarTabHandler" in gBrowser && event.target.getAttribute("ontap") == "true")
+					return;
 			case "mouseover": 
 				// [backmonitor] temporarily disable if window is inactive
 				// don't open popup for tab in background window
