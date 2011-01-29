@@ -446,8 +446,9 @@ var TabScope = {
 			toolbar.setAttribute("top", "0");
 		// adjust popup position before opening popup
 		this._adjustPopupPosition(false);
-		// [Mac][Linux] don't eat clicks while popup is open
-		this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
+		// [Mac][Linux] don't eat clicks while popup is open if popup is not for background monitor
+		if (!aNoAutoHide)
+			this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
 		if (this._multiScreens)
 			// open popup at the corner of the current screen
 			this.popup.openPopupAtScreen(this._availRect.left, this._availRect.top, false);
