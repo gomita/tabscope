@@ -666,6 +666,9 @@ var TabScope = {
 	},
 
 	_ensureTabIsRestored: function() {
+		// [BarTab]
+		if ("BarTabHandler" in gBrowser)
+			gBrowser.BarTabHandler.loadTab(this._tab);
 		// [Firefox3.6] TAB_STATE_NEEDS_RESTORE is unsupported
 		if (this._fx36)
 			return;
