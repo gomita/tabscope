@@ -18,6 +18,7 @@ var PrefsUI = {
 		this.readAnimatePref("animate_zoom");
 		this.readButtonsPref();
 		this.updateToolbarUI();
+		window.sizeToContent();
 		// [Firefox3.6] disable animate UI group and hide pin and groups button
 		var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
 		if (parseFloat(appInfo.version) < 4.0) {

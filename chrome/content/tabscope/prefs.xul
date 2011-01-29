@@ -12,25 +12,16 @@
             onload="PrefsUI.init();"
             ondialogaccept="PrefsUI.applyPrefsChange();">
 
-	<prefpane id="generalPane" flex="1">
+	<prefpane id="generalPane" label="&tabscope.general;" flex="1">
 		<preferences>
 			<preference id="popup_alignment" name="extensions.tabscope.popup_alignment" type="int" />
 			<preference id="popup_delay"     name="extensions.tabscope.popup_delay"     type="int" />
-			<preference id="popup_hovering"  name="extensions.tabscope.popup_hovering"  type="bool"
-			            onchange="PrefsUI.applyPrefsChange();" />
 			<preference id="preview_width"  name="extensions.tabscope.preview_width"  type="int" />
 			<preference id="preview_height" name="extensions.tabscope.preview_height" type="int" />
 			<preference id="zoom_ratio" name="extensions.tabscope.zoom_ratio" type="string" />
 			<preference id="animate_move" name="extensions.tabscope.animate_move" type="int" />
 			<preference id="animate_zoom" name="extensions.tabscope.animate_zoom" type="int" />
-			<preference id="click.0" name="extensions.tabscope.click.0" type="string" />
-			<preference id="click.1" name="extensions.tabscope.click.1" type="string" />
-			<preference id="click.2" name="extensions.tabscope.click.2" type="string" />
-			<preference id="toolbar_display" name="extensions.tabscope.toolbar_display" type="int"
-			            onchange="PrefsUI.updateToolbarUI(); PrefsUI.applyPrefsChange();" />
-			<preference id="buttons" name="extensions.tabscope.buttons" type="string" />
 			<preference id="tab_exceptions" name="extensions.tabscope.tab_exceptions" type="int" />
-			<preference id="backmonitor" name="extensions.tabscope.backmonitor" type="bool" />
 		</preferences>
 		<hbox align="center">
 			<label value="&tabscope.popup_alignment;:" />
@@ -91,6 +82,20 @@
 			</hbox>
 			<label id="animate_note" value="&tabscope.animate.note;" hidden="true" />
 		</groupbox>
+	</prefpane>
+
+	<prefpane id="advancedPane" label="&tabscope.advanced;" flex="1">
+		<preferences>
+			<preference id="popup_hovering"  name="extensions.tabscope.popup_hovering"  type="bool"
+			            onchange="PrefsUI.applyPrefsChange();" />
+			<preference id="click.0" name="extensions.tabscope.click.0" type="string" />
+			<preference id="click.1" name="extensions.tabscope.click.1" type="string" />
+			<preference id="click.2" name="extensions.tabscope.click.2" type="string" />
+			<preference id="toolbar_display" name="extensions.tabscope.toolbar_display" type="int"
+			            onchange="PrefsUI.updateToolbarUI(); PrefsUI.applyPrefsChange();" />
+			<preference id="buttons" name="extensions.tabscope.buttons" type="string" />
+			<preference id="backmonitor" name="extensions.tabscope.backmonitor" type="bool" />
+		</preferences>
 		<checkbox preference="backmonitor" label="&tabscope.backmonitor;"
 		          tooltiptext="&tabscope.backmonitor.tooltiptext;" />
 		<checkbox preference="popup_hovering" label="&tabscope.hovering;"
