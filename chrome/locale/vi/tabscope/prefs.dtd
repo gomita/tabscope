@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Tùy chọn">
+<!ENTITY tabscope.general "Tổng quan">
+<!ENTITY tabscope.advanced "Nâng cao">
 <!ENTITY tabscope.popup_alignment "Căn chỉnh cửa sổ xem trước">
 <!ENTITY tabscope.popup_alignment.auto "tự động nhận diện">
 <!ENTITY tabscope.popup_alignment.top "nằm trên tab">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "Đóng cửa sổ tự bung">
 <!ENTITY tabscope.command.zoom "Xem trước phóng to">
 <!ENTITY tabscope.command.emulate "Gửi bấm biến cố">
+<!ENTITY tabscope.toolbar "Thanh công cụ">
+<!ENTITY tabscope.toolbar.display.0 "Không hiển thị">
+<!ENTITY tabscope.toolbar.display.1 "Luôn hiển thị">
+<!ENTITY tabscope.toolbar.display.2 "Tự động ẩn">
+<!ENTITY tabscope.toolbar.buttons "Nút">

@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Inställningar">
+<!ENTITY tabscope.general "Allmänt">
+<!ENTITY tabscope.advanced "Avancerat">
 <!ENTITY tabscope.popup_alignment "Placering av popup-ruta">
 <!ENTITY tabscope.popup_alignment.auto "identifiera automatiskt">
 <!ENTITY tabscope.popup_alignment.top "ovanför fliken">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "Stäng popup-ruta">
 <!ENTITY tabscope.command.zoom "Zooma förhandsgranskning">
 <!ENTITY tabscope.command.emulate "Skicka musklickhändelse">
+<!ENTITY tabscope.toolbar "Verktygsfält">
+<!ENTITY tabscope.toolbar.display.0 "Visa inte">
+<!ENTITY tabscope.toolbar.display.1 "Visa alltid">
+<!ENTITY tabscope.toolbar.display.2 "Dölj automatiskt">
+<!ENTITY tabscope.toolbar.buttons "Knappar">

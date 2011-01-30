@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Einstellungen">
+<!ENTITY tabscope.general "Allgemein">
+<!ENTITY tabscope.advanced "Erweitert">
 <!ENTITY tabscope.popup_alignment "Vorschauposition">
 <!ENTITY tabscope.popup_alignment.auto "automatisch erkennen">
 <!ENTITY tabscope.popup_alignment.top "über dem Tab">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "Vorschau schließen">
 <!ENTITY tabscope.command.zoom "Vorschau zoomen">
 <!ENTITY tabscope.command.emulate "Mausklick senden">
+<!ENTITY tabscope.toolbar "Schaltflächen-Symbolleiste">
+<!ENTITY tabscope.toolbar.display.0 "Nie anzeigen">
+<!ENTITY tabscope.toolbar.display.1 "Immer anzeigen">
+<!ENTITY tabscope.toolbar.display.2 "Automatisch ein-/ausblenden">
+<!ENTITY tabscope.toolbar.buttons "Folgende Schaltflächen anzeigen">

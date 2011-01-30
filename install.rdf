@@ -163,10 +163,9 @@
 			<Description>
 				<em:locale>de</em:locale>
 				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:description>Tab-Vorschau mit Navigationsmöglichkeiten.</em:description>
 				<em:creator>Gomita</em:creator>
-				<em:translator>ReinekeFux</em:translator>
-				<em:translator>Team erweiterungen.de</em:translator>
+				<em:translator>o.roth (ReinekeFux) von BabelZilla.org</em:translator>
 				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
 			</Description>
 		</em:localized>

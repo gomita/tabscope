@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "선택사항">
+<!ENTITY tabscope.general "일반">
+<!ENTITY tabscope.advanced "고급">
 <!ENTITY tabscope.popup_alignment "팝업 표시 위치">
 <!ENTITY tabscope.popup_alignment.auto "자동 감지">
 <!ENTITY tabscope.popup_alignment.top "탭 위쪽">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "팝업 닫기">
 <!ENTITY tabscope.command.zoom "미리보기 배율">
 <!ENTITY tabscope.command.emulate "클릭 이벤트 보냄">
+<!ENTITY tabscope.toolbar "도구막대">
+<!ENTITY tabscope.toolbar.display.0 "표시안함">
+<!ENTITY tabscope.toolbar.display.1 "항상 표시">
+<!ENTITY tabscope.toolbar.display.2 "자동 숨기기">
+<!ENTITY tabscope.toolbar.buttons "버튼">

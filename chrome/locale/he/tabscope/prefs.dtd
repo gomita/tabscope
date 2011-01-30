@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "אפשרויות">
+<!ENTITY tabscope.general "כללי">
+<!ENTITY tabscope.advanced "מתקדם">
 <!ENTITY tabscope.popup_alignment "יישור החלון הקופץ">
 <!ENTITY tabscope.popup_alignment.auto "זיהוי אוטומטי">
 <!ENTITY tabscope.popup_alignment.top "מעל הלשונית">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "סגירת חלון קופץ">
 <!ENTITY tabscope.command.zoom "תצוגה מקדימה לזום">
 <!ENTITY tabscope.command.emulate "שליחת אירועי לחיצה">
+<!ENTITY tabscope.toolbar "סרגל כלים">
+<!ENTITY tabscope.toolbar.display.0 "אל תציג">
+<!ENTITY tabscope.toolbar.display.1 "להציג תמיד">
+<!ENTITY tabscope.toolbar.display.2 "להסתיר תמיד">
+<!ENTITY tabscope.toolbar.buttons "כפתורים">

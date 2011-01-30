@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Опције">
+<!ENTITY tabscope.general "Опште">
+<!ENTITY tabscope.advanced "Напредно">
 <!ENTITY tabscope.popup_alignment "Поравнање искачућег прозора">
 <!ENTITY tabscope.popup_alignment.auto "аутоматско препознавање">
 <!ENTITY tabscope.popup_alignment.top "изнад језичка">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "Затвори искачући језичак">
 <!ENTITY tabscope.command.zoom "Зумирај преглед">
 <!ENTITY tabscope.command.emulate "Пошаљи догађај на клик">
+<!ENTITY tabscope.toolbar "Трака са алаткама">
+<!ENTITY tabscope.toolbar.display.0 "не приказуј">
+<!ENTITY tabscope.toolbar.display.1 "увек приказуј">
+<!ENTITY tabscope.toolbar.display.2 "аутоматски сакриј">
+<!ENTITY tabscope.toolbar.buttons "Дугмад">

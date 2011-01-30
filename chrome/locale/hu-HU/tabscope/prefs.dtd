@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Beállítások">
+<!ENTITY tabscope.general "Általános">
+<!ENTITY tabscope.advanced "Haladó">
 <!ENTITY tabscope.popup_alignment "Ablak megjelenítése">
 <!ENTITY tabscope.popup_alignment.auto "auto-felismerés">
 <!ENTITY tabscope.popup_alignment.top "Fül felett">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "Felugró ablak bezárása">
 <!ENTITY tabscope.command.zoom "Nagyítás előnézete">
 <!ENTITY tabscope.command.emulate "Kattintás események küldése">
+<!ENTITY tabscope.toolbar "Eszköztár">
+<!ENTITY tabscope.toolbar.display.0 "Ne jelenjen meg">
+<!ENTITY tabscope.toolbar.display.1 "Megjelenítés mindig">
+<!ENTITY tabscope.toolbar.display.2 "Automatikus elrejtés">
+<!ENTITY tabscope.toolbar.buttons "Gombok">

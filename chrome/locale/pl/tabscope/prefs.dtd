@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "opcje">
+<!ENTITY tabscope.general "Ogólne">
+<!ENTITY tabscope.advanced "Zaawansowane">
 <!ENTITY tabscope.popup_alignment "Miejsce wyświetlania podglądu">
 <!ENTITY tabscope.popup_alignment.auto "wykryj automatycznie">
 <!ENTITY tabscope.popup_alignment.top "na górze etykiety karty">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "zamyka podgląd">
 <!ENTITY tabscope.command.zoom "skaluje podgląd">
 <!ENTITY tabscope.command.emulate "wysyła zdarzenie kliknięcia">
+<!ENTITY tabscope.toolbar "Pasek narzędzi">
+<!ENTITY tabscope.toolbar.display.0 "Nie wyświetlaj">
+<!ENTITY tabscope.toolbar.display.1 "Zawsze wyświetlaj">
+<!ENTITY tabscope.toolbar.display.2 "Ukrywaj automatycznie">
+<!ENTITY tabscope.toolbar.buttons "Przyciski">

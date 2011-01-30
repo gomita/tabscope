@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "选项">
+<!ENTITY tabscope.general "常规">
+<!ENTITY tabscope.advanced "高级">
 <!ENTITY tabscope.popup_alignment "预览图的位置">
 <!ENTITY tabscope.popup_alignment.auto "自动检测">
 <!ENTITY tabscope.popup_alignment.top "显示于标签上方">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "关闭预览图">
 <!ENTITY tabscope.command.zoom "缩放预览图">
 <!ENTITY tabscope.command.emulate "发送点击事件">
+<!ENTITY tabscope.toolbar "工具栏">
+<!ENTITY tabscope.toolbar.display.0 "不显示">
+<!ENTITY tabscope.toolbar.display.1 "始终显示">
+<!ENTITY tabscope.toolbar.display.2 "自动隐藏">
+<!ENTITY tabscope.toolbar.buttons "按钮">

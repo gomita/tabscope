@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Možnosti">
+<!ENTITY tabscope.general "Obecné">
+<!ENTITY tabscope.advanced "Pokročilé">
 <!ENTITY tabscope.popup_alignment "Zarovnání náhledových oken">
 <!ENTITY tabscope.popup_alignment.auto "automatická detekce">
 <!ENTITY tabscope.popup_alignment.top "nad panelem">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "Zavřít náhledové okno">
 <!ENTITY tabscope.command.zoom "Přiblížení náhledu">
 <!ENTITY tabscope.command.emulate "Klepnutí v náhledu se přenese na stránku">
+<!ENTITY tabscope.toolbar "Nástrojová lišta">
+<!ENTITY tabscope.toolbar.display.0 "Nezobrazovat">
+<!ENTITY tabscope.toolbar.display.1 "Vždy zobrazit">
+<!ENTITY tabscope.toolbar.display.2 "Automaticky skrýt">
+<!ENTITY tabscope.toolbar.buttons "Tlačítka">

@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Налаштування">
+<!ENTITY tabscope.general "Загальне">
+<!ENTITY tabscope.advanced "Додатково">
 <!ENTITY tabscope.popup_alignment "Розташування нарисів">
 <!ENTITY tabscope.popup_alignment.auto "автоматичне визначення">
 <!ENTITY tabscope.popup_alignment.top "над вкладкою">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "Закрити нарис">
 <!ENTITY tabscope.command.zoom "Збільшення">
 <!ENTITY tabscope.command.emulate "Обробляти подію клацання">
+<!ENTITY tabscope.toolbar "Панель інструментів">
+<!ENTITY tabscope.toolbar.display.0 "Не показувати">
+<!ENTITY tabscope.toolbar.display.1 "Показувати постійно">
+<!ENTITY tabscope.toolbar.display.2 "Автоматично ховати">
+<!ENTITY tabscope.toolbar.buttons "Кнопки">

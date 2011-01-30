@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Opções">
+<!ENTITY tabscope.general "Geral">
+<!ENTITY tabscope.advanced "Avançado">
 <!ENTITY tabscope.popup_alignment "Alinhamento do popup">
 <!ENTITY tabscope.popup_alignment.auto "auto-detecção">
 <!ENTITY tabscope.popup_alignment.top "no topo da aba">
@@ -32,3 +34,8 @@
 <!ENTITY tabscope.command.hide "Fechar Popup">
 <!ENTITY tabscope.command.zoom "Pre-visualização com Zoom">
 <!ENTITY tabscope.command.emulate "Enviar evento do clique">
+<!ENTITY tabscope.toolbar "Barra de Ferramenta">
+<!ENTITY tabscope.toolbar.display.0 "Não mostrar">
+<!ENTITY tabscope.toolbar.display.1 "Sempre mostrar">
+<!ENTITY tabscope.toolbar.display.2 "Esconder automaticamente">
+<!ENTITY tabscope.toolbar.buttons "Botões">
