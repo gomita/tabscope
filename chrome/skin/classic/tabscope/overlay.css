@@ -3,7 +3,6 @@
 #tabscope-popup {
 	padding: 5px;
 	-moz-transition-property: margin;
-	-moz-transition-timing-function: ease-in-out;
 }
 
 #tabscope-title {

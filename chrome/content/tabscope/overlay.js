@@ -297,6 +297,7 @@ var TabScope = {
 			case "popupshown": 
 				if (this.popup.collapsed)
 					this.popup.collapsed = false;
+				this._adjustPopupPosition(false);
 				break;
 			case "popuphiding": 
 				this.log("close popup");	// #debug
@@ -362,6 +363,7 @@ var TabScope = {
 				canvas.width  = parseInt(canvas.style.width);
 				canvas.height = parseInt(canvas.style.height);
 				this._updatePreview();
+				this._adjustPopupPosition(false);
 				break;
 		}
 	},
@@ -461,13 +463,17 @@ var TabScope = {
 		this._tab = null;
 	},
 
-	_adjustPopupPosition: function(aAnimate) {
+	_adjustPopupPosition: function(aAnimate, aValuesOverride) {
 		var alignment = parseInt(this.popup.getAttribute("_alignment"));
 		// XXX if popup has never been opened, popup.boxObject.width and height are both 0
 		// in that case, estimate popup size based on preview size
 		var popup = this.popup.boxObject;
 		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + 10;
 		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + 40;
+		if (aValuesOverride) {
+			popupWidth  = aValuesOverride.width;
+			popupHeight = aValuesOverride.height;
+		}
 		var tab = this._tab.boxObject;
 		// determine screen coordinate whereto open popup
 		var x, y;
@@ -507,6 +513,9 @@ var TabScope = {
 			duration = Math.min(1, delta / 250) * this._branch.getIntPref("animate_move") / 1000;
 			if (duration > 0)
 				duration = Math.max(0.2, duration) + Math.random() * 0.001;
+			if (aValuesOverride)
+				duration = aValuesOverride.duration;
+			this.popup.style.MozTransitionTimingFunction = aValuesOverride ? "" : "ease-in-out";
 		}
 		this.popup.style.MozTransitionDuration = duration.toString() + "s";
 		window.getComputedStyle(this.popup, null).MozTransitionDuration;
@@ -535,7 +544,8 @@ var TabScope = {
 			canvas.height = height;
 		}
 		// XXX hack to fix popup flicker problem @see _adjustPopupPosition
-		duration += Math.random() * 0.001;
+		if (duration > 0)
+			duration += Math.random() * 0.001;
 		canvas.style.MozTransitionDuration = duration.toString() + "s";
 		window.getComputedStyle(canvas, null).MozTransitionDuration;
 		canvas.style.width  = width.toString() + "px";
@@ -547,6 +557,9 @@ var TabScope = {
 			var val = toolbar.getAttribute("bottom") ? height - 21 : 0;
 			toolbar.style.marginTop = val.toString() + "px";
 		}
+		// adjust popup position with resizing preview
+		var values = { width: width + 10, height: height + 40, duration: duration };
+		this._adjustPopupPosition(true, values);
 	},
 
 	_togglePreviewSize: function() {
@@ -729,7 +742,6 @@ var TabScope = {
 		    toolbar.parentNode.querySelector(":hover") == toolbar)
 			// if toolbar display is autohide, update toolbar only when hovering over it
 			this._updateToolbar();
-		this._adjustPopupPosition(true);
 	},
 
 	log: function(aText) {
