@@ -351,6 +351,9 @@ var TabScope = {
 				// ignore first width change, only handle second height change
 				if (event.propertyName != "height")
 					return;
+				// to fix issue#23, check popup is already closed before transitionend
+				if (!this._tab)
+					return;
 				// [Mac] XXX update preview before adjusting size, 
 				// otherwise preview becomes blank for a quick moment
 				if (this._mac)
