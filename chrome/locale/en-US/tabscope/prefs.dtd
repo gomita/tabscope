@@ -10,6 +10,8 @@
 <!ENTITY tabscope.popup_delay.1 "Wait time to show popup">
 <!ENTITY tabscope.popup_delay.2 "milliseconds">
 <!ENTITY tabscope.current_tab "Don't show popup for the current tab">
+<!-- LOCALIZATION NOTE (tabscope.unloaded_tab): If the string is too much long, translate "Load an unloaded tab immediately" instead. -->
+<!ENTITY tabscope.unloaded_tab "When I show popup for an unloaded tab, load it immediately">
 <!ENTITY tabscope.animate "Animations">
 <!ENTITY tabscope.animate_move "Popup move">
 <!ENTITY tabscope.animate_zoom "Preview zooming">

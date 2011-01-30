@@ -22,6 +22,7 @@
 			<preference id="animate_move" name="extensions.tabscope.animate_move" type="int" />
 			<preference id="animate_zoom" name="extensions.tabscope.animate_zoom" type="int" />
 			<preference id="tab_exceptions" name="extensions.tabscope.tab_exceptions" type="int" />
+			<preference id="unloaded_tab" name="extensions.tabscope.unloaded_tab" type="bool" />
 		</preferences>
 		<hbox align="center">
 			<label value="&tabscope.popup_alignment;:" />
@@ -43,6 +44,7 @@
 		<checkbox label="&tabscope.current_tab;" preference="tab_exceptions"
 		          onsyncfrompreference="return document.getElementById('tab_exceptions').value &amp; 1;"
 		          onsynctopreference="return this.checked ? 1 : 0;" />
+		<checkbox label="&tabscope.unloaded_tab;" preference="unloaded_tab" />
 		<groupbox>
 			<caption label="&tabscope.preview_size;" />
 			<hbox align="center">

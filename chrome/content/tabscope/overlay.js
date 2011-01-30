@@ -659,6 +659,8 @@ var TabScope = {
 	},
 
 	_ensureTabIsRestored: function() {
+		if (!this._branch.getBoolPref("unloaded_tab"))
+			return;
 		// [BarTab]
 		if ("BarTabHandler" in gBrowser)
 			gBrowser.BarTabHandler.loadTab(this._tab);

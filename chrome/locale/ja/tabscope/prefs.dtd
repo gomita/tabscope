@@ -10,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "ポップアップを表示するまでの待ち時間">
 <!ENTITY tabscope.popup_delay.2 "ミリ秒">
 <!ENTITY tabscope.current_tab "現在のタブについてポップアップを表示しない">
+<!ENTITY tabscope.unloaded_tab "読み込み前のタブについて、すぐにそのタブを読み込む">
 <!ENTITY tabscope.animate "アニメーション">
 <!ENTITY tabscope.animate_move "ポップアップの移動">
 <!ENTITY tabscope.animate_zoom "プレビューの拡大・縮小">

@@ -12,5 +12,6 @@ pref("extensions.tabscope.click.2", "zoom");
 pref("extensions.tabscope.toolbar_display", 2);
 pref("extensions.tabscope.buttons", "back,forward,reload,pin,zoom,groups,close");
 pref("extensions.tabscope.tab_exceptions", 0);
+pref("extensions.tabscope.unloaded_tab", true);
 pref("extensions.tabscope.backmonitor", false);
 pref("extensions.tabscope.fade_to_white", false);
