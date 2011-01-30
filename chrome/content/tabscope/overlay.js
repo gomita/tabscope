@@ -42,6 +42,9 @@ var TabScope = {
 	// time when window is opened
 	_initTime: null,
 
+	// delta height of popup and preview
+	_deltaHeight: 0,
+
 	// [Firefox3.6] last time to hide popup
 	_lastHidingTime: null,
 
@@ -297,6 +300,7 @@ var TabScope = {
 			case "popupshown": 
 				if (this.popup.collapsed)
 					this.popup.collapsed = false;
+				this._deltaHeight = this.popup.boxObject.height - this.canvas.height;
 				this._adjustPopupPosition(false);
 				break;
 			case "popuphiding": 
@@ -401,9 +405,10 @@ var TabScope = {
 		// correct popup alignment
 		// XXX if popup has never been opened, popup.boxObject.width and height are both 0
 		// in that case, estimate popup size based on preview size
+		var dh = this._deltaHeight;
 		var popup = this.popup.boxObject;
 		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + 10;
-		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + 40;
+		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + dh;
 		var tab = this._tab.boxObject;
 		if (this._multiScreens) {
 			// recalculate _availRect based on the current screen
@@ -467,9 +472,10 @@ var TabScope = {
 		var alignment = parseInt(this.popup.getAttribute("_alignment"));
 		// XXX if popup has never been opened, popup.boxObject.width and height are both 0
 		// in that case, estimate popup size based on preview size
+		var dh = this._deltaHeight;
 		var popup = this.popup.boxObject;
 		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + 10;
-		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + 40;
+		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + dh;
 		if (aValuesOverride) {
 			popupWidth  = aValuesOverride.width;
 			popupHeight = aValuesOverride.height;
@@ -558,8 +564,9 @@ var TabScope = {
 			toolbar.style.marginTop = val.toString() + "px";
 		}
 		// adjust popup position with resizing preview
-		var values = { width: width + 10, height: height + 40, duration: duration };
-		this._adjustPopupPosition(true, values);
+		this._adjustPopupPosition(true, {
+			width: width + 10, height: height + this._deltaHeight, duration: duration
+		});
 	},
 
 	_togglePreviewSize: function() {
