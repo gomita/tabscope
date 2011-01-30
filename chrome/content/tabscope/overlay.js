@@ -486,8 +486,8 @@ var TabScope = {
 		// correct position to avoid popup auto-position
 		x = Math.max(x, this._availRect.left);
 		y = Math.max(y, this._availRect.top);
-		x = Math.min(x, this._availRect.right  - popupWidth);
-		y = Math.min(y, this._availRect.bottom - popupHeight);
+		x = Math.min(x, this._availRect.right  - popupWidth  - 10);
+		y = Math.min(y, this._availRect.bottom - popupHeight - 10);
 		// correct 1px glitch of current tab
 		if (alignment == 2 && this._tab == gBrowser.selectedTab) {
 			var margin = parseInt(window.getComputedStyle(this._tab, null).marginBottom);
