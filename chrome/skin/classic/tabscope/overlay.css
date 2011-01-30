@@ -121,8 +121,12 @@
 	border: none;
 }
 
-#tabscope-popup[_toolbardisplay="1"] #tabscope-preview {
+#tabscope-popup[_toolbardisplay="1"][_alignment="2"] #tabscope-preview {
 	margin-top: 22px;
+}
+
+#tabscope-popup[_toolbardisplay="1"][_alignment="1"] #tabscope-preview {
+	margin-bottom: 22px;
 }
 
 /* ::::: Windows (except Classic and third-party themes) ::::: */

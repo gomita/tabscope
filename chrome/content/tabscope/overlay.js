@@ -560,8 +560,14 @@ var TabScope = {
 			// [Firefox3.6] emulate xul:stack child's bottom attribute
 			var toolbar = document.getElementById("tabscope-toolbar");
 			toolbar.width = width;
-			var val = toolbar.getAttribute("bottom") ? height - 21 : 0;
-			toolbar.style.marginTop = val.toString() + "px";
+			var marginTop = 0;
+			if (toolbar.getAttribute("bottom")) {
+				marginTop = height;
+				// if toolbar is autohide, subtract toolbar height to overlap preview
+				if (this.popup.getAttribute("_toolbardisplay") == "2")
+					marginTop -= 21;
+			}
+			toolbar.style.marginTop = marginTop.toString() + "px";
 		}
 		// adjust popup position with resizing preview
 		this._adjustPopupPosition(true, {
