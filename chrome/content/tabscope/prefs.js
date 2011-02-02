@@ -105,6 +105,11 @@ var PrefsUI = {
 		}
 	},
 
+	openHelpURI: function() {
+		var where = document.documentElement.instantApply ? "tab" : "window";
+		openUILinkIn("http://www.xuldev.org/tabscope/options.php", where);
+	},
+
 };
 
 

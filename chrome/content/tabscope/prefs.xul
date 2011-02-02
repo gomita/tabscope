@@ -10,9 +10,10 @@
             xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
             title="Tab Scope - &tabscope.options;"
             onload="PrefsUI.init();"
+            ondialoghelp="PrefsUI.openHelpURI();"
             ondialogaccept="PrefsUI.applyPrefsChange();">
 
-	<prefpane id="generalPane" label="&tabscope.general;" flex="1">
+	<prefpane id="generalPane" helpTopic="general" label="&tabscope.general;" flex="1">
 		<preferences>
 			<preference id="popup_alignment" name="extensions.tabscope.popup_alignment" type="int" />
 			<preference id="popup_delay"     name="extensions.tabscope.popup_delay"     type="int" />
@@ -86,7 +87,7 @@
 		</groupbox>
 	</prefpane>
 
-	<prefpane id="advancedPane" label="&tabscope.advanced;" flex="1">
+	<prefpane id="advancedPane" helpTopic="advanced" label="&tabscope.advanced;" flex="1">
 		<preferences>
 			<preference id="popup_hovering"  name="extensions.tabscope.popup_hovering"  type="bool"
 			            onchange="PrefsUI.applyPrefsChange();" />
@@ -159,6 +160,7 @@
 		</box>
 	</prefpane>
 
+	<script type="application/x-javascript" src="chrome://browser/content/utilityOverlay.js" />
 	<script type="application/x-javascript" src="chrome://tabscope/content/prefs.js" />
 
 </prefwindow>
