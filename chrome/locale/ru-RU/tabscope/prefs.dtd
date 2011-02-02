@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Настройки">
+<!ENTITY tabscope.general "Общие">
+<!ENTITY tabscope.advanced "Дополнительно">
 <!ENTITY tabscope.popup_alignment "Расположение всплывающего окна">
 <!ENTITY tabscope.popup_alignment.auto "автоопределение">
 <!ENTITY tabscope.popup_alignment.top "над вкладкой">
@@ -8,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "Время появления всплывающего окна">
 <!ENTITY tabscope.popup_delay.2 "миллисекунд">
 <!ENTITY tabscope.current_tab "Не показывать всплывающее окно для активной вкладки">
+<!ENTITY tabscope.unloaded_tab "При показе всплывающего окна для незагруженной вкладки, загружать её немедленно.">
 <!ENTITY tabscope.animate "Анимация">
 <!ENTITY tabscope.animate_move "Перемещение всплывающего окна">
 <!ENTITY tabscope.animate_zoom "Масштабирование всплывающего окна">
@@ -15,7 +18,7 @@
 <!ENTITY tabscope.animate.normal "Средне">
 <!ENTITY tabscope.animate.slow "Медленно">
 <!ENTITY tabscope.animate.note "* Анимация доступна в Firefox 4.">
-<!ENTITY tabscope.backmonitor "Использовать контроль фона">
+<!ENTITY tabscope.backmonitor "Включить мониторинг фотовых вкладок">
 <!ENTITY tabscope.backmonitor.tooltiptext "Когда новая вкладка открывается в фоне, автоматически показывать всплывающее окно для неё.">
 <!ENTITY tabscope.hovering "Не закрывать всплывающее окно, когда над ним находится курсор мыши">
 <!ENTITY tabscope.preview_size "Размер всплывающего окна">
@@ -32,3 +35,8 @@
 <!ENTITY tabscope.command.hide "Закрыть всплывающее окно">
 <!ENTITY tabscope.command.zoom "Приблизить">
 <!ENTITY tabscope.command.emulate "Произвести действие на веб-странице">
+<!ENTITY tabscope.toolbar "Панель инструментов">
+<!ENTITY tabscope.toolbar.display.0 "Никогда не показывать">
+<!ENTITY tabscope.toolbar.display.1 "Всегда показывать">
+<!ENTITY tabscope.toolbar.display.2 "Автоматически скрывать">
+<!ENTITY tabscope.toolbar.buttons "Кнопки">

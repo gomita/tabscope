@@ -10,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "Време док се не појави искачући прозор">
 <!ENTITY tabscope.popup_delay.2 "милисекунди">
 <!ENTITY tabscope.current_tab "Не приказуј искачући прозор за тренутни језичак">
+<!ENTITY tabscope.unloaded_tab "Одмах учитај неучитани језичак">
 <!ENTITY tabscope.animate "Анимације">
 <!ENTITY tabscope.animate_move "Премештање искачућег прозора">
 <!ENTITY tabscope.animate_zoom "Преглед зумирања">

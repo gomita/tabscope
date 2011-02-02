@@ -1,4 +1,6 @@
 <!ENTITY tabscope.options "Opciones">
+<!ENTITY tabscope.general "General">
+<!ENTITY tabscope.advanced "Avanzado">
 <!ENTITY tabscope.popup_alignment "Alineación de la ventana emergente">
 <!ENTITY tabscope.popup_alignment.auto "detectar automáticamente">
 <!ENTITY tabscope.popup_alignment.top "en la parte superior de la pestaña">
@@ -8,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "Tiempo de espera para mostrar la ventana emergente">
 <!ENTITY tabscope.popup_delay.2 "milisegundos">
 <!ENTITY tabscope.current_tab "No mostrar la ventana emergente para la pestaña actual">
+<!ENTITY tabscope.unloaded_tab "Al mostrar la ventana emergente de una pestaña no cargada, cargarla inmediatamente">
 <!ENTITY tabscope.animate "Animaciones">
 <!ENTITY tabscope.animate_move "Movimiento emergente">
 <!ENTITY tabscope.animate_zoom "Zoom de la vista previa">
@@ -32,3 +35,8 @@
 <!ENTITY tabscope.command.hide "Cerrar ventana emergente">
 <!ENTITY tabscope.command.zoom "Zoom de la vista previa">
 <!ENTITY tabscope.command.emulate "Enviar evento de click">
+<!ENTITY tabscope.toolbar "Barra de herramientas">
+<!ENTITY tabscope.toolbar.display.0 "No mostrar nunca">
+<!ENTITY tabscope.toolbar.display.1 "Mostrar siempre">
+<!ENTITY tabscope.toolbar.display.2 "Ocultar automáticamente">
+<!ENTITY tabscope.toolbar.buttons "Botones">

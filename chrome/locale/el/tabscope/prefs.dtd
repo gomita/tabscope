@@ -10,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "Χρόνος αναμονής εμφάνισης των αναδυόμενων πλαισίων">
 <!ENTITY tabscope.popup_delay.2 "μιλιδευτερόλεπτα">
 <!ENTITY tabscope.current_tab "Μη εμφάνιση αναδυόμενου πλαισίου για την τρέχουσα καρτέλα">
+<!ENTITY tabscope.unloaded_tab "Κατά την προεπισκόπηση μη φορτωμένης καρτέλας, φόρτωση αυτής">
 <!ENTITY tabscope.animate "Κινησιομοίωση">
 <!ENTITY tabscope.animate_move "Μετακίνηση αναδυόμενου πλαισίου">
 <!ENTITY tabscope.animate_zoom "Εστίαση προεπισκόπησης">

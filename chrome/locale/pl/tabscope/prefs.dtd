@@ -10,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "Opóźnienie wyświetlenia podglądu">
 <!ENTITY tabscope.popup_delay.2 "ms">
 <!ENTITY tabscope.current_tab "Nie wyświetlaj podglądu aktywnej karty">
+<!ENTITY tabscope.unloaded_tab "Wczytuj niewczytaną kartę niezwłocznie">
 <!ENTITY tabscope.animate "Animacje">
 <!ENTITY tabscope.animate_move "Przemieszczanie podglądu">
 <!ENTITY tabscope.animate_zoom "Skalowanie podglądu">

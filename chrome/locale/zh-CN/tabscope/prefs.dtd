@@ -10,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "延迟">
 <!ENTITY tabscope.popup_delay.2 "毫秒后显示预览图">
 <!ENTITY tabscope.current_tab "不显示当前标签的预览图">
+<!ENTITY tabscope.unloaded_tab "在未载入的标签页上显示缩略图时立即载入该标签页">
 <!ENTITY tabscope.animate "动态显示">
 <!ENTITY tabscope.animate_move "预览图移动">
 <!ENTITY tabscope.animate_zoom "预览图缩放">

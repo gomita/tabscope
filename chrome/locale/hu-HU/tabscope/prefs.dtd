@@ -10,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "Megjelenítés késleltetése">
 <!ENTITY tabscope.popup_delay.2 "ezredmásodperc">
 <!ENTITY tabscope.current_tab "Ne jelenjen meg az aktuális lapnál">
+<!ENTITY tabscope.unloaded_tab "Felbukkanó ablak megjelenítése egy betöltetlen lapnál töltse be a lapot">
 <!ENTITY tabscope.animate "Animációk">
 <!ENTITY tabscope.animate_move "Felugró ablak mozgatás">
 <!ENTITY tabscope.animate_zoom "Nagyítás előnézete">

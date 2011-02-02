@@ -10,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "Thời gian đợi trước khi hiển thị cửa sổ xem trước">
 <!ENTITY tabscope.popup_delay.2 "mili-giây">
 <!ENTITY tabscope.current_tab "Không hiển thị cửa sổ xem trước cho tab đang xem">
+<!ENTITY tabscope.unloaded_tab "Tải tab ngay khi hiển thị cửa sổ tự bung của nó">
 <!ENTITY tabscope.animate "Hoạt hình">
 <!ENTITY tabscope.animate_move "Di chuyển cửa sổ tự bung">
 <!ENTITY tabscope.animate_zoom "Phóng xem trước">

@@ -10,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "Anzeigeverzögerung">
 <!ENTITY tabscope.popup_delay.2 "Millisekunden">
 <!ENTITY tabscope.current_tab "Keine Vorschau für den aktiven Tab anzeigen">
+<!ENTITY tabscope.unloaded_tab "Ungeladene Tabs für Vorschau nachladen">
 <!ENTITY tabscope.animate "Animationen">
 <!ENTITY tabscope.animate_move "Für Vorschaubewegung">
 <!ENTITY tabscope.animate_zoom "Für Vorschau-Zoom">

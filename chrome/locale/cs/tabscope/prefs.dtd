@@ -10,6 +10,7 @@
 <!ENTITY tabscope.popup_delay.1 "Čekací čas pro zobrazení náhledového okna">
 <!ENTITY tabscope.popup_delay.2 "milisekund">
 <!ENTITY tabscope.current_tab "Nezobrazovat náhledové okno u aktuálního panelu">
+<!ENTITY tabscope.unloaded_tab "Okamžitě načíst nenačtený panel">
 <!ENTITY tabscope.animate "Animace">
 <!ENTITY tabscope.animate_move "Pohyb náhledu">
 <!ENTITY tabscope.animate_zoom "Přiblížení">
