@@ -121,7 +121,7 @@
 	border: none;
 }
 
-#tabscope-popup[_toolbardisplay="1"][_alignment="2"] #tabscope-preview {
+#tabscope-popup[_toolbardisplay="1"]:not([_alignment="1"]) #tabscope-preview {
 	margin-top: 22px;
 }
 
