@@ -21,141 +21,11 @@
 		</em:localized>
 		<em:localized>
 			<Description>
-				<em:locale>sv-SE</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Förhandsgranskning och navigering av flikar m.h.a. popup-rutor.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>Mikael Hiort af Ornäs</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>vi</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>longnh</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>pl</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Wyświetla podglądy kart i umożliwia nawigację w nich.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>Leszek(teo)Życzkowski</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>he</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>SiiiE</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>zh-CN</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>fang5566</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>ko-KR</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>wtspout</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>pt-BR</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>humbertosartini</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>sr</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>DakSrbija</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>hu-HU</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>Cashman</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>es-ES</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>chuzo</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>es-AR</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>acushnir</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
 				<em:locale>cs</em:locale>
 				<em:name>Tab Scope</em:name>
 				<em:description>Previews and navigates tab contents through popup.</em:description>
 				<em:creator>Gomita</em:creator>
 				<em:translator>PetrTwo</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>el</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Προεπισκόπηση καρτελών και περιήγηση στο περιεχόμενό τους μέσω αναδυόμενων πλαισίων.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>Γιώργος Μαλαμάς</em:translator>
-				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
-			</Description>
-		</em:localized>
-		<em:localized>
-			<Description>
-				<em:locale>uk-UA</em:locale>
-				<em:name>Tab Scope</em:name>
-				<em:description>Previews and navigates tab contents through popup.</em:description>
-				<em:creator>Gomita</em:creator>
-				<em:translator>yaryi</em:translator>
 				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
 			</Description>
 		</em:localized>
@@ -171,11 +41,141 @@
 		</em:localized>
 		<em:localized>
 			<Description>
+				<em:locale>el</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Προεπισκόπηση καρτελών και περιήγηση στο περιεχόμενό τους μέσω αναδυόμενων πλαισίων.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>Γιώργος Μαλαμάς</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>es-AR</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>acushnir</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>es-ES</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>chuzo</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>he</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>SiiiE</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>hu-HU</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>Cashman</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>ko-KR</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>wtspout</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>pl</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Wyświetla podglądy kart i umożliwia nawigację w nich.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>Leszek(teo)Życzkowski</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>pt-BR</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>humbertosartini</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
 				<em:locale>ru-RU</em:locale>
 				<em:name>Tab Scope</em:name>
 				<em:description>Previews and navigates tab contents through popup.</em:description>
 				<em:creator>Gomita</em:creator>
 				<em:translator>Quicksilver tears</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>sr</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>DakSrbija</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>sv-SE</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Förhandsgranskning och navigering av flikar m.h.a. popup-rutor.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>Mikael Hiort af Ornäs</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>uk-UA</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>yaryi</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>vi</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>longnh</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>zh-CN</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>fang5566</em:translator>
 				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
 			</Description>
 		</em:localized>
