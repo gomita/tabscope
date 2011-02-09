@@ -17,7 +17,7 @@
 		       onclick="TabScope.handleEvent(event);">
 			<stack>
 				<html:canvas id="tabscope-preview" top="0" left="0" />
-				<toolbar id="tabscope-toolbar" top="0"
+				<toolbar id="tabscope-toolbar" top="0" fullscreentoolbar="true"
 				         onclick="if (event.button == 0) event.stopPropagation();"
 				         ondblclick="TabScope.handleEvent(event);"
 				         oncommand="TabScope.handleEvent(event);">
