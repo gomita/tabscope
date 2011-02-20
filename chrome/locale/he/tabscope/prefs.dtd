@@ -3,10 +3,10 @@
 <!ENTITY tabscope.advanced "מתקדם">
 <!ENTITY tabscope.popup_alignment "יישור החלון הקופץ">
 <!ENTITY tabscope.popup_alignment.auto "זיהוי אוטומטי">
-<!ENTITY tabscope.popup_alignment.top "מעל הלשונית">
-<!ENTITY tabscope.popup_alignment.bottom "מתחת הלשוניות">
-<!ENTITY tabscope.popup_alignment.left "בצידה השמאלי של הלשונית">
-<!ENTITY tabscope.popup_alignment.right "בצידה הימני של הלשונית">
+<!ENTITY tabscope.popup_alignment.top "מעל ללשונית">
+<!ENTITY tabscope.popup_alignment.bottom "מתחת ללשונית">
+<!ENTITY tabscope.popup_alignment.left "בצידה השמאלי של לשונית">
+<!ENTITY tabscope.popup_alignment.right "בצידה הימני של לשונית">
 <!ENTITY tabscope.popup_delay.1 "זמן ההמתנה להופעת החלון הקופץ">
 <!ENTITY tabscope.popup_delay.2 "אלפיות שנייה">
 <!ENTITY tabscope.current_tab "לא להציג חלון קופץ ללשונית הנוכחית">
@@ -17,9 +17,9 @@
 <!ENTITY tabscope.animate.fast "מהיר">
 <!ENTITY tabscope.animate.normal "רגיל">
 <!ENTITY tabscope.animate.slow "אטי">
-<!ENTITY tabscope.animate.note "* אנימציות זמינות עבור Firefox 4.">
+<!ENTITY tabscope.animate.note "* האנימציות זמינות עבור Firefox 4.">
 <!ENTITY tabscope.backmonitor "אפשור ניטור ברקע">
-<!ENTITY tabscope.backmonitor.tooltiptext "הצגת חלון קופץ אוטומטית עבור לשוניות הנפתחות ברקע.">
+<!ENTITY tabscope.backmonitor.tooltiptext "הצגת חלון קופץ אוטומטית עבור לשונית הנפתחת ברקע.">
 <!ENTITY tabscope.hovering "אפשור ריחוף סמן העכבר מעל החלון הקופץ.">
 <!ENTITY tabscope.preview_size "גודל התצוגה המקדימה">
 <!ENTITY tabscope.preview_width "רוחב">
@@ -36,7 +36,7 @@
 <!ENTITY tabscope.command.zoom "תצוגה מקדימה לזום">
 <!ENTITY tabscope.command.emulate "שליחת אירועי לחיצה">
 <!ENTITY tabscope.toolbar "סרגל כלים">
-<!ENTITY tabscope.toolbar.display.0 "אל תציג">
+<!ENTITY tabscope.toolbar.display.0 "לא להציג לעולם">
 <!ENTITY tabscope.toolbar.display.1 "להציג תמיד">
-<!ENTITY tabscope.toolbar.display.2 "להסתיר תמיד">
+<!ENTITY tabscope.toolbar.display.2 "להסתיר אוטומטית">
 <!ENTITY tabscope.toolbar.buttons "כפתורים">
