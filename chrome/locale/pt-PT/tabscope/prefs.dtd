@@ -1,0 +1,42 @@
+<!ENTITY tabscope.options "Opções">
+<!ENTITY tabscope.general "Geral">
+<!ENTITY tabscope.advanced "Avançado">
+<!ENTITY tabscope.popup_alignment "Alinhamento do popup">
+<!ENTITY tabscope.popup_alignment.auto "detecção automática">
+<!ENTITY tabscope.popup_alignment.top "no topo do separador">
+<!ENTITY tabscope.popup_alignment.bottom "debaixo do separador">
+<!ENTITY tabscope.popup_alignment.left "no lado esquerdo do separador">
+<!ENTITY tabscope.popup_alignment.right "no lado direito do separador">
+<!ENTITY tabscope.popup_delay.1 "Tempo de espera para mostrar popup">
+<!ENTITY tabscope.popup_delay.2 "mili-segundos">
+<!ENTITY tabscope.current_tab "Não mostrar popup para o separador actual">
+<!ENTITY tabscope.unloaded_tab "Quando eu mostrar um pop-up para um separador descarregado, carregá-lo imediatamente">
+<!ENTITY tabscope.animate "Animações">
+<!ENTITY tabscope.animate_move "Mover Popup">
+<!ENTITY tabscope.animate_zoom "Pré-visualizar zoom">
+<!ENTITY tabscope.animate.fast "Rápido">
+<!ENTITY tabscope.animate.normal "Normal">
+<!ENTITY tabscope.animate.slow "Lento">
+<!ENTITY tabscope.animate.note "* As animações estão disponíveis no Firefox 4.">
+<!ENTITY tabscope.backmonitor "Activar monitorização em pano de fundo">
+<!ENTITY tabscope.backmonitor.tooltiptext "Quando abro um novo separador em segundo plano, mostrar automaticamente popup.">
+<!ENTITY tabscope.hovering "Activar o ponteiro do rato ao pairar sobre o popup">
+<!ENTITY tabscope.preview_size "Pré-visualizar tamanho">
+<!ENTITY tabscope.preview_width "Largura">
+<!ENTITY tabscope.preview_height "Altura">
+<!ENTITY tabscope.zoom_ratio "Taxa de Zoom">
+<!ENTITY tabscope.clicks "Cliques no Popup">
+<!ENTITY tabscope.click.left "Clique esquerdo">
+<!ENTITY tabscope.click.middle "Clique central">
+<!ENTITY tabscope.click.right "Clique direito">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Seleccionar separador">
+<!ENTITY tabscope.command.close "Fechar separador">
+<!ENTITY tabscope.command.hide "Fechar Popup">
+<!ENTITY tabscope.command.zoom "Pré-visualizar zoom">
+<!ENTITY tabscope.command.emulate "Enviar evento clique">
+<!ENTITY tabscope.toolbar "Barra de ferramentas">
+<!ENTITY tabscope.toolbar.display.0 "Nunca mostrar">
+<!ENTITY tabscope.toolbar.display.1 "Mostrar sempre">
+<!ENTITY tabscope.toolbar.display.2 "Ocultar automaticamente">
+<!ENTITY tabscope.toolbar.buttons "Botões">
