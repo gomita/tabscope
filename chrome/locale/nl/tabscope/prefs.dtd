@@ -1,0 +1,42 @@
+<!ENTITY tabscope.options "Opties">
+<!ENTITY tabscope.general "Algemeen">
+<!ENTITY tabscope.advanced "Geavanceerd">
+<!ENTITY tabscope.popup_alignment "Uitlijning van pop-up">
+<!ENTITY tabscope.popup_alignment.auto "automatisch detecteren">
+<!ENTITY tabscope.popup_alignment.top "bovenop een tabblad">
+<!ENTITY tabscope.popup_alignment.bottom "onder een tabblad">
+<!ENTITY tabscope.popup_alignment.left "links van een tabblad">
+<!ENTITY tabscope.popup_alignment.right "rechts van een tabblad">
+<!ENTITY tabscope.popup_delay.1 "Wachttijd voordat pop-up wordt weergegeven">
+<!ENTITY tabscope.popup_delay.2 "milliseconden">
+<!ENTITY tabscope.current_tab "Geen pop-up voor het huidige tabblad weergeven">
+<!ENTITY tabscope.unloaded_tab "Een niet-geladen tabblad onmiddellijk laden">
+<!ENTITY tabscope.animate "Animaties">
+<!ENTITY tabscope.animate_move "Pop-upverplaatsing">
+<!ENTITY tabscope.animate_zoom "Voorbeeld zoomen">
+<!ENTITY tabscope.animate.fast "Snel">
+<!ENTITY tabscope.animate.normal "Normaal">
+<!ENTITY tabscope.animate.slow "Langzaam">
+<!ENTITY tabscope.animate.note "* Animaties zijn beschikbaar in Firefox 4.">
+<!ENTITY tabscope.backmonitor "Achtergrondmonitoring inschakelen">
+<!ENTITY tabscope.backmonitor.tooltiptext "Wanneer ik een tabblad op de achtergrond open automatisch een pop-up ervoor laten zien.">
+<!ENTITY tabscope.hovering "Muisaanwijzer boven pop-up inschakelen">
+<!ENTITY tabscope.preview_size "Voorbeeldgrootte">
+<!ENTITY tabscope.preview_width "Breedte">
+<!ENTITY tabscope.preview_height "Hoogte">
+<!ENTITY tabscope.zoom_ratio "Zoomratio">
+<!ENTITY tabscope.clicks "Klikken op pop-up">
+<!ENTITY tabscope.click.left "Klik">
+<!ENTITY tabscope.click.middle "Middelklik">
+<!ENTITY tabscope.click.right "Rechtsklik">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Tabblad selecteren">
+<!ENTITY tabscope.command.close "Tabblad sluiten">
+<!ENTITY tabscope.command.hide "Pop-up sluiten">
+<!ENTITY tabscope.command.zoom "Zoomvoorbeeld">
+<!ENTITY tabscope.command.emulate "Klikgebeurtenis verzenden">
+<!ENTITY tabscope.toolbar "Werkbalk">
+<!ENTITY tabscope.toolbar.display.0 "Nooit weergeven">
+<!ENTITY tabscope.toolbar.display.1 "Altijd weergeven">
+<!ENTITY tabscope.toolbar.display.2 "Automatisch verbergen">
+<!ENTITY tabscope.toolbar.buttons "Knoppen">

@@ -11,6 +11,7 @@ locale	tabscope	es-ES	chrome/locale/es-ES/tabscope/
 locale	tabscope	he	chrome/locale/he/tabscope/
 locale	tabscope	hu-HU	chrome/locale/hu-HU/tabscope/
 locale	tabscope	ko-KR	chrome/locale/ko-KR/tabscope/
+locale	tabscope	nl	chrome/locale/nl/tabscope/
 locale	tabscope	pl	chrome/locale/pl/tabscope/
 locale	tabscope	pt-BR	chrome/locale/pt-BR/tabscope/
 locale	tabscope	pt-PT	chrome/locale/pt-PT/tabscope/

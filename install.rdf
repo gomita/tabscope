@@ -101,6 +101,16 @@
 		</em:localized>
 		<em:localized>
 			<Description>
+				<em:locale>nl</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>markh</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
 				<em:locale>pl</em:locale>
 				<em:name>Tab Scope</em:name>
 				<em:description>Wyświetla podglądy kart i umożliwia nawigację w nich.</em:description>
