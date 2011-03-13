@@ -1,0 +1,42 @@
+<!ENTITY tabscope.options "Sätted">
+<!ENTITY tabscope.general "Üldised">
+<!ENTITY tabscope.advanced "Täpsemad">
+<!ENTITY tabscope.popup_alignment "Eelvaate asukoht">
+<!ENTITY tabscope.popup_alignment.auto "automaatne">
+<!ENTITY tabscope.popup_alignment.top "kaardi kohal">
+<!ENTITY tabscope.popup_alignment.bottom "kaardi all">
+<!ENTITY tabscope.popup_alignment.left "kaardi vasakul küljel">
+<!ENTITY tabscope.popup_alignment.right "kaardi paremal küljel">
+<!ENTITY tabscope.popup_delay.1 "Eelvaate kuvamise viivitus">
+<!ENTITY tabscope.popup_delay.2 "millisekundit">
+<!ENTITY tabscope.current_tab "Ära näita praeguse kaardi eelvaadet">
+<!ENTITY tabscope.unloaded_tab "Laadimata kaardi eelvaate vaatamisel laadi see automaatselt">
+<!ENTITY tabscope.animate "Animatsioonid">
+<!ENTITY tabscope.animate_move "Eelvaate liikumine">
+<!ENTITY tabscope.animate_zoom "Eelvaate suuruse muutmine">
+<!ENTITY tabscope.animate.fast "Kiire">
+<!ENTITY tabscope.animate.normal "Tavaline">
+<!ENTITY tabscope.animate.slow "Aeglane">
+<!ENTITY tabscope.animate.note "* Animatsioonid on saadaval Firefox 4s.">
+<!ENTITY tabscope.backmonitor "Luba tausta jälgimine">
+<!ENTITY tabscope.backmonitor.tooltiptext "Kui ma avan taustal uue kaardi, siis näita automaatselt selle eelvaadet.">
+<!ENTITY tabscope.hovering "Luba hiirega eelvaatele minemine">
+<!ENTITY tabscope.preview_size "Eelvaate suurus">
+<!ENTITY tabscope.preview_width "Laius">
+<!ENTITY tabscope.preview_height "Kõrgus">
+<!ENTITY tabscope.zoom_ratio "Eelvaate suuruse suhe">
+<!ENTITY tabscope.clicks "Eelvaatel klõpsamine">
+<!ENTITY tabscope.click.left "Vasak-klõps">
+<!ENTITY tabscope.click.middle "Kesk-klõps">
+<!ENTITY tabscope.click.right "Parem-klõps">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Valib kaardi">
+<!ENTITY tabscope.command.close "Sulgeb kaardi">
+<!ENTITY tabscope.command.hide "Sulgeb eelvaate">
+<!ENTITY tabscope.command.zoom "Muudab eelvaate suurust">
+<!ENTITY tabscope.command.emulate "Saadab klõpsamise sündmuse">
+<!ENTITY tabscope.toolbar "Tööriistariba">
+<!ENTITY tabscope.toolbar.display.0 "Ära näita kunagi">
+<!ENTITY tabscope.toolbar.display.1 "Näita alati">
+<!ENTITY tabscope.toolbar.display.2 "Peida automaatselt">
+<!ENTITY tabscope.toolbar.buttons "Nupud">
