@@ -24,7 +24,7 @@
 <!ENTITY tabscope.preview_size "Eelvaate suurus">
 <!ENTITY tabscope.preview_width "Laius">
 <!ENTITY tabscope.preview_height "Kõrgus">
-<!ENTITY tabscope.zoom_ratio "Eelvaate suuruse suhe">
+<!ENTITY tabscope.zoom_ratio "Eelvaate suuruste suhe">
 <!ENTITY tabscope.clicks "Eelvaatel klõpsamine">
 <!ENTITY tabscope.click.left "Vasak-klõps">
 <!ENTITY tabscope.click.middle "Kesk-klõps">
