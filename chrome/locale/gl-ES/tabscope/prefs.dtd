@@ -1,0 +1,42 @@
+<!ENTITY tabscope.options "Opcións">
+<!ENTITY tabscope.general "Xeral">
+<!ENTITY tabscope.advanced "Avanzadas">
+<!ENTITY tabscope.popup_alignment "Colocación da xanela emerxente">
+<!ENTITY tabscope.popup_alignment.auto "Detección automática">
+<!ENTITY tabscope.popup_alignment.top "na parte superior do separador">
+<!ENTITY tabscope.popup_alignment.bottom "na parte inferior do separador">
+<!ENTITY tabscope.popup_alignment.left "na parte esquerda do separador">
+<!ENTITY tabscope.popup_alignment.right "na parte dereita do separador">
+<!ENTITY tabscope.popup_delay.1 "Tempo que se agardará para amosar a ventá">
+<!ENTITY tabscope.popup_delay.2 "milisegundos">
+<!ENTITY tabscope.current_tab "Non se amosará a ventá emerxente para o separador actual">
+<!ENTITY tabscope.unloaded_tab "Cando se amosa unha xanela emerxente para un separador sen cargar, cargala inmediantamente">
+<!ENTITY tabscope.animate "Animacións">
+<!ENTITY tabscope.animate_move "Mover emerxente">
+<!ENTITY tabscope.animate_zoom "Ampliar a vista previa">
+<!ENTITY tabscope.animate.fast "Rápido">
+<!ENTITY tabscope.animate.normal "Normal">
+<!ENTITY tabscope.animate.slow "Lento">
+<!ENTITY tabscope.animate.note "*As animacións están dispoñíbeis no Firefox 4.">
+<!ENTITY tabscope.backmonitor "Activar monitorización do fondo">
+<!ENTITY tabscope.backmonitor.tooltiptext "Cando abro un separador novo no fondo, amosar automaticamente unha xanela emerxente.">
+<!ENTITY tabscope.hovering "Activar o punteiro do rato sobre a emerxente">
+<!ENTITY tabscope.preview_size "Tamaño da vista previa">
+<!ENTITY tabscope.preview_width "Largura">
+<!ENTITY tabscope.preview_height "Altura">
+<!ENTITY tabscope.zoom_ratio "Porcentaxe de zoom">
+<!ENTITY tabscope.clicks "Premer nas emerxentes">
+<!ENTITY tabscope.click.left "Premer co esquedo">
+<!ENTITY tabscope.click.middle "Premer co medio">
+<!ENTITY tabscope.click.right "Premer co dereito">
+<!ENTITY tabscope.command.none "(...)">
+<!ENTITY tabscope.command.select "Escoller separador">
+<!ENTITY tabscope.command.close "Pechar separador">
+<!ENTITY tabscope.command.hide "Pechar emerxente">
+<!ENTITY tabscope.command.zoom "Vista previa do zoom">
+<!ENTITY tabscope.command.emulate "Enviar evento de premer">
+<!ENTITY tabscope.toolbar "Barra de ferramentas">
+<!ENTITY tabscope.toolbar.display.0 "Non amosar nunca">
+<!ENTITY tabscope.toolbar.display.1 "Amosar sempre">
+<!ENTITY tabscope.toolbar.display.2 "Ocultar automaticamente">
+<!ENTITY tabscope.toolbar.buttons "Botóns">

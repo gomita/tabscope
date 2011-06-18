@@ -91,6 +91,16 @@
 		</em:localized>
 		<em:localized>
 			<Description>
+				<em:locale>gl-ES</em:locale>
+				<em:name>Tab Scope</em:name>
+				<em:description>Previews and navigates tab contents through popup.</em:description>
+				<em:creator>Gomita</em:creator>
+				<em:translator>mendinho</em:translator>
+				<em:homepageURL>http://www.xuldev.org/tabscope/</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
 				<em:locale>he</em:locale>
 				<em:name>Tab Scope</em:name>
 				<em:description>Previews and navigates tab contents through popup.</em:description>
