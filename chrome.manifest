@@ -24,4 +24,5 @@ locale	tabscope	sv-SE	chrome/locale/sv-SE/tabscope/
 locale	tabscope	uk-UA	chrome/locale/uk-UA/tabscope/
 locale	tabscope	vi	chrome/locale/vi/tabscope/
 locale	tabscope	zh-CN	chrome/locale/zh-CN/tabscope/
+locale	tabscope	zh-TW	chrome/locale/zh-TW/tabscope/
 skin	tabscope	classic/1.0	chrome/skin/classic/tabscope/
