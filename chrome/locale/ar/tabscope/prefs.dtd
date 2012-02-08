@@ -1,0 +1,42 @@
+<!ENTITY tabscope.options "خيارات">
+<!ENTITY tabscope.general "عـام">
+<!ENTITY tabscope.advanced "متقدم">
+<!ENTITY tabscope.popup_alignment "المحاذاة لنافذة المعاينة">
+<!ENTITY tabscope.popup_alignment.auto "كشف-آلي">
+<!ENTITY tabscope.popup_alignment.top "أعلى اللسان">
+<!ENTITY tabscope.popup_alignment.bottom "تحت اللسان">
+<!ENTITY tabscope.popup_alignment.left "على الجانب الأيسر للسان">
+<!ENTITY tabscope.popup_alignment.right "على الجانب الأيمن للسان">
+<!ENTITY tabscope.popup_delay.1 "الوقت المُنتظر حتى ظهور نافذة المُعاينة">
+<!ENTITY tabscope.popup_delay.2 "ملّي ثانية">
+<!ENTITY tabscope.current_tab "لا تُظهر نافذة معاينة للّسان المُختار">
+<!ENTITY tabscope.unloaded_tab "عند مُعاينة لسان غير مُحمّل، حمله مباشرة">
+<!ENTITY tabscope.animate "التأثيرات الحركية">
+<!ENTITY tabscope.animate_move "حركة نافذة المُعاينة">
+<!ENTITY tabscope.animate_zoom "حركة تكبير المُعاينة">
+<!ENTITY tabscope.animate.fast "سريع">
+<!ENTITY tabscope.animate.normal "عادي">
+<!ENTITY tabscope.animate.slow "بطيء">
+<!ENTITY tabscope.animate.note "* الحركات مُتاحة في فيرفُكس 4 فأعلى">
+<!ENTITY tabscope.backmonitor "تفعيل مراقبة الخلفية">
+<!ENTITY tabscope.backmonitor.tooltiptext "عندما أفتح لسان جديد في الخلفية، أعرض نافذة مُعانية له تلقائيًا.">
+<!ENTITY tabscope.hovering "السماح لمؤشر الفأرة بالحوم خلال نافذة المُعاينة">
+<!ENTITY tabscope.preview_size "حجم المُعاينة">
+<!ENTITY tabscope.preview_width "العرض">
+<!ENTITY tabscope.preview_height "الارتفاع">
+<!ENTITY tabscope.zoom_ratio "نسبة التكبير">
+<!ENTITY tabscope.clicks "النقر على نافذة المُعاينة">
+<!ENTITY tabscope.click.left "نقرة-بالزر-الأيسر">
+<!ENTITY tabscope.click.middle "نقرة-بعجلة-الفأرة">
+<!ENTITY tabscope.click.right "نقرة-بالزر-الأيمن">
+<!ENTITY tabscope.command.none "...">
+<!ENTITY tabscope.command.select "اختر اللسان">
+<!ENTITY tabscope.command.close "أغلق اللسان">
+<!ENTITY tabscope.command.hide "أغلق نافذة المُعاينة">
+<!ENTITY tabscope.command.zoom "تكبير المُعاينة">
+<!ENTITY tabscope.command.emulate "أرسل حدث النقرة">
+<!ENTITY tabscope.toolbar "شريط الأدوات">
+<!ENTITY tabscope.toolbar.display.0 "لا تُظهر أبدًا">
+<!ENTITY tabscope.toolbar.display.1 "أظهر دائمًا">
+<!ENTITY tabscope.toolbar.display.2 "إخفاء تلقائي">
+<!ENTITY tabscope.toolbar.buttons "الأزرار">
