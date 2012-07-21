@@ -1,0 +1,42 @@
+<!ENTITY tabscope.options "Opcions">
+<!ENTITY tabscope.general "General">
+<!ENTITY tabscope.advanced "Avançat">
+<!ENTITY tabscope.popup_alignment "Alineació del popup">
+<!ENTITY tabscope.popup_alignment.auto "detecta-ho automàticament">
+<!ENTITY tabscope.popup_alignment.top "a dalt d'una pestanya">
+<!ENTITY tabscope.popup_alignment.bottom "a sota d'una pestanya">
+<!ENTITY tabscope.popup_alignment.left "a l'esquerra d'una pestanya">
+<!ENTITY tabscope.popup_alignment.right "a la dreta d'una pestanya">
+<!ENTITY tabscope.popup_delay.1 "Espera't per obrir el popup">
+<!ENTITY tabscope.popup_delay.2 "mil·lisegons">
+<!ENTITY tabscope.current_tab "No mostris el popup per la pestanya actual">
+<!ENTITY tabscope.unloaded_tab "Quan previsualitzis una pestanya no carregada, carrega-la immediatament">
+<!ENTITY tabscope.animate "Animacions">
+<!ENTITY tabscope.animate_move "Mou el popup">
+<!ENTITY tabscope.animate_zoom "Previsualitza fent zoom">
+<!ENTITY tabscope.animate.fast "Ràpid">
+<!ENTITY tabscope.animate.normal "Normal">
+<!ENTITY tabscope.animate.slow "Lent">
+<!ENTITY tabscope.animate.note "* Les animacions estàn disponibles al Firefox 4.">
+<!ENTITY tabscope.backmonitor "Activa l'activitat al darrere">
+<!ENTITY tabscope.backmonitor.tooltiptext "Quan obri una nova pestanya al darrere, mostra el popup corresponent immediatament.">
+<!ENTITY tabscope.hovering "Activa la suspensió del punter del ratolí per sobre el pop up">
+<!ENTITY tabscope.preview_size "Mida de la previsualització">
+<!ENTITY tabscope.preview_width "Amplada">
+<!ENTITY tabscope.preview_height "Alçada">
+<!ENTITY tabscope.zoom_ratio "Ràtio de zoom">
+<!ENTITY tabscope.clicks "Clica al popup">
+<!ENTITY tabscope.click.left "Click esquerre">
+<!ENTITY tabscope.click.middle "Click central">
+<!ENTITY tabscope.click.right "Clic amb la dreta">
+<!ENTITY tabscope.command.none "…">
+<!ENTITY tabscope.command.select "Selecciona la pestanya">
+<!ENTITY tabscope.command.close "Tanca la pestanya">
+<!ENTITY tabscope.command.hide "Tanca el popup">
+<!ENTITY tabscope.command.zoom "Previsualització de Zoom">
+<!ENTITY tabscope.command.emulate "Envia una ordre de click">
+<!ENTITY tabscope.toolbar "Barra d'eines">
+<!ENTITY tabscope.toolbar.display.0 "Mai ho mostris">
+<!ENTITY tabscope.toolbar.display.1 "Mostra-ho sempre">
+<!ENTITY tabscope.toolbar.display.2 "Amaga-ho automàticament">
+<!ENTITY tabscope.toolbar.buttons "Botons">

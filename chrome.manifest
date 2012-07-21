@@ -4,6 +4,7 @@ content	tabscope	chrome/content/tabscope/
 locale	tabscope	en-US	chrome/locale/en-US/tabscope/
 locale	tabscope	ja	chrome/locale/ja/tabscope/
 locale	tabscope	ar	chrome/locale/ar/tabscope/
+locale	tabscope	ca	chrome/locale/ca/tabscope/
 locale	tabscope	cs	chrome/locale/cs/tabscope/
 locale	tabscope	de	chrome/locale/de/tabscope/
 locale	tabscope	el	chrome/locale/el/tabscope/
