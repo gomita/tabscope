@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Rápido">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Lento">
-<!ENTITY tabscope.animate.note "*As animacións están dispoñíbeis no Firefox 4.">
 <!ENTITY tabscope.backmonitor "Activar monitorización do fondo">
 <!ENTITY tabscope.backmonitor.tooltiptext "Cando abro un separador novo no fondo, amosar automaticamente unha xanela emerxente.">
 <!ENTITY tabscope.hovering "Activar o punteiro do rato sobre a emerxente">

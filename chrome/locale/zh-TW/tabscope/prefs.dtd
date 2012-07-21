@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "快速">
 <!ENTITY tabscope.animate.normal "正常">
 <!ENTITY tabscope.animate.slow "慢速">
-<!ENTITY tabscope.animate.note "* 動態效果展示僅支援 Firefox 4">
 <!ENTITY tabscope.backmonitor "啟用背景分頁監控">
 <!ENTITY tabscope.backmonitor.tooltiptext "開啟新分頁於背景時自動顯示其預覽圖。">
 <!ENTITY tabscope.hovering "允許游標指針懸停於預覽圖">

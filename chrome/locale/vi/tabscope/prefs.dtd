@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Nhanh">
 <!ENTITY tabscope.animate.normal "Bình thường">
 <!ENTITY tabscope.animate.slow "Chậm">
-<!ENTITY tabscope.animate.note "* Hoạt hình có sẵn trên Firefox 4.">
 <!ENTITY tabscope.backmonitor "Bật chức năng theo dõi ngầm">
 <!ENTITY tabscope.backmonitor.tooltiptext "Khi tôi mở một thẻ mới dưới nền, tự động hiện tự bung cho nó.">
 <!ENTITY tabscope.hovering "Cho phép di chuột lên trên cửa sổ tự bung">

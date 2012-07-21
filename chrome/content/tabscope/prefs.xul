@@ -83,7 +83,6 @@
 				       onchange="PrefsUI.writeAnimatePref('animate_zoom');" />
 				<label value="&tabscope.animate.fast;" />
 			</hbox>
-			<label id="animate_note" value="&tabscope.animate.note;" hidden="true" />
 		</groupbox>
 	</prefpane>
 

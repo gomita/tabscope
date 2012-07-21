@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Snabb">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Långsam">
-<!ENTITY tabscope.animate.note "* Animeringar är tillgängliga i Firefox 4.">
 <!ENTITY tabscope.backmonitor "Aktivera bakgrundsövervakning">
 <!ENTITY tabscope.backmonitor.tooltiptext "När jag öppnar en ny flik i bakgrunden, visa automatiskt en popup-ruta för den.">
 <!ENTITY tabscope.hovering "Aktivera muspekarhovring i själva popup-rutan">

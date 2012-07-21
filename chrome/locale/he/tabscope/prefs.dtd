@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "מהיר">
 <!ENTITY tabscope.animate.normal "רגיל">
 <!ENTITY tabscope.animate.slow "אטי">
-<!ENTITY tabscope.animate.note "* האנימציות זמינות עבור Firefox 4.">
 <!ENTITY tabscope.backmonitor "אפשור ניטור ברקע">
 <!ENTITY tabscope.backmonitor.tooltiptext "הצגת חלון קופץ אוטומטית עבור לשונית הנפתחת ברקע.">
 <!ENTITY tabscope.hovering "אפשור ריחוף סמן העכבר מעל החלון הקופץ.">

@@ -18,19 +18,6 @@ var PrefsUI = {
 		this.readAnimatePref("animate_zoom");
 		this.readButtonsPref();
 		this.updateToolbarUI();
-		// [Firefox3.6] disable animate UI group and hide pin and groups button
-		var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
-		if (parseFloat(appInfo.version) < 4.0) {
-			var selector = "[_uigroup='animate'] *";
-			Array.forEach(document.querySelectorAll(selector), function(elt) {
-				elt.setAttribute("disabled", "true");
-			});
-			document.getElementById("tabscope-pin-button").hidden = true;
-			document.getElementById("tabscope-groups-button").hidden = true;
-			document.getElementById("animate_note").hidden = false;
-			document.getElementById("animate_note").disabled = false;
-		}
-		window.sizeToContent();
 	},
 
 	readAnimatePref: function(aPrefName) {

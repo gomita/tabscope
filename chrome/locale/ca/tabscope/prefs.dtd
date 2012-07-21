@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Ràpid">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Lent">
-<!ENTITY tabscope.animate.note "* Les animacions estàn disponibles al Firefox 4.">
 <!ENTITY tabscope.backmonitor "Activa l'activitat al darrere">
 <!ENTITY tabscope.backmonitor.tooltiptext "Quan obri una nova pestanya al darrere, mostra el popup corresponent immediatament.">
 <!ENTITY tabscope.hovering "Activa la suspensió del punter del ratolí per sobre el pop up">

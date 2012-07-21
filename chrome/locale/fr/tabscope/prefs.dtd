@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Rapide">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Lent">
-<!ENTITY tabscope.animate.note "* Animations disponibles avec Firefox 4.">
 <!ENTITY tabscope.backmonitor "Activer la surveillance en arrière-plan">
 <!ENTITY tabscope.backmonitor.tooltiptext "Lors de l'ouverture d'un nouvel onglet en arrière-plan, afficher automatiquement son popup.">
 <!ENTITY tabscope.preview_size "Taille de l'aperçu">

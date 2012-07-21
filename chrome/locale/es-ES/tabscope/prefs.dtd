@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Rápido">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Lento">
-<!ENTITY tabscope.animate.note "* Las animaciones están disponibles en Firefox 4.">
 <!ENTITY tabscope.backmonitor "Habilitar la monitorización en segundo plano.">
 <!ENTITY tabscope.backmonitor.tooltiptext "Cuando se abra una nueva pestaña en segundo plano, abrir la ventana automáticamente.">
 <!ENTITY tabscope.hovering "Habilitar el puntero del ratón sobre la ventana emergente">

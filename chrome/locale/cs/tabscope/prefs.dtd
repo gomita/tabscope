@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Rychle">
 <!ENTITY tabscope.animate.normal "Běžně">
 <!ENTITY tabscope.animate.slow "Pomalu">
-<!ENTITY tabscope.animate.note "* Animace jsou dostupné v aplikaci Firefox 4.">
 <!ENTITY tabscope.backmonitor "Zapnout monitorování na pozadí">
 <!ENTITY tabscope.backmonitor.tooltiptext "Automaticky zobrazí náhledové okno pro panely otevřené na pozadí.">
 <!ENTITY tabscope.hovering "Zapnout pokročilé funkce náhledového okna">

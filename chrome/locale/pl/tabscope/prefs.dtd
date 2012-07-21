@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Szybko">
 <!ENTITY tabscope.animate.normal "Normalnie">
 <!ENTITY tabscope.animate.slow "Wolno">
-<!ENTITY tabscope.animate.note "* Animacje są dostępne w Firefoksie 4.">
 <!ENTITY tabscope.backmonitor "Monitoruj karty otwierane w tle">
 <!ENTITY tabscope.backmonitor.tooltiptext "Gdy nowa karta jest otwierana w tle, będzie automatycznie wyświetlany jej podgląd.">
 <!ENTITY tabscope.hovering "Operuj wskaźnikiem myszy w podglądzie">

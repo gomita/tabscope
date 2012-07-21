@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Schnell">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Langsam">
-<!ENTITY tabscope.animate.note "* Animationen sind nur in Firefox 4 verfügbar.">
 <!ENTITY tabscope.backmonitor "Automatische Vorschau für im Hintergrund öffnende Tabs aktivieren">
 <!ENTITY tabscope.backmonitor.tooltiptext "Beim Öffnen eines neuen Hintergrund-Tabs wird automatisch die Vorschau angezeigt.">
 <!ENTITY tabscope.hovering "Bewegen des Mauszeigers über die Vorschau ermöglichen">

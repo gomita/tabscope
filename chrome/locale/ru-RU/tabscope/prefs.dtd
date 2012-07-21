@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Быстро">
 <!ENTITY tabscope.animate.normal "Средне">
 <!ENTITY tabscope.animate.slow "Медленно">
-<!ENTITY tabscope.animate.note "* Анимация доступна в Firefox 4.">
 <!ENTITY tabscope.backmonitor "Включить мониторинг фоновых вкладок">
 <!ENTITY tabscope.backmonitor.tooltiptext "Когда новая вкладка открывается в фоне, автоматически показывать всплывающее окно для неё.">
 <!ENTITY tabscope.hovering "Не закрывать всплывающее окно, когда над ним находится курсор мыши">

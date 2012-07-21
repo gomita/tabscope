@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "빠름">
 <!ENTITY tabscope.animate.normal "보통">
 <!ENTITY tabscope.animate.slow "느림">
-<!ENTITY tabscope.animate.note "* 애니메이션은 Firefox 4에서 사용할 수 있습니다.">
 <!ENTITY tabscope.backmonitor "배경 모니터링 활성화">
 <!ENTITY tabscope.backmonitor.tooltiptext "배경으로 새 탭을 열었을 때, 자동으로 팝업을 표시합니다.">
 <!ENTITY tabscope.hovering "팝업 위로 마우스 포인터 가져가기 허용">

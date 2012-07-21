@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Snel">
 <!ENTITY tabscope.animate.normal "Normaal">
 <!ENTITY tabscope.animate.slow "Langzaam">
-<!ENTITY tabscope.animate.note "* Animaties zijn beschikbaar in Firefox 4.">
 <!ENTITY tabscope.backmonitor "Achtergrondmonitoring inschakelen">
 <!ENTITY tabscope.backmonitor.tooltiptext "Wanneer ik een tabblad op de achtergrond open automatisch een pop-up ervoor laten zien.">
 <!ENTITY tabscope.hovering "Muisaanwijzer boven pop-up inschakelen">

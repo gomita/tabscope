@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "快速">
 <!ENTITY tabscope.animate.normal "正常">
 <!ENTITY tabscope.animate.slow "慢速">
-<!ENTITY tabscope.animate.note "* 动态效果展示仅支持 Firefox 4">
 <!ENTITY tabscope.backmonitor "启用后台标签监控">
 <!ENTITY tabscope.backmonitor.tooltiptext "后台打开新标签时自动显示其预览图。">
 <!ENTITY tabscope.hovering "允许鼠标指针悬停于预览图">

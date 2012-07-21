@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "速い">
 <!ENTITY tabscope.animate.normal "普通">
 <!ENTITY tabscope.animate.slow "遅い">
-<!ENTITY tabscope.animate.note "※アニメーションは Firefox 4 で利用可能となります。">
 <!ENTITY tabscope.backmonitor "バックグラウンドモニタリングを有効にする">
 <!ENTITY tabscope.backmonitor.tooltiptext "新しいタブをバックグラウンドで開いたとき、自動的にポップアップを表示します。">
 <!ENTITY tabscope.hovering "ポップアップ上へのマウスオーバーを可能にする">

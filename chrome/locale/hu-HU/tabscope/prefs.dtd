@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Gyors">
 <!ENTITY tabscope.animate.normal "Normál">
 <!ENTITY tabscope.animate.slow "Lassú">
-<!ENTITY tabscope.animate.note "* Animációk csak Firefox 4-ben.">
 <!ENTITY tabscope.backmonitor "A háttérben történő folyamatos vizsgálat engedélyezése">
 <!ENTITY tabscope.backmonitor.tooltiptext "Mikor egy új lapot nyit meg a háttérben, automatikusan megjelenik a hozzá tartozó felugró ablak.">
 <!ENTITY tabscope.hovering "Egérmutató lebegésének engedélyezése a felugró ablaknál">

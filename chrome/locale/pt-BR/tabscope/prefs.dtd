@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Rápido">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Devagar">
-<!ENTITY tabscope.animate.note "* Animações estão disponíveis no Firefox 4.">
 <!ENTITY tabscope.backmonitor "Habilitar monitoramento de segundo plano">
 <!ENTITY tabscope.backmonitor.tooltiptext "Quando eu abrir uma nova aba em segundo plano, automaticamente mostrar um popup para isso.">
 <!ENTITY tabscope.hovering "Ativar o ponteiro do mouse pairar sobre o pop-up">

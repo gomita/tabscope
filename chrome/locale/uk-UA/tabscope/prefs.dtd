@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Швидко">
 <!ENTITY tabscope.animate.normal "Нормально">
 <!ENTITY tabscope.animate.slow "Повільно">
-<!ENTITY tabscope.animate.note "* Анімація можлива лише у Firefox 4.">
 <!ENTITY tabscope.backmonitor "Фоновий перегляд">
 <!ENTITY tabscope.backmonitor.tooltiptext "Показувати нарис автоматично під час відкривання нової вкладки у фоні.">
 <!ENTITY tabscope.hovering "Дозволити роботу вказівника миші з нарисом">

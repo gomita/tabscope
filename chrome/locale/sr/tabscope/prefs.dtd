@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "брзо">
 <!ENTITY tabscope.animate.normal "нормално">
 <!ENTITY tabscope.animate.slow "споро">
-<!ENTITY tabscope.animate.note "* анимације су доступне у Фајерфоксу 4">
 <!ENTITY tabscope.backmonitor "Омогући надгледање позадине">
 <!ENTITY tabscope.backmonitor.tooltiptext "Када отворим нови језичак у позадини, аутоматски прикажи искачући прозор за њега.">
 <!ENTITY tabscope.hovering "Омогући показивач миша на искачућем прозору">

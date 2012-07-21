@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Rápido">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Lento">
-<!ENTITY tabscope.animate.note "* As animações estão disponíveis no Firefox 4.">
 <!ENTITY tabscope.backmonitor "Activar monitorização em pano de fundo">
 <!ENTITY tabscope.backmonitor.tooltiptext "Quando abro um novo separador em segundo plano, mostrar automaticamente popup.">
 <!ENTITY tabscope.hovering "Activar o ponteiro do rato ao pairar sobre o popup">

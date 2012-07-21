@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Fast">
 <!ENTITY tabscope.animate.normal "Normal">
 <!ENTITY tabscope.animate.slow "Slow">
-<!ENTITY tabscope.animate.note "* Animations are available in Firefox 4.">
 <!ENTITY tabscope.backmonitor "Enable background monitoring">
 <!ENTITY tabscope.backmonitor.tooltiptext "When I open a new tab in background, automatically show popup for it.">
 <!ENTITY tabscope.hovering "Enable the mouse pointer hovering over the popup">

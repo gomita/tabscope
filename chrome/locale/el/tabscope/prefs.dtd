@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "Γρήγορη">
 <!ENTITY tabscope.animate.normal "Κανονική">
 <!ENTITY tabscope.animate.slow "Αργή">
-<!ENTITY tabscope.animate.note "* Η κινησιομοίωση είναι διαθέσιμη στον Firefox 4.">
 <!ENTITY tabscope.backmonitor "Ενεργοποίηση παρακολούθησης παρασκηνίου">
 <!ENTITY tabscope.backmonitor.tooltiptext "Όταν ανοίγεται μια νέα καρτέλα στο παρασκήνιο, να εμφανίζεται αυτόματα αναδυόμενο πλαίσιο προεπισκόπησης γι' αυτήν.">
 <!ENTITY tabscope.hovering "Ενεργοποίηση αιώρησης δείκτη ποντικιού πάνω από το αναδυόμενο πλαίσιο προεπισκόπησης">

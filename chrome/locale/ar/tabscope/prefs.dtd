@@ -17,7 +17,6 @@
 <!ENTITY tabscope.animate.fast "سريع">
 <!ENTITY tabscope.animate.normal "عادي">
 <!ENTITY tabscope.animate.slow "بطيء">
-<!ENTITY tabscope.animate.note "* الحركات مُتاحة في فيرفُكس 4 فأعلى">
 <!ENTITY tabscope.backmonitor "تفعيل مراقبة الخلفية">
 <!ENTITY tabscope.backmonitor.tooltiptext "عندما أفتح لسان جديد في الخلفية، أعرض نافذة مُعانية له تلقائيًا.">
 <!ENTITY tabscope.hovering "السماح لمؤشر الفأرة بالحوم خلال نافذة المُعاينة">
