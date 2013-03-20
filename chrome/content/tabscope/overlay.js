@@ -156,9 +156,9 @@ var TabScope = {
 					// when hovering on a tab...
 					// popup is currently closed, so open it with delay
 					this._tab = event.target;
-					var noAutoHide = event.type == "TabOpen";
-					var callback = function(self) { self._delayedOpenPopup(noAutoHide); };
-					var delay = noAutoHide ? 100 : this._branch.getIntPref("popup_delay");
+					var backmonitor = event.type == "TabOpen";
+					var callback = function(self) { self._delayedOpenPopup(backmonitor); };
+					var delay = backmonitor ? 100 : this._branch.getIntPref("popup_delay");
 					this._timerId = window.setTimeout(callback, delay, this);
 					this.log("--- start timer (" + this._timerId + ")");	// #debug
 				}
@@ -324,8 +324,8 @@ var TabScope = {
 		}
 	},
 
-	_delayedOpenPopup: function(aNoAutoHide) {
-		if (!aNoAutoHide) {
+	_delayedOpenPopup: function(aBackmonitor) {
+		if (!aBackmonitor) {
 			// if mouse pointer moves outside tab before callback...
 			// if any other popup e.g. tab context menu is opened...
 			var anotherPopupOpen = !!document.popupNode;
@@ -335,7 +335,7 @@ var TabScope = {
 				return;
 			}
 		}
-		this.popup.setAttribute("noautohide", aNoAutoHide.toString());
+		this.popup.setAttribute("_backmonitor", aBackmonitor.toString());
 		this._timerId = null;
 		var alignment = this._branch.getIntPref("popup_alignment");
 		if (alignment == 0) {
@@ -387,9 +387,6 @@ var TabScope = {
 		toolbar.removeAttribute(alignment == 1 ? "top" : "bottom");
 		// adjust popup position before opening popup
 		this._adjustPopupPosition(false);
-		// [Mac][Linux] don't eat clicks while popup is open if popup is not for background monitor
-		if (!aNoAutoHide)
-			this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
 		if (this._multiScreens)
 			// open popup at the corner of the current screen
 			this.popup.openPopupAtScreen(this._availRect.left, this._availRect.top, false);
@@ -640,7 +637,7 @@ var TabScope = {
 		var hovering = this._branch.getBoolPref("popup_hovering");
 		var onPopup = this.popup.parentNode.querySelector(":hover") == this.popup;
 		var onTab = this._tab.parentNode.querySelector(":hover") == this._tab;
-		if (this.popup.getAttribute("noautohide") == "true")
+		if (this.popup.getAttribute("_backmonitor") == "true")
 			// [backmonitor] close popup if hovering over popup despite hovering is disabled
 			// [backmonitor] close popup if window is minimized
 			shouldClosePopup = !hovering && onPopup || window.windowState == 2;
