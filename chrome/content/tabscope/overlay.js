@@ -3,6 +3,9 @@ var TabScope = {
 	// Mac OS X
 	_mac: false,
 
+	// Linux
+	_linux: false,
+
 	// xul:panel element
 	popup: null,
 
@@ -44,7 +47,8 @@ var TabScope = {
 
 	init: function() {
 		var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
-		this._mac  = navigator.platform.indexOf("Mac") >= 0;
+		this._mac   = navigator.platform.indexOf("Mac") >= 0;
+		this._linux = navigator.platform.indexOf("Linux") >= 0;
 		this._initTime = Date.now();
 		this.popup = document.getElementById("tabscope-popup");
 		this.canvas = document.getElementById("tabscope-preview");
@@ -70,6 +74,9 @@ var TabScope = {
 		};
 		this._multiScreens = svc.numberOfScreens > 1;
 		this.loadPrefs();
+		// [Linux] remove |noautohide| to avoid losing focus on browser
+		if (this._linux)
+			this.popup.removeAttribute("noautohide");
 	},
 
 	uninit: function() {
@@ -257,6 +264,9 @@ var TabScope = {
 					this.popup.collapsed = false;
 				this._deltaHeight = this.popup.boxObject.height - this.canvas.height;
 				this._adjustPopupPosition(false);
+				// [Linux] don't eat clicks while popup is open
+				if (this._linux)
+					this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
 				break;
 			case "popuphiding": 
 				this.log("close popup");	// #debug
@@ -635,6 +645,7 @@ var TabScope = {
 	notify: function(aTimer) {
 		var shouldClosePopup;
 		var hovering = this._branch.getBoolPref("popup_hovering");
+		// [Linux] FIXME: Element.querySelector(":hover") doesn't work as expected
 		var onPopup = this.popup.parentNode.querySelector(":hover") == this.popup;
 		var onTab = this._tab.parentNode.querySelector(":hover") == this._tab;
 		if (this.popup.getAttribute("_backmonitor") == "true")
