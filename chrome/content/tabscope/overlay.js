@@ -517,6 +517,17 @@ var TabScope = {
 
 	_updatePreview: function() {
 		this.log("update preview");	// #debug
+		if (this._tab.getAttribute("pending") == "true") {
+			// don't update preview for pre-restored tab
+			// [Mac?] needs to reset canvas size
+			var canvas = this.canvas;
+			var width  = canvas.width;
+			var height = canvas.height;
+			this._resetPreview();
+			canvas.width  = width;
+			canvas.height = height;
+			return;
+		}
 		var canvas = this.canvas;
 		var win = this._tab.linkedBrowser.contentWindow;
 		var w = win.innerWidth;
