@@ -141,7 +141,7 @@
 #tabscope-popup:-moz-system-metric(windows-compositor) {
 	background: transparent;
 	-moz-appearance: -moz-win-glass;
-	-moz-border-radius: 0;
+	border-radius: 0;
 	border: none;
 	color: black;
 	text-shadow: white -1px -1px .5em, white -1px 1px .5em, white 1px 1px .5em, white 1px -1px .5em;
