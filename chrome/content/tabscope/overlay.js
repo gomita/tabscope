@@ -1,5 +1,8 @@
 var TabScope = {
 
+	// Windows 7
+	_win7: false,
+
 	// Mac OS X
 	_mac: false,
 
@@ -47,6 +50,7 @@ var TabScope = {
 
 	init: function() {
 		var appInfo = Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo);
+		this._win7  = navigator.oscpu.startsWith("Windows NT 6.1");
 		this._mac   = navigator.platform.indexOf("Mac") >= 0;
 		this._linux = navigator.platform.indexOf("Linux") >= 0;
 		this._initTime = Date.now();
@@ -255,9 +259,11 @@ var TabScope = {
 				// XXX to fix wrong border on bottom-right corner if Windows Aero is enabled...
 				// 1) set collapsed to true before opening popup
 				// 2) set collapsed to false just after popup is shown
-				var selector = "#tabscope-popup:-moz-system-metric(windows-compositor)";
-				if (this.popup.parentNode.querySelector(selector))
-					this.popup.collapsed = true;
+				if (this._win7) {
+					var selector = "#tabscope-popup:-moz-system-metric(windows-compositor)";
+					if (this.popup.parentNode.querySelector(selector))
+						this.popup.collapsed = true;
+				}
 				break;
 			case "popupshown": 
 				if (this.popup.collapsed)
