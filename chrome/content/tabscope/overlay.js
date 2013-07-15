@@ -45,7 +45,7 @@ var TabScope = {
 		this.popup = document.getElementById("tabscope-popup");
 		this.canvas = document.getElementById("tabscope-preview");
 		this.popup.addEventListener("DOMMouseScroll", this, false);
-		this.canvas.addEventListener("transitionend", this, false);
+		this.popup.firstChild.addEventListener("transitionend", this, false);
 		this._branch = Services.prefs.getBranch("extensions.tabscope.");
 		if (navigator.platform.startsWith("Win"))
 			this.popup.setAttribute("_os", "Windows");
@@ -89,7 +89,7 @@ var TabScope = {
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.removeEventListener("mouseout", this, false);
-		this.canvas.removeEventListener("transitionend", this, false);
+		this.popup.firstChild.removeEventListener("transitionend", this, false);
 		this.popup.removeEventListener("DOMMouseScroll", this, false);
 		this.canvas = null;
 		this.popup = null;
@@ -146,6 +146,9 @@ var TabScope = {
 				// don't open popup for tab in background window
 				if (document.documentElement.mozMatchesSelector(":-moz-window-inactive"))
 					return;
+				// if popup is about to close, close it immediately and start timer to open
+				if (!this._timer && this.popup.state == "open")
+					this.popup.hidePopup();
 				// when mouse pointer moves inside a tab...
 				// when hovering on tab strip...
 				// (includes outside corner edge of a tab, new tab button and tab scroller)
@@ -242,7 +245,8 @@ var TabScope = {
 				// otherwise...
 				this._cancelDelayedOpen();
 				// close popup if it is opened
-				this.popup.hidePopup();
+				if (this.popup.state == "open")
+					this._closePopupWithDelay();
 				break;
 			case "popupshowing": 
 				this.log("open popup");	// #debug
@@ -268,8 +272,11 @@ var TabScope = {
 				this.log("close popup");	// #debug
 				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 				this._tab.removeEventListener("TabAttrModified", this, false);
-				this._timer.cancel();
-				this._timer = null;
+				// _timer is null when popup closes with fade-out
+				if (this._timer) {
+					this._timer.cancel();
+					this._timer = null;
+				}
 				this._resetPreview();
 				this._resetTitle();
 				this.popup.removeAttribute("style");
@@ -312,6 +319,17 @@ var TabScope = {
 				break;
 			case "transitionend": 
 				this.log(event.type + " " + event.target.localName + " " + event.propertyName);	// #debug
+				if (event.target == this.popup.firstChild) {
+					// handle opacity change only
+					if (event.propertyName != "opacity")
+						return;
+					// when opacity is reduced to 0, close popup
+					if (window.getComputedStyle(this.popup.firstChild, null).opacity == "0")
+						this.popup.hidePopup();
+					return;
+				}
+				if (event.target != this.canvas)
+					return;
 				// ignore first width change, only handle second height change
 				if (event.propertyName != "height")
 					return;
@@ -409,6 +427,19 @@ var TabScope = {
 		window.clearTimeout(this._timerId);
 		this._timerId = null;
 		this._tab = null;
+	},
+
+	_closePopupWithDelay: function() {
+		if (this.popup.getAttribute("_fade") == "true") {
+			// start fading-out and close on transitionend event
+			this.popup.removeAttribute("_open");
+			this._timer.cancel();
+			this._timer = null;
+		}
+		else {
+			// close immediately
+			this.popup.hidePopup();
+		}
 	},
 
 	_adjustPopupPosition: function(aAnimate, aValuesOverride) {
@@ -667,7 +698,7 @@ var TabScope = {
 			shouldClosePopup = hovering ? !onTab && !onPopup : !onTab;
 		if (shouldClosePopup) {
 			this.log("*** close popup with delay");	// #debug
-			this.popup.hidePopup();
+			this._closePopupWithDelay();
 			return;
 		}
 		if (this._shouldUpdatePreview) {

@@ -12,7 +12,7 @@
 <!ENTITY tabscope.current_tab "Don't show popup for the current tab">
 <!ENTITY tabscope.unloaded_tab "When previewing an unloaded tab, load it immediately">
 <!ENTITY tabscope.animate "Animations">
-<!ENTITY tabscope.animate_fade "Popup fade-in">
+<!ENTITY tabscope.animate_fade "Popup fade-in / fade-out">
 <!ENTITY tabscope.animate_move "Popup move">
 <!ENTITY tabscope.animate_zoom "Preview zooming">
 <!ENTITY tabscope.animate.fast "Fast">
