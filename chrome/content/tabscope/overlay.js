@@ -269,9 +269,6 @@ var TabScope = {
 					this.popup.collapsed = false;
 				this._deltaHeight = this.popup.boxObject.height - this.canvas.height;
 				this._adjustPopupPosition(false);
-				// [Linux] don't eat clicks while popup is open
-				if (this._linux)
-					this.popup.popupBoxObject.setConsumeRollupEvent(Ci.nsIPopupBoxObject.ROLLUP_NO_CONSUME);
 				break;
 			case "popuphiding": 
 				this.log("close popup");	// #debug
