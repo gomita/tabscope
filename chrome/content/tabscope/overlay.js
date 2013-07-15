@@ -464,6 +464,10 @@ var TabScope = {
 			case 3: y = tab.screenY; x = tab.screenX - popupWidth; break;
 			case 4: y = tab.screenY; x = tab.screenX + tab.width; break;
 		}
+		// [TreeStyleTab] lower the position of popup for pinned tab
+		if ("TreeStyleTabService" in window && 
+		    gBrowser.mTabContainer.orient == "vertical" && this._tab.pinned)
+			y += tab.height / 2;
 		// correct position to avoid popup auto-position
 		x = Math.max(x, this._availRect.left);
 		y = Math.max(y, this._availRect.top);
