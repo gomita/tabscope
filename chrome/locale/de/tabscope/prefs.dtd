@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Keine Vorschau für den aktiven Tab anzeigen">
 <!ENTITY tabscope.unloaded_tab "Ungeladene Tabs für Vorschau nachladen">
 <!ENTITY tabscope.animate "Animationen">
+<!ENTITY tabscope.animate_fade "Pop-up langsam einblenden/ausblenden">
 <!ENTITY tabscope.animate_move "Für Vorschaubewegung">
 <!ENTITY tabscope.animate_zoom "Für Vorschau-Zoom">
 <!ENTITY tabscope.animate.fast "Schnell">

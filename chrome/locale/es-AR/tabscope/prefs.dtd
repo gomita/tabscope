@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "No mostrar avisos emergentes para la pestaña actual">
 <!ENTITY tabscope.unloaded_tab "Al mostrar el aviso emergente de una pestaña no cargada, que la carga sea inmediata">
 <!ENTITY tabscope.animate "Animaciones">
+<!ENTITY tabscope.animate_fade "Mostrar / Desvanecer Emergentes">
 <!ENTITY tabscope.animate_move "Mover Aviso Emergente">
 <!ENTITY tabscope.animate_zoom "Vista previa apliada">
 <!ENTITY tabscope.animate.fast "Rápido">

@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "لا تُظهر نافذة معاينة للّسان المُختار">
 <!ENTITY tabscope.unloaded_tab "عند مُعاينة لسان غير مُحمّل، حمله مباشرة">
 <!ENTITY tabscope.animate "التأثيرات الحركية">
+<!ENTITY tabscope.animate_fade "ظهور وتلاشي نافذة المعاينة">
 <!ENTITY tabscope.animate_move "حركة نافذة المُعاينة">
 <!ENTITY tabscope.animate_zoom "حركة تكبير المُعاينة">
 <!ENTITY tabscope.animate.fast "سريع">

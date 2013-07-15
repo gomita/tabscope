@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Visa inte popup-ruta för den aktiva fliken">
 <!ENTITY tabscope.unloaded_tab "När popup-rutan visas för ej inläst flik, läs omedelbart in den">
 <!ENTITY tabscope.animate "Animeringar">
+<!ENTITY tabscope.animate_fade "Tona in/tona ut popuprutan">
 <!ENTITY tabscope.animate_move "Popup-rörelse">
 <!ENTITY tabscope.animate_zoom "Zooma förh.gr.">
 <!ENTITY tabscope.animate.fast "Snabb">

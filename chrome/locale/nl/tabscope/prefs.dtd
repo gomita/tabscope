@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Geen pop-up voor het huidige tabblad weergeven">
 <!ENTITY tabscope.unloaded_tab "Een niet-geladen tabblad onmiddellijk laden">
 <!ENTITY tabscope.animate "Animaties">
+<!ENTITY tabscope.animate_fade "Pop-up-verschijning / -vervaging">
 <!ENTITY tabscope.animate_move "Pop-upverplaatsing">
 <!ENTITY tabscope.animate_zoom "Voorbeeld zoomen">
 <!ENTITY tabscope.animate.fast "Snel">

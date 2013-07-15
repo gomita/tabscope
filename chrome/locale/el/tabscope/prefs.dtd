@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Μη εμφάνιση αναδυόμενου πλαισίου για την τρέχουσα καρτέλα">
 <!ENTITY tabscope.unloaded_tab "Κατά την προεπισκόπηση μη φορτωμένης καρτέλας, φόρτωση αυτής">
 <!ENTITY tabscope.animate "Κινησιομοίωση">
+<!ENTITY tabscope.animate_fade "Βαθμιαία εμφάνιση / εξαφάνιση αναδυόμενου πλαισίου">
 <!ENTITY tabscope.animate_move "Μετακίνηση αναδυόμενου πλαισίου">
 <!ENTITY tabscope.animate_zoom "Εστίαση προεπισκόπησης">
 <!ENTITY tabscope.animate.fast "Γρήγορη">

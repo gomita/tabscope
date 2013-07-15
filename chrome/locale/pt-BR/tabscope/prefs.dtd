@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Não mostrar popup para aba corrente">
 <!ENTITY tabscope.unloaded_tab "Quando mostrar um popup para uma aba não carregada, carregar o popup imediatamente">
 <!ENTITY tabscope.animate "Animações">
+<!ENTITY tabscope.animate_fade "Popup fade-in / fade-out">
 <!ENTITY tabscope.animate_move "Mover Popup">
 <!ENTITY tabscope.animate_zoom "Zoom da pré-visualização">
 <!ENTITY tabscope.animate.fast "Rápido">

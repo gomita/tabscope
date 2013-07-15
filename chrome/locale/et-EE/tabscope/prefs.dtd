@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Ära näita praeguse kaardi eelvaadet">
 <!ENTITY tabscope.unloaded_tab "Laadimata kaardi eelvaate vaatamisel laadi see automaatselt">
 <!ENTITY tabscope.animate "Animatsioonid">
+<!ENTITY tabscope.animate_fade "Eelvaate nähtavale/peitu hajutamine">
 <!ENTITY tabscope.animate_move "Eelvaate liikumine">
 <!ENTITY tabscope.animate_zoom "Eelvaate suuruse muutmine">
 <!ENTITY tabscope.animate.fast "Kiire">
