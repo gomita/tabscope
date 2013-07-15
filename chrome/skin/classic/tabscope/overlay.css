@@ -43,6 +43,26 @@
 	transition-property: width, height;
 }
 
+/* ::::: popup fade ::::: */
+
+#tabscope-popup[_fade] #tabscope-container {
+	transition-duration: 200ms, 150ms;
+	transition-property: opacity, transform;
+	transition-timing-function: ease-out;
+}
+
+#tabscope-popup[_fade]:not([_open]) #tabscope-container {
+	opacity: 0;
+}
+
+#tabscope-popup[_fade]:not([_open]) #tabscope-container {
+	transform: translateY(-8px);
+}
+
+#tabscope-popup[_fade]:not([_open])[_alignment="1"] #tabscope-container {
+	transform: translateY(8px);
+}
+
 /* ::::: alignment ::::: */
 
 #tabscope-popup[_alignment="1"] #tabscope-container {

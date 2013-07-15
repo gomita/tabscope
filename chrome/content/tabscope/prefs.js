@@ -18,6 +18,12 @@ var PrefsUI = {
 		this.readAnimatePref("animate_zoom");
 		this.readButtonsPref();
 		this.updateToolbarUI();
+		// [Linux] force to disable popup fade option
+		if (navigator.platform.startsWith("Linux")) {
+			var check = document.querySelector("[preference='animate_fade']");
+			check.disabled = true;
+			check.checked = false;
+		}
 	},
 
 	readAnimatePref: function(aPrefName) {

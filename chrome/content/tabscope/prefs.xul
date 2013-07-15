@@ -20,6 +20,8 @@
 			<preference id="preview_width"  name="extensions.tabscope.preview_width"  type="int" />
 			<preference id="preview_height" name="extensions.tabscope.preview_height" type="int" />
 			<preference id="zoom_ratio" name="extensions.tabscope.zoom_ratio" type="string" />
+			<preference id="animate_fade" name="extensions.tabscope.animate_fade" type="int"
+			            onchange="PrefsUI.applyPrefsChange();" />
 			<preference id="animate_move" name="extensions.tabscope.animate_move" type="int" />
 			<preference id="animate_zoom" name="extensions.tabscope.animate_zoom" type="int" />
 			<preference id="tab_exceptions" name="extensions.tabscope.tab_exceptions" type="int" />
@@ -65,6 +67,9 @@
 		</groupbox>
 		<groupbox _uigroup="animate">
 			<caption label="&tabscope.animate;" />
+			<checkbox label="&tabscope.animate_fade;" preference="animate_fade"
+			          onsyncfrompreference="return document.getElementById('animate_fade').value > 0;"
+			          onsynctopreference="return this.checked ? 200 : 0; " />
 			<hbox align="center" _uigroup="animate_move">
 				<checkbox label="&tabscope.animate_move;"
 				          oncommand="PrefsUI.writeAnimatePref('animate_move');" />

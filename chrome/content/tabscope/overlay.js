@@ -99,6 +99,14 @@ var TabScope = {
 	},
 
 	loadPrefs: function() {
+		var fade = this._branch.getIntPref("animate_fade");
+		// [Linux] force to disable popup fade option
+		if (this.popup.getAttribute("_os") == "Linux")
+			fade = 0;
+		if (fade > 0)
+			this.popup.setAttribute("_fade", "true");
+		else
+			this.popup.removeAttribute("_fade");
 		var toolbar = document.getElementById("tabscope-toolbar");
 		var buttons = this._branch.getCharPref("buttons");
 		var display = this._branch.getIntPref("toolbar_display");
@@ -251,6 +259,7 @@ var TabScope = {
 				this._updateToolbar();
 				break;
 			case "popupshown": 
+				this.popup.setAttribute("_open", "true");
 				this._deltaWidth  = this.popup.boxObject.width  - this.canvas.width;
 				this._deltaHeight = this.popup.boxObject.height - this.canvas.height;
 				this._adjustPopupPosition(false);
@@ -265,6 +274,7 @@ var TabScope = {
 				this._resetTitle();
 				this.popup.removeAttribute("style");
 				this._tab = null;
+				this.popup.removeAttribute("_open");
 				break;
 			case "MozAfterPaint": 
 				this._shouldUpdatePreview = true;
