@@ -134,8 +134,7 @@ var TabScope = {
 				this._initTime = null;
 				// [backmonitor] temporarily disable if mouse pointer is currently on tab or popup
 				if (this._tab && 
-				    (this._tab.parentNode.querySelector(":hover") == this._tab || 
-				     this.popup.parentNode.querySelector(":hover") == this.popup))
+				    (this._tab.mozMatchesSelector(":hover") || this.popup.mozMatchesSelector(":hover")))
 					return;
 				// [backmonitor][BarTab] to fix issue#18, disable backmonitor for unloaded tabs
 				if ("BarTabHandler" in gBrowser && event.target.getAttribute("ontap") == "true")
@@ -143,7 +142,7 @@ var TabScope = {
 			case "mouseover": 
 				// [backmonitor] temporarily disable if window is inactive
 				// don't open popup for tab in background window
-				if (document.querySelector("#main-window:-moz-window-inactive"))
+				if (document.documentElement.mozMatchesSelector(":-moz-window-inactive"))
 					return;
 				// when mouse pointer moves inside a tab...
 				// when hovering on tab strip...
@@ -260,8 +259,8 @@ var TabScope = {
 				// 1) set collapsed to true before opening popup
 				// 2) set collapsed to false just after popup is shown
 				if (this._win7) {
-					var selector = "#tabscope-popup:-moz-system-metric(windows-compositor)";
-					if (this.popup.parentNode.querySelector(selector))
+					var selector = ":-moz-system-metric(windows-compositor)";
+					if (this.popup.mozMatchesSelector(selector))
 						this.popup.collapsed = true;
 				}
 				break;
@@ -345,7 +344,7 @@ var TabScope = {
 			// if mouse pointer moves outside tab before callback...
 			// if any other popup e.g. tab context menu is opened...
 			var anotherPopupOpen = !!document.popupNode;
-			if (this._tab.parentNode.querySelector(":hover") != this._tab || anotherPopupOpen) {
+			if (!this._tab.mozMatchesSelector(":hover") || anotherPopupOpen) {
 				// don't open popup
 				this._cancelDelayedOpen();
 				return;
@@ -662,9 +661,8 @@ var TabScope = {
 	notify: function(aTimer) {
 		var shouldClosePopup;
 		var hovering = this._branch.getBoolPref("popup_hovering");
-		// [Linux] FIXME: Element.querySelector(":hover") doesn't work as expected
-		var onPopup = this.popup.parentNode.querySelector(":hover") == this.popup;
-		var onTab = this._tab.parentNode.querySelector(":hover") == this._tab;
+		var onPopup = this.popup.mozMatchesSelector(":hover");
+		var onTab = this._tab.mozMatchesSelector(":hover");
 		if (this.popup.getAttribute("_backmonitor") == "true")
 			// [backmonitor] close popup if hovering over popup despite hovering is disabled
 			// [backmonitor] close popup if window is minimized
@@ -688,7 +686,7 @@ var TabScope = {
 		}
 		var toolbar = document.getElementById("tabscope-toolbar");
 		if (this.popup.getAttribute("_toolbardisplay") == "1" || 
-		    toolbar.parentNode.querySelector(":hover") == toolbar)
+		    toolbar.mozMatchesSelector(":hover"))
 			// if toolbar display is autohide, update toolbar only when hovering over it
 			this._updateToolbar();
 	},
