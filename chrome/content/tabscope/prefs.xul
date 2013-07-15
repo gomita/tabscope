@@ -141,7 +141,6 @@
 					<toolbarbutton id="tabscope-reload-button" type="checkbox" />
 					<toolbarbutton id="tabscope-pin-button" type="checkbox" />
 					<toolbarbutton id="tabscope-zoom-button" type="checkbox" />
-					<toolbarbutton id="tabscope-alltabs-button" type="checkbox" />
 					<toolbarbutton id="tabscope-groups-button" type="checkbox" />
 					<toolbarbutton id="tabscope-close-button" type="checkbox" />
 				</toolbar>

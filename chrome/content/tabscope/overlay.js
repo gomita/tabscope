@@ -604,7 +604,6 @@ var TabScope = {
 				this._adjustPopupPosition(true);
 				break;
 			case "zoom"   : this._togglePreviewSize(); break;
-			case "alltabs": allTabs.open(); this.popup.hidePopup(); return;
 			case "groups" : TabView.toggle(); this.popup.hidePopup(); return;
 			case "close"  : gBrowser.removeTab(this._tab, { animate: true }); return;
 			case "emulate": 
