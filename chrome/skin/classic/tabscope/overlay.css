@@ -1,13 +1,42 @@
 /* ::::: popup ::::: */
 
 #tabscope-popup {
-	padding: 5px;
+	-moz-appearance: none;
+	background: transparent;
+	border: none;
 	transition-property: margin;
+}
+
+/* [Windows][Linux] */
+#tabscope-popup:not([_os="Mac"]) #tabscope-container {
+	margin: 0 4px 4px 0;
+	padding: 4px;
+	background: -moz-Dialog;
+	border: 1px solid rgba(0,0,0,0.3);
+	box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+
+/* [Windows][Linux] */
+#tabscope-popup:not([_os="Mac"])[_alignment="1"] #tabscope-container {
+	margin: 4px 4px 0 0;
+}
+
+/* [Windows][Linux] */
+#tabscope-popup:not([_os="Mac"])[_alignment="3"] #tabscope-container {
+	margin: 0 0 4px 4px;
+}
+
+/* [Mac] */
+#tabscope-popup[_os="Mac"] #tabscope-container {
+	border-radius: 5px;
+	padding: 5px;
+	background: -moz-Dialog;
 }
 
 #tabscope-title {
 	margin: 5px 0 0 0 !important;
 	text-align: center;
+	color: -moz-DialogText;
 }
 
 #tabscope-preview {
@@ -16,7 +45,7 @@
 
 /* ::::: alignment ::::: */
 
-#tabscope-popup[_alignment="1"] {
+#tabscope-popup[_alignment="1"] #tabscope-container {
 	-moz-box-direction: reverse;
 }
 

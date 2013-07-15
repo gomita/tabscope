@@ -16,23 +16,25 @@
 		       onpopuphiding="TabScope.handleEvent(event);"
 		       onmouseout="TabScope.handleEvent(event);"
 		       onclick="TabScope.handleEvent(event);">
-			<stack>
-				<html:canvas id="tabscope-preview" top="0" left="0" />
-				<toolbar id="tabscope-toolbar" top="0" fullscreentoolbar="true"
-				         onclick="if (event.button == 0) event.stopPropagation();"
-				         ondblclick="TabScope.handleEvent(event);"
-				         oncommand="TabScope.handleEvent(event);">
-					<toolbarbutton id="tabscope-back-button" />
-					<toolbarbutton id="tabscope-forward-button" />
-					<toolbarbutton id="tabscope-reload-button" />
-					<toolbarbutton id="tabscope-pin-button" />
-					<toolbarbutton id="tabscope-zoom-button" />
-					<toolbarbutton id="tabscope-groups-button" />
-					<spacer flex="1" />
-					<toolbarbutton id="tabscope-close-button" />
-				</toolbar>
-			</stack>
-			<label id="tabscope-title" crop="end" />
+			<vbox id="tabscope-container">
+				<stack>
+					<html:canvas id="tabscope-preview" top="0" left="0" />
+					<toolbar id="tabscope-toolbar" top="0" fullscreentoolbar="true"
+					         onclick="if (event.button == 0) event.stopPropagation();"
+					         ondblclick="TabScope.handleEvent(event);"
+					         oncommand="TabScope.handleEvent(event);">
+						<toolbarbutton id="tabscope-back-button" />
+						<toolbarbutton id="tabscope-forward-button" />
+						<toolbarbutton id="tabscope-reload-button" />
+						<toolbarbutton id="tabscope-pin-button" />
+						<toolbarbutton id="tabscope-zoom-button" />
+						<toolbarbutton id="tabscope-groups-button" />
+						<spacer flex="1" />
+						<toolbarbutton id="tabscope-close-button" />
+					</toolbar>
+				</stack>
+				<label id="tabscope-title" crop="end" />
+			</vbox>
 		</panel>
 	</popupset>
 

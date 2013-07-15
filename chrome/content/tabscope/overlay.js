@@ -1,11 +1,5 @@
 var TabScope = {
 
-	// Mac OS X
-	_mac: false,
-
-	// Linux
-	_linux: false,
-
 	// xul:panel element
 	popup: null,
 
@@ -42,18 +36,23 @@ var TabScope = {
 	// time when window is opened
 	_initTime: null,
 
-	// delta height of popup and preview
+	// difference in width and height between popup and preview
+	_deltaWidth : 0,
 	_deltaHeight: 0,
 
 	init: function() {
-		this._mac   = navigator.platform.indexOf("Mac") >= 0;
-		this._linux = navigator.platform.indexOf("Linux") >= 0;
 		this._initTime = Date.now();
 		this.popup = document.getElementById("tabscope-popup");
 		this.canvas = document.getElementById("tabscope-preview");
 		this.popup.addEventListener("DOMMouseScroll", this, false);
 		this.canvas.addEventListener("transitionend", this, false);
 		this._branch = Services.prefs.getBranch("extensions.tabscope.");
+		if (navigator.platform.startsWith("Win"))
+			this.popup.setAttribute("_os", "Windows");
+		else if (navigator.platform.startsWith("Mac"))
+			this.popup.setAttribute("_os", "Mac");
+		else if (navigator.platform.startsWith("Linux"))
+			this.popup.setAttribute("_os", "Linux");
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseover", this, false);
@@ -74,7 +73,7 @@ var TabScope = {
 		this._multiScreens = svc.numberOfScreens > 1;
 		this.loadPrefs();
 		// [Linux] remove |noautohide| to avoid losing focus on browser
-		if (this._linux)
+		if (this.popup.getAttribute("_os") == "Linux")
 			this.popup.removeAttribute("noautohide");
 	},
 
@@ -252,6 +251,7 @@ var TabScope = {
 				this._updateToolbar();
 				break;
 			case "popupshown": 
+				this._deltaWidth  = this.popup.boxObject.width  - this.canvas.width;
 				this._deltaHeight = this.popup.boxObject.height - this.canvas.height;
 				this._adjustPopupPosition(false);
 				break;
@@ -310,7 +310,7 @@ var TabScope = {
 					return;
 				// [Mac] XXX update preview before adjusting size, 
 				// otherwise preview becomes blank for a quick moment
-				if (this._mac)
+				if (this.popup.getAttribute("_os") == "Mac")
 					this._updatePreview();
 				var canvas = this.canvas;
 				canvas.width  = parseInt(canvas.style.width);
@@ -343,9 +343,10 @@ var TabScope = {
 		// correct popup alignment
 		// XXX if popup has never been opened, popup.boxObject.width and height are both 0
 		// in that case, estimate popup size based on preview size
+		var dw = this._deltaWidth;
 		var dh = this._deltaHeight;
 		var popup = this.popup.boxObject;
-		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + 10;
+		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + dw;
 		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + dh;
 		var tab = this._tab.boxObject;
 		if (this._multiScreens) {
@@ -404,9 +405,10 @@ var TabScope = {
 		var alignment = parseInt(this.popup.getAttribute("_alignment"));
 		// XXX if popup has never been opened, popup.boxObject.width and height are both 0
 		// in that case, estimate popup size based on preview size
+		var dw = this._deltaWidth;
 		var dh = this._deltaHeight;
 		var popup = this.popup.boxObject;
-		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + 10;
+		var popupWidth  = popup.width  || this._branch.getIntPref("preview_width")  + dw;
 		var popupHeight = popup.height || this._branch.getIntPref("preview_height") + dh;
 		if (aValuesOverride) {
 			popupWidth  = aValuesOverride.width;
@@ -489,7 +491,7 @@ var TabScope = {
 		canvas.style.height = height.toString() + "px";
 		// adjust popup position with resizing preview
 		this._adjustPopupPosition(true, {
-			width: width + 10, height: height + this._deltaHeight, duration: duration
+			width: width + this._deltaWidth, height: height + this._deltaHeight, duration: duration
 		});
 	},
 
