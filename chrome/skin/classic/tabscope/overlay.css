@@ -2,7 +2,7 @@
 
 #tabscope-popup {
 	padding: 5px;
-	-moz-transition-property: margin;
+	transition-property: margin;
 }
 
 #tabscope-title {
@@ -11,7 +11,7 @@
 }
 
 #tabscope-preview {
-	-moz-transition-property: width, height;
+	transition-property: width, height;
 }
 
 /* ::::: alignment ::::: */
@@ -30,13 +30,13 @@
 	-moz-appearance: none;
 	border: none;
 	border-bottom: 1px solid rgb(211, 211, 211);
-	background: -moz-linear-gradient(rgba(211, 211, 211, 1), rgba(211, 211, 211, 0.6));
+	background: linear-gradient(rgba(211, 211, 211, 1), rgba(211, 211, 211, 0.6));
 	margin: 0;
 	padding: 0;
 	opacity: 0;
-	-moz-transition-property: opacity;
-	-moz-transition-duration: 0.3s;
-	-moz-transition-timing-function: ease-out;
+	transition-property: opacity;
+	transition-duration: 0.3s;
+	transition-timing-function: ease-out;
 }
 
 #tabscope-toolbar:hover,

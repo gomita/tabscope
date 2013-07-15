@@ -472,10 +472,10 @@ var TabScope = {
 				duration = Math.max(0.2, duration) + Math.random() * 0.001;
 			if (aValuesOverride)
 				duration = aValuesOverride.duration;
-			this.popup.style.MozTransitionTimingFunction = aValuesOverride ? "" : "ease-in-out";
+			this.popup.style.transitionTimingFunction = aValuesOverride ? "" : "ease-in-out";
 		}
-		this.popup.style.MozTransitionDuration = duration.toString() + "s";
-		window.getComputedStyle(this.popup, null).MozTransitionDuration;
+		this.popup.style.transitionDuration = duration.toString() + "s";
+		window.getComputedStyle(this.popup, null).transitionDuration;
 		this.popup.style.marginLeft = x.toString() + "px";
 		this.popup.style.marginTop  = y.toString() + "px";
 		this.log("move popup (" + lastX + ", " + lastY + ") => (" + x + ", " + y + ") / " + duration);	// #debug
@@ -502,8 +502,8 @@ var TabScope = {
 		// XXX hack to fix popup flicker problem @see _adjustPopupPosition
 		if (duration > 0)
 			duration += Math.random() * 0.001;
-		canvas.style.MozTransitionDuration = duration.toString() + "s";
-		window.getComputedStyle(canvas, null).MozTransitionDuration;
+		canvas.style.transitionDuration = duration.toString() + "s";
+		window.getComputedStyle(canvas, null).transitionDuration;
 		canvas.style.width  = width.toString() + "px";
 		canvas.style.height = height.toString() + "px";
 		// adjust popup position with resizing preview
