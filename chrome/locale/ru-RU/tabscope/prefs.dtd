@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Не показывать всплывающее окно для активной вкладки">
 <!ENTITY tabscope.unloaded_tab "При показе всплывающего окна для незагруженной вкладки, загружать её немедленно.">
 <!ENTITY tabscope.animate "Анимация">
+<!ENTITY tabscope.animate_fade "Плавное появление/исчезновение всплывающего окна">
 <!ENTITY tabscope.animate_move "Перемещение всплывающего окна">
 <!ENTITY tabscope.animate_zoom "Масштабирование всплывающего окна">
 <!ENTITY tabscope.animate.fast "Быстро">

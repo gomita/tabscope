@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Не показувати нарис для поточної вкладки">
 <!ENTITY tabscope.unloaded_tab "Під час виклику нарису для незавантаженої вкладки розпочинати її завантаження негайно">
 <!ENTITY tabscope.animate "Анімація">
+<!ENTITY tabscope.animate_fade "Плавна поява/зникання мініатюри">
 <!ENTITY tabscope.animate_move "Переміщення">
 <!ENTITY tabscope.animate_zoom "Збільшення">
 <!ENTITY tabscope.animate.fast "Швидко">

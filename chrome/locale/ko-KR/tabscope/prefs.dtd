@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "현재 탭에 대해서 팝업 표시 안함">
 <!ENTITY tabscope.unloaded_tab "로드되지 않은 창 즉시 로드하기">
 <!ENTITY tabscope.animate "애니메이션">
+<!ENTITY tabscope.animate_fade "팝업 천천히 나타나기/사라지기">
 <!ENTITY tabscope.animate_move "팝업 이동">
 <!ENTITY tabscope.animate_zoom "미리보기 확대">
 <!ENTITY tabscope.animate.fast "빠름">

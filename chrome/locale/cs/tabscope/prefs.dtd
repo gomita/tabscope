@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Nezobrazovat náhledové okno u aktuálního panelu">
 <!ENTITY tabscope.unloaded_tab "Okamžitě načíst nenačtený panel">
 <!ENTITY tabscope.animate "Animace">
+<!ENTITY tabscope.animate_fade "Postupné zobrazení náhledu">
 <!ENTITY tabscope.animate_move "Pohyb náhledu">
 <!ENTITY tabscope.animate_zoom "Přiblížení">
 <!ENTITY tabscope.animate.fast "Rychle">
