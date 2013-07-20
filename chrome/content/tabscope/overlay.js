@@ -284,7 +284,8 @@ var TabScope = {
 				this.popup.removeAttribute("_open");
 				break;
 			case "MozAfterPaint": 
-				this._shouldUpdatePreview = true;
+				if (event.clientRects.length > 0)
+					this._shouldUpdatePreview = true;
 				break;
 			case "TabAttrModified": 
 				this._shouldUpdateTitle = true;
