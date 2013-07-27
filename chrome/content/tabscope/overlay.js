@@ -184,7 +184,7 @@ var TabScope = {
 					this._tab = event.target;
 					var backmonitor = event.type == "TabOpen";
 					var callback = function(self) { self._delayedOpenPopup(backmonitor); };
-					var delay = backmonitor ? 100 : this._branch.getIntPref("popup_delay");
+					var delay = backmonitor ? 300 : this._branch.getIntPref("popup_delay");
 					this._timerId = window.setTimeout(callback, delay, this);
 					this.log("--- start timer (" + this._timerId + ")");	// #debug
 				}
@@ -780,11 +780,10 @@ var TabScope = {
 			this._shouldUpdateProgress = false;
 			this._updateProgress();
 		}
-		var toolbar = document.getElementById("tabscope-toolbar");
-		if (this.popup.getAttribute("_toolbardisplay") == "1" || 
-		    toolbar.mozMatchesSelector(":hover"))
-			// if toolbar display is autohide, update toolbar only when hovering over it
-			this._updateToolbar();
+		// when tab position was changed by tab animation, scrolling tabbar or resizing window,
+		// adjust popup position
+		if (this.popup.getAttribute("_backmonitor") == "true")
+			this._adjustPopupPosition(true);
 	},
 
 	QueryInterface: XPCOMUtils.generateQI([Ci.nsISupports,
