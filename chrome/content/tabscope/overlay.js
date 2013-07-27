@@ -675,8 +675,18 @@ var TabScope = {
 			case "back"   : this._tab.linkedBrowser.goBack(); break;
 			case "forward": this._tab.linkedBrowser.goForward(); break;
 			case "reload" : 
-				event.target.getAttribute("_loading") == "true" ? 
-				this._tab.linkedBrowser.stop() : this._tab.linkedBrowser.reload();
+				if (event.target.getAttribute("_loading") == "true") {
+					this._tab.linkedBrowser.stop();
+					return;
+				}
+				if (event.shiftKey) {
+					var flags = Ci.nsIWebNavigation.LOAD_FLAGS_BYPASS_PROXY | 
+					            Ci.nsIWebNavigation.LOAD_FLAGS_BYPASS_CACHE;
+					this._tab.linkedBrowser.reloadWithFlags(flags);
+				}
+				else {
+					this._tab.linkedBrowser.reload();
+				}
 				break;
 			case "pin"    : 
 				gBrowser[this._tab.pinned ? "unpinTab" : "pinTab"](this._tab);
