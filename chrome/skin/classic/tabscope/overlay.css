@@ -174,3 +174,27 @@
 	margin-bottom: 22px;
 }
 
+/* ::::: progress bar ::::: */
+
+#tabscope-progress {
+	-moz-appearance: none;
+	background-color: transparent;
+	border: none;
+	margin: 0;
+	padding: 0;
+	min-width: 0px;
+	min-height: 0px;
+	height: 2px;
+}
+
+#tabscope-progress .progress-bar,
+#tabscope-progress .progress-remainder {
+	-moz-appearance: none;
+}
+
+#tabscope-progress .progress-bar {
+	background-image: -moz-linear-gradient(right, rgba(0,255,0,.8) 50%,
+	                                              rgba(0,255,0,.4) 90%,
+	                                              rgba(0,255,0,.2));
+}
+

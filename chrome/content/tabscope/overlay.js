@@ -21,6 +21,12 @@ var TabScope = {
 	// flag indicates to require updating title
 	_shouldUpdateTitle: false,
 
+	// flag indicates to require updating toolbar
+	_shouldUpdateToolbar: false,
+
+	// flag indicates to require updating progress
+	_shouldUpdateProgress: false,
+
 	// nsIPrefBranch
 	_branch: null,
 
@@ -39,6 +45,11 @@ var TabScope = {
 	// difference in width and height between popup and preview
 	_deltaWidth : 0,
 	_deltaHeight: 0,
+
+	// notifyMask for nsIWebProgressListener
+	_notifyMask: Ci.nsIWebProgress.NOTIFY_STATE_ALL | 
+	             Ci.nsIWebProgress.NOTIFY_PROGRESS | 
+	             Ci.nsIWebProgress.NOTIFY_LOCATION,
 
 	init: function() {
 		this._initTime = Date.now();
@@ -180,18 +191,23 @@ var TabScope = {
 				else {
 					// when mouse pointer moves from one tab to another...
 					// popup is already opened, so move it now
+					this._tab.linkedBrowser.removeProgressListener(this);
 					this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 					this._tab.removeEventListener("TabAttrModified", this, false);
 					this._tab = event.target;
+					this._tab.linkedBrowser.addProgressListener(this, this._notifyMask);
 					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 					this._tab.addEventListener("TabAttrModified", this, false);
 					this._ensureTabIsRestored();
 					this._shouldUpdatePreview = false;
 					this._shouldUpdateTitle = false;
+					this._shouldUpdateToolbar = false;
+					this._shouldUpdateProgress = false;
 					this._adjustPopupPosition(true);
 					this._updatePreview();
 					this._updateTitle();
 					this._updateToolbar();
+					this._updateProgress();
 				}
 				break;
 			case "mousemove": 
@@ -250,17 +266,21 @@ var TabScope = {
 				break;
 			case "popupshowing": 
 				this.log("open popup");	// #debug
+				this._tab.linkedBrowser.addProgressListener(this, this._notifyMask);
 				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 				this._tab.addEventListener("TabAttrModified", this, false);
 				this._ensureTabIsRestored();
 				this._shouldUpdatePreview = false;
 				this._shouldUpdateTitle = false;
+				this._shouldUpdateToolbar = false;
+				this._shouldUpdateProgress = false;
 				this._timer = Cc["@mozilla.org/timer;1"].createInstance(Ci.nsITimer);
-				this._timer.initWithCallback(this, 500, Ci.nsITimer.TYPE_REPEATING_SLACK);
+				this._timer.initWithCallback(this, 200, Ci.nsITimer.TYPE_REPEATING_SLACK);
 				this._adjustPreviewSize(false);
 				this._updatePreview();
 				this._updateTitle();
 				this._updateToolbar();
+				this._updateProgress();
 				break;
 			case "popupshown": 
 				this.popup.setAttribute("_open", "true");
@@ -270,6 +290,7 @@ var TabScope = {
 				break;
 			case "popuphiding": 
 				this.log("close popup");	// #debug
+				this._tab.linkedBrowser.removeProgressListener(this);
 				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 				this._tab.removeEventListener("TabAttrModified", this, false);
 				// _timer is null when popup closes with fade-out
@@ -279,6 +300,7 @@ var TabScope = {
 				}
 				this._resetPreview();
 				this._resetTitle();
+				this._resetProgress();
 				this.popup.removeAttribute("style");
 				this._tab = null;
 				this.popup.removeAttribute("_open");
@@ -408,10 +430,13 @@ var TabScope = {
 				break;
 		}
 		this.popup.setAttribute("_alignment", alignment.toString());
-		// if popup alignment is top, place toolbar at the bottom of popup
+		// if popup alignment is top, place toolbar and progressbar at the bottom of popup
 		var toolbar = document.getElementById("tabscope-toolbar");
 		toolbar.setAttribute(alignment == 1 ? "bottom" : "top", "0");
 		toolbar.removeAttribute(alignment == 1 ? "top" : "bottom");
+		var progress = document.getElementById("tabscope-progress");
+		progress.setAttribute(alignment == 1 ? "bottom" : "top", "-2");
+		progress.removeAttribute(alignment == 1 ? "top" : "bottom");
 		// adjust popup position before opening popup
 		this._adjustPopupPosition(false);
 		if (this._multiScreens)
@@ -602,10 +627,12 @@ var TabScope = {
 	},
 
 	_updateToolbar: function() {
-		if (document.getElementById("tabscope-toolbar").hidden)
+		var toolbar = document.getElementById("tabscope-toolbar");
+		if (toolbar.hidden)
 			return;
 		this.log("update toolbar");	// #debug
-		document.getElementById("tabscope-toolbar").collapsed = false;
+		if (toolbar.collapsed)
+			toolbar.collapsed = false;
 		var browser = this._tab.linkedBrowser;
 		document.getElementById("tabscope-back-button").disabled = !browser.canGoBack;
 		document.getElementById("tabscope-forward-button").disabled = !browser.canGoForward;
@@ -618,6 +645,27 @@ var TabScope = {
 		button = document.getElementById("tabscope-zoom-button");
 		if (!button.hidden)
 			button.setAttribute("_active", this._zoomState);
+	},
+
+	_updateProgress: function() {
+		var progress = document.getElementById("tabscope-progress");
+		if (this._tab.getAttribute("progress") == "true") {
+			if (progress.hidden)
+				progress.hidden = false;
+			var listener = gBrowser.mTabListeners[this._tab._tPos];
+			progress.value = Math.ceil(listener.mTotalProgress * 100);
+		}
+		else {
+			this._resetProgress();
+		}
+		this.log("update progress  " + (progress.hidden ? "-" : progress.value));	// #debug
+	},
+
+	_resetProgress: function() {
+		var progress = document.getElementById("tabscope-progress");
+		if (!progress.hidden)
+			progress.hidden = true;
+		progress.value = 0;
 	},
 
 	_performAction: function(aCommand, event) {
@@ -714,11 +762,38 @@ var TabScope = {
 			this._shouldUpdateTitle = false;
 			this._updateTitle();
 		}
+		if (this._shouldUpdateToolbar) {
+			this._shouldUpdateToolbar = false;
+			this._updateToolbar();
+		}
+		if (this._shouldUpdateProgress) {
+			this._shouldUpdateProgress = false;
+			this._updateProgress();
+		}
 		var toolbar = document.getElementById("tabscope-toolbar");
 		if (this.popup.getAttribute("_toolbardisplay") == "1" || 
 		    toolbar.mozMatchesSelector(":hover"))
 			// if toolbar display is autohide, update toolbar only when hovering over it
 			this._updateToolbar();
+	},
+
+	QueryInterface: XPCOMUtils.generateQI([Ci.nsISupports,
+	                                       Ci.nsIWebProgressListener,
+	                                       Ci.nsISupportsWeakReference]),
+
+	onStateChange: function() {
+		// update reload button
+		this._shouldUpdateToolbar = true;
+		this._shouldUpdateProgress = true;
+	},
+
+	onProgressChange: function() {
+		this._shouldUpdateProgress = true;
+	},
+
+	onLocationChange: function() {
+		// update back and forward button
+		this._shouldUpdateToolbar = true;
 	},
 
 	log: function(aText) {

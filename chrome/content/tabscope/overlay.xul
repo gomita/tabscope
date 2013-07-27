@@ -32,6 +32,7 @@
 						<spacer flex="1" />
 						<toolbarbutton id="tabscope-close-button" />
 					</toolbar>
+					<progressmeter id="tabscope-progress" top="-2" hidden="true" />
 				</stack>
 				<label id="tabscope-title" crop="end" />
 			</vbox>
