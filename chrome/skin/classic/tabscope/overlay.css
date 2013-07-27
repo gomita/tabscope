@@ -4,6 +4,7 @@
 	-moz-appearance: none;
 	background: transparent;
 	border: none;
+	padding: 0;
 	transition-property: margin;
 }
 
