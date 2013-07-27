@@ -64,8 +64,6 @@ var TabScope = {
 			this.popup.setAttribute("_os", "Mac");
 		else if (navigator.platform.startsWith("Linux"))
 			this.popup.setAttribute("_os", "Linux");
-		// disable default tooltip of tabs
-		gBrowser.mTabContainer.tooltip = null;
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseover", this, false);
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mousemove", this, false);
 		gBrowser.mTabContainer.mTabstrip.addEventListener("mouseout", this, false);
@@ -110,6 +108,8 @@ var TabScope = {
 	},
 
 	loadPrefs: function() {
+		// disable default tooltip of tabs
+		gBrowser.mTabContainer.tooltip = null;
 		var fade = this._branch.getIntPref("animate_fade");
 		// [Linux] force to disable popup fade option
 		if (this.popup.getAttribute("_os") == "Linux")
@@ -170,10 +170,15 @@ var TabScope = {
 				if (gBrowser._removingTabs.indexOf(event.target) > -1)
 					return;
 				// don't open popup for an exceptional tab
-				if (this._branch.getIntPref("tab_exceptions") & 1 && 
-				    event.target == gBrowser.mCurrentTab) {
-					this._cancelDelayedOpen();
-					return;
+				if (this._branch.getIntPref("tab_exceptions") & 1) {
+					if (event.target == gBrowser.mCurrentTab) {
+						this._cancelDelayedOpen();
+						gBrowser.mTabContainer.tooltip = "tabbrowser-tab-tooltip";
+						return;
+					}
+					else {
+						gBrowser.mTabContainer.tooltip = null;
+					}
 				}
 				// when mouse pointer moves from one tab to another before popup will open...
 				// cancel opening popup and restart timer in the following process
