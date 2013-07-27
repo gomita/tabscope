@@ -387,6 +387,11 @@ var TabScope = {
 				this._cancelDelayedOpen();
 				return;
 			}
+			// fix issue#44
+			if (document.documentElement.mozMatchesSelector(":-moz-window-inactive")) {
+				this._cancelDelayedOpen();
+				return;
+			}
 		}
 		this.popup.setAttribute("_backmonitor", aBackmonitor.toString());
 		this._timerId = null;
