@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "Nie wyświetlaj podglądu aktywnej karty">
 <!ENTITY tabscope.unloaded_tab "Wczytuj niewczytaną kartę niezwłocznie">
 <!ENTITY tabscope.animate "Animacje">
+<!ENTITY tabscope.animate_fade "Zanikanie/wyświetlanie okien">
 <!ENTITY tabscope.animate_move "Przemieszczanie podglądu">
 <!ENTITY tabscope.animate_zoom "Skalowanie podglądu">
 <!ENTITY tabscope.animate.fast "Szybko">

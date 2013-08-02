@@ -12,6 +12,7 @@
 <!ENTITY tabscope.current_tab "לא להציג חלון קופץ ללשונית הנוכחית">
 <!ENTITY tabscope.unloaded_tab "מעבר מיידי ללשונית לא מועלה, כאשר מוצג חלון קופץ שלה">
 <!ENTITY tabscope.animate "אנימציות">
+<!ENTITY tabscope.animate_fade "חלון קופץ דוהה פנימה/דוהה החוצה">
 <!ENTITY tabscope.animate_move "תנועת החלון הקופץ">
 <!ENTITY tabscope.animate_zoom "זום התצוגה המקדימה">
 <!ENTITY tabscope.animate.fast "מהיר">
