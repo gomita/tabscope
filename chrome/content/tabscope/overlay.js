@@ -766,9 +766,8 @@ var TabScope = {
 			// [backmonitor] close popup if window is minimized
 			shouldClosePopup = !hovering && onPopup || window.windowState == 2;
 		else
-			// if hovering is enabled, close popup if not hovering over tab and popup
-			// if hovering is disabled, close popup if not hovering over tab
-			shouldClosePopup = hovering ? !onTab && !onPopup : !onTab;
+			// close popup if not hovering over tab nor popup @see issue #47
+			shouldClosePopup = !onTab && !onPopup;
 		if (shouldClosePopup) {
 			this.log("*** close popup with delay");	// #debug
 			this._closePopupWithDelay();
