@@ -111,10 +111,22 @@ var TabScope = {
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
 		var style = this._branch.getCharPref("popup_style");
+		// [Aero] XXXhack to apply -moz-appearance chage
+		if (this.popup.getAttribute("_style") == "aero" || style == "aero") {
+			var parent = this.popup.parentNode;
+			parent.removeChild(this.popup);
+			parent.appendChild(this.popup);
+		}
+		// [Aero] enable only if using DWM compositor on Windows Vista/7
+		if (style == "aero") {
+			if (!navigator.oscpu.match(/^Windows NT 6\.[01]/) || 
+			    !this.popup.mozMatchesSelector(":-moz-system-metric(windows-compositor)"))
+				style = "";
+		}
 		this.popup.setAttribute("_style", style);
 		var fade = this._branch.getIntPref("animate_fade");
-		// [Linux] force to disable popup fade option
-		if (this.popup.getAttribute("_os") == "Linux")
+		// [Linux][Aero] force to disable popup fade option
+		if (this.popup.getAttribute("_os") == "Linux" || this.popup.getAttribute("_style") == "aero")
 			fade = 0;
 		if (fade > 0)
 			this.popup.setAttribute("_fade", "true");
@@ -288,8 +300,14 @@ var TabScope = {
 				this._updateTitle();
 				this._updateToolbar();
 				this._updateProgress();
+				// [Aero] fix a glitch on bottom-right corner
+				if (this.popup.getAttribute("_style") == "aero")
+					this.popup.collapsed = true;
 				break;
 			case "popupshown": 
+				// [Aero] fix a glitch on bottom-right corner
+				if (this.popup.getAttribute("_style") == "aero")
+					this.popup.collapsed = false;
 				this.popup.setAttribute("_open", "true");
 				this._deltaWidth  = this.popup.boxObject.width  - this.canvas.width;
 				this._deltaHeight = this.popup.boxObject.height - this.canvas.height;

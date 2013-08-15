@@ -221,3 +221,22 @@
 	box-shadow: 0px 0px 2px rgba(0,191,255,.8);
 }
 
+/* ::::: aero style ::::: */
+
+/* derived from chrome://browser/skin/browser.css */
+#tabscope-popup[_style="aero"]:-moz-system-metric(windows-compositor) {
+	-moz-appearance: -moz-win-glass;
+	border-radius: 0;
+	border: none;
+	color: black;
+	text-shadow: white -1px -1px .5em, white -1px 1px .5em, white 1px 1px .5em, white 1px -1px .5em;
+}
+
+#tabscope-popup[_style="aero"]:-moz-system-metric(windows-compositor) #tabscope-container {
+	margin: 0;
+	padding: 5px;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
+
