@@ -1,6 +1,7 @@
 pref("extensions.tabscope.popup_alignment", 0);
 pref("extensions.tabscope.popup_delay", 300);
 pref("extensions.tabscope.popup_hovering", true);
+pref("extensions.tabscope.popup_style", "");
 pref("extensions.tabscope.preview_width", 240);
 pref("extensions.tabscope.preview_height", 180);
 pref("extensions.tabscope.zoom_ratio", "2");

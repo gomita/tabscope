@@ -5,6 +5,7 @@
 	background: transparent;
 	border: none;
 	padding: 0;
+	color: -moz-DialogText;
 	transition-property: margin;
 }
 
@@ -37,7 +38,6 @@
 #tabscope-title {
 	margin: 5px 0 0 0 !important;
 	text-align: center;
-	color: -moz-DialogText;
 }
 
 #tabscope-preview {
@@ -197,5 +197,27 @@
 	background-image: -moz-linear-gradient(right, rgba(0,255,0,.8) 50%,
 	                                              rgba(0,255,0,.4) 90%,
 	                                              rgba(0,255,0,.2));
+}
+
+/* ::::: dark style ::::: */
+
+#tabscope-popup[_style="dark"] {
+	color: rgb(182,186,191);
+}
+
+#tabscope-popup[_style="dark"] #tabscope-container {
+	background: linear-gradient(rgb(64,64,64), rgb(48,48,48));
+	border: 1px solid hsla(206,37%,4%,.45);
+}
+
+#tabscope-popup[_style="dark"]:not([_os="Mac"]) #tabscope-container {
+	box-shadow: 0  1px 0 hsla(204,45%,98%,.05) inset,
+	            0 -1px 0 hsla(206,37%,4%,.1) inset,
+	            0 0 4px rgba(0,0,0,0.8);
+}
+
+#tabscope-popup[_style="dark"] #tabscope-progress .progress-bar {
+	background: DeepSkyBlue;
+	box-shadow: 0px 0px 2px rgba(0,191,255,.8);
 }
 

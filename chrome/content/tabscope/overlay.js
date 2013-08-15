@@ -110,6 +110,8 @@ var TabScope = {
 	loadPrefs: function() {
 		// disable default tooltip of tabs
 		gBrowser.mTabContainer.tooltip = null;
+		var style = this._branch.getCharPref("popup_style");
+		this.popup.setAttribute("_style", style);
 		var fade = this._branch.getIntPref("animate_fade");
 		// [Linux] force to disable popup fade option
 		if (this.popup.getAttribute("_os") == "Linux")
