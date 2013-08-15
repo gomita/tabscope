@@ -18,12 +18,16 @@ var PrefsUI = {
 		this.readAnimatePref("animate_zoom");
 		this.readButtonsPref();
 		this.updateToolbarUI();
-		// [Linux] force to disable popup fade option
-		if (navigator.platform.startsWith("Linux")) {
-			var check = document.querySelector("[preference='animate_fade']");
-			check.disabled = true;
-			check.checked = false;
-		}
+		// [Windows] make Aero option selectable on Windows Vista/7
+		if (navigator.oscpu.match(/^Windows NT 6\.[01]/))
+			document.querySelector("menuitem[value='aero']").disabled = false;
+	},
+
+	readStylePref: function() {
+		// [Linux][Aero] force to disable popup fade option
+		var style = document.getElementById("popup_style").value;
+		var check = document.querySelector("[preference='animate_fade']");
+		check.disabled = style == "aero" || navigator.platform.startsWith("Linux");
 	},
 
 	readAnimatePref: function(aPrefName) {

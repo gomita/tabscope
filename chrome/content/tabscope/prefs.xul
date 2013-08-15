@@ -15,6 +15,8 @@
 
 	<prefpane id="generalPane" helpTopic="general" label="&tabscope.general;" flex="1">
 		<preferences>
+			<preference id="popup_style" name="extensions.tabscope.popup_style" type="string"
+			            onchange="PrefsUI.applyPrefsChange();" />
 			<preference id="popup_alignment" name="extensions.tabscope.popup_alignment" type="int" />
 			<preference id="popup_delay"     name="extensions.tabscope.popup_delay"     type="int" />
 			<preference id="preview_width"  name="extensions.tabscope.preview_width"  type="int" />
@@ -27,18 +29,36 @@
 			<preference id="tab_exceptions" name="extensions.tabscope.tab_exceptions" type="int" />
 			<preference id="unloaded_tab" name="extensions.tabscope.unloaded_tab" type="bool" />
 		</preferences>
-		<hbox align="center">
-			<label value="&tabscope.popup_alignment;:" />
-			<menulist preference="popup_alignment">
-				<menupopup>
-					<menuitem label="&tabscope.popup_alignment.auto;"   value="0" />
-					<menuitem label="&tabscope.popup_alignment.top;"    value="1" />
-					<menuitem label="&tabscope.popup_alignment.bottom;" value="2" />
-					<menuitem label="&tabscope.popup_alignment.left;"   value="3" />
-					<menuitem label="&tabscope.popup_alignment.right;"  value="4" />
-				</menupopup>
-			</menulist>
-		</hbox>
+		<grid>
+			<columns>
+				<column />
+				<column />
+			</columns>
+			<rows>
+				<row align="center">
+					<label value="&tabscope.popup_style;:" />
+					<menulist preference="popup_style" onsyncfrompreference="PrefsUI.readStylePref();">
+						<menupopup>
+							<menuitem label="&tabscope.popup_style.flat;" value="" />
+							<menuitem label="&tabscope.popup_style.dark;" value="dark" />
+							<menuitem label="Aero Glass" value="aero" disabled="true" />
+						</menupopup>
+					</menulist>
+				</row>
+				<row align="center">
+					<label value="&tabscope.popup_alignment;:" />
+					<menulist preference="popup_alignment">
+						<menupopup>
+							<menuitem label="&tabscope.popup_alignment.auto;"   value="0" />
+							<menuitem label="&tabscope.popup_alignment.top;"    value="1" />
+							<menuitem label="&tabscope.popup_alignment.bottom;" value="2" />
+							<menuitem label="&tabscope.popup_alignment.left;"   value="3" />
+							<menuitem label="&tabscope.popup_alignment.right;"  value="4" />
+						</menupopup>
+					</menulist>
+				</row>
+			</rows>
+		</grid>
 		<hbox align="center">
 			<label value="&tabscope.popup_delay.1;:" />
 			<textbox preference="popup_delay" type="number" increment="50" max="5000" size="4" />
