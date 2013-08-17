@@ -487,6 +487,9 @@ var TabScope = {
 
 	_closePopupWithDelay: function() {
 		if (this.popup.getAttribute("_fade") == "true") {
+			// prevent the timer being cancelled before _open attribute is set
+			if (!this.popup.hasAttribute("_open"))
+				return;
 			// start fading-out and close on transitionend event
 			this.popup.removeAttribute("_open");
 			this._timer.cancel();
