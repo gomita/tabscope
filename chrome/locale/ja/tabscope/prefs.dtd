@@ -4,6 +4,7 @@
 <!ENTITY tabscope.popup_style "ポップアップのデザイン">
 <!ENTITY tabscope.popup_style.flat "フラット">
 <!ENTITY tabscope.popup_style.dark "ダーク">
+<!ENTITY tabscope.popup_style.aero.notice "「Aero Glass」を選択すると、「&tabscope.animate_fade;」は自動的に無効化されます。">
 <!ENTITY tabscope.popup_alignment "ポップアップの表示位置">
 <!ENTITY tabscope.popup_alignment.auto "自動で判別">
 <!ENTITY tabscope.popup_alignment.top "タブの上側">

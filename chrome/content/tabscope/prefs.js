@@ -107,6 +107,11 @@ var PrefsUI = {
 		openUILinkIn("http://www.xuldev.org/tabscope/options.php", where);
 	},
 
+	onAeroSelected: function(aText) {
+		var ps = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
+		ps.alert(window, document.title, aText);
+	},
+
 };
 
 

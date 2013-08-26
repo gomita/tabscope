@@ -4,6 +4,7 @@
 <!ENTITY tabscope.popup_style "Popup Appearance">
 <!ENTITY tabscope.popup_style.flat "Flat">
 <!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "Alignment of popup">
 <!ENTITY tabscope.popup_alignment.auto "auto-detect">
 <!ENTITY tabscope.popup_alignment.top "on top of a tab">

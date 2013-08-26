@@ -41,7 +41,9 @@
 						<menupopup>
 							<menuitem label="&tabscope.popup_style.flat;" value="" />
 							<menuitem label="&tabscope.popup_style.dark;" value="dark" />
-							<menuitem label="Aero Glass" value="aero" disabled="true" />
+							<menuitem label="Aero Glass" value="aero" disabled="true"
+							          oncommand="PrefsUI.onAeroSelected(this.getAttribute('_notice'));"
+							          _notice="&tabscope.popup_style.aero.notice;" />
 						</menupopup>
 					</menulist>
 				</row>
