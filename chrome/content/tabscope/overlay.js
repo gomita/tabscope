@@ -163,9 +163,6 @@ var TabScope = {
 				if (this._tab && 
 				    (this._tab.mozMatchesSelector(":hover") || this.popup.mozMatchesSelector(":hover")))
 					return;
-				// [backmonitor][BarTab] to fix issue#18, disable backmonitor for unloaded tabs
-				if ("BarTabHandler" in gBrowser && event.target.getAttribute("ontap") == "true")
-					return;
 			case "mouseover": 
 				// [backmonitor] temporarily disable if window is inactive
 				// don't open popup for tab in background window
@@ -749,9 +746,6 @@ var TabScope = {
 	_ensureTabIsRestored: function() {
 		if (!this._branch.getBoolPref("unloaded_tab"))
 			return;
-		// [BarTab]
-		if ("BarTabHandler" in gBrowser)
-			gBrowser.BarTabHandler.loadTab(this._tab);
 		if (this._tab.linkedBrowser.__SS_restoreState == 1)
 			this._tab.linkedBrowser.reload();
 	},
