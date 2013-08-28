@@ -746,6 +746,9 @@ var TabScope = {
 	_ensureTabIsRestored: function() {
 		if (!this._branch.getBoolPref("unloaded_tab"))
 			return;
+		// [UnloadTab]
+		if ("unloadTabObj" in window && this._tab.hasAttribute("uT_tabUnload"))
+			this._tab.linkedBrowser.reload();
 		if (this._tab.linkedBrowser.__SS_restoreState == 1)
 			this._tab.linkedBrowser.reload();
 	},
