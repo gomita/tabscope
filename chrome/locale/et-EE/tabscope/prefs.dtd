@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Sätted">
 <!ENTITY tabscope.general "Üldised">
 <!ENTITY tabscope.advanced "Täpsemad">
+<!ENTITY tabscope.popup_style "Eelvaate välimus">
+<!ENTITY tabscope.popup_style.flat "Lame">
+<!ENTITY tabscope.popup_style.dark "Tume">
+<!ENTITY tabscope.popup_style.aero.notice "Kui valid 'Aero Glass', siis säte '&tabscope.animate_fade;' keelatakse automaatselt.">
 <!ENTITY tabscope.popup_alignment "Eelvaate asukoht">
 <!ENTITY tabscope.popup_alignment.auto "automaatne">
 <!ENTITY tabscope.popup_alignment.top "kaardi kohal">

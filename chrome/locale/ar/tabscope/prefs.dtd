@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "خيارات">
 <!ENTITY tabscope.general "عـام">
 <!ENTITY tabscope.advanced "متقدم">
+<!ENTITY tabscope.popup_style "مظهر نافذة المعاينة">
+<!ENTITY tabscope.popup_style.flat "مسطح">
+<!ENTITY tabscope.popup_style.dark "مظلم">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "المحاذاة لنافذة المعاينة">
 <!ENTITY tabscope.popup_alignment.auto "كشف-آلي">
 <!ENTITY tabscope.popup_alignment.top "أعلى اللسان">

@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "选项">
 <!ENTITY tabscope.general "常规">
 <!ENTITY tabscope.advanced "高级">
+<!ENTITY tabscope.popup_style "预览图外观">
+<!ENTITY tabscope.popup_style.flat "扁平">
+<!ENTITY tabscope.popup_style.dark "暗色">
+<!ENTITY tabscope.popup_style.aero.notice "如果您选择 'Aero Glass'，'&tabscope.animate_fade;' 选项将会自动被禁用。">
 <!ENTITY tabscope.popup_alignment "预览图的位置">
 <!ENTITY tabscope.popup_alignment.auto "自动检测">
 <!ENTITY tabscope.popup_alignment.top "显示于标签上方">

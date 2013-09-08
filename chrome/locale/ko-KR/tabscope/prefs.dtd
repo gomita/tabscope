@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "선택사항">
 <!ENTITY tabscope.general "일반">
 <!ENTITY tabscope.advanced "고급">
+<!ENTITY tabscope.popup_style "Popup Appearance">
+<!ENTITY tabscope.popup_style.flat "Flat">
+<!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "팝업 표시 위치">
 <!ENTITY tabscope.popup_alignment.auto "자동 감지">
 <!ENTITY tabscope.popup_alignment.top "탭 위쪽">

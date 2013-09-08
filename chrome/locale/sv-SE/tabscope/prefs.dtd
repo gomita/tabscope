@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Inställningar">
 <!ENTITY tabscope.general "Allmänt">
 <!ENTITY tabscope.advanced "Avancerat">
+<!ENTITY tabscope.popup_style "Popuprutans utseende">
+<!ENTITY tabscope.popup_style.flat "Platt">
+<!ENTITY tabscope.popup_style.dark "Mörk">
+<!ENTITY tabscope.popup_style.aero.notice "Om du väljer &quot;Aero Glass&quot;, så inaktiveras automatiskt alternativet &quot;&tabscope.animate_fade;&quot;.">
 <!ENTITY tabscope.popup_alignment "Placering av popup-ruta">
 <!ENTITY tabscope.popup_alignment.auto "identifiera automatiskt">
 <!ENTITY tabscope.popup_alignment.top "ovanför fliken">

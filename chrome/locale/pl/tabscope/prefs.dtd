@@ -1,6 +1,10 @@
-<!ENTITY tabscope.options "opcje">
+<!ENTITY tabscope.options "ustawienia">
 <!ENTITY tabscope.general "Ogólne">
 <!ENTITY tabscope.advanced "Zaawansowane">
+<!ENTITY tabscope.popup_style "Wygląd podglądu">
+<!ENTITY tabscope.popup_style.flat "Płaski">
+<!ENTITY tabscope.popup_style.dark "Ciemny">
+<!ENTITY tabscope.popup_style.aero.notice "Jeśli zostanie wybrane Aero Glass, funkcja „&tabscope.animate_fade;” zostanie automatycznie wyłączona.">
 <!ENTITY tabscope.popup_alignment "Miejsce wyświetlania podglądu">
 <!ENTITY tabscope.popup_alignment.auto "wykryj automatycznie">
 <!ENTITY tabscope.popup_alignment.top "na górze etykiety karty">

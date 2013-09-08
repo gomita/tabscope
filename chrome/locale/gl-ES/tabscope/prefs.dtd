@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Opcións">
 <!ENTITY tabscope.general "Xeral">
 <!ENTITY tabscope.advanced "Avanzadas">
+<!ENTITY tabscope.popup_style "Popup Appearance">
+<!ENTITY tabscope.popup_style.flat "Flat">
+<!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "Colocación da xanela emerxente">
 <!ENTITY tabscope.popup_alignment.auto "Detección automática">
 <!ENTITY tabscope.popup_alignment.top "na parte superior do separador">
@@ -12,6 +16,7 @@
 <!ENTITY tabscope.current_tab "Non se amosará a ventá emerxente para o separador actual">
 <!ENTITY tabscope.unloaded_tab "Cando se amosa unha xanela emerxente para un separador sen cargar, cargala inmediantamente">
 <!ENTITY tabscope.animate "Animacións">
+<!ENTITY tabscope.animate_fade "Popup fade-in / fade-out">
 <!ENTITY tabscope.animate_move "Mover emerxente">
 <!ENTITY tabscope.animate_zoom "Ampliar a vista previa">
 <!ENTITY tabscope.animate.fast "Rápido">

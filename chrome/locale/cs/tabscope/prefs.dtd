@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Možnosti">
 <!ENTITY tabscope.general "Obecné">
 <!ENTITY tabscope.advanced "Pokročilé">
+<!ENTITY tabscope.popup_style "Zobrazení okna s náhledem">
+<!ENTITY tabscope.popup_style.flat "Ploché">
+<!ENTITY tabscope.popup_style.dark "Tmavé">
+<!ENTITY tabscope.popup_style.aero.notice "Pokud zvolíte Aero Glass, '&tabscope.animate_fade;' se automaticky vypne.">
 <!ENTITY tabscope.popup_alignment "Zarovnání náhledových oken">
 <!ENTITY tabscope.popup_alignment.auto "automatická detekce">
 <!ENTITY tabscope.popup_alignment.top "nad panelem">

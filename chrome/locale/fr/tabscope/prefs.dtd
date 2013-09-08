@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Options de Tab Scope">
 <!ENTITY tabscope.general "Général">
 <!ENTITY tabscope.advanced "Avancé">
+<!ENTITY tabscope.popup_style "Popup Appearance">
+<!ENTITY tabscope.popup_style.flat "Flat">
+<!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "Alignement du popup">
 <!ENTITY tabscope.popup_alignment.auto "auto-détection">
 <!ENTITY tabscope.popup_alignment.top "en haut de l'onglet">
@@ -12,6 +16,7 @@
 <!ENTITY tabscope.current_tab "Ne pas voir le popup pour l'onglet en cours">
 <!ENTITY tabscope.unloaded_tab "Lors de la prévisualisation d'un onglet pas encore chargé, le charger à cet instant">
 <!ENTITY tabscope.animate "Animations">
+<!ENTITY tabscope.animate_fade "Popup fade-in / fade-out">
 <!ENTITY tabscope.animate_move "Déplacement du popup">
 <!ENTITY tabscope.animate_zoom "Zoom de l'aperçu">
 <!ENTITY tabscope.animate.fast "Rapide">
@@ -19,6 +24,7 @@
 <!ENTITY tabscope.animate.slow "Lent">
 <!ENTITY tabscope.backmonitor "Activer la surveillance en arrière-plan">
 <!ENTITY tabscope.backmonitor.tooltiptext "Lors de l'ouverture d'un nouvel onglet en arrière-plan, afficher automatiquement son popup.">
+<!ENTITY tabscope.hovering "Enable the mouse pointer hovering over the popup">
 <!ENTITY tabscope.preview_size "Taille de l'aperçu">
 <!ENTITY tabscope.preview_width "Largeur">
 <!ENTITY tabscope.preview_height "Hauteur">
@@ -32,6 +38,7 @@
 <!ENTITY tabscope.command.close "Fermer l'onglet">
 <!ENTITY tabscope.command.hide "Fermer le popup">
 <!ENTITY tabscope.command.zoom "Aperçu du zoom">
+<!ENTITY tabscope.command.emulate "Send Click Event">
 <!ENTITY tabscope.toolbar "Barre d'outils">
 <!ENTITY tabscope.toolbar.display.0 "Ne pas voir">
 <!ENTITY tabscope.toolbar.display.1 "Toujours voir">

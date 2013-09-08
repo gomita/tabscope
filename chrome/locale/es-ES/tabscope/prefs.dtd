@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Opciones">
 <!ENTITY tabscope.general "General">
 <!ENTITY tabscope.advanced "Avanzado">
+<!ENTITY tabscope.popup_style "Popup Appearance">
+<!ENTITY tabscope.popup_style.flat "Flat">
+<!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "Alineación de la ventana emergente">
 <!ENTITY tabscope.popup_alignment.auto "detectar automáticamente">
 <!ENTITY tabscope.popup_alignment.top "en la parte superior de la pestaña">
@@ -12,6 +16,7 @@
 <!ENTITY tabscope.current_tab "No mostrar la ventana emergente para la pestaña actual">
 <!ENTITY tabscope.unloaded_tab "Al mostrar la ventana emergente de una pestaña no cargada, cargarla inmediatamente">
 <!ENTITY tabscope.animate "Animaciones">
+<!ENTITY tabscope.animate_fade "Popup fade-in / fade-out">
 <!ENTITY tabscope.animate_move "Movimiento emergente">
 <!ENTITY tabscope.animate_zoom "Zoom de la vista previa">
 <!ENTITY tabscope.animate.fast "Rápido">

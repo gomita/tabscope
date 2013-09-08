@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Опције">
 <!ENTITY tabscope.general "Опште">
 <!ENTITY tabscope.advanced "Напредно">
+<!ENTITY tabscope.popup_style "Изглед искачућег прозора">
+<!ENTITY tabscope.popup_style.flat "једноставан">
+<!ENTITY tabscope.popup_style.dark "таман">
+<!ENTITY tabscope.popup_style.aero.notice "Ако изаберете „провидан”, &tabscope.animate_fade; ће аутоматски бити онемогућено.">
 <!ENTITY tabscope.popup_alignment "Поравнање искачућег прозора">
 <!ENTITY tabscope.popup_alignment.auto "аутоматско препознавање">
 <!ENTITY tabscope.popup_alignment.top "изнад језичка">

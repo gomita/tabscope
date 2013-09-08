@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "אפשרויות">
 <!ENTITY tabscope.general "כללי">
 <!ENTITY tabscope.advanced "מתקדם">
+<!ENTITY tabscope.popup_style "Popup Appearance">
+<!ENTITY tabscope.popup_style.flat "Flat">
+<!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "יישור החלון הקופץ">
 <!ENTITY tabscope.popup_alignment.auto "זיהוי אוטומטי">
 <!ENTITY tabscope.popup_alignment.top "מעל ללשונית">

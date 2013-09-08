@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Einstellungen">
 <!ENTITY tabscope.general "Allgemein">
 <!ENTITY tabscope.advanced "Erweitert">
+<!ENTITY tabscope.popup_style "Pop-up-Darstellung">
+<!ENTITY tabscope.popup_style.flat "Flach">
+<!ENTITY tabscope.popup_style.dark "Dunkel">
+<!ENTITY tabscope.popup_style.aero.notice "Bei Auswahl von &quot;Aero Glass&quot;, wird die Option &quot;&tabscope.animate_fade;&quot; automatisch deaktiviert.">
 <!ENTITY tabscope.popup_alignment "Vorschauposition">
 <!ENTITY tabscope.popup_alignment.auto "automatisch erkennen">
 <!ENTITY tabscope.popup_alignment.top "über dem Tab">

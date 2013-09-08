@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Opciones">
 <!ENTITY tabscope.general "General">
 <!ENTITY tabscope.advanced "Avanzado">
+<!ENTITY tabscope.popup_style "Apariencia del mensaje emergente">
+<!ENTITY tabscope.popup_style.flat "Plano">
+<!ENTITY tabscope.popup_style.dark "Oscuro">
+<!ENTITY tabscope.popup_style.aero.notice "SI usted elige 'Aero Glass',  la opción '&tabscope.animate_fade;' de deshabilita en forma automática.">
 <!ENTITY tabscope.popup_alignment "Alineación del mensaje emergente">
 <!ENTITY tabscope.popup_alignment.auto "detectar automáticamente">
 <!ENTITY tabscope.popup_alignment.top "sobre la pestaña">

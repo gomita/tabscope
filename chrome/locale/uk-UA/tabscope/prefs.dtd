@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Налаштування">
 <!ENTITY tabscope.general "Загальне">
 <!ENTITY tabscope.advanced "Додатково">
+<!ENTITY tabscope.popup_style "Вигляд мініатюри">
+<!ENTITY tabscope.popup_style.flat "Плоска">
+<!ENTITY tabscope.popup_style.dark "Темна">
+<!ENTITY tabscope.popup_style.aero.notice "Якщо вибрано &quot;Aero Glass&quot;, можливість &quot;&tabscope.animate_fade;&quot; буде вимкнута автоматично.">
 <!ENTITY tabscope.popup_alignment "Розташування нарисів">
 <!ENTITY tabscope.popup_alignment.auto "автоматичне визначення">
 <!ENTITY tabscope.popup_alignment.top "над вкладкою">

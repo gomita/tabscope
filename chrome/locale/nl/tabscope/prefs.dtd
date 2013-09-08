@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Opties">
 <!ENTITY tabscope.general "Algemeen">
 <!ENTITY tabscope.advanced "Geavanceerd">
+<!ENTITY tabscope.popup_style "Uiterlijk van pop-up">
+<!ENTITY tabscope.popup_style.flat "Plat">
+<!ENTITY tabscope.popup_style.dark "Donker">
+<!ENTITY tabscope.popup_style.aero.notice "Als u ‘Aero Glass’ kiest, wordt de optie ‘&tabscope.animate_fade;’automatisch uitgeschakeld.">
 <!ENTITY tabscope.popup_alignment "Uitlijning van pop-up">
 <!ENTITY tabscope.popup_alignment.auto "automatisch detecteren">
 <!ENTITY tabscope.popup_alignment.top "bovenop een tabblad">

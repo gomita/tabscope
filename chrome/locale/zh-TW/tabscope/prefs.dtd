@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "選項">
 <!ENTITY tabscope.general "一般">
 <!ENTITY tabscope.advanced "進階">
+<!ENTITY tabscope.popup_style "Popup Appearance">
+<!ENTITY tabscope.popup_style.flat "Flat">
+<!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "預覽圖的位置">
 <!ENTITY tabscope.popup_alignment.auto "自動檢測">
 <!ENTITY tabscope.popup_alignment.top "顯示於分頁上方">
@@ -12,6 +16,7 @@
 <!ENTITY tabscope.current_tab "不顯示目前分頁的預覽圖">
 <!ENTITY tabscope.unloaded_tab "在未載入的分頁上顯示縮略圖時立即載入該分頁">
 <!ENTITY tabscope.animate "動態顯示">
+<!ENTITY tabscope.animate_fade "Popup fade-in / fade-out">
 <!ENTITY tabscope.animate_move "預覽圖移動">
 <!ENTITY tabscope.animate_zoom "預覽圖縮放">
 <!ENTITY tabscope.animate.fast "快速">

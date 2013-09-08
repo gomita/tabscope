@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Opções">
 <!ENTITY tabscope.general "Geral">
 <!ENTITY tabscope.advanced "Avançado">
+<!ENTITY tabscope.popup_style "Popup Appearance">
+<!ENTITY tabscope.popup_style.flat "Flat">
+<!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "Alinhamento do popup">
 <!ENTITY tabscope.popup_alignment.auto "detecção automática">
 <!ENTITY tabscope.popup_alignment.top "no topo do separador">
@@ -12,6 +16,7 @@
 <!ENTITY tabscope.current_tab "Não mostrar popup para o separador actual">
 <!ENTITY tabscope.unloaded_tab "Quando eu mostrar um pop-up para um separador descarregado, carregá-lo imediatamente">
 <!ENTITY tabscope.animate "Animações">
+<!ENTITY tabscope.animate_fade "Mostrar/Ocultar popup">
 <!ENTITY tabscope.animate_move "Mover Popup">
 <!ENTITY tabscope.animate_zoom "Pré-visualizar zoom">
 <!ENTITY tabscope.animate.fast "Rápido">

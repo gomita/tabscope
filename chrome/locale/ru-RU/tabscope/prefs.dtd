@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Настройки">
 <!ENTITY tabscope.general "Общие">
 <!ENTITY tabscope.advanced "Дополнительно">
+<!ENTITY tabscope.popup_style "Оформление всплывающего окна">
+<!ENTITY tabscope.popup_style.flat "Плоское">
+<!ENTITY tabscope.popup_style.dark "Тёмное">
+<!ENTITY tabscope.popup_style.aero.notice "Если вы используете 'Aero Glass', параметр '&tabscope.animate_fade;' автоматически отключается.">
 <!ENTITY tabscope.popup_alignment "Расположение всплывающего окна">
 <!ENTITY tabscope.popup_alignment.auto "автоопределение">
 <!ENTITY tabscope.popup_alignment.top "над вкладкой">

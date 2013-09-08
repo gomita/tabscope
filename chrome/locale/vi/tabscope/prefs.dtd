@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Tùy chọn">
 <!ENTITY tabscope.general "Tổng quan">
 <!ENTITY tabscope.advanced "Nâng cao">
+<!ENTITY tabscope.popup_style "Popup Appearance">
+<!ENTITY tabscope.popup_style.flat "Flat">
+<!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "Căn chỉnh cửa sổ xem trước">
 <!ENTITY tabscope.popup_alignment.auto "tự động nhận diện">
 <!ENTITY tabscope.popup_alignment.top "nằm trên tab">
@@ -12,6 +16,7 @@
 <!ENTITY tabscope.current_tab "Không hiển thị cửa sổ xem trước cho tab đang xem">
 <!ENTITY tabscope.unloaded_tab "Tải tab ngay khi hiển thị cửa sổ tự bung của nó">
 <!ENTITY tabscope.animate "Hoạt hình">
+<!ENTITY tabscope.animate_fade "Popup fade-in / fade-out">
 <!ENTITY tabscope.animate_move "Di chuyển cửa sổ tự bung">
 <!ENTITY tabscope.animate_zoom "Phóng xem trước">
 <!ENTITY tabscope.animate.fast "Nhanh">

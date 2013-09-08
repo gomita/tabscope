@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Επιλογές">
 <!ENTITY tabscope.general "Γενικές">
 <!ENTITY tabscope.advanced "Προηγμένες">
+<!ENTITY tabscope.popup_style "Εμφάνιση αναδυόμενου πλαισίου">
+<!ENTITY tabscope.popup_style.flat "Επίπεδο">
+<!ENTITY tabscope.popup_style.dark "Σκοτεινό">
+<!ENTITY tabscope.popup_style.aero.notice "Εάν επιλέξετε «Aero Glass», η επιλογή «&tabscope.animate_fade;» απενεργοποιείται αυτόματα.">
 <!ENTITY tabscope.popup_alignment "Παράταξη του αναδυόμενου πλαισίου">
 <!ENTITY tabscope.popup_alignment.auto "αυτόματος εντοπισμός">
 <!ENTITY tabscope.popup_alignment.top "στο πάνω μέρος της καρτέλας">
@@ -19,7 +23,7 @@
 <!ENTITY tabscope.animate.normal "Κανονική">
 <!ENTITY tabscope.animate.slow "Αργή">
 <!ENTITY tabscope.backmonitor "Ενεργοποίηση παρακολούθησης παρασκηνίου">
-<!ENTITY tabscope.backmonitor.tooltiptext "Όταν ανοίγεται μια νέα καρτέλα στο παρασκήνιο, να εμφανίζεται αυτόματα αναδυόμενο πλαίσιο προεπισκόπησης γι' αυτήν.">
+<!ENTITY tabscope.backmonitor.tooltiptext "Όταν μια νέα καρτέλα ανοίγεται στο παρασκήνιο, θα εμφανίζεται αυτόματα αναδυόμενο πλαίσιο προεπισκόπησης γι' αυτήν.">
 <!ENTITY tabscope.hovering "Ενεργοποίηση αιώρησης δείκτη ποντικιού πάνω από το αναδυόμενο πλαίσιο προεπισκόπησης">
 <!ENTITY tabscope.preview_size "Μέγεθος προεπισκόπησης">
 <!ENTITY tabscope.preview_width "Πλάτος">

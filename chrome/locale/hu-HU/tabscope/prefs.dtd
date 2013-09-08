@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Beállítások">
 <!ENTITY tabscope.general "Általános">
 <!ENTITY tabscope.advanced "Haladó">
+<!ENTITY tabscope.popup_style "Helyi menü kinézete">
+<!ENTITY tabscope.popup_style.flat "Lapos">
+<!ENTITY tabscope.popup_style.dark "Sötét">
+<!ENTITY tabscope.popup_style.aero.notice "Az Aero Glass kiválasztásakor a '&tabscope.animate_fade;' opció automatikusan aktiválódik.">
 <!ENTITY tabscope.popup_alignment "Ablak megjelenítése">
 <!ENTITY tabscope.popup_alignment.auto "auto-felismerés">
 <!ENTITY tabscope.popup_alignment.top "Fül felett">
@@ -12,6 +16,7 @@
 <!ENTITY tabscope.current_tab "Ne jelenjen meg az aktuális lapnál">
 <!ENTITY tabscope.unloaded_tab "Felbukkanó ablak megjelenítése egy betöltetlen lapnál töltse be a lapot">
 <!ENTITY tabscope.animate "Animációk">
+<!ENTITY tabscope.animate_fade "Helyi menü felbukkanása/eltűnése">
 <!ENTITY tabscope.animate_move "Felugró ablak mozgatás">
 <!ENTITY tabscope.animate_zoom "Nagyítás előnézete">
 <!ENTITY tabscope.animate.fast "Gyors">

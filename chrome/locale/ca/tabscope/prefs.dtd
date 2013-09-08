@@ -1,6 +1,10 @@
 <!ENTITY tabscope.options "Opcions">
 <!ENTITY tabscope.general "General">
 <!ENTITY tabscope.advanced "Avançat">
+<!ENTITY tabscope.popup_style "Popup Appearance">
+<!ENTITY tabscope.popup_style.flat "Flat">
+<!ENTITY tabscope.popup_style.dark "Dark">
+<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
 <!ENTITY tabscope.popup_alignment "Alineació del popup">
 <!ENTITY tabscope.popup_alignment.auto "detecta-ho automàticament">
 <!ENTITY tabscope.popup_alignment.top "a dalt d'una pestanya">
@@ -12,6 +16,7 @@
 <!ENTITY tabscope.current_tab "No mostris el popup per la pestanya actual">
 <!ENTITY tabscope.unloaded_tab "Quan previsualitzis una pestanya no carregada, carrega-la immediatament">
 <!ENTITY tabscope.animate "Animacions">
+<!ENTITY tabscope.animate_fade "Popup fade-in / fade-out">
 <!ENTITY tabscope.animate_move "Mou el popup">
 <!ENTITY tabscope.animate_zoom "Previsualitza fent zoom">
 <!ENTITY tabscope.animate.fast "Ràpid">
