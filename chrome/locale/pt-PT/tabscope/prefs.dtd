@@ -1,10 +1,10 @@
 <!ENTITY tabscope.options "Opções">
 <!ENTITY tabscope.general "Geral">
 <!ENTITY tabscope.advanced "Avançado">
-<!ENTITY tabscope.popup_style "Popup Appearance">
-<!ENTITY tabscope.popup_style.flat "Flat">
-<!ENTITY tabscope.popup_style.dark "Dark">
-<!ENTITY tabscope.popup_style.aero.notice "If you choose 'Aero Glass', '&tabscope.animate_fade;' option is disabled automatically.">
+<!ENTITY tabscope.popup_style "Aparência do popup">
+<!ENTITY tabscope.popup_style.flat "Plano">
+<!ENTITY tabscope.popup_style.dark "Escuro">
+<!ENTITY tabscope.popup_style.aero.notice "Se escolheu a opção 'Aero Glass', '&tabscope.animate_fade;' é desativada automaticamente.">
 <!ENTITY tabscope.popup_alignment "Alinhamento do popup">
 <!ENTITY tabscope.popup_alignment.auto "detecção automática">
 <!ENTITY tabscope.popup_alignment.top "no topo do separador">
