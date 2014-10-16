@@ -646,6 +646,7 @@ var TabScope = {
 		this.log("update title");	// #debug
 		var label = document.getElementById("tabscope-title");
 		label.value = this._tab.label;
+		label.setAttribute("remote", this._tab.hasAttribute("remote").toString());
 		var uri = this._tab.linkedBrowser.currentURI.spec;
 		label.setAttribute("tooltiptext", label.value + "\n" + uri);
 		label.style.width = this._branch.getIntPref("preview_width").toString() + "px";
@@ -654,6 +655,7 @@ var TabScope = {
 	_resetTitle: function() {
 		var label = document.getElementById("tabscope-title");
 		label.value = "";
+		label.removeAttribute("remote");
 		label.removeAttribute("tooltiptext");
 		label.style.width = "0px";
 	},

@@ -199,6 +199,12 @@
 	                                              rgba(0,255,0,.2));
 }
 
+/* ::::: title ::::: */
+
+#tabscope-title[remote="true"] {
+	text-decoration: underline;
+}
+
 /* ::::: dark style ::::: */
 
 #tabscope-popup[_style="dark"] {
