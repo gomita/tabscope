@@ -363,7 +363,8 @@ var TabScope = {
 				this._performAction(event.target.id.replace(/^tabscope-|-button$/g, ""), event);
 				break;
 			case "transitionend": 
-				this.log(event.type + " " + event.target.localName + " " + event.propertyName);	// #debug
+				var val = window.getComputedStyle(event.target, null)[event.propertyName];	// #debug
+				this.log(event.type + " " + event.target.localName + " " + event.propertyName + " " + val);	// #debug
 				if (event.target == this.popup.firstChild) {
 					// handle opacity change only
 					if (event.propertyName != "opacity")
@@ -598,6 +599,7 @@ var TabScope = {
 
 	_togglePreviewSize: function() {
 		this._zoomState = !this._zoomState;
+		this.log(this._zoomState ? "+++ zoom-in" : "--- zoom-out");	// #debug
 		this._adjustPreviewSize(true);
 		// no need to update preview immediately when starting to zoom-in with animation
 		if (this._zoomState && this._branch.getIntPref("animate_zoom") > 0)
