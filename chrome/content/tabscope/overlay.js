@@ -207,10 +207,12 @@ var TabScope = {
 				else {
 					// when mouse pointer moves from one tab to another...
 					// popup is already opened, so move it now
+					this._setupRemote(false);
 					this._tab.linkedBrowser.removeProgressListener(this);
 					this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 					this._tab.removeEventListener("TabAttrModified", this, false);
 					this._tab = event.target;
+					this._setupRemote(true);
 					this._tab.linkedBrowser.addProgressListener(this, this._notifyMask);
 					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 					this._tab.addEventListener("TabAttrModified", this, false);
@@ -282,6 +284,7 @@ var TabScope = {
 				break;
 			case "popupshowing": 
 				this.log("open popup");	// #debug
+				this._setupRemote(true);
 				this._tab.linkedBrowser.addProgressListener(this, this._notifyMask);
 				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 				this._tab.addEventListener("TabAttrModified", this, false);
@@ -312,6 +315,7 @@ var TabScope = {
 				break;
 			case "popuphiding": 
 				this.log("close popup");	// #debug
+				this._setupRemote(false);
 				this._tab.linkedBrowser.removeProgressListener(this);
 				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 				this._tab.removeEventListener("TabAttrModified", this, false);
@@ -355,6 +359,25 @@ var TabScope = {
 			case "DOMMouseScroll": 
 				event.preventDefault();
 				event.stopPropagation();
+				// [e10s]
+				if (gMultiProcessBrowser) {
+					if (!this.canvas._scale || this._waitingId)
+						return;
+					// get real position
+					let rect = this.canvas.getBoundingClientRect();
+					this._sendMessage("TabScope:Scroll", {
+						x: (event.clientX - rect.left) / this.canvas._scale,
+						y: (event.clientY - rect.top)  / this.canvas._scale,
+						lines: event.detail,
+					});
+					// [Mac] to avoid slow-down, update preview in the next callback of timer
+					if (this.popup.getAttribute("_os") == "Mac")
+						this._shouldUpdatePreview = true;
+					else
+						this._updatePreview();
+					return;
+				}
+				// [non-e10s]
 				var elt = this._elementFromPointOnPreview(event);
 				elt.ownerDocument.defaultView.scrollByLines(event.detail);
 				this._updatePreview();
@@ -382,6 +405,17 @@ var TabScope = {
 				// to fix issue#23, check popup is already closed before transitionend
 				if (!this._tab)
 					return;
+				// [e10s]
+				if (gMultiProcessBrowser) {
+					let canvas = this.canvas;
+					this._sendMessage("TabScope:Preview", {
+						action: this._zoomState ? "zoom-in:end" : "zoom-out:end",
+						width : parseInt(canvas.style.width),
+						height: parseInt(canvas.style.height),
+					}, true);
+					return;
+				}
+				// [non-e10s]
 				// [Mac] XXX update preview before adjusting size, 
 				// otherwise preview becomes blank for a quick moment
 				if (this.popup.getAttribute("_os") == "Mac")
@@ -598,12 +632,33 @@ var TabScope = {
 	},
 
 	_togglePreviewSize: function() {
+		// [e10s]
+		if (gMultiProcessBrowser && this._waitingId) {
+			this.log("*** prevent toggle preview: " + this._waitingId);	// #debug
+			return;
+		}
+		// [non-e10s][e10s]
 		this._zoomState = !this._zoomState;
 		this.log(this._zoomState ? "+++ zoom-in" : "--- zoom-out");	// #debug
-		this._adjustPreviewSize(true);
-		// no need to update preview immediately when starting to zoom-in with animation
-		if (this._zoomState && this._branch.getIntPref("animate_zoom") > 0)
+		// animate zoom-in: just only enlarge preview size
+		if (this._zoomState && this._branch.getIntPref("animate_zoom") > 0) {
+			this._adjustPreviewSize(true);
 			return;
+		}
+		// [e10s]
+		if (gMultiProcessBrowser) {
+			// instant zoom-in : request large preview to remote
+			// animate zoom-out: request small preview to remote
+			let ratio = !this._zoomState ? 1.0 : parseFloat(this._branch.getCharPref("zoom_ratio")) || 1.1;
+			this._sendMessage("TabScope:Preview", {
+				action: this._zoomState ? "zoom-in:begin" : "zoom-out:begin",
+				width : this._branch.getIntPref("preview_width") * ratio,
+				height: this._branch.getIntPref("preview_height") * ratio,
+			}, true);
+			return;
+		}
+		// [non-e10s]
+		this._adjustPreviewSize(true);
 		this._updatePreview();
 	},
 
@@ -620,6 +675,16 @@ var TabScope = {
 			canvas.height = height;
 			return;
 		}
+		// [e10s]
+		if (gMultiProcessBrowser) {
+			this._sendMessage("TabScope:Preview", {
+				action: "",
+				width : this.canvas.width,
+				height: this.canvas.height,
+			});
+			return;
+		}
+		// [non-e10s]
 		var canvas = this.canvas;
 		var win = this._tab.linkedBrowser.contentWindow;
 		var w = win.innerWidth;
@@ -730,6 +795,21 @@ var TabScope = {
 			case "groups" : TabView.toggle(); this.popup.hidePopup(); return;
 			case "close"  : gBrowser.removeTab(this._tab, { animate: true }); return;
 			case "emulate": 
+				// [e10s]
+				if (gMultiProcessBrowser) {
+					if (!this.canvas._scale)
+						return;
+					// get real position
+					var rect = this.canvas.getBoundingClientRect();
+					var x = (event.clientX - rect.left) / this.canvas._scale;
+					var y = (event.clientY - rect.top)  / this.canvas._scale;
+					this._sendMessage("TabScope:Emulate", {
+						x: x, y: y, type: event.type, detail: event.detail, ctrlKey: event.ctrlKey, 
+						altKey: event.altKey, shiftKey: event.shiftKey, metaKey: event.metaKey
+					});
+					return;
+				}
+				// [non-e10s]
 				var elt = this._elementFromPointOnPreview(event);
 				var evt = elt.ownerDocument.createEvent("MouseEvents");
 				evt.initMouseEvent(
@@ -819,6 +899,80 @@ var TabScope = {
 			this._adjustPopupPosition(true);
 	},
 
+	// [e10s] sequential number of message from/to remote browser
+	_messageId: 0,
+
+	// [e10s] the message id which is waiting for the response
+	_waitingId: 0,
+
+	// [e10s] init/uninit TabScope child in remote browser assosiated with |_tab|
+	_setupRemote: function(aInit) {
+		if (!gMultiProcessBrowser)
+			return;
+		var mm = this._tab.linkedBrowser.messageManager;
+		if (aInit) {
+			this._messageId = 0;
+			this._waitingId = 0;
+			this.canvas._scale = 0;
+			// load frame script into browser
+			if (!this._tab.linkedBrowser.hasAttribute("tabscope:remote")) {
+				mm.loadFrameScript("chrome://tabscope/content/remote.js", true);
+				this._tab.linkedBrowser.setAttribute("tabscope:remote", "true");
+			}
+			mm.addMessageListener("TabScopeRemote:Response", this);
+			mm.sendAsyncMessage("TabScope:OpenPopup", {});
+		}
+		else {
+			mm.sendAsyncMessage("TabScope:ClosePopup", {});
+			mm.removeMessageListener("TabScopeRemote:Response", this);
+		}
+	},
+
+	// [e10s] send message to remote browser
+	// if |aWait| is true, no messages will be sent/received until receiving the response
+	// which id equals to |_waitingId|.
+	_sendMessage: function(aName, aData, aWait) {
+		if (this._waitingId) {
+			this.log("*** prevent sending message: " + this._waitingId);	// #debug
+			return;
+		}
+		aData.id = ++this._messageId;
+		this._waitingId = aWait ? aData.id : 0;
+		this._tab.linkedBrowser.messageManager.sendAsyncMessage(aName, aData);
+		// #debug-begin
+		let data = { id: 0 };
+		for (let key in aData) data[key] = aData[key];
+		this.log(">>> " + data.toSource() + ", " + aName);
+		// #debug-end
+	},
+
+	// [e10s] receive message from remote browser
+	receiveMessage: function(aMsg) {
+		if (this._waitingId && this._waitingId != aMsg.data.id) {
+			this.log("*** prevent receiving message: " + this._waitingId);	// #debug
+			return;
+		}
+		this.log("<<< " + aMsg.data.toSource());	// #debug
+		this._waitingId = 0;
+		let canvas = this.canvas;
+		switch (aMsg.data.action) {
+			case "zoom-in:begin": 
+			case "zoom-out:begin": 
+				this._adjustPreviewSize(true);
+				break;
+			case "zoom-in:end": 
+				canvas.width  = parseInt(canvas.style.width);
+				canvas.height = parseInt(canvas.style.height);
+				break;
+			case "zoom-out:end": 
+				break;
+			default: 
+		}
+		// draw image data on canvas
+		canvas._scale = aMsg.data.scale;	// for later use
+		canvas.getContext("2d").putImageData(aMsg.data.imgData, 0, 0);
+	},
+
 	QueryInterface: XPCOMUtils.generateQI([Ci.nsISupports,
 	                                       Ci.nsIWebProgressListener,
 	                                       Ci.nsISupportsWeakReference]),
@@ -827,6 +981,9 @@ var TabScope = {
 		// update reload button
 		this._shouldUpdateToolbar = true;
 		this._shouldUpdateProgress = true;
+		// [e10s] XXX work-around for not working |MozAfterPaint|
+		if (gMultiProcessBrowser)
+			this._shouldUpdatePreview = true;
 	},
 
 	onProgressChange: function() {
