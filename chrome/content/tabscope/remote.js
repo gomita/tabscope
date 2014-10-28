@@ -1,6 +1,10 @@
 let TabScopeRemote = {
 
 	init: function() {
+		// #debug-begin
+		Components.utils.import("resource://gre/modules/Services.jsm");
+		this.log("init: " + new Date().toLocaleTimeString());
+		// #debug-end
 		addMessageListener("TabScope:OpenPopup", this);
 		addMessageListener("TabScope:ClosePopup", this);
 		addMessageListener("TabScope:Preview", this);
@@ -9,12 +13,12 @@ let TabScopeRemote = {
 	},
 
 	receiveMessage: function(aMsg) {
-		this.log(aMsg.name + "\t" + aMsg.data.toSource());	// #debug
+		// #debug-begin
+		let data = { id: aMsg.data.id };
+		for (let key in aMsg.data) data[key] = aMsg.data[key];
+		this.log(aMsg.name + "\t" + data.toSource());
+		// #debug-end
 		switch (aMsg.name) {
-			case "TabScope:OpenPopup": 
-				break;
-			case "TabScope:ClosePopup": 
-				break;
 			case "TabScope:Preview": 
 				this._updatePreview(aMsg.data);
 				break;
@@ -116,7 +120,6 @@ let TabScopeRemote = {
 
 	log: function(aText) {
 		// dump("tabscope:remote> " + aText + "\n");
-		Components.utils.import("resource://gre/modules/Services.jsm");
 		Services.console.logStringMessage("TabScopeRemote> " + aText);
 	},
 

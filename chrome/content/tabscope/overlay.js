@@ -84,9 +84,19 @@ var TabScope = {
 		// [Linux] remove |noautohide| to avoid losing focus on browser
 		if (this.popup.getAttribute("_os") == "Linux")
 			this.popup.removeAttribute("noautohide");
+		// [e10s] load frame script into every browser in window
+		if (gMultiProcessBrowser) {
+			window.messageManager.loadFrameScript("chrome://tabscope/content/remote.js", true);
+			window.messageManager.addMessageListener("TabScopeRemote:Response", this);
+		}
 	},
 
 	uninit: function() {
+		// [e10s] stop listening the response from remote
+		if (gMultiProcessBrowser) {
+			window.messageManager.removeDelayedFrameScript("chrome://tabscope/content/remote.js");
+			window.messageManager.removeMessageListener("TabScopeRemote:Response", this);
+		}
 		this._cancelDelayedOpen();
 		// [backmonitor] should close popup explicitly
 		this.popup.hidePopup();
@@ -207,12 +217,10 @@ var TabScope = {
 				else {
 					// when mouse pointer moves from one tab to another...
 					// popup is already opened, so move it now
-					this._setupRemote(false);
 					this._tab.linkedBrowser.removeProgressListener(this);
 					this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 					this._tab.removeEventListener("TabAttrModified", this, false);
 					this._tab = event.target;
-					this._setupRemote(true);
 					this._tab.linkedBrowser.addProgressListener(this, this._notifyMask);
 					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 					this._tab.addEventListener("TabAttrModified", this, false);
@@ -284,7 +292,12 @@ var TabScope = {
 				break;
 			case "popupshowing": 
 				this.log("open popup");	// #debug
-				this._setupRemote(true);
+				// [e10s]
+				if (gMultiProcessBrowser) {
+					this._messageId = 0;
+					this._waitingId = 0;
+					this.canvas._scale = 0;
+				}
 				this._tab.linkedBrowser.addProgressListener(this, this._notifyMask);
 				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 				this._tab.addEventListener("TabAttrModified", this, false);
@@ -315,7 +328,6 @@ var TabScope = {
 				break;
 			case "popuphiding": 
 				this.log("close popup");	// #debug
-				this._setupRemote(false);
 				this._tab.linkedBrowser.removeProgressListener(this);
 				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 				this._tab.removeEventListener("TabAttrModified", this, false);
@@ -904,29 +916,6 @@ var TabScope = {
 
 	// [e10s] the message id which is waiting for the response
 	_waitingId: 0,
-
-	// [e10s] init/uninit TabScope child in remote browser assosiated with |_tab|
-	_setupRemote: function(aInit) {
-		if (!gMultiProcessBrowser)
-			return;
-		var mm = this._tab.linkedBrowser.messageManager;
-		if (aInit) {
-			this._messageId = 0;
-			this._waitingId = 0;
-			this.canvas._scale = 0;
-			// load frame script into browser
-			if (!this._tab.linkedBrowser.hasAttribute("tabscope:remote")) {
-				mm.loadFrameScript("chrome://tabscope/content/remote.js", true);
-				this._tab.linkedBrowser.setAttribute("tabscope:remote", "true");
-			}
-			mm.addMessageListener("TabScopeRemote:Response", this);
-			mm.sendAsyncMessage("TabScope:OpenPopup", {});
-		}
-		else {
-			mm.sendAsyncMessage("TabScope:ClosePopup", {});
-			mm.removeMessageListener("TabScopeRemote:Response", this);
-		}
-	},
 
 	// [e10s] send message to remote browser
 	// if |aWait| is true, no messages will be sent/received until receiving the response
