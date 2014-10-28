@@ -46,11 +46,6 @@ var TabScope = {
 	_deltaWidth : 0,
 	_deltaHeight: 0,
 
-	// notifyMask for nsIWebProgressListener
-	_notifyMask: Ci.nsIWebProgress.NOTIFY_STATE_ALL | 
-	             Ci.nsIWebProgress.NOTIFY_PROGRESS | 
-	             Ci.nsIWebProgress.NOTIFY_LOCATION,
-
 	init: function() {
 		this._initTime = Date.now();
 		this.popup = document.getElementById("tabscope-popup");
@@ -217,11 +212,9 @@ var TabScope = {
 				else {
 					// when mouse pointer moves from one tab to another...
 					// popup is already opened, so move it now
-					this._tab.linkedBrowser.removeProgressListener(this);
 					this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 					this._tab.removeEventListener("TabAttrModified", this, false);
 					this._tab = event.target;
-					this._tab.linkedBrowser.addProgressListener(this, this._notifyMask);
 					this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 					this._tab.addEventListener("TabAttrModified", this, false);
 					this._ensureTabIsRestored();
@@ -298,7 +291,7 @@ var TabScope = {
 					this._waitingId = 0;
 					this.canvas._scale = 0;
 				}
-				this._tab.linkedBrowser.addProgressListener(this, this._notifyMask);
+				gBrowser.addTabsProgressListener(this);
 				this._tab.linkedBrowser.addEventListener("MozAfterPaint", this, false);
 				this._tab.addEventListener("TabAttrModified", this, false);
 				this._ensureTabIsRestored();
@@ -328,7 +321,7 @@ var TabScope = {
 				break;
 			case "popuphiding": 
 				this.log("close popup");	// #debug
-				this._tab.linkedBrowser.removeProgressListener(this);
+				gBrowser.removeTabsProgressListener(this);
 				this._tab.linkedBrowser.removeEventListener("MozAfterPaint", this, false);
 				this._tab.removeEventListener("TabAttrModified", this, false);
 				// _timer is null when popup closes with fade-out
@@ -962,11 +955,9 @@ var TabScope = {
 		canvas.getContext("2d").putImageData(aMsg.data.imgData, 0, 0);
 	},
 
-	QueryInterface: XPCOMUtils.generateQI([Ci.nsISupports,
-	                                       Ci.nsIWebProgressListener,
-	                                       Ci.nsISupportsWeakReference]),
-
-	onStateChange: function() {
+	onStateChange: function(aBrowser) {
+		if (aBrowser != this._tab.linkedBrowser)
+			return;
 		// update reload button
 		this._shouldUpdateToolbar = true;
 		this._shouldUpdateProgress = true;
@@ -975,11 +966,15 @@ var TabScope = {
 			this._shouldUpdatePreview = true;
 	},
 
-	onProgressChange: function() {
+	onProgressChange: function(aBrowser) {
+		if (aBrowser != this._tab.linkedBrowser)
+			return;
 		this._shouldUpdateProgress = true;
 	},
 
-	onLocationChange: function() {
+	onLocationChange: function(aBrowser) {
+		if (aBrowser != this._tab.linkedBrowser)
+			return;
 		// update back and forward button
 		this._shouldUpdateToolbar = true;
 	},
