@@ -3,6 +3,7 @@ let TabScopeRemote = {
 	init: function() {
 		// #debug-begin
 		Components.utils.import("resource://gre/modules/Services.jsm");
+		this.log = function(aText) Services.console.logStringMessage("TabScopeRemote> " + aText);
 		this.log("init: " + new Date().toLocaleTimeString());
 		// #debug-end
 		addMessageListener("TabScope:OpenPopup", this);
@@ -119,8 +120,7 @@ let TabScopeRemote = {
 	},
 
 	log: function(aText) {
-		// dump("tabscope:remote> " + aText + "\n");
-		Services.console.logStringMessage("TabScopeRemote> " + aText);
+		dump("TabScopeRemote> " + aText + "\n");
 	},
 
 };

@@ -865,6 +865,30 @@ var TabScope = {
 		return elt;
 	},
 
+	onStateChange: function(aBrowser) {
+		if (aBrowser != this._tab.linkedBrowser)
+			return;
+		// update reload button
+		this._shouldUpdateToolbar = true;
+		this._shouldUpdateProgress = true;
+		// [e10s] XXX work-around for not working |MozAfterPaint|
+		if (gMultiProcessBrowser)
+			this._shouldUpdatePreview = true;
+	},
+
+	onProgressChange: function(aBrowser) {
+		if (aBrowser != this._tab.linkedBrowser)
+			return;
+		this._shouldUpdateProgress = true;
+	},
+
+	onLocationChange: function(aBrowser) {
+		if (aBrowser != this._tab.linkedBrowser)
+			return;
+		// update back and forward button
+		this._shouldUpdateToolbar = true;
+	},
+
 	notify: function(aTimer) {
 		var shouldClosePopup;
 		var hovering = this._branch.getBoolPref("popup_hovering");
@@ -953,30 +977,6 @@ var TabScope = {
 		// draw image data on canvas
 		canvas._scale = aMsg.data.scale;	// for later use
 		canvas.getContext("2d").putImageData(aMsg.data.imgData, 0, 0);
-	},
-
-	onStateChange: function(aBrowser) {
-		if (aBrowser != this._tab.linkedBrowser)
-			return;
-		// update reload button
-		this._shouldUpdateToolbar = true;
-		this._shouldUpdateProgress = true;
-		// [e10s] XXX work-around for not working |MozAfterPaint|
-		if (gMultiProcessBrowser)
-			this._shouldUpdatePreview = true;
-	},
-
-	onProgressChange: function(aBrowser) {
-		if (aBrowser != this._tab.linkedBrowser)
-			return;
-		this._shouldUpdateProgress = true;
-	},
-
-	onLocationChange: function(aBrowser) {
-		if (aBrowser != this._tab.linkedBrowser)
-			return;
-		// update back and forward button
-		this._shouldUpdateToolbar = true;
 	},
 
 	log: function(aText) {
