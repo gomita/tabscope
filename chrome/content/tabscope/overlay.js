@@ -412,11 +412,10 @@ var TabScope = {
 					return;
 				// [e10s]
 				if (gMultiProcessBrowser) {
-					let canvas = this.canvas;
 					this._sendMessage("TabScope:Preview", {
 						action: this._zoomState ? "zoom-in:end" : "zoom-out:end",
-						width : parseInt(canvas.style.width),
-						height: parseInt(canvas.style.height),
+						width : parseInt(this.canvas.style.width),
+						height: parseInt(this.canvas.style.height),
 					}, true);
 					return;
 				}
