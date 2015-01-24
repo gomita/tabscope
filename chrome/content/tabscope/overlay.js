@@ -76,9 +76,6 @@ var TabScope = {
 		};
 		this._multiScreens = svc.numberOfScreens > 1;
 		this.loadPrefs();
-		// [Linux] remove |noautohide| to avoid losing focus on browser
-		if (this.popup.getAttribute("_os") == "Linux")
-			this.popup.removeAttribute("noautohide");
 		// [e10s] load frame script into every browser in window
 		if (gMultiProcessBrowser) {
 			window.messageManager.loadFrameScript("chrome://tabscope/content/remote.js", true);
