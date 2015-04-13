@@ -1,0 +1,46 @@
+<!ENTITY tabscope.options "Možnosti">
+<!ENTITY tabscope.general "Hlavné">
+<!ENTITY tabscope.advanced "Pokročilé">
+<!ENTITY tabscope.popup_style "Vzhľad náhľadu">
+<!ENTITY tabscope.popup_style.flat "Plochý">
+<!ENTITY tabscope.popup_style.dark "Tmavý">
+<!ENTITY tabscope.popup_style.aero.notice "Ak vyberiete možnosť Aero Glass, nastavenie '&tabscope.animate_fade;' bude automaticky zakázané.">
+<!ENTITY tabscope.popup_alignment "Zarovnanie náhľadu">
+<!ENTITY tabscope.popup_alignment.auto "Automaticky zistiť">
+<!ENTITY tabscope.popup_alignment.top "Na vrchu karty">
+<!ENTITY tabscope.popup_alignment.bottom "Pod kartou">
+<!ENTITY tabscope.popup_alignment.left "Naľavo od karty">
+<!ENTITY tabscope.popup_alignment.right "Napravo od karty">
+<!ENTITY tabscope.popup_delay.1 "Pred zobrazením náhľadu počkať">
+<!ENTITY tabscope.popup_delay.2 "milisekúnd">
+<!ENTITY tabscope.current_tab "Nezobrazovať náhľad pred aktuálnu kartu">
+<!ENTITY tabscope.unloaded_tab "Pri zobrazovaní nenačítanej karty, načítať ju okamžite">
+<!ENTITY tabscope.animate "Animácie">
+<!ENTITY tabscope.animate_fade "Zosilnenie/zoslabnutie náhľadu">
+<!ENTITY tabscope.animate_move "Pohyb náhľadu">
+<!ENTITY tabscope.animate_zoom "Priblíženie náhľadu">
+<!ENTITY tabscope.animate.fast "Rýchlo">
+<!ENTITY tabscope.animate.normal "Normálne">
+<!ENTITY tabscope.animate.slow "Pomaly">
+<!ENTITY tabscope.backmonitor "Povoliť nomitorovanie na pozadí">
+<!ENTITY tabscope.backmonitor.tooltiptext "Po otvorení novej karty na pozadí, automaticky zobraziť jej náhľad.">
+<!ENTITY tabscope.hovering "Povoliť ukazovateľ myši po prejdení na náhľad">
+<!ENTITY tabscope.preview_size "Veľkosť náhľadu">
+<!ENTITY tabscope.preview_width "Šírka">
+<!ENTITY tabscope.preview_height "Výška">
+<!ENTITY tabscope.zoom_ratio "Zväčšenie náhľadu">
+<!ENTITY tabscope.clicks "Akcie po stlačení myši">
+<!ENTITY tabscope.click.left "Ľavé tlačidlo">
+<!ENTITY tabscope.click.middle "Stredné tlačidlo">
+<!ENTITY tabscope.click.right "Pravé tlačidlo">
+<!ENTITY tabscope.command.none "...">
+<!ENTITY tabscope.command.select "Vybrať kartu">
+<!ENTITY tabscope.command.close "Zatvoriť kartu">
+<!ENTITY tabscope.command.hide "Zatvoriť náhľad">
+<!ENTITY tabscope.command.zoom "Priblíženie náhľadu">
+<!ENTITY tabscope.command.emulate "Kliknutie v náhľade">
+<!ENTITY tabscope.toolbar "Lišta nástrojov">
+<!ENTITY tabscope.toolbar.display.0 "Nezobrazovať nikdy">
+<!ENTITY tabscope.toolbar.display.1 "Vždy zobraziť">
+<!ENTITY tabscope.toolbar.display.2 "Automaticky skrývať">
+<!ENTITY tabscope.toolbar.buttons "Tlačidlá">
