@@ -7,7 +7,7 @@
 		<em:id>tabscope@xuldev.org</em:id>
 		<em:type>2</em:type>
 		<em:name>Tab Scope</em:name>
-		<em:version>1.6.1</em:version>
+		<em:version>1.6.2</em:version>
 		<em:description>Previews and navigates tab contents through popup.</em:description>
 		<em:creator>Gomita</em:creator>
 		<em:localized>
@@ -275,8 +275,8 @@
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:minVersion>24.0</em:minVersion>
-				<em:maxVersion>36.0a1</em:maxVersion>
+				<em:minVersion>31.0</em:minVersion>
+				<em:maxVersion>40.0a1</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 	</Description>
