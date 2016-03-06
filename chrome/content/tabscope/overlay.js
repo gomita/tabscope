@@ -745,6 +745,8 @@ var TabScope = {
 		button = document.getElementById("tabscope-zoom-button");
 		if (!button.hidden)
 			button.setAttribute("_active", this._zoomState);
+		button = document.getElementById("tabscope-groups-button");
+		button.setAttribute("hidden", !("TabView" in window));
 	},
 
 	_updateProgress: function() {
