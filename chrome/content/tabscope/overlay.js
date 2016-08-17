@@ -26,6 +26,7 @@ var TabScope = {
 
 	// flag indicates to require updating progress
 	_shouldUpdateProgress: false,
+	_totalProgress: 0,
 
 	// nsIPrefBranch
 	_branch: null,
@@ -754,8 +755,7 @@ var TabScope = {
 		if (this._tab.getAttribute("progress") == "true") {
 			if (progress.hidden)
 				progress.hidden = false;
-			var listener = gBrowser.mTabListeners[this._tab._tPos];
-			progress.value = Math.ceil(listener.mTotalProgress * 100);
+			progress.value = Math.ceil(this._totalProgress * 100);
 		}
 		else {
 			this._resetProgress();
@@ -768,6 +768,7 @@ var TabScope = {
 		if (!progress.hidden)
 			progress.hidden = true;
 		progress.value = 0;
+		this._totalProgress = 0;
 	},
 
 	_performAction: function(aCommand, event) {
@@ -874,10 +875,12 @@ var TabScope = {
 			this._shouldUpdatePreview = true;
 	},
 
-	onProgressChange: function(aBrowser) {
+	onProgressChange: function(aBrowser, aWebProgress, aRequest,
+	                           aCurSelfProgress, aMaxSelfProgress, aCurTotalProgress, aMaxTotalProgress) {
 		if (aBrowser != this._tab.linkedBrowser)
 			return;
 		this._shouldUpdateProgress = true;
+		this._totalProgress = aMaxTotalProgress ? aCurTotalProgress / aMaxTotalProgress : 0;
 	},
 
 	onLocationChange: function(aBrowser) {
